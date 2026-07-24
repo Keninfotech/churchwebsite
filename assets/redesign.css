@@ -505,8 +505,8 @@ section.tight {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: calc(100vh - 104px);
+  min-height: calc(100dvh - 104px);
   display: flex;
   align-items: center;
   padding: 80px 0;
