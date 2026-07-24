@@ -116,32 +116,110 @@
       </div>
     </section>
 
-    <section class="tight">
+    <section class="tight mass-section">
       <div class="container">
-        <div class="section-head section-head--center">
-          <span class="eyebrow">Liturgy</span>
-          <h2>Mass Timings in Parish</h2>
-          <span class="rule rule--center"></span>
-        </div>
         <div class="grid grid--3">
-          <div class="tile" data-reveal>
-            <div class="tile__icon">✚</div>
+          
+          <div class="mass-card" data-reveal>
+            <div class="mass-card__icon">
+              <!-- Using SVG for church -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--gold-soft)" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L15 7H21V22H3V7H9L12 2ZM12 5L10 8.33V20H14V8.33L12 5ZM12 12C12.55 12 13 12.45 13 13V18H11V13C11 12.45 11.45 12 12 12Z"/>
+                <path d="M12 10V11H13V12H11V11H12V10Z"/>
+              </svg>
+            </div>
             <h3>Parish Church</h3>
-            <p>Monday &ndash; Saturday &mdash; Adoration &mdash; 5.45 am, Holy Mass &mdash; 6.15 AM</p>
-            <p>Sundays: Holy Mass 06.15 am, 09.00 am, 05.30 pm</p>
+            <span class="mass-card__rule"></span>
+            
+            <div class="mass-card__timings">
+              <div class="mass-card__group">
+                <h4>Monday &ndash; Saturday</h4>
+                <div class="mass-card__row">
+                  <span class="mass-card__time">5:45 AM</span>
+                  <span class="mass-card__label">Adoration</span>
+                </div>
+                <div class="mass-card__row">
+                  <span class="mass-card__time">6:15 AM</span>
+                  <span class="mass-card__label">Holy Mass</span>
+                </div>
+              </div>
+              
+              <div class="mass-card__group">
+                <h4>Sundays</h4>
+                <div class="mass-card__row">
+                  <span class="mass-card__time">6:15 AM</span>
+                  <span class="mass-card__label">Holy Mass</span>
+                </div>
+                <div class="mass-card__row">
+                  <span class="mass-card__time">9:00 AM</span>
+                  <span class="mass-card__label">Holy Mass</span>
+                </div>
+                <div class="mass-card__row">
+                  <span class="mass-card__time">5:30 PM</span>
+                  <span class="mass-card__label">Holy Mass</span>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn--outline-gold mass-card__btn">View Details &rarr;</a>
           </div>
-          <div class="tile" data-reveal style="--reveal-delay:.08s">
-            <div class="tile__icon">✝</div>
+
+          <div class="mass-card" data-reveal style="--reveal-delay:.08s">
+            <div class="mass-card__icon">
+              <!-- SVG for Dove -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--gold-soft)" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17.43 14C17.43 14 15.5 14 14.5 13C13.5 12 12.5 10 12.5 10C12.5 10 11.5 11 10.5 12C9.5 13 8 13.5 8 13.5C8 13.5 9.5 14.5 10.5 15C11.5 15.5 12 16.5 12 16.5C12 16.5 12.5 15.5 13.5 15C14.5 14.5 16.5 14 17.43 14Z"/>
+              </svg>
+            </div>
             <h3>St. Theresa Chapel</h3>
-            <p>St. Theresa Of child Jesus Chapel Sundays &mdash; 11.00 AM</p>
+            <span class="mass-card__rule"></span>
+            
+            <div class="mass-card__timings">
+              <div class="mass-card__group">
+                <h4 class="text-gold">St. Theresa Of Child Jesus Chapel</h4>
+                <div class="mass-card__row mt-2">
+                  <span class="mass-card__time">Sundays</span>
+                  <span class="mass-card__label">11:00 AM<br>Holy Mass</span>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn--outline-gold mass-card__btn">View Details &rarr;</a>
           </div>
-          <div class="tile" data-reveal style="--reveal-delay:.16s">
-            <div class="tile__icon">☩</div>
+
+          <div class="mass-card" data-reveal style="--reveal-delay:.16s">
+            <div class="mass-card__icon">
+              <!-- SVG for Monstrance / Sun / Eucharist -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--gold-soft)" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L14.39 5.39L18.41 4.59L18 8.76L21.41 11.17L18.41 14.17L19.24 18.17L15.24 17.76L12 21L8.76 17.76L4.76 18.17L5.59 14.17L2.59 11.17L6 8.76L5.59 4.59L9.61 5.39L12 2ZM12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C14.76 17 17 14.76 17 12C17 9.24 14.76 7 12 7ZM12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9Z"/>
+              </svg>
+            </div>
             <h3>Weekday Adoration</h3>
-            <p>6.00 pm &mdash; Adoraton</p>
-            <p>6.30 pm Holy Mass</p>
+            <span class="mass-card__rule"></span>
+            
+            <div class="mass-card__timings">
+              <div class="mass-card__group" style="margin-top: 4rem;">
+                <div class="mass-card__row">
+                  <span class="mass-card__time">6:00 PM</span>
+                  <span class="mass-card__label">Adoration</span>
+                </div>
+                <div class="mass-card__row">
+                  <span class="mass-card__time">6:30 PM</span>
+                  <span class="mass-card__label">Holy Mass</span>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn--outline-gold mass-card__btn">View Details &rarr;</a>
+          </div>
+
+        </div>
+
+        <div class="mass-quote" data-reveal>
+          <div class="mass-quote__inner">
+            <span class="quote-mark">&ldquo;</span>
+            <p>For where two or three gather in my name, there am I with them.</p>
+            <span class="quote-author">&ndash; Matthew 18:20</span>
           </div>
         </div>
+
       </div>
     </section>
 
