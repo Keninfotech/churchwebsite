@@ -346,29 +346,103 @@
       </div>
     </section>
 
-    <section class="bg-soft">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Formation</span>
-          <h2>Catechism Department</h2>
-          <span class="rule"></span>
-          <p>The catechetical heritage of the Syro-Malabar Church is as ancient as the Church itself. Like other
-            Christian traditions, the St. Thomas Christians also nurtured a system of catechesis through which they
-            passed on the faith across generations.</p>
+    <section class="catechism-section bg-soft">
+      <!-- Background image top-right -->
+      <div class="catechism-bg-img" aria-hidden="true">
+        <img src="./assets/catechismindex.png" alt="">
+      </div>
+
+      <div class="container catechism-inner">
+        <!-- Header -->
+        <div class="catechism-head" data-reveal>
+          <span class="eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Formation
+          </span>
+          <h2 class="catechism-title">Catechism<br>Department</h2>
+          <span class="catechism-rule">
+            <span class="catechism-rule__line"></span>
+            <span class="catechism-rule__diamond">◆</span>
+            <span class="catechism-rule__line"></span>
+          </span>
+          <p class="catechism-desc">The catechetical heritage of the Syro-Malabar Church is as ancient as the Church itself. Like other Christian traditions, the St. Thomas Christians also nurtured a system of catechesis through which they passed on the faith across generations.</p>
         </div>
-        <div class="grid grid--3">
-          <a class="tile" href="/catechism/" data-reveal>
-            <div class="tile__icon">SS</div>
-            <h3>Sunday School</h3><span class="tile__link">Open</span>
+
+        <!-- Cards grid -->
+        <div class="catechism-cards">
+
+          <a class="cat-card" href="/catechism/" data-reveal>
+            <div class="cat-card__icon">
+              <!-- Sunday School icon: family/group with cross -->
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="24" cy="10" r="4"/>
+                <path d="M14 28c0-5.5 4.5-10 10-10s10 4.5 10 10"/>
+                <circle cx="12" cy="18" r="3"/>
+                <path d="M6 32c0-4 2.7-7 6-8"/>
+                <circle cx="36" cy="18" r="3"/>
+                <path d="M42 32c0-4-2.7-7-6-8"/>
+                <line x1="24" y1="2" x2="24" y2="6"/>
+                <line x1="22" y1="4" x2="26" y2="4"/>
+              </svg>
+            </div>
+            <h3 class="cat-card__title">Sunday School</h3>
+            <span class="cat-card__rule">◆</span>
+            <p class="cat-card__desc">Nurturing young hearts in faith and values through age-appropriate catechesis and spiritual formation.</p>
+            <span class="cat-card__link">OPEN &nbsp;→</span>
+            <div class="cat-card__watermark" aria-hidden="true">
+              <svg width="90" height="90" viewBox="0 0 48 48" fill="none" stroke="var(--gold)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.12">
+                <circle cx="24" cy="10" r="4"/><path d="M14 28c0-5.5 4.5-10 10-10s10 4.5 10 10"/><circle cx="12" cy="18" r="3"/><path d="M6 32c0-4 2.7-7 6-8"/><circle cx="36" cy="18" r="3"/><path d="M42 32c0-4-2.7-7-6-8"/>
+              </svg>
+            </div>
           </a>
-          <a class="tile" href="/catholic-mission-league/" data-reveal style="--reveal-delay:.08s">
-            <div class="tile__icon">CML</div>
-            <h3>Cherupushpa Mission League</h3><span class="tile__link">Open</span>
+
+          <a class="cat-card" href="/catholic-mission-league/" data-reveal style="--reveal-delay:.1s">
+            <div class="cat-card__icon">
+              <!-- Book with rays icon -->
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="14" width="32" height="26" rx="2"/>
+                <path d="M16 14V8a8 8 0 0 1 16 0v6"/>
+                <line x1="24" y1="6" x2="24" y2="2"/>
+                <line x1="24" y1="22" x2="24" y2="28"/>
+                <line x1="18" y1="22" x2="14" y2="18"/>
+                <line x1="30" y1="22" x2="34" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="cat-card__title">Cherupushpa<br>Mission League</h3>
+            <span class="cat-card__rule">◆</span>
+            <p class="cat-card__desc">Empowering children to grow in faith and service through prayer, learning, and acts of love.</p>
+            <span class="cat-card__link">OPEN &nbsp;→</span>
+            <div class="cat-card__watermark" aria-hidden="true">
+              <svg width="90" height="90" viewBox="0 0 48 48" fill="none" stroke="var(--gold)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.12">
+                <rect x="8" y="14" width="32" height="26" rx="2"/><path d="M16 14V8a8 8 0 0 1 16 0v6"/><line x1="24" y1="6" x2="24" y2="2"/>
+              </svg>
+            </div>
           </a>
-          <a class="tile" href="/holy-childhood/" data-reveal style="--reveal-delay:.16s">
-            <div class="tile__icon">HC</div>
-            <h3>Holy Childhood Association</h3><span class="tile__link">Open</span>
+
+          <a class="cat-card" href="/holy-childhood/" data-reveal style="--reveal-delay:.2s">
+            <div class="cat-card__icon">
+              <!-- Children with chalice icon -->
+              <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 36c-4-3-8-6-8-12a6 6 0 0 1 12 0"/>
+                <path d="M30 36c4-3 8-6 8-12a6 6 0 0 0-12 0"/>
+                <path d="M18 36h12"/>
+                <line x1="24" y1="4" x2="24" y2="8"/>
+                <line x1="22" y1="6" x2="26" y2="6"/>
+                <path d="M20 44h8"/>
+                <line x1="24" y1="36" x2="24" y2="44"/>
+              </svg>
+            </div>
+            <h3 class="cat-card__title">Holy Childhood<br>Association</h3>
+            <span class="cat-card__rule">◆</span>
+            <p class="cat-card__desc">Inspiring children to embrace their baptismal call and become witnesses of Christ's love.</p>
+            <span class="cat-card__link">OPEN &nbsp;→</span>
+            <div class="cat-card__watermark" aria-hidden="true">
+              <svg width="90" height="90" viewBox="0 0 48 48" fill="none" stroke="var(--gold)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.12">
+                <path d="M18 36c-4-3-8-6-8-12a6 6 0 0 1 12 0"/><path d="M30 36c4-3 8-6 8-12a6 6 0 0 0-12 0"/><path d="M18 36h12"/>
+              </svg>
+            </div>
           </a>
+
         </div>
       </div>
     </section>

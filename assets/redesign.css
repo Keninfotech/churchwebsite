@@ -2553,28 +2553,21 @@ html.pt-out body {
 .announce-hero {
   position: relative;
   height: 340px;
-  overflow: hidden;
   margin-bottom: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(238, 241, 230, 0.45) 0%,
+      rgba(238, 241, 230, 0.82) 70%,
+      rgba(238, 241, 230, 0.97) 100%
+    ),
+    url('../assets/church.webp') center 40% / cover no-repeat;
 }
 
-.announce-hero__img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  filter: saturate(60%) brightness(0.9);
-}
-
+/* img and overlay div are no longer needed — background is handled by CSS */
+.announce-hero__img,
 .announce-hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg,
-      rgba(238, 241, 230, 0.97) 0%,
-      rgba(238, 241, 230, 0.88) 40%,
-      rgba(238, 241, 230, 0.45) 70%,
-      rgba(238, 241, 230, 0.10) 100%);
+  display: none;
 }
 
 .announce-hero__content {
@@ -2797,5 +2790,289 @@ html.pt-out body {
 
   .announce-hero {
     height: 260px;
+  }
+}
+
+/* ============================================================
+   Catechism Department — editorial redesign
+   ============================================================ */
+
+.catechism-section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--sp-8) 0;
+}
+
+/* Decorative image top-right */
+.catechism-bg-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 52%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.catechism-bg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  /* Fade out toward left and bottom so text is always readable */
+  -webkit-mask-image: linear-gradient(
+    to left,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.30) 40%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to left,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.30) 40%,
+    transparent 100%
+  );
+  filter: saturate(70%) sepia(10%);
+}
+
+/* Container sits above the bg image */
+.catechism-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Left-aligned header takes ~half the width */
+.catechism-head {
+  max-width: 520px;
+  margin-bottom: var(--sp-6);
+}
+
+.catechism-title {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.0;
+  margin: 8px 0 18px;
+}
+
+/* Diamond rule */
+.catechism-rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+}
+
+.catechism-rule__line {
+  flex: 0 0 48px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .7;
+}
+
+.catechism-rule__diamond {
+  color: var(--gold);
+  font-size: .5rem;
+  flex-shrink: 0;
+}
+
+.catechism-desc {
+  color: var(--ink-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 50ch;
+  margin: 0;
+}
+
+/* Cards grid — 3 equal columns */
+.catechism-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* Individual card */
+.cat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(200, 170, 110, 0.25);
+  padding: 2rem 1.5rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: transform .4s cubic-bezier(.22, .61, .36, 1), box-shadow .4s ease, border-color .4s ease;
+  box-shadow: 0 8px 32px -16px rgba(31, 36, 21, .12);
+}
+
+.cat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -20px rgba(31, 36, 21, .22);
+  border-color: var(--gold-soft);
+}
+
+/* Circular icon badge */
+.cat-card__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #fff, var(--bg-soft));
+  border: 1px solid rgba(200, 170, 110, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 4px 12px rgba(200,170,110,0.15);
+  transition: border-color .35s ease, box-shadow .35s ease;
+}
+
+.cat-card:hover .cat-card__icon {
+  border-color: var(--gold);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 6px 20px rgba(169,134,47,0.25);
+}
+
+.cat-card__title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 .5rem;
+  line-height: 1.2;
+}
+
+/* Gold diamond separator */
+.cat-card__rule {
+  display: block;
+  color: var(--gold);
+  font-size: .55rem;
+  margin: .5rem 0 .75rem;
+  letter-spacing: .5em;
+}
+
+.cat-card__desc {
+  font-size: .9rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin: 0 0 auto;
+  flex: 1;
+}
+
+.cat-card__link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold-soft);
+  padding-bottom: 2px;
+  transition: color .25s ease, border-color .25s ease;
+}
+
+.cat-card:hover .cat-card__link {
+  color: #8a6b21;
+  border-color: var(--gold);
+}
+
+/* Subtle watermark icon bottom-right */
+.cat-card__watermark {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  pointer-events: none;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .catechism-bg-img {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: -30px;
+  }
+
+  .catechism-bg-img img {
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
+  }
+
+  .catechism-head {
+    max-width: 100%;
+  }
+
+  .catechism-cards {
+    grid-template-columns: 1fr;
+    gap: .85rem;
+  }
+
+  /* Horizontal card: icon on left, everything else on right */
+  .cat-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.1rem;
+  }
+
+  .cat-card__icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 0;
+  }
+
+  /* Right side wraps title + desc + link naturally */
+  .cat-card__body-mobile {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cat-card__title {
+    font-size: 1.1rem;
+    margin: 0 0 .2rem;
+  }
+
+  /* Hide the diamond rule on mobile — looks cluttered */
+  .cat-card__rule {
+    display: none;
+  }
+
+  .cat-card__desc {
+    font-size: .85rem;
+    line-height: 1.55;
+    margin: 0 0 .6rem;
+    flex: unset;
+  }
+
+  .cat-card__link {
+    margin-top: 0;
+    font-size: .7rem;
+  }
+
+  .cat-card__watermark {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .catechism-section {
+    padding: var(--sp-6) 0;
+  }
+
+  .catechism-title {
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
+  }
+
+  .catechism-desc {
+    font-size: .92rem;
   }
 }
