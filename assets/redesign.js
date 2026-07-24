@@ -202,52 +202,47 @@
     });
   }
 
-  // ---------- Awards: auto-scroll (horizontal) ----------
+  // ---------- Awards: seamless-loop horizontal auto-scroll ----------
+  // ---------- Awards Auto Scroll ----------
   (function () {
-    var outerBox = document.querySelector('[data-awards-ext]');
-    var wrapper = document.querySelector('[data-awards-scroll]');
-    if (!outerBox || !wrapper || reduced) return;
 
-    var paused = false;
-    var inView = false;
+    const wrapper = document.querySelector("[data-awards-scroll]");
 
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        inView = entries[0].isIntersecting;
-      }, { threshold: 0.05 }).observe(outerBox);
-    } else {
-      inView = true;
+    if (!wrapper) return;
+
+    // Duplicate once
+    if (!wrapper.dataset.looped) {
+
+      [...wrapper.children].forEach(item => {
+        wrapper.appendChild(item.cloneNode(true));
+      });
+
+      wrapper.dataset.looped = "1";
     }
 
-    // Pause on hover/touch so manual scrolling isn't fought by the autoplay
-    outerBox.addEventListener('pointerenter', function () { paused = true; });
-    outerBox.addEventListener('pointerleave', function () { paused = false; });
-    wrapper.addEventListener('touchstart', function () { paused = true; }, { passive: true });
-    wrapper.addEventListener('touchend', function () {
-      // resume shortly after the user lifts their finger
-      setTimeout(function () { paused = false; }, 1500);
-    }, { passive: true });
-    document.addEventListener('visibilitychange', function () { paused = document.hidden; });
+    let speed = 0.6;
 
-    var PX_PER_SECOND = 40; // tune this — higher = faster glide
-    var last = null;
+    function animate() {
 
-    function tick(now) {
-      if (last !== null && !paused && inView) {
-        var delta = now - last;                   // ms since last frame
-        var step = (PX_PER_SECOND * delta) / 1000;
-        wrapper.scrollLeft += step;
-        // seamless loop
-        if (wrapper.scrollLeft >= wrapper.scrollWidth - wrapper.clientWidth - 1) {
-          wrapper.scrollLeft = 0;
-        }
+      wrapper.scrollLeft += speed;
+
+      if (wrapper.scrollLeft >= wrapper.scrollWidth / 2) {
+
+        wrapper.scrollLeft = 0;
+
       }
-      last = now;
-      requestAnimationFrame(tick);
+
+      requestAnimationFrame(animate);
+
     }
 
-    requestAnimationFrame(tick);
-  }());
+    animate();
+
+    wrapper.addEventListener("mouseenter", () => speed = 0);
+
+    wrapper.addEventListener("mouseleave", () => speed = 0.6);
+
+  })();
 
   // ---------- Looping marquee: duplicate track for seamless scroll ----------
   document.querySelectorAll(".marquee").forEach(function (m) {

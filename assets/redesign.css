@@ -1912,25 +1912,41 @@ html.pt-out body {
 }
 
 /* ============================================================
-   Awards – horizontal scroll gallery (simplified, works
-   with native mouse-wheel, trackpad, touch, and drag scroll)
+   Awards – scattered/layered "postcards" scroll gallery.
+   Native horizontal scroll (wheel/trackpad/touch/drag) with
+   auto-scroll driven by JS via scrollLeft. Each card is rotated
+   and vertically offset via nth-child cycling, and overlaps its
+   neighbour slightly for a scrapbook/layered feel. Hover lifts
+   a card above its neighbours and straightens it.
    ============================================================ */
 
 .awards-ext {
+  width: 100%;
+  overflow: hidden;
   position: relative;
-  margin-top: 2rem;
 }
 
 .awards-scroll-wrapper {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 28px;
+
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-padding: 1rem;
-  padding: 1rem .25rem 1.75rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+
+  scroll-behavior: auto;
+  white-space: nowrap;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.awards-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.awards-scroll-wrapper:active {
+  cursor: grabbing;
 }
 
 .awards-scroll-wrapper::-webkit-scrollbar {
@@ -1948,53 +1964,122 @@ html.pt-out body {
 
 .img-wrapper {
   flex: 0 0 auto;
-  scroll-snap-align: start;
 }
 
-/* The anchor/image card */
+.img-wrapper:first-child {
+  margin-left: 0;
+}
+
+/* Scattered rotation / vertical offset / depth, cycling every 6 cards */
+.img-wrapper:nth-child(6n+1) {
+  transform: rotate(-7deg) translateY(18px) scale(1);
+  z-index: 1;
+}
+
+.img-wrapper:nth-child(6n+2) {
+  transform: rotate(5deg) translateY(-22px) scale(1.06);
+  z-index: 3;
+}
+
+.img-wrapper:nth-child(6n+3) {
+  transform: rotate(-3deg) translateY(10px) scale(0.96);
+  z-index: 2;
+}
+
+.img-wrapper:nth-child(6n+4) {
+  transform: rotate(8deg) translateY(-8px) scale(1.02);
+  z-index: 2;
+}
+
+.img-wrapper:nth-child(6n+5) {
+  transform: rotate(-9deg) translateY(6px) scale(0.94);
+  z-index: 1;
+}
+
+.img-wrapper:nth-child(6n+6) {
+  transform: rotate(4deg) translateY(-16px) scale(1.04);
+  z-index: 3;
+}
+
+.img-wrapper:hover {
+  transform: translateY(-10px) scale(1.12) rotate(0deg) !important;
+  z-index: 20 !important;
+}
+
+/* The anchor/image card — polaroid-style frame */
 .img-wrapper a {
   overflow: hidden;
   display: block;
-  padding: .5rem;
-  background: var(--bg-soft);
-  border-radius: 12px;
-  box-shadow: 0 10px 40px -20px rgba(95, 47, 17, .35);
+  padding: .6rem .6rem 1rem;
+  background: #fdfbf5;
+  border-radius: 6px;
+  box-shadow: 0 18px 40px -14px rgba(31, 20, 5, .4), 0 4px 10px -2px rgba(31, 20, 5, .2);
   transition: box-shadow .4s ease;
 }
 
-.img-wrapper a:hover {
-  box-shadow: 0 16px 50px -20px rgba(95, 47, 17, .5);
+.img-wrapper:hover a {
+  box-shadow: 0 26px 60px -16px rgba(31, 20, 5, .5), 0 6px 16px -2px rgba(31, 20, 5, .28);
 }
 
 .img-wrapper img {
   display: block;
-  max-width: 260px;
-  max-height: 320px;
-  width: auto;
-  height: auto;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 3px;
   vertical-align: top;
-  filter: saturate(70%) sepia(10%);
-  transition: filter .4s ease, transform .4s ease;
+  filter: saturate(72%) sepia(12%);
+  transition: filter .4s ease;
 }
 
-.img-wrapper a:hover img {
+.img-wrapper:nth-child(6n+2) img,
+.img-wrapper:nth-child(6n+6) img {
+  width: 190px;
+  height: 260px;
+}
+
+.img-wrapper:nth-child(6n+3) img {
+  width: 250px;
+  height: 190px;
+}
+
+.img-wrapper:hover img {
   filter: none;
-  transform: scale(1.03);
 }
 
 @media (max-width: 900px) {
-  .img-wrapper img {
-    max-width: clamp(200px, 60vw, 260px);
+  .awards-scroll-wrapper {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .img-wrapper {
+    margin-left: -1.75rem;
+  }
+
+  .img-wrapper img,
+  .img-wrapper:nth-child(6n+2) img,
+  .img-wrapper:nth-child(6n+6) img,
+  .img-wrapper:nth-child(6n+3) img {
+    width: 170px;
+    height: 170px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
 
+  .img-wrapper,
   .img-wrapper a,
   .img-wrapper img {
     transition: none;
+  }
+
+  .img-wrapper:nth-child(6n+1),
+  .img-wrapper:nth-child(6n+2),
+  .img-wrapper:nth-child(6n+3),
+  .img-wrapper:nth-child(6n+4),
+  .img-wrapper:nth-child(6n+5),
+  .img-wrapper:nth-child(6n+6) {
+    transform: none;
   }
 }
 
