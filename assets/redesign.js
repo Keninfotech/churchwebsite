@@ -32,21 +32,55 @@
     });
   }
 
-  // ---------- Submenu accessibility ----------
-  document.querySelectorAll(".has-sub > .nav-parent").forEach(function (btn) {
+  // ---------- Submenu accessibility + hover-intent (desktop) ----------
+  var isDesktop = function () { return window.matchMedia("(min-width: 1081px)").matches; };
+
+  document.querySelectorAll(".has-sub").forEach(function (li) {
+    var btn = li.querySelector(":scope > .nav-parent");
+    if (!btn) return;
     btn.setAttribute("tabindex", "0");
     btn.setAttribute("role", "button");
     btn.setAttribute("aria-haspopup", "true");
-    var parent = btn.parentElement;
+
     btn.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); parent.classList.toggle("is-open"); }
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); li.classList.toggle("is-open"); }
+      if (e.key === "Escape") { li.classList.remove("is-open"); btn.focus(); }
     });
     btn.addEventListener("click", function (e) {
-      if (window.matchMedia("(max-width: 1080px)").matches) {
+      if (!isDesktop()) {
         e.preventDefault();
-        parent.classList.toggle("is-open");
+        document.querySelectorAll(".has-sub.is-open").forEach(function (o) {
+          if (o !== li) o.classList.remove("is-open");
+        });
+        li.classList.toggle("is-open");
       }
     });
+
+    // Hover-intent: CSS :hover already opens the panel with no dead zone,
+    // but we mirror it with a short close-delay in JS so fast/diagonal
+    // mouse movement across the (now-gapless) boundary never feels flaky,
+    // and so only one submenu is open at a time.
+    var closeTimer = null;
+    li.addEventListener("mouseenter", function () {
+      if (!isDesktop()) return;
+      clearTimeout(closeTimer);
+      document.querySelectorAll(".has-sub.is-open").forEach(function (o) {
+        if (o !== li) o.classList.remove("is-open");
+      });
+      li.classList.add("is-open");
+    });
+    li.addEventListener("mouseleave", function () {
+      if (!isDesktop()) return;
+      closeTimer = setTimeout(function () { li.classList.remove("is-open"); }, 200);
+    });
+  });
+
+  // Click outside closes any open desktop submenu
+  document.addEventListener("click", function (e) {
+    if (!isDesktop()) return;
+    if (!e.target.closest(".has-sub")) {
+      document.querySelectorAll(".has-sub.is-open").forEach(function (o) { o.classList.remove("is-open"); });
+    }
   });
 
   // ---------- Sticky header state ----------
