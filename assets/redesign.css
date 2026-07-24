@@ -520,7 +520,6 @@ section.tight {
 
 .hero > .container {
   width: 100%;
-  position: relative;
   z-index: 2;
   align-self: stretch;
   display: flex;
@@ -601,18 +600,19 @@ section.tight {
 
 /* Decorative art badge (replaced with jubilee-year.webp) */
 .hero__art {
-  width: clamp(64px, 8vw, 96px);
+  width: clamp(120px, 16vw, 220px);
   max-width: none;
   aspect-ratio: 1;
   margin: 0;
-  background: url('jubilee-year.webp') center/contain no-repeat;
+  background: #000 url('jubilee-year.webp') center/contain no-repeat;
   position: absolute;
-  right: clamp(20px, 4vw, 64px);
-  bottom: clamp(20px, 4vw, 56px);
+  right: clamp(12px, 2vw, 24px);
+  bottom: clamp(12px, 2vw, 24px);
   display: block;
   border: 1px solid var(--gold-soft);
-  border-radius: 12px;
+  border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 5;
 }
 
 .hero__art::before {
@@ -752,11 +752,20 @@ section.tight {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.mass-layout-grid {
+  grid-template-columns: minmax(320px, 380px) 1fr;
+  align-items: stretch;
+}
+
 @media (max-width: 900px) {
 
   .grid--3,
   .grid--4 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .mass-layout-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -2459,11 +2468,11 @@ html.pt-out body {
 
 /* ---------- Quote Banner ---------- */
 .mass-quote {
-  margin-top: 3rem;
+  margin-top: 4rem;
   background: #FCFAF5;
   border: 1px solid rgba(200, 170, 110, 0.2);
   border-radius: 999px;
-  padding: 1.5rem 2rem;
+  padding: 2.5rem 3rem 1.5rem;
   text-align: center;
   position: relative;
 }
@@ -2479,10 +2488,22 @@ html.pt-out body {
 .mass-quote .quote-mark {
   color: var(--gold);
   font-family: var(--serif, serif);
-  font-size: 2.5rem;
-  line-height: 0;
-  position: relative;
-  top: 0.5rem;
+  font-size: 3.5rem;
+  line-height: 1;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: #FCFAF5;
+  border: 1px solid rgba(200, 170, 110, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(93, 64, 55, 0.05);
+  padding-top: 24px;
 }
 
 .mass-quote p {
