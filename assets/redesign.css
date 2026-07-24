@@ -2554,7 +2554,7 @@ html.pt-out body {
   position: relative;
   height: 340px;
   overflow: hidden;
-  margin-bottom: var(--sp-6);
+  margin-bottom: 0;
 }
 
 .announce-hero__img {
@@ -2570,13 +2570,11 @@ html.pt-out body {
 .announce-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(238, 241, 230, 0.97) 0%,
-    rgba(238, 241, 230, 0.88) 40%,
-    rgba(238, 241, 230, 0.45) 70%,
-    rgba(238, 241, 230, 0.10) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(238, 241, 230, 0.97) 0%,
+      rgba(238, 241, 230, 0.88) 40%,
+      rgba(238, 241, 230, 0.45) 70%,
+      rgba(238, 241, 230, 0.10) 100%);
 }
 
 .announce-hero__content {
@@ -2641,8 +2639,11 @@ html.pt-out body {
   background: #fff;
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 -4px 40px -10px rgba(31, 36, 21, .18), var(--shadow-md);
   overflow: hidden;
+  position: relative;
+  z-index: 2;
+  margin-top: -50px;
 }
 
 /* --- Left quote card --- */
@@ -2661,7 +2662,7 @@ html.pt-out body {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--gold-soft);
   display: flex;
   align-items: center;
@@ -2759,7 +2760,7 @@ html.pt-out body {
   align-items: center;
 }
 
-.announce-item--signature > div {
+.announce-item--signature>div {
   display: flex;
   flex-direction: column;
   gap: 2px;
