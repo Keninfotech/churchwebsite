@@ -79,10 +79,10 @@
 
   var observer = ("IntersectionObserver" in window) && !reduced
     ? new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add("is-in"); observer.unobserve(e.target); }
-        });
-      }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" })
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("is-in"); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" })
     : null;
 
   function watch(el) {
@@ -201,6 +201,54 @@
       }
     });
   }
+
+  // ---------- Awards: auto-scroll (horizontal) ----------
+  (function () {
+    var outerBox = document.querySelector('[data-awards-ext]');
+    var wrapper = document.querySelector('[data-awards-scroll]');
+    if (!outerBox || !wrapper || reduced) return;
+
+    var paused = false;
+    var inView = false;
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+      }, { threshold: 0.05 }).observe(outerBox);
+    } else {
+      inView = true;
+    }
+
+    // Pause on hover/touch so manual scrolling isn't fought by the autoplay
+    outerBox.addEventListener('pointerenter', function () { paused = true; });
+    outerBox.addEventListener('pointerleave', function () { paused = false; });
+    wrapper.addEventListener('touchstart', function () { paused = true; }, { passive: true });
+    wrapper.addEventListener('touchend', function () {
+      // resume shortly after the user lifts their finger
+      setTimeout(function () { paused = false; }, 1500);
+    }, { passive: true });
+    document.addEventListener('visibilitychange', function () { paused = document.hidden; });
+
+    var PX_PER_SECOND = 40; // tune this — higher = faster glide
+    var last = null;
+
+    function tick(now) {
+      if (last !== null && !paused && inView) {
+        var delta = now - last;                   // ms since last frame
+        var step = (PX_PER_SECOND * delta) / 1000;
+        wrapper.scrollLeft += step;
+        // seamless loop
+        if (wrapper.scrollLeft >= wrapper.scrollWidth - wrapper.clientWidth - 1) {
+          wrapper.scrollLeft = 0;
+        }
+      }
+      last = now;
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  }());
+
   // ---------- Looping marquee: duplicate track for seamless scroll ----------
   document.querySelectorAll(".marquee").forEach(function (m) {
     var track = m.querySelector(".marquee__track");
