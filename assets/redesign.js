@@ -220,16 +220,17 @@
       wrapper.dataset.looped = "1";
     }
 
-    let speed = 0.6;
+    let speed = 0.4;
+    let exactScroll = 0;
 
     function animate() {
 
-      wrapper.scrollLeft += speed;
+      exactScroll += speed;
+      wrapper.scrollLeft = exactScroll;
 
       if (wrapper.scrollLeft >= wrapper.scrollWidth / 2) {
-
+        exactScroll = 0;
         wrapper.scrollLeft = 0;
-
       }
 
       requestAnimationFrame(animate);
@@ -237,10 +238,6 @@
     }
 
     animate();
-
-    wrapper.addEventListener("mouseenter", () => speed = 0);
-
-    wrapper.addEventListener("mouseleave", () => speed = 0.6);
 
   })();
 
