@@ -249,28 +249,82 @@
       </div>
     </section>
 
-    <section class="bg-cool">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Announcements</span>
-          <h2>Parish Announcements</h2>
-          <span class="rule"></span>
+    <section class="announce-section bg-cool">
+      <!-- Hero banner -->
+      <div class="announce-hero">
+        <img src="./assets/church.webp" alt="Our Lady of Sorrows Church" class="announce-hero__img">
+        <div class="announce-hero__overlay"></div>
+        <div class="container announce-hero__content">
+          <span class="eyebrow announce-hero__eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            Announcements
+          </span>
+          <h2 class="announce-hero__title">Parish<br>Announcements</h2>
+          <span class="announce-hero__rule"></span>
+          <p class="announce-hero__sub"><em>Together in Faith, Building Our Future</em></p>
         </div>
-        <div class="card" data-reveal>
-          <div class="prose">
-            <p>Dear Parishioners,</p>
-            <p>We kindly request those who have committed to supporting the church construction to please complete the
-              pending payments as promised. Your continued support is invaluable in helping us move forward with the
-              construction work and ensure its timely completion.</p>
-            <p>We also request members who have not yet submitted their coupons to kindly complete and submit them at
-              the earliest. Additionally, bookings for the parish hall are currently available at a discounted rate as
-              part of our fundraising efforts to support the ongoing construction and pending debts.</p>
-            <p>Those who wish to extend further support may also consider sponsoring the altar, doors, windows, or any
-              other materials required for the church, as per your choice and willingness.</p>
-            <p>Thank you for your generosity, cooperation, and continued prayers. May God bless you and your families.
-            </p>
-            <p><strong>Warm regards,</strong><br>Fr. Riju Vazhaparambil MSFS (Vicar, OLS Parish)</p>
+      </div>
+
+      <!-- Body -->
+      <div class="container">
+        <div class="announce-body" data-reveal>
+
+          <!-- Left: scripture quote card -->
+          <div class="announce-quote-card">
+            <div class="announce-quote-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+            </div>
+            <div class="announce-quote-mark">&ldquo;</div>
+            <blockquote class="announce-blockquote">
+              Each one must give as he has decided in his heart, not reluctantly or under compulsion, for God loves a cheerful giver.
+            </blockquote>
+            <cite class="announce-cite">&mdash; 2 Corinthians 9:7</cite>
           </div>
+
+          <!-- Right: announcement items -->
+          <div class="announce-items">
+            <p class="announce-greeting">Dear Parishioners,</p>
+
+            <div class="announce-item">
+              <div class="announce-item__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <p>We kindly request those who have committed to supporting the church construction to please complete the pending payments as promised. Your continued support is invaluable in helping us move forward with the construction work and ensure its timely completion.</p>
+            </div>
+
+            <div class="announce-item">
+              <div class="announce-item__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              </div>
+              <p>We also request members who have not yet submitted their coupons to kindly complete and submit them at the earliest. Additionally, bookings for the parish hall are currently available at a discounted rate as part of our fundraising efforts to support the ongoing construction and pending debts.</p>
+            </div>
+
+            <div class="announce-item">
+              <div class="announce-item__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <p>Those who wish to extend further support may also consider sponsoring the altar, doors, windows, or any other materials required for the church, as per your choice and willingness.</p>
+            </div>
+
+            <div class="announce-item">
+              <div class="announce-item__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <p>Thank you for your generosity, cooperation, and continued prayers. <span class="announce-blessing">May God bless you and your families.</span></p>
+            </div>
+
+            <div class="announce-item announce-item--signature">
+              <div class="announce-item__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+              </div>
+              <div>
+                <p class="announce-regards">Warm regards,</p>
+                <p class="announce-name">Fr. Riju Vazhaparambil MSFS</p>
+                <p class="announce-title-sig"><em>Vicar, OLS Parish</em></p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
