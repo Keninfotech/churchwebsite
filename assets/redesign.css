@@ -508,13 +508,21 @@ section.tight {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: clamp(140px, 18vh, 220px) 0 clamp(80px, 10vh, 140px);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
   color: #fff;
   overflow: hidden;
   isolation: isolate;
   background:
     linear-gradient(180deg, rgba(31, 36, 21, .55) 0%, rgba(31, 36, 21, .7) 60%, rgba(31, 36, 21, .85) 100%),
     url("hero.jpg") center/cover no-repeat;
+}
+
+.hero > .container {
+  width: 100%;
 }
 
 .hero::before {
@@ -567,35 +575,26 @@ section.tight {
   flex-wrap: wrap;
 }
 
-/* Decorative art badge (unchanged structure, restyled as glass medallion) */
+/* Decorative art badge (replaced with jubilee-year.webp) */
 .hero__art {
-  aspect-ratio: 4/5;
-  border-radius: 24px;
-  background:
-    linear-gradient(135deg, rgba(169, 134, 47, .35), rgba(217, 191, 124, .15)),
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .14) 0, transparent 60%);
-  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .5), inset 0 0 0 1px rgba(255, 255, 255, .1);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  width: 100%;
+  max-width: 320px; /* Increased size */
+  aspect-ratio: 1; /* Keep it square or adjust as needed */
+  margin: 0 0 0 auto; /* Moved to the right */
+  background: url('jubilee-year.webp') center/contain no-repeat;
   position: relative;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
+  display: block;
+  border: 1px solid var(--gold-soft);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .hero__art::before {
-  content: "";
-  position: absolute;
-  inset: 14px;
-  border: 1px solid rgba(255, 255, 255, .28);
-  border-radius: 18px;
+  display: none;
 }
 
 .hero__art-badge {
-  color: #fff;
-  font-family: var(--serif);
-  text-align: center;
-  padding: 24px;
+  display: none !important;
 }
 
 .hero__art-badge .num {
