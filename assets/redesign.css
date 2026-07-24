@@ -714,6 +714,17 @@ section.tight {
   color: #fff !important;
 }
 
+.btn--outline-gold {
+  background: transparent;
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.btn--outline-gold:hover {
+  background: var(--gold);
+  color: #fff !important;
+}
+
 /* ---------- Cards ---------- */
 .card {
   background: #fff;
