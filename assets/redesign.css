@@ -166,6 +166,7 @@ h4 {
 
 /* ---------- Top bar ---------- */
 .topbar {
+  display: none !important;
   background: var(--ink);
   color: rgba(255, 255, 255, .85);
   font-size: .78rem;
