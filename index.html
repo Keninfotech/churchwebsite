@@ -211,40 +211,94 @@
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <div class="section-head section-head--center">
-          <span class="eyebrow">Explore</span>
-          <h2>Our humble beginnings…</h2>
-          <span class="rule rule--center"></span>
-          <p>Find your way into the life of the parish &mdash; from council and wards, to religious institutions, to the
-            vicar's message.</p>
+    <section class="explore-section">
+      <!-- Decorative background -->
+      <div class="explore-bg-img" aria-hidden="true">
+        <img src="./assets/church.webp" alt="">
+      </div>
+
+      <div class="container explore-inner">
+        <!-- Header -->
+        <div class="explore-head" data-reveal>
+          <span class="eyebrow eyebrow--center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            EXPLORE
+          </span>
+          <h2 class="explore-title">Our humble beginnings...</h2>
+          <span class="explore-rule">
+            <span class="explore-rule__line"></span>
+            <span class="explore-rule__diamond">◆</span>
+            <span class="explore-rule__line"></span>
+          </span>
+          <p class="explore-desc">Find your way into the life of the parish &mdash; from council and wards,<br>to religious institutions, to the vicar's message.</p>
         </div>
-        <div class="grid grid--4">
-          <a class="tile" href="/parish-council-2/" data-reveal>
-            <div class="tile__icon">PC</div>
-            <h3>Parish Council</h3>
-            <p>Explore the list of Parish Council members and the wards or committees they represent.</p>
-            <span class="tile__link">Open</span>
+
+        <!-- Cards -->
+        <div class="explore-cards">
+
+          <a class="exp-card" href="/parish-council-2/" data-reveal>
+            <div class="exp-card__icon">
+              <!-- Group of people icon -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="exp-card__rule"></span>
+            <h3 class="exp-card__title">Parish Council</h3>
+            <p class="exp-card__desc">Explore the list of Parish Council members and the wards or committees they represent.</p>
+            <span class="exp-card__link">Explore &nbsp;→</span>
           </a>
-          <a class="tile" href="/wards/" data-reveal style="--reveal-delay:.08s">
-            <div class="tile__icon">W</div>
-            <h3>Wards in Parish</h3>
-            <p>Explore the list of Wards and respective Council members.</p>
-            <span class="tile__link">Open</span>
+
+          <a class="exp-card" href="/wards/" data-reveal style="--reveal-delay:.08s">
+            <div class="exp-card__icon">
+              <!-- Shield with cross icon -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </div>
+            <span class="exp-card__rule"></span>
+            <h3 class="exp-card__title">Wards in Parish</h3>
+            <p class="exp-card__desc">Explore the list of Wards and respective Council members.</p>
+            <span class="exp-card__link">Explore &nbsp;→</span>
           </a>
-          <a class="tile" href="/cri-electronics-city/" data-reveal style="--reveal-delay:.16s">
-            <div class="tile__icon">CRI</div>
-            <h3>Religious Institutions</h3>
-            <p>Explore the list of Religious Institutions in Ecity (CRI)</p>
-            <span class="tile__link">Open</span>
+
+          <a class="exp-card" href="/cri-electronics-city/" data-reveal style="--reveal-delay:.16s">
+            <div class="exp-card__icon">
+              <!-- Church icon -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15 7H21V22H3V7H9L12 2Z"/><path d="M12 12V22"/><path d="M9 16H15"/><circle cx="12" cy="12" r="1.5"/></svg>
+            </div>
+            <span class="exp-card__rule"></span>
+            <h3 class="exp-card__title">Religious Institutions</h3>
+            <p class="exp-card__desc">Explore the list of Religious Institutions in Ecity (CRI).</p>
+            <span class="exp-card__link">Explore &nbsp;→</span>
           </a>
-          <a class="tile" href="/vicars-message/" data-reveal style="--reveal-delay:.24s">
-            <div class="tile__icon">✉</div>
-            <h3>Parish Priests Message</h3>
-            <p>Explore Parish Priests Message</p>
-            <span class="tile__link">Open</span>
+
+          <a class="exp-card" href="/vicars-message/" data-reveal style="--reveal-delay:.24s">
+            <div class="exp-card__icon">
+              <!-- Envelope icon -->
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span class="exp-card__rule"></span>
+            <h3 class="exp-card__title">Parish Priests Message</h3>
+            <p class="exp-card__desc">Explore Parish Priests Message.</p>
+            <span class="exp-card__link">Explore &nbsp;→</span>
           </a>
+
+        </div>
+
+        <!-- Bottom Ornament -->
+        <div class="explore-ornament" aria-hidden="true" data-reveal>
+          <svg width="120" height="30" viewBox="0 0 120 30" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Left leaves -->
+            <path d="M45 15 C40 10, 35 15, 30 15 C35 18, 40 20, 45 15 Z"/>
+            <path d="M35 15 C30 8, 25 15, 20 15 C25 18, 30 20, 35 15 Z"/>
+            <path d="M25 15 C20 8, 15 15, 10 15 C15 18, 20 20, 25 15 Z"/>
+            <path d="M45 15 L10 15"/>
+            <!-- Cross -->
+            <line x1="60" y1="5" x2="60" y2="25"/>
+            <line x1="55" y1="12" x2="65" y2="12"/>
+            <!-- Right leaves -->
+            <path d="M75 15 C80 10, 85 15, 90 15 C85 18, 80 20, 75 15 Z"/>
+            <path d="M85 15 C90 8, 95 15, 100 15 C95 18, 90 20, 85 15 Z"/>
+            <path d="M95 15 C100 8, 105 15, 110 15 C105 18, 100 20, 95 15 Z"/>
+            <path d="M75 15 L110 15"/>
+          </svg>
         </div>
       </div>
     </section>

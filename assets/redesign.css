@@ -3375,3 +3375,206 @@ html.pt-out body {
     padding: 1.1rem;
   }
 }
+
+/* ============================================================
+   Explore Section — Our humble beginnings...
+   ============================================================ */
+
+.explore-section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--sp-8) 0 var(--sp-6);
+  background: var(--bg-body); /* matches the warm soft background */
+}
+
+/* Decorative background church image */
+.explore-bg-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 80%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.15;
+  filter: sepia(0.6) grayscale(1) contrast(1.2);
+}
+
+.explore-bg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right top;
+  -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to top, black 40%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to left, black 40%, transparent 100%), linear-gradient(to top, black 40%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.explore-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.explore-head {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow--center {
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explore-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  margin: 12px 0 16px;
+}
+
+.explore-rule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.explore-rule__line {
+  flex: 0 0 60px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .5;
+}
+
+.explore-rule__diamond {
+  color: var(--gold);
+  font-size: 0.5rem;
+}
+
+.explore-desc {
+  color: var(--ink-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* 4-column cards grid */
+.explore-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: var(--sp-6);
+}
+
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem 2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px -12px rgba(31,36,21,0.08), 0 3px 0 0 rgba(200, 170, 110, 0.4);
+}
+
+.exp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px -12px rgba(31,36,21,0.12), 0 3px 0 0 var(--gold);
+}
+
+.exp-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 170, 110, 0.4);
+  background: #fcf9f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.exp-card:hover .exp-card__icon {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+.exp-card__rule {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0.6;
+  margin: 0 auto 1.5rem;
+}
+
+.exp-card__title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
+}
+
+.exp-card__desc {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  flex-grow: 1;
+  margin: 0 0 1.5rem;
+}
+
+.exp-card__link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.exp-card:hover .exp-card__link {
+  color: #8a6b21;
+}
+
+/* Bottom Ornament */
+.explore-ornament {
+  display: flex;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+/* ---- Mobile Responsive ---- */
+@media (max-width: 1024px) {
+  .explore-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .explore-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .explore-bg-img {
+    width: 100%;
+    height: 300px;
+    opacity: 0.08;
+    object-position: center top;
+  }
+}
