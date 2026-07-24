@@ -484,7 +484,7 @@ section.tight {
 }
 
 .bg-cool {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-cool) 100%);
+  background: var(--bg-cool);
 }
 
 .bg-ink {
