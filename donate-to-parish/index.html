@@ -202,14 +202,6 @@
       <div class="sm-bottom-box__text">
         <p>Every contribution whether financial, material, or service makes a meaningful difference. Together, as one parish family, we can build a beautiful house of God and a center of faith for our community. Let us join hands in this noble mission, trusting that the Lord will bless all who give with a generous heart.</p>
       </div>
-      <div class="sm-bottom-box__sep"></div>
-      <div class="sm-bottom-box__icon-right">
-        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2v20 M7 8h10"/>
-          <path d="M12 14c-2 0-4 1-4 3s2 3 4 3"/>
-          <path d="M8 17c0-2 2-2 2-4"/>
-        </svg>
-      </div>
     </div>
     
   </div>
@@ -221,9 +213,12 @@
   position: relative;
   overflow: hidden;
   background: #FDFBF7;
-  padding-block: clamp(60px, 8vw, 110px);
+  padding-block: clamp(40px, 6vw, 80px);
   box-sizing: border-box;
   max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 /* Decorative top-right background church image */
@@ -231,8 +226,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: min(50%, 750px);
-  height: 100%;
+  width: min(55%, 850px);
+  height: 80%;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
@@ -254,8 +249,7 @@
   object-fit: cover;
   object-position: right top;
   display: block;
-  opacity: 0.12;
-  filter: saturate(45%) sepia(20%) brightness(1.1);
+  opacity: 1;
 }
 
 /* Centered wrapper — fluid, never fixed */
@@ -359,7 +353,7 @@
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 2vw, 1.25rem);
-  max-width: 600px;
+  max-width: 650px;
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
@@ -413,15 +407,16 @@
 .sm-bottom-box {
   display: flex;
   align-items: center;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: clamp(1.25rem, 3vw, 2rem);
   background: transparent;
   border-radius: 14px;
   border: 1px solid rgba(169, 134, 47, 0.22);
-  padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
   position: relative;
   z-index: 2;
-  background-color: rgba(244, 238, 223, 0.25);
+  background-color: rgba(244, 238, 223, 0.5);
   box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  max-width: 650px;
 }
 
 .sm-bottom-box__icon-left {
@@ -446,22 +441,6 @@
   line-height: 1.6;
 }
 
-.sm-bottom-box__sep {
-  width: 1px;
-  height: 60px;
-  background: var(--gold);
-  opacity: 0.25;
-  flex-shrink: 0;
-}
-
-.sm-bottom-box__icon-right {
-  flex-shrink: 0;
-  color: var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Breakpoints */
 @media (max-width: 1023px) {
   .sm-bg-img {
@@ -473,10 +452,6 @@
     flex-direction: column;
     text-align: center;
     gap: 1.25rem;
-  }
-  .sm-bottom-box__sep {
-    width: 80px;
-    height: 1px;
   }
   .sm-card {
     flex-direction: column;
