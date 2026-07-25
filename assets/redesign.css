@@ -195,16 +195,15 @@ h4 {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: transparent;
-  transition: background .35s ease, box-shadow .35s ease, padding .35s ease, backdrop-filter .35s ease;
+  background: var(--bg);
+  box-shadow: 0 1px 0 rgba(31, 36, 21, .06), 0 10px 30px -20px rgba(31, 36, 21, .15);
+  transition: background .35s ease, box-shadow .35s ease, padding .35s ease;
   padding: 0;
 }
 
 .site-header.scrolled {
-  background: rgba(251, 248, 241, .85);
-  backdrop-filter: saturate(160%) blur(14px);
-  -webkit-backdrop-filter: saturate(160%) blur(14px);
-  box-shadow: 0 1px 0 rgba(31, 36, 21, .06), 0 10px 30px -20px rgba(31, 36, 21, .15);
+  background: var(--bg);
+  box-shadow: 0 1px 0 rgba(31, 36, 21, .08), 0 10px 30px -20px rgba(31, 36, 21, .2);
 }
 
 .site-header__inner {
@@ -306,23 +305,33 @@ h4 {
 
 .has-sub>ul {
   position: absolute;
-  top: calc(100% + 6px);
+  top: 100%;
   left: 0;
   min-width: 250px;
-  background: rgba(255, 255, 255, .96);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
   border: 1px solid var(--line);
   border-top: 2px solid var(--gold);
   border-radius: 14px;
   box-shadow: var(--shadow-md);
   list-style: none;
-  margin: 0;
+  margin: 6px 0 0 0;
   padding: 10px;
   opacity: 0;
   transform: translateY(6px);
   pointer-events: none;
-  transition: opacity .22s ease, transform .22s ease;
+  visibility: hidden;
+  transition: opacity .22s ease .1s, transform .22s ease .1s, visibility .22s ease .1s;
   z-index: 20;
+}
+
+/* Invisible bridge so mouse hover doesn't break when moving over the gap */
+.has-sub>ul::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
 }
 
 .has-sub:hover>ul,
@@ -331,6 +340,8 @@ h4 {
   opacity: 1;
   transform: none;
   pointer-events: auto;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .has-sub>ul li {
@@ -405,8 +416,7 @@ h4 {
   .primary-nav {
     position: fixed;
     inset: 78px 0 auto 0;
-    background: rgba(251, 248, 241, .98);
-    backdrop-filter: blur(10px);
+    background: var(--bg);
     max-height: 0;
     overflow: hidden;
     transition: max-height .35s ease;

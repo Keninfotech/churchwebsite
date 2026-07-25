@@ -32,21 +32,56 @@
     });
   }
 
-  // ---------- Submenu accessibility ----------
-  document.querySelectorAll(".has-sub > .nav-parent").forEach(function (btn) {
+  // ---------- Submenu accessibility & interaction ----------
+  document.querySelectorAll(".has-sub").forEach(function (parent) {
+    var btn = parent.querySelector(".nav-parent");
+    if (!btn) return;
+    
     btn.setAttribute("tabindex", "0");
     btn.setAttribute("role", "button");
     btn.setAttribute("aria-haspopup", "true");
-    var parent = btn.parentElement;
+    btn.setAttribute("aria-expanded", "false");
+
     btn.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); parent.classList.toggle("is-open"); }
-    });
-    btn.addEventListener("click", function (e) {
-      if (window.matchMedia("(max-width: 1080px)").matches) {
+      if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        parent.classList.toggle("is-open");
+        var open = parent.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
       }
     });
+
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelectorAll(".has-sub.is-open").forEach(function (other) {
+        if (other !== parent) {
+          other.classList.remove("is-open");
+          var ob = other.querySelector(".nav-parent");
+          if (ob) ob.setAttribute("aria-expanded", "false");
+        }
+      });
+      var open = parent.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".has-sub")) {
+      document.querySelectorAll(".has-sub.is-open").forEach(function (el) {
+        el.classList.remove("is-open");
+        var b = el.querySelector(".nav-parent");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".has-sub.is-open").forEach(function (el) {
+        el.classList.remove("is-open");
+        var b = el.querySelector(".nav-parent");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+    }
   });
 
   // ---------- Sticky header state ----------
