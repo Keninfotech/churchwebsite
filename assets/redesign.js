@@ -286,4 +286,58 @@
     track.dataset.cloned = "1";
   });
 
+  // ---------- Services scrollytelling ----------
+  function scrolly() {
+    const root = document.querySelector('[data-scrolly]');
+    if (!root) return;
+    const steps = root.querySelectorAll('.step');
+    const imgs = root.querySelectorAll('.scrolly-media .img');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const i = +e.target.dataset.idx;
+          steps.forEach((s, j) => s.classList.toggle('on', j === i));
+          imgs.forEach((im, j) => im.classList.toggle('on', j === i));
+        }
+      });
+    }, { threshold: .6, rootMargin: '-20% 0px -20% 0px' });
+    steps.forEach(s => io.observe(s));
+    if (imgs[0]) imgs[0].classList.add('on');
+    if (steps[0]) steps[0].classList.add('on');
+  }
+  scrolly();
+
+  // ---------- Lazy-load inline backgrounds ----------
+  function lazyInlineBackgrounds() {
+    const selectors = '.scrolly-media .img[style*="background-image"]';
+    const els = document.querySelectorAll(selectors);
+    if (!els.length) return;
+    const deferred = [];
+    els.forEach((el, index) => {
+      const isVisible = el.classList.contains('active') || el.classList.contains('on') || el.closest('.slide.active') || el.closest('.slide:first-child');
+      if (isVisible) return;
+      const bg = el.style.backgroundImage;
+      if (bg && bg !== 'none') {
+        const url = bg.replace(/^url\(['"]?/, '').replace(/['"]?\)$/, '');
+        el.dataset.bg = url;
+        el.style.backgroundImage = 'none';
+        deferred.push(el);
+      }
+    });
+    if (!deferred.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (el.dataset.bg) {
+          el.style.backgroundImage = `url('${el.dataset.bg}')`;
+          delete el.dataset.bg;
+        }
+        io.unobserve(el);
+      });
+    }, { rootMargin: '400px 0px', threshold: 0.01 });
+    deferred.forEach((el) => io.observe(el));
+  }
+  lazyInlineBackgrounds();
+
 })();
