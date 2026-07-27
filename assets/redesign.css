@@ -493,6 +493,10 @@ section.tight {
   background: var(--bg-soft);
 }
 
+.bg-white {
+  background: #ffffff;
+}
+
 .bg-cool {
   background: var(--bg-cool);
 }
@@ -3687,7 +3691,7 @@ html.pt-out body {
 
 .schedule-card__header-img {
   position: relative;
-  height: 135px;
+  height: 90px;
   overflow: hidden;
 }
 
@@ -3708,13 +3712,13 @@ html.pt-out body {
 }
 
 .schedule-card__badge {
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: -25px auto 10px;
+  margin: -22px auto 8px;
   position: relative;
   z-index: 2;
   box-shadow: 0 4px 14px rgba(0,0,0,0.12);
@@ -3732,15 +3736,15 @@ html.pt-out body {
 }
 
 .schedule-card__parish-hero {
-  padding: 16px 16px 4px;
+  padding: 10px 16px 0px;
   text-align: center;
   background: radial-gradient(circle at top, rgba(217, 191, 124, 0.25) 0%, transparent 70%);
 }
 
 .schedule-card__church-crest {
-  width: 52px;
-  height: 52px;
-  margin: 0 auto 8px;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 6px;
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid #e7e0cd;
@@ -3751,7 +3755,7 @@ html.pt-out body {
 }
 
 .schedule-card__body {
-  padding: 0 18px 18px;
+  padding: 0 14px 14px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -3827,15 +3831,15 @@ html.pt-out body {
   border-radius: 12px;
   border: 1px solid rgba(231, 224, 205, 0.8);
   box-shadow: 0 2px 6px rgba(31, 36, 21, 0.03);
-  padding: 2px 12px;
-  margin-bottom: 8px;
+  padding: 2px 10px;
+  margin-bottom: 6px;
 }
 
 .schedule-row {
   display: flex;
   align-items: center;
-  padding: 6px 0;
-  gap: 10px;
+  padding: 4px 0;
+  gap: 8px;
 }
 
 .schedule-row + .schedule-row {
