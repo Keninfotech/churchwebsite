@@ -3609,11 +3609,41 @@ html.pt-out body {
 }
 
 /* Scrolly Animation */
-.scrolly { position: relative; padding: 120px 0; }
+.scrolly { position: relative; padding: 60px 0 120px; }
 .scrolly-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.scrolly-media { position: sticky; top: 15vh; height: 70vh; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); }
+.scrolly-media { position: sticky; top: 15vh; height: 70vh; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); }
 .scrolly-media .img { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 0.6s ease, transform 1s ease; transform: scale(1.06); }
 .scrolly-media .img.on { opacity: 1; transform: scale(1); }
-.scrolly-steps { display: flex; flex-direction: column; gap: 40vh; padding: 20vh 0; }
-.step { opacity: 0.25; transition: opacity 0.5s, transform 0.5s; transform: translateY(20px); }
-.step.on { opacity: 1; transform: translateY(0); }
+.scrolly-steps { display: flex; flex-direction: column; gap: 35vh; padding: 15vh 0; }
+.scrolly .step { opacity: 0.25; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+.scrolly .step.on { opacity: 1; transform: translateY(0); }
+
+.scrolly .step .num {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.scrolly .step h3 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.18;
+  margin: 0 0 16px 0;
+}
+
+.scrolly .step p {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
