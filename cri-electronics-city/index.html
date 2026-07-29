@@ -69,90 +69,455 @@
     </div>
   </div>
 </section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<style>
+  .cri-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background-color: #d1cca8;
+  }
+  .cri-heading {
+    color: #b54917;
+    font-size: 2.2rem;
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+  
+  /* Left side - Accordion */
+  .cri-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+  }
+  .cri-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cri-accordion-item {
+    border: 1px solid rgba(255,255,255,0.7);
+  }
+  .cri-accordion-header {
+    background-color: #abcbaa;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: var(--sans, 'Inter', sans-serif);
+    transition: all 0.2s;
+  }
+  .cri-accordion-header:hover {
+    background-color: #9ab99a;
+  }
+  .cri-accordion-header.active {
+    background-color: #d1e2cc;
+  }
+  .cri-accordion-icon {
+    color: #fff;
+    font-family: monospace;
+    font-size: 1.2rem;
+  }
+  .cri-accordion-content {
+    display: none;
+    background-color: #dbe4ce;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    color: #333;
+    border-top: 1px solid rgba(255,255,255,0.7);
+  }
+  
+  /* Right side - Grid */
+  .cri-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .cri-card {
+    background-color: #fff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    min-height: 120px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .cri-card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.3;
+  }
+  .cri-card-phone {
+    font-size: 0.85rem;
+    color: #555;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 900px) {
+    .cri-layout {
+      grid-template-columns: 1fr;
+      padding: 2rem 1rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .cri-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 400px) {
+    .cri-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
-<p>Expand the ‘+’ icon beside each Religious Congregation to see more details.</p>
+<script>
+function toggleCriAccordion(element) {
+    const content = element.nextElementSibling;
+    const icon = element.querySelector('.cri-accordion-icon');
+    
+    if (content.style.display === "block") {
+        content.style.display = "none";
+        element.classList.remove("active");
+        icon.textContent = "+";
+    } else {
+        content.style.display = "block";
+        element.classList.add("active");
+        icon.textContent = "-";
+    }
+}
+</script>
 
-<p>Fr. Superior, Mermier Bhavan, Electronics City PO, Bangalore, 560 100</p>
-<h6>Provincial Superior, La Salette, Sadan, P. B. No. 10017, Electronics City P. O., Bangalore 560 100</h6>
-<h6>Fr. Superior, Sacred Heart, Fathers, Damien House, 11th, Cross, 8th Main, Electronics City, P. O., Bangalore 560 100</h6>
-<h6>Fr. Superior, Jayana Jyothi, Jesuit, Fathers, Anekal, Bangalore 562106</h6>
-<h6>Fr. Superior, Suvidya College, Electronics City P. O., Bangalore, 560 100</h6>
-<h6>Rev. Fr. Superior, SOLA, Study House, P. O. Box No. 1, Bommasandra Indl. Estate P. O., Bangalore 560 099</h6>
-<h6>Rev. Fr. Superior, Sneha Jyothy, Rehabilitation Center, Passionist, Community, Guttahally Village, Huskur 560 099</h6>
-<h6>Sr. Superior, Preethi Nilaya, Canossion Sisters, Hosur Main, Road, Anekal, Bangalore 562 106</h6>
-<h6>Sisters of Charity, Pnyanka, Layout, Rayasandra Road, Huskur, PO, Bangalore 560 199</h6>
-<h6>Sr. Superior, Holy Spirit Sisters, Electronics City PO, Bangalore, 560 100</h6>
-<h6>Fr. Superior, Vidya Sagar, Community, Deepahally, P. B. No., 1, Chandapura P. O., Bangalore, 562158</h6>
-<h6>Sr. Superior, Vimalalaya Convert, Electronics City P.O, Bangalore, 560 100</h6>
-<h6>Sr. Superior, 93/1 Shanthi, Casiciaco, Augustinian Sisters, Kammasandra, Bangalore 560010</h6>
-<h6>Sr. Superior, De Sales Nilaya, Electronics City P.O, Bangalore, 560 100</h6>
-<h6>Sr. Superior, Assisi Convent, Huskur Gate, Electronics City P., O, Bangalore 560 100</h6>
-<h6>Sr. Superior, SD Convent, Kammasandra, Electronics City P., O, Bangalore 560 100</h6>
-<h6>Sr. Superior, Holy Cross Convent, Singsandra P.O, Begur Road, Bangalore 560 068</h6>
-<h6>Sr. Superior, Cavina Girls Home, Electronics City P.O, Bangalore, 560 100</h6>
-<h6>Fr. Superior, Samarpanaram, Chandapura P.O, Bangalore 562145</h6>
-<h6>Sr. Superior, Sarupya Novitiate, 93/1 Kammasandra, Electronics City P.O, Bangalore 560 100</h6>
-<h6>Sr. Superior, Sisters of Charity of Nazareth, Old chandapura P.O, Bangalore 562 145</h6>
-<h6>Sr. Superior, Asha Kiran, Kammasandra Road, Hebbagodi, Electronics City P.O, Bangalore, 560 100</h6>
-<h6>Sr. Superior, Cavina Sadhan, Muttanaloor P.O, Adigondanahalli, Bangalore 562 158</h6>
-<h6>Sr. Superior, Santhidam Novitiate, Yarendahalli, Bommasandra Indl. Estate P.O, Bangalore 562 158</h6>
-<h6>Sr. Superior, Maria Nivas, Chockasandra PO, Hosa Road, Bangalore.</h6>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Apollo Clinic, Electronics City</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>The Dentist</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Kalyan Clinic, Electronics City</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Sankalp Nethralaya</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>LMotherhood Hospital</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Nimhans Hospital</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Narayana Multispeciality</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>St. John’s Medical Collage</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Cloudnine Hospital</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Hebbagodi Police Station</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>E- City Police Station</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Electronic City Post Office</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Kauvery Hospital Electronic City</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Springleaf Hospital</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>SACRED OAK HOSPITAL</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>NV Hospital</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Neo Health Clinics</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Bommasandra Post Office</h2><span class="rule"></span></div>
-</div></div></section>
+<div class="cri-layout">
+  <div class="cri-col">
+    <h2 class="cri-heading">Religious Congregations</h2>
+    <p class="cri-subtitle">Expand the '+' icon beside each Religious Congregation to see more details.</p>
+    
+    <div class="cri-accordion">
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Missionaries of St. Francis De Sales (MSFS)
+        </div>
+        <div class="cri-accordion-content">
+          Fr. Superior, Mermier Bhavan, Electronics City PO, Bangalore, 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Missionaries of Our Lady of La Salette
+        </div>
+        <div class="cri-accordion-content">
+          Provincial Superior, La Salette, Sadan, P. B. No. 10017, Electronics City P. O., Bangalore 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Congregation of the Sacred Heart of Jesus
+        </div>
+        <div class="cri-accordion-content">
+          Fr. Superior, Sacred Heart, Fathers, Damien House, 11th, Cross, 8th Main, Electronics City, P. O., Bangalore 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Society of Jesus
+        </div>
+        <div class="cri-accordion-content">
+          Fr. Superior, Jayana Jyothi, Jesuit, Fathers, Anekal, Bangalore 562106
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Missionaries of St. Francis De Sales
+        </div>
+        <div class="cri-accordion-content">
+          Fr. Superior, Suvidya College, Electronics City P. O., Bangalore, 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Society of Our Lady of Africa (SOLA)
+        </div>
+        <div class="cri-accordion-content">
+          Rev. Fr. Superior, SOLA, Study House, P. O. Box No. 1, Bommasandra Indl. Estate P. O., Bangalore 560 099
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Congregation of the Passion of Jesus Christ (CP)
+        </div>
+        <div class="cri-accordion-content">
+          Rev. Fr. Superior, Sneha Jyothy, Rehabilitation Center, Passionist, Community, Guttahally Village, Huskur 560 099
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Canossian Daughters of Charity (FDCC)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Preethi Nilaya, Canossion Sisters, Hosur Main, Road, Anekal, Bangalore 562 106
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Sisters of the Charity of Bartholomea and Vincenza Gerosa (SCCG)
+        </div>
+        <div class="cri-accordion-content">
+          Sisters of Charity, Pnyanka, Layout, Rayasandra Road, Huskur, PO, Bangalore 560 199
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Sisters of Holy Spirit
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Holy Spirit Sisters, Electronics City PO, Bangalore, 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Society of Mary (SM)
+        </div>
+        <div class="cri-accordion-content">
+          Fr. Superior, Vidya Sagar, Community, Deepahally, P. B. No., 1, Chandapura P. O., Bangalore, 562158
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Franciscan Sisters of Immaculate Heart of Mary (FIH)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Vimalalaya Convert, Electronics City P.O, Bangalore, 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Augustinian Missionary Sisters
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, 93/1 Shanthi, Casiciaco, Augustinian Sisters, Kammasandra, Bangalore 560010
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Daughters of St. Francis de Sales
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, De Sales Nilaya, Electronics City P.O, Bangalore, 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Assisi Sisters of Mary Immaculate
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Assisi Convent, Huskur Gate, Electronics City P., O, Bangalore 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Sisters of the Destitute (SD)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, SD Convent, Kammasandra, Electronics City P., O, Bangalore 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Holy Cross
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Holy Cross Convent, Singsandra P.O, Begur Road, Bangalore 560 068
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Daughters of St. Francis De Sales (DSFS)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Cavina Girls Home, Electronics City P.O, Bangalore, 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Oblates of St. Francis De Sales (OSFS)
+        </div>
+        <div class="cri-accordion-content">
+          Fr. Superior, Samarpanaram, Chandapura P.O, Bangalore 562145
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Sisters of the Divine Saviour
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Sarupya Novitiate, 93/1 Kammasandra, Electronics City P.O, Bangalore 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Sisters of Charity of Nazareth (SCN)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Sisters of Charity of Nazareth, Old chandapura P.O, Bangalore 562 145
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Queen of the Apostles (SRA)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Asha Kiran, Kammasandra Road, Hebbagodi, Electronics City P.O, Bangalore, 560 100
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Daughters of St. Francis De Sales (DSFS)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Cavina Sadhan, Muttanaloor P.O, Adigondanahalli, Bangalore 562 158
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Sisters of the Adoration of the Blessed sacrament (SABS)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Santhidam Novitiate, Yarendahalli, Bommasandra Indl. Estate P.O, Bangalore 562 158
+        </div>
+      </div>
+      
+      <div class="cri-accordion-item">
+        <div class="cri-accordion-header" onclick="toggleCriAccordion(this)">
+          <span class="cri-accordion-icon">+</span> Daughters of St. Augustinian (OSA)
+        </div>
+        <div class="cri-accordion-content">
+          Sr. Superior, Maria Nivas, Chockasandra PO, Hosa Road, Bangalore.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cri-col">
+    <h2 class="cri-heading">Public Utility Numbers</h2>
+    
+    <div class="cri-grid">
+      <div class="cri-card">
+        <div class="cri-card-title">Apollo Clinic, Electronics City</div>
+        <div class="cri-card-phone">PHONES 096060<br>60870</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">The Dentist</div>
+        <div class="cri-card-phone">PHONES 078199<br>98800</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">Kalyan Clinic, Electronics City</div>
+        <div class="cri-card-phone">PHONES 080886<br>47987</div>
+      </div>
+      
+      <div class="cri-card">
+        <div class="cri-card-title">Sankalp<br>Nethralaya</div>
+        <div class="cri-card-phone">PHONES 080 2258<br>0466</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">LMotherhood<br>Hospital</div>
+        <div class="cri-card-phone">PHONES 080 6954<br>9278</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">Nimhans Hospital</div>
+        <div class="cri-card-phone">PHONES 080 2699<br>5000</div>
+      </div>
+      
+      <div class="cri-card">
+        <div class="cri-card-title">Narayana<br>Multispeciality</div>
+        <div class="cri-card-phone">PHONES 080675<br>06870</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">St. John's Medical<br>Collage</div>
+        <div class="cri-card-phone">PHONES 080 2206<br>5000</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">Cloudnine Hospital</div>
+        <div class="cri-card-phone">PHONES 099728<br>99728</div>
+      </div>
+      
+      <div class="cri-card">
+        <div class="cri-card-title">Hebbagodi Police<br>Station</div>
+        <div class="cri-card-phone">PHONES 080 2783<br>2922</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">E- City Police<br>Station</div>
+        <div class="cri-card-phone">PHONES 080<br>22943469</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">Electronic City Post<br>Office</div>
+        <div class="cri-card-phone">PHONES 080<br>28520119</div>
+      </div>
+      
+      <div class="cri-card">
+        <div class="cri-card-title">Kauvery Hospital<br>Electronic City</div>
+        <div class="cri-card-phone">PHONES 080 6801<br>6801</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">Springleaf Hospital</div>
+        <div class="cri-card-phone">PHONES 074111<br>22444</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">SACRED OAK<br>HOSPITAL</div>
+        <div class="cri-card-phone">PHONES 080503<br>04155</div>
+      </div>
+      
+      <div class="cri-card">
+        <div class="cri-card-title">NV Hospital</div>
+        <div class="cri-card-phone">PHONES 090081<br>06900</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">Neo Health Clinics</div>
+        <div class="cri-card-phone">PHONES 093796<br>66000</div>
+      </div>
+      <div class="cri-card">
+        <div class="cri-card-title">Bommasandra<br>Post Office</div>
+        <div class="cri-card-phone">PHONES 1800 266<br>6868</div>
+      </div>
+    </div>
+  </div>
+</div>
 </main>
 
   <footer class="site-footer">

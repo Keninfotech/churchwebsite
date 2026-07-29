@@ -92,6 +92,83 @@
 </div></div></section>
 <section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>Contact us for any Help or to offer donation</h2><span class="rule"></span></div>
+
+<style>
+  .vdp-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 600px) {
+    .vdp-form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .vdp-input {
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: #fff;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .vdp-input:focus {
+    outline: none;
+    border-color: #C8AA74;
+    box-shadow: 0 0 0 3px rgba(200, 170, 116, 0.15);
+  }
+  .vdp-label {
+    font-weight: 600;
+    color: #0f3024;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .vdp-btn {
+    align-self: flex-start;
+    padding: 0.8rem 2.5rem;
+    background-color: #0f3024;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: opacity 0.2s;
+  }
+  .vdp-btn:hover {
+    opacity: 0.9;
+  }
+</style>
+
+<form style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;" onsubmit="event.preventDefault(); alert('Message Sent!');">
+  <div class="vdp-form-grid">
+    <div>
+      <label for="vdp-name" class="vdp-label">Full Name</label>
+      <input type="text" id="vdp-name" required placeholder="John Doe" class="vdp-input">
+    </div>
+    <div>
+      <label for="vdp-phone" class="vdp-label">Phone Number</label>
+      <input type="tel" id="vdp-phone" placeholder="+91 98765 43210" class="vdp-input">
+    </div>
+  </div>
+  
+  <div>
+    <label for="vdp-email" class="vdp-label">Email Address</label>
+    <input type="email" id="vdp-email" required placeholder="john@example.com" class="vdp-input">
+  </div>
+  
+  <div>
+    <label for="vdp-message" class="vdp-label">Message / How can we help?</label>
+    <textarea id="vdp-message" required placeholder="Write your message here..." class="vdp-input" style="min-height: 150px; resize: vertical;"></textarea>
+  </div>
+  
+  <button type="submit" class="vdp-btn">Send Message</button>
+</form>
+
 </div></div></section>
 <section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>A few of our activities</h2><span class="rule"></span></div>
