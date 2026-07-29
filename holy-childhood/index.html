@@ -69,18 +69,275 @@
     </div>
   </div>
 </section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<p>The Holy Childhood group in the Catholic Church is a missionary moveme nt dedicated to nurturing faith, compassion, and missionary spirit in children. Founded in 1843 by Bishop Charles de Forbin-Janson in France , its mission is to help children develop a love for Jesus and an awareness of the needs of children everywhere, especially in mission territories.</p>
+<section class="bg-white"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<p><span class="hc-dropcap">T</span>he Holy Childhood group in the Catholic Church is a missionary moveme nt dedicated to nurturing faith, compassion, and missionary spirit in children. Founded in 1843 by Bishop Charles de Forbin-Janson in France , its mission is to help children develop a love for Jesus and an awareness of the needs of children everywhere, especially in mission territories.</p>
 <p>Members of the Holy Childhood group are encouraged to:</p>
 <ul class="rows"><li>Pray daily for other children around the world, especially those in need.</li><li>Offer small sacrifices and live with simplicity, sharing what they have with less fortunate children.</li><li>Grow in missionary awareness , learning about the universal Church and the call to bring Christ’s love to all people.</li><li>Participate in parish and school activities , often through special gatherings, prayers, and celebrations like Mission Sunday .</li></ul>
 <p>The motto often associated with the Holy Childhood is: “Children helping children” – reminding us that even the smallest acts of faith, prayer, and charity can make a difference.</p>
 <p>By being part of this group, children not only strengthen their own Christian formation but also become active participants in the mission of the Church, spreading love and hope beyond their own communities.</p>
 </div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Holy Childhood Animators</h2><span class="rule"></span></div>
-<h3>Mr. Gini Dixen</h3>
-<h3>Ms. Sonia VL</h3>
-</div></div></section>
+<style>
+.hc-dropcap {
+  float: left;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 4.5rem;
+  line-height: 0.75;
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+  color: var(--gold, #b98e47);
+}
+.hc-animators-section {
+  position: relative;
+  padding: 6rem 2rem;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+.hc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.hc-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #c09e58;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+.hc-eyebrow .hc-line {
+  height: 1px;
+  width: 45px;
+  background-color: #c09e58;
+}
+.hc-eyebrow-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #c09e58;
+}
+.hc-title {
+  color: #263521;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+}
+.hc-separator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c09e58;
+  margin-bottom: 3.5rem;
+}
+.hc-separator .hc-line-long {
+  height: 1px;
+  flex: 1;
+  max-width: 140px;
+  background-color: rgba(192, 158, 88, 0.4);
+}
+.hc-card {
+  background: rgba(253, 252, 248, 0.9);
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.04), 0 0 0 1px rgba(255,255,255,0.8) inset;
+  max-width: 420px;
+  position: relative;
+}
+.hc-person {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+.hc-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #2b3a25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e2cfa7;
+  flex-shrink: 0;
+  border: 1px solid rgba(226, 207, 167, 0.3);
+  box-shadow: 0 8px 20px rgba(43, 58, 37, 0.15);
+}
+.hc-person-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hc-name {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 1.7rem;
+  color: #263521;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.hc-person-line {
+  height: 1px;
+  background: rgba(192, 158, 88, 0.3);
+  width: 30px;
+  margin-top: 0.5rem;
+}
+.hc-card-divider {
+  height: 1px;
+  background: rgba(192, 158, 88, 0.15);
+  margin: 1.5rem 0;
+}
+.hc-art {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+.hc-arch {
+  width: 380px;
+  height: 480px;
+  background: #fdfcf9;
+  border-radius: 200px 200px 0 0;
+  border: 2px solid #e1d3b3;
+  border-bottom: none;
+  box-shadow: inset 0 20px 60px rgba(230, 222, 203, 0.5), 0 20px 40px rgba(0,0,0,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hc-arch-inner {
+  width: 350px;
+  height: 450px;
+  border-radius: 180px 180px 0 0;
+  border: 1px solid rgba(192, 158, 88, 0.3);
+  border-bottom: none;
+  position: absolute;
+  bottom: 0;
+}
+.hc-arch svg {
+  width: 240px;
+  height: auto;
+  color: #d4bc8b;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+.hc-wave {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  height: auto;
+  z-index: 1;
+  color: #425239;
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .hc-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hc-title { text-align: center; }
+  .hc-eyebrow, .hc-separator { justify-content: center; }
+  .hc-card { margin: 0 auto; }
+}
+</style>
+
+<section class="hc-animators-section">
+  <div class="container" style="max-width: 1100px;" data-reveal>
+    <div class="hc-grid">
+      <!-- Left Content -->
+      <div class="hc-content">
+        <div class="hc-eyebrow">
+          <span class="hc-line"></span>
+          <div class="hc-eyebrow-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 4v16M6 10h12" />
+              <path d="M12 2l2 2-2 2-2-2 2-2z" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <span>SECTION</span>
+          <span class="hc-line"></span>
+        </div>
+        
+        <h2 class="hc-title">Holy Childhood<br>Animators</h2>
+        
+        <div class="hc-separator">
+          <span class="hc-line-long"></span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C12 2 15 8 15 12C15 16 12 22 12 22C12 22 9 16 9 12C9 8 12 2 12 2Z"/>
+            <path d="M2 12C2 12 8 9 12 9C16 9 22 12 22 12C22 12 16 15 12 15C8 15 2 12 2 12Z"/>
+          </svg>
+          <span class="hc-line-long"></span>
+        </div>
+        
+        <div class="hc-card">
+          <!-- Animator 1 -->
+          <div class="hc-person">
+            <div class="hc-avatar">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="hc-person-info">
+              <div class="hc-name">Mr. Gini Dixen</div>
+              <div class="hc-person-line"></div>
+            </div>
+          </div>
+          
+          <div class="hc-card-divider"></div>
+          
+          <!-- Animator 2 -->
+          <div class="hc-person">
+            <div class="hc-avatar">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+                <path d="M8 11c-1.5 2-1.5 4-1.5 4 M16 11c1.5 2 1.5 4 1.5 4"/>
+              </svg>
+            </div>
+            <div class="hc-person-info">
+              <div class="hc-name">Ms. Sonia VL</div>
+              <div class="hc-person-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Graphic -->
+      <div class="hc-art">
+        <div class="hc-arch">
+          <div class="hc-arch-inner"></div>
+          <!-- Reconstructed Silhouette Graphic -->
+          <svg viewBox="0 0 200 220" fill="currentColor">
+            <!-- Glowing cross -->
+            <path d="M96 20h8v30h20v8h-20v50h-8V58H76v-8h20V20z" opacity="0.9"/>
+            <path d="M100 15 L100 5 M110 20 L120 10 M120 40 L135 40 M120 50 L130 60 M100 85 L100 100 M80 50 L70 60 M80 40 L65 40 M90 20 L80 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <!-- Elegant Open Book Base -->
+            <path d="M40 180 Q70 200 100 180 Q130 200 160 180 L160 190 Q130 210 100 190 Q70 210 40 190 Z" opacity="0.8"/>
+            <!-- Book Pages Details -->
+            <path d="M40 170 Q70 190 100 170 Q130 190 160 170 L160 175 Q130 195 100 175 Q70 195 40 175 Z" opacity="0.9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom Right Wave Graphic -->
+  <svg class="hc-wave" viewBox="0 0 1000 300" preserveAspectRatio="none">
+    <path d="M1000 300 L0 300 C200 200 400 350 1000 50 Z" fill="currentColor"/>
+    <!-- Subtle Church Sketch Overlay -->
+    <path d="M800 200 L800 120 L830 80 L860 120 L860 200 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    <path d="M830 80 L830 50 M825 60 L835 60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    <path d="M750 200 L750 150 L780 130 L800 150 M860 150 L880 130 L910 150 L910 200" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  </svg>
+</section>
 <section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>Holy Childhood Representatives</h2><span class="rule"></span></div>
 <div class="sticky-slides"><div class="sticky-slides__slide s-1"><div class="inner"><h3>Mr. Jhonson Jijo</h3></div><div class="sticky-slides__cue">Scroll ↓</div></div><div class="sticky-slides__slide s-2"><div class="inner"><h3>Mr. Arvin Renju</h3></div><div class="sticky-slides__cue">Scroll ↓</div></div><div class="sticky-slides__slide s-3"><div class="inner"><h3>Mr. John Joseph</h3></div><div class="sticky-slides__cue">Scroll ↓</div></div><div class="sticky-slides__slide s-4"><div class="inner"><h3>Mr. Aron Rexon</h3></div><div class="sticky-slides__cue">Scroll ↓</div></div><div class="sticky-slides__slide s-5"><div class="inner"><h3>Ms. Rachel Maria</h3></div><div class="sticky-slides__cue">Scroll ↓</div></div><div class="sticky-slides__slide s-1"><div class="inner"><h3>Ms. Dahlia Anthony</h3></div><div class="sticky-slides__cue">Scroll ↓</div></div><div class="sticky-slides__slide s-2"><div class="inner"><h3>Ms. Jessa Rino George</h3></div><div class="sticky-slides__cue">Scroll ↓</div></div><div class="sticky-slides__slide s-3"><div class="inner"><h3>Ms. Andrea Anthony</h3></div></div></div>
