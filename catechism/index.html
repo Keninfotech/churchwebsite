@@ -69,11 +69,149 @@
     </div>
   </div>
 </section>
+<style>
+.catechism-section {
+  background-color: #dfdbcc;
+  padding: 4rem 2rem;
+}
+.cat-heading {
+  color: #a42c2c;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cat-text {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.cat-text p {
+  margin-bottom: 1.5rem;
+}
+.cat-list {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: cat-counter;
+  margin-bottom: 1.5rem;
+}
+.cat-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.cat-list li::before {
+  counter-increment: cat-counter;
+  content: counter(cat-counter) ". ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 400;
+}
+.cat-list-title {
+  font-weight: 700;
+  display: block;
+}
+.cat-list-desc {
+  display: block;
+  margin-top: 0.2rem;
+}
+.cat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #666;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+.cat-btn:hover {
+  opacity: 0.9;
+  color: white;
+}
+.cat-img-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+.cat-img-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+@media (max-width: 900px) {
+  .cat-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+</style>
+
+<section class="catechism-section">
+  <div class="container" style="max-width:1200px;" data-reveal>
+    <div class="cat-grid">
+      <div class="cat-text">
+        <h2 class="cat-heading">Online Blog for Catechism Resources</h2>
+        <p>To support the faith formation of our parish community, we have created an <strong>online blog</strong> that brings together helpful resources for children, youth, and adults. Through this initiative, we hope to make catechism more engaging, accessible, and enriching for everyone. The blog provides direct links to the following resources:</p>
+        
+        <ul class="cat-list">
+          <li>
+            <span class="cat-list-title">Catechism Classes &ndash; YouTube</span>
+            <span class="cat-list-desc">Online catechism class videos designed to strengthen knowledge of the Catholic faith in an easy-to-follow format.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">Holy Mass &ndash; YouTube Live Streaming</span>
+            <span class="cat-list-desc">Participate in the celebration of the Holy Eucharist from your homes through live-streamed Masses.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">SM Smart Catechism</span>
+            <span class="cat-list-desc">A digital platform offering structured catechism lessons with interactive content for deeper learning.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">YouCat.org</span>
+            <span class="cat-list-desc">The official Youth Catechism resource, answering questions of faith in a clear and simple way, especially for young people.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">3 Minute Catechism</span>
+            <span class="cat-list-desc">Short animated videos that explain essential truths of the Catholic faith in just a few minutes.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">Bible Stories</span>
+            <span class="cat-list-desc">Engaging and faith-filled stories from the Bible, helping children and families to know and love the Word of God.</span>
+          </li>
+        </ul>
+        
+        <p>We invite all parishioners, especially parents, teachers, and students, to make use of these resources. May this online platform strengthen our faith journey and bring us closer to Christ.</p>
+        
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <a href="#" class="cat-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            Visit Blog
+          </a>
+        </div>
+      </div>
+      
+      <div class="cat-img-wrapper">
+        <img src="../assets/catechsismindex.png" alt="Catechism Resources">
+      </div>
+    </div>
+  </div>
+</section>
+
 <section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<h3>Online Blog for Catechism Resources</h3>
-<p>To support the faith formation of our parish community, we have created an online blog that brings together helpful resources for children, youth, and adults. Through this initiative, we hope to make catechism more engaging, accessible, and enriching for everyone. The blog provides direct links to the following resources:</p>
-<ol><li>Catechism Classes – YouTube Online catechism class videos designed to strengthen knowledge of the Catholic faith in an easy-to-follow format.</li><li>Holy Mass – YouTube Live Streaming Participate in the celebration of the Holy Eucharist from your homes through live-streamed Masses.</li><li>SM Smart Catechism A digital platform offering structured catechism lessons with interactive content for deeper learning.</li><li>YouCat.org The official Youth Catechism resource, answering questions of faith in a clear and simple way, especially for young people.</li><li>3 Minute Catechism Short animated videos that explain essential truths of the Catholic faith in just a few minutes.</li><li>Bible Stories Engaging and faith-filled stories from the Bible, helping children and families to know and love the Word of God.</li></ol>
-<p>We invite all parishioners, especially parents, teachers, and students, to make use of these resources. May this online platform strengthen our faith journey and bring us closer to Christ.</p>
 
 
 <h4>MAY TO JUNE</h4>
