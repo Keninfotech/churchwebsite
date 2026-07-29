@@ -69,102 +69,769 @@
     </div>
   </div>
 </section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<p>We are pleased to present the list of parish wards, along with their respective patrons and parish council representatives. This information reflects the vibrant structure of our parish community and the leadership entrusted with guiding each ward in faith and service.In addition, we are blessed to have among us religious members who have joyfully dedicated their lives to the service of Jesus Christ and His Church. Their vocation is a great gift to our parish, and we express our heartfelt gratitude to them. Let us join together in applauding their commitment and continue to uphold them in our prayers, asking the Lord to strengthen and bless their mission.</p>
-<p>Ward Name: St. Alphonsa Ward</p>
-<p>Patron Name: St. Alphonsa</p>
-<p>Area: Vidya Nagar / Hebbagodi / Surya City</p>
-<p>No of Families:</p>
-<p>No of People:</p>
-<p>Contact the Councilors using following options</p>
-<h3>Mr. Abhilash Sebastian</h3>
-<h3>Mr. Anoop Joseph</h3>
-<h3>Ms. Sonya Reji</h3>
-<p>Ward Name: St. Evuprasiamma Ward</p>
-<p>Patron Name: St. Evuprasiamma</p>
-<p>Area: Ananthnagara / Arana</p>
-<h3>Mr. Jenson Joseph</h3>
-<h3>Mr. Jerish John</h3>
-<h3>Ms. Jincy Anil</h3>
-<p>Ward Name: St. Antony Ward</p>
-<p>Patron Name: St. Antony</p>
-<p>Area: Singasandra</p>
-<h3>Mr. Manoj Abraham</h3>
-<h3>Mr. Augustine Paul</h3>
-<h3>Ms. Deepa Mathew</h3>
-<p>Ward Name: St. Michael’s Ward</p>
-<p>Patron Name: St. Michael’s</p>
-<p>Area: Ananthnagar / Vasundara Layout</p>
-<h3>Mr. Charlie V Paul</h3>
-<h3>Mr. Rohit Tomy</h3>
-<h3>Ms. Rose Maria George</h3>
-<p>Ward Name: St. Francis De Sales</p>
-<p>Patron Name: St. Francis De Sales</p>
-<p>Area: SFS Enclave</p>
-<h3>Mr. Sabu Thomas</h3>
-<h3>Mr. Atul Amos Kurion</h3>
-<h3>Ms. Bessy Binny</h3>
-<p>Ward Name: St. George</p>
-<p>Patron Name: St. George</p>
-<p>Area: Ittina Neela / Dollars Town</p>
-<h3>Mr. Joshey Joseph</h3>
-<h3>Mr. Sebastian Varkey</h3>
-<h3>Ms. Sowmya Jayesh</h3>
-<p>Ward Name: St. Joseph Ward Ward</p>
-<p>Patron Name: St. Joseph Ward</p>
-<p>Area: Electronic City Phase-II</p>
-<h3>Mr. Joseph K.S</h3>
-<h3>Mr. Manu K.M</h3>
-<h3>Ms. Jisha Joseph</h3>
-<p>Ward Name: St. Jude Ward</p>
-<p>Patron Name: St. Jude</p>
-<p>Area: Huskur/Chikkanagamangala</p>
-<h3>Mr. Sajan Devis</h3>
-<h3>Mr. Tijo Tom</h3>
-<h3>Ms. Sandya Manalil</h3>
-<p>Ward Name: St. Kuriakose Chavara Ward</p>
-<p>Patron Name: St. Kuriakose Chavara</p>
-<p>Area: Behind Suvidya / Opp to Biocon</p>
-<h3>Mr. Rathesh Tom</h3>
-<h3>Ms. Lisamma Mathew</h3>
-<h3>Mr. Roshan Cyriac</h3>
-<p>Ward Name: St. Mary’s Ward</p>
-<p>Patron Name: St. Mary’s</p>
-<p>Area: Yarandahalli / RK Township</p>
-<h3>Mr. Shijoy Yesudas</h3>
-<h3>Mr. Vinu Joseph</h3>
-<h3>Ms. Tessymol Joseph</h3>
-<p>Ward Name: St. Mother Theresa Ward</p>
-<p>Patron Name: St. Mother Theresa</p>
-<p>Area: GPR Layout</p>
-<h3>Mr. Thomas K Joseph</h3>
-<h3>Ms. Sunitha George</h3>
-<p>Ward Name: St. Peter Ward</p>
-<p>Patron Name: St. Peter</p>
-<p>Area: Hosa Road</p>
-<h3>Mr. Joby George</h3>
-<h3>Mr. Thomas Aykkara</h3>
-<h3>Ms. Merly Jomon</h3>
-<p>Ward Name: St. Sebastian Ward</p>
-<p>Patron Name: St. Sebastian</p>
-<p>Area: Kammasandra</p>
-<h3>Mr. Jaijee Jacob</h3>
-<h3>Mr. Leo Micheal</h3>
-<h3>Ms. Asha Charlie</h3>
-<p>Ward Name: St. Thomas Ward</p>
-<p>Patron Name: St. Thomas</p>
-<p>Area: Electronic city Phase-I</p>
-<h3>Mr. Sijo Mathew</h3>
-<h3>Mr. Leo Raphy</h3>
-<h3>Ms. Francina</h3>
-<p>Ward Name: St. Vincent de Paul Ward</p>
-<p>Patron Name: St. Vincent de Paul</p>
-<p>Area: Daddy’s Garden</p>
-<h3>Mr. Benny Joseph</h3>
-<h3>Mr. Bijo Joseph</h3>
-<h3>Ms. Viveen Robert</h3>
+<style>
+.wards-section {
+    background-color: #e3dec9;
+    padding: 4rem 1rem;
+}
+.wards-title {
+    text-align: center;
+    color: #b33919;
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.wards-desc {
+    max-width: 1100px;
+    margin: 0 auto 2.5rem;
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+.ward-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto 2.5rem;
+}
+.ward-tab {
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+.ward-tab:hover {
+    background-color: #f0f0f0;
+}
+.ward-tab.active {
+    background-color: #5c5c5c;
+    color: #ffffff;
+}
+.ward-content {
+    display: none;
+    background-color: #e8e6d2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.ward-content.active {
+    display: block;
+}
+.ward-grid {
+    display: grid;
+    grid-template-columns: 280px 1.2fr 2fr;
+    gap: 2.5rem;
+    align-items: stretch;
+}
+.ward-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.ward-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.ward-details p {
+    margin: 0;
+    color: #111;
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+.ward-details p span {
+    font-weight: 600;
+}
+.ward-contact-msg {
+    color: #922b4e;
+    font-weight: 700;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+.ward-reps {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+}
+.ward-rep {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 140px;
+}
+.ward-rep h4 {
+    margin: 0 0 1.5rem 0;
+    color: #111;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.btn-mobile, .btn-whatsapp {
+    background-color: #7b8b6f;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+.btn-mobile:hover, .btn-whatsapp:hover {
+    background-color: #6a795f;
+    color: #fff;
+}
+.btn-mail {
+    color: #1a2a44;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ward-bio {
+    margin-top: 2rem;
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+@media (max-width: 900px) {
+    .ward-grid {
+        grid-template-columns: 1fr;
+    }
+    .ward-reps {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+</style>
 
-</div></div></section>
+<script>
+function openWard(evt, wardId) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("ward-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("ward-tab");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(wardId).style.display = "block";
+  if(evt) {
+    evt.currentTarget.className += " active";
+  }
+}
+</script>
+
+<section class="wards-section">
+  <div class="wards-title">Wards in the Parish</div>
+  <div class="wards-desc">
+    We are pleased to present the list of parish wards, along with their respective patrons and parish council representatives. This information reflects the vibrant structure of our parish community and the leadership entrusted with guiding each ward in faith and service.In addition, we are blessed to have among us religious members who have joyfully dedicated their lives to the service of Jesus Christ and His Church. Their vocation is a great gift to our parish, and we express our heartfelt gratitude to them. Let us join together in applauding their commitment and continue to uphold them in our prayers, asking the Lord to strengthen and bless their mission.
+  </div>
+
+  <div class="ward-tabs">
+    <button class="ward-tab active" onclick="openWard(event, 'ward-1')">St. Alphonsa</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-2')">St. Evuprasiamma</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-3')">St. Antony</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-4')">St. Michael's</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-5')">St. Francis De Sales</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-6')">St. George</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-7')">St. Joseph Ward</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-8')">St. Jude</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-9')">St. Kuriakose Chavara</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-10')">St. Mary's</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-11')">St. Mother Theresa</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-12')">St. Peter</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-13')">St. Sebastian</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-14')">St. Thomas</button>
+    <button class="ward-tab" onclick="openWard(event, 'ward-15')">St. Vincent de Paul</button>
+  </div>
+
+  <!-- Ward 1 -->
+  <div id="ward-1" class="ward-content active">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Alphonsa" alt="St. Alphonsa">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Alphonsa Ward</span></p>
+        <p>Patron Name: <span>St. Alphonsa</span></p>
+        <p>Area: <span>Vidya Nagar / Hebbagodi / Surya City</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Abhilash Sebastian</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Anoop Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Sonya Reji</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">
+      Saint Alphonsa of the Immaculate Conception is the first woman of Indian origin to be canonized by the Catholic Church and the first saint of the Syro-Malabar Church. Born as Anna Muttathupadathu in 1910 in Kerala, she joined the Franciscan Clarist Congregation and dedicated her life to teaching and prayer. Despite lifelong illness and suffering, she was known for her deep faith, humility, and joyful acceptance of hardship. She was beatified by Pope John Paul II in 1986 and canonized by Pope Benedict XVI in 2008.
+    </div>
+  </div>
+
+  <!-- Ward 2 -->
+  <div id="ward-2" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Evuprasiamma" alt="St. Evuprasiamma">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Evuprasiamma Ward</span></p>
+        <p>Patron Name: <span>St. Evuprasiamma</span></p>
+        <p>Area: <span>Ananthnagara / Arana</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Jenson Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Jerish John</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Jincy Anil</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 3 -->
+  <div id="ward-3" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Antony" alt="St. Antony">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Antony Ward</span></p>
+        <p>Patron Name: <span>St. Antony</span></p>
+        <p>Area: <span>Singasandra</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Manoj Abraham</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Augustine Paul</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Deepa Mathew</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 4 -->
+  <div id="ward-4" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Michael" alt="St. Michael">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Michael’s Ward</span></p>
+        <p>Patron Name: <span>St. Michael’s</span></p>
+        <p>Area: <span>Ananthnagar / Vasundara Layout</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Charlie V Paul</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Rohit Tomy</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Rose Maria George</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 5 -->
+  <div id="ward-5" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Francis+De+Sales" alt="St. Francis De Sales">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Francis De Sales</span></p>
+        <p>Patron Name: <span>St. Francis De Sales</span></p>
+        <p>Area: <span>SFS Enclave</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Sabu Thomas</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Atul Amos Kurion</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Bessy Binny</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 6 -->
+  <div id="ward-6" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+George" alt="St. George">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. George</span></p>
+        <p>Patron Name: <span>St. George</span></p>
+        <p>Area: <span>Ittina Neela / Dollars Town</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Joshey Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Sebastian Varkey</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Sowmya Jayesh</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 7 -->
+  <div id="ward-7" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Joseph" alt="St. Joseph">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Joseph Ward</span></p>
+        <p>Patron Name: <span>St. Joseph</span></p>
+        <p>Area: <span>Electronic City Phase-II</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Joseph K.S</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Manu K.M</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Jisha Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 8 -->
+  <div id="ward-8" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Jude" alt="St. Jude">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Jude Ward</span></p>
+        <p>Patron Name: <span>St. Jude</span></p>
+        <p>Area: <span>Huskur / Chikkanagamangala</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Sajan Devis</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Tijo Tom</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Sandya Manalil</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 9 -->
+  <div id="ward-9" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Kuriakose+Chavara" alt="St. Kuriakose Chavara">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Kuriakose Chavara Ward</span></p>
+        <p>Patron Name: <span>St. Kuriakose Chavara</span></p>
+        <p>Area: <span>Behind Suvidya / Opp to Biocon</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Rathesh Tom</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Lisamma Mathew</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Roshan Cyriac</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 10 -->
+  <div id="ward-10" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Mary" alt="St. Mary's">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Mary’s Ward</span></p>
+        <p>Patron Name: <span>St. Mary’s</span></p>
+        <p>Area: <span>Yarandahalli / RK Township</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Shijoy Yesudas</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Vinu Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Tessymol Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 11 -->
+  <div id="ward-11" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Mother+Theresa" alt="St. Mother Theresa">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Mother Theresa Ward</span></p>
+        <p>Patron Name: <span>St. Mother Theresa</span></p>
+        <p>Area: <span>GPR Layout</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Thomas K Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Sunitha George</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 12 -->
+  <div id="ward-12" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Peter" alt="St. Peter">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Peter Ward</span></p>
+        <p>Patron Name: <span>St. Peter</span></p>
+        <p>Area: <span>Hosa Road</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Joby George</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Thomas Aykkara</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Merly Jomon</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 13 -->
+  <div id="ward-13" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Sebastian" alt="St. Sebastian">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Sebastian Ward</span></p>
+        <p>Patron Name: <span>St. Sebastian</span></p>
+        <p>Area: <span>Kammasandra</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Jaijee Jacob</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Leo Micheal</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Asha Charlie</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 14 -->
+  <div id="ward-14" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Thomas" alt="St. Thomas">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Thomas Ward</span></p>
+        <p>Patron Name: <span>St. Thomas</span></p>
+        <p>Area: <span>Electronic city Phase-I</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Sijo Mathew</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Leo Raphy</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Francina</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+
+  <!-- Ward 15 -->
+  <div id="ward-15" class="ward-content">
+    <div class="ward-grid">
+      <div class="ward-img">
+        <img src="https://placehold.co/300x400?text=St.+Vincent+de+Paul" alt="St. Vincent de Paul">
+      </div>
+      <div class="ward-details">
+        <p>Ward Name: <span>St. Vincent de Paul Ward</span></p>
+        <p>Patron Name: <span>St. Vincent de Paul</span></p>
+        <p>Area: <span>Daddy’s Garden</span></p>
+        <p>No of Families: <span></span></p>
+        <p>No of People: <span></span></p>
+        <div class="ward-contact-msg">Contact the Councilors using following options</div>
+      </div>
+      <div class="ward-reps">
+        <div class="ward-rep">
+          <h4>Mr. Benny Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Mr. Bijo Joseph</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+        <div class="ward-rep">
+          <h4>Ms. Viveen Robert</h4>
+          <a href="#" class="btn-mobile">Call on Mobile</a>
+          <a href="#" class="btn-whatsapp">Whatsapp Me</a>
+          <a href="#" class="btn-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ward-bio">More information about the patron saint will be updated soon.</div>
+  </div>
+</section>
 <section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>Fr. Asher Mathew MSFS</h2><span class="rule"></span></div>
 <p>Ward: St. Kuriakose Chavara Ward</p>
