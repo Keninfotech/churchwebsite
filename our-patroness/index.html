@@ -69,12 +69,218 @@
     </div>
   </div>
 </section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Parish Patron – Our Lady of Sorrows</h2><span class="rule"></span></div>
-<p>Our Lady of Sorrows, depicted as “Mater Dolorosa” (Mother of Sorrows) has been the subject of some key works of Roman Catholic Marian art. In other representations the Virgin Mary is depicted with seven swords in her heart, a reference to the prophecy of Simeon at the Presentation of Jesus at the Temple.</p>
-<ol><li>The Prophecy of Simeon.</li><li>The Flight into Egypt.</li><li>The Loss of the Child Jesus in the Temple of Jerusalem.</li><li>Mary’s meeting Jesus on the Via Dolorosa.</li><li>The Crucifixion of Jesus on Mount Calvary.</li><li>Jesus is Taken Down from the Cross.</li><li>The Burial of Jesus by Joseph of Arimathea.</li></ol>
+<style>
+/* Animated Card Scoped Styles */
+.patroness-card-wrap {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 900px;
+	height: 480px;
+	margin: 2rem auto;
+	border: 8px solid;
+	border-image: linear-gradient(-50deg, #C8AA74, #e8d9ba, #C8AA74, #a38148, #C8AA74) 1;
+	transition: 0.3s ease-in-out;
+	position: relative;
+	overflow: hidden;
+    background: #fff;
+}
+.patroness-card-overlay {
+	position: absolute;
+    top: 0; left: 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 1.5rem;
+	background: #0f3024;
+	transition: 0.4s ease-in-out;
+	z-index: 2;
+}
+.patroness-card-overlay-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 35%;
+	height: 100%;
+	padding: 1.5rem;
+	border: 3px solid;
+	border-image: linear-gradient(to bottom, #C8AA74 5%, #0f3024 35% 65%, #C8AA74 95%) 0 0 0 100%;
+	transition: 0.3s ease-in-out 0.2s;
+	z-index: 3;
+}
+.patroness-card-image-content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 65%;
+	height: 100%;
+	background-image: url("https://placehold.co/800x600?text=Filler+Image");
+	background-size: cover;
+    background-position: center;
+	transition: 0.3s ease-in-out;
+    z-index: 1;
+}
 
-</div></div></section>
+.patroness-card-dots {
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 70px;
+	height: 1.5rem;
+	transition: 0.3s ease-in-out 0.3s;
+    z-index: 3;
+}
+.patroness-card-dot {
+	width: 12px;
+	height: 12px;
+	background: #C8AA74;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	transition: 0.3s ease-in-out 0.3s;
+}
+
+.patroness-card-text {
+	display: flex;
+    flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 65%;
+	height: 100%;
+	padding: 3rem;
+	background: #fff;
+	box-shadow: inset 1px 1px 15px 0 rgba(0,0,0,0.1);
+	overflow-y: auto;
+    z-index: 1;
+}
+.patroness-card-text h2 {
+    font-family: var(--serif);
+    color: var(--ink);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+.patroness-card-text p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+}
+.patroness-inset-img {
+	max-width: 40%;
+	margin: 0.5rem 1.5rem 1rem 0;
+	border-radius: 8px;
+	float: left;
+}
+
+/* Hover effects */
+.patroness-card-wrap:hover .patroness-card-overlay {
+	transform: translateX(-65%);
+}
+.patroness-card-wrap:hover .patroness-card-image-content {
+	width: 40%; 
+}
+.patroness-card-wrap:hover .patroness-card-overlay-content {
+	border-left: 3px solid transparent; 
+	transition-delay: 0.2s;
+	transform: translateX(185%); /* 65% / 35% = 1.857 */
+}
+.patroness-card-wrap:hover .patroness-card-dots {
+	transform: translateX(1rem);
+}
+.patroness-card-wrap:hover .patroness-card-dot {
+	background: #fff;
+}
+
+/* Animations */
+.p-animate {
+	animation-duration: 0.7s;
+	animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+	animation-fill-mode: backwards;
+}
+.p-pop { animation-name: p-pop; }
+@keyframes p-pop {
+	0% { opacity: 0; transform: scale(0.5, 0.5); }
+	100% { opacity: 1; transform: scale(1, 1); }
+}
+.p-slide { animation-name: p-slide; }
+@keyframes p-slide {
+	0% { opacity: 0; transform: translate(4em, 0); }
+	100% { opacity: 1; transform: translate(0, 0); }
+}
+.p-slide-left { animation-name: p-slide-left; }
+@keyframes p-slide-left {
+	0% { opacity: 0; transform: translate(-40px, 0); }
+	100% { opacity: 1; transform: translate(0, 0); }
+}
+.p-slide-up { animation-name: p-slide-up; }
+@keyframes p-slide-up {
+	0% { opacity: 0; transform: translateY(3em); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+.p-delay-2 { animation-delay: 0.6s; }
+.p-delay-4 { animation-delay: 1.2s; }
+.p-delay-5 { animation-delay: 1.5s; }
+.p-delay-6 { animation-delay: 1.8s; }
+.p-delay-7 { animation-delay: 2.1s; }
+.p-delay-8 { animation-delay: 2.4s; }
+
+@media(max-width: 768px) {
+    .patroness-card-wrap {
+        height: auto;
+        min-height: 600px;
+        flex-direction: column;
+    }
+    .patroness-card-overlay {
+        position: relative;
+        height: 300px;
+    }
+    .patroness-card-text {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    .patroness-card-wrap:hover .patroness-card-overlay { transform: none; }
+    .patroness-card-wrap:hover .patroness-card-overlay-content { transform: none; }
+    .patroness-card-wrap:hover .patroness-card-image-content { width: 100%; }
+}
+</style>
+
+<section style="padding: 4rem 0;">
+  <div class="container" style="max-width: 900px;" data-reveal>
+    <div class="patroness-card-wrap p-animate p-pop">
+      <div class="patroness-card-overlay">
+          <div class="patroness-card-overlay-content p-animate p-slide-left p-delay-2">
+              <h2 class="p-animate p-slide-left p-pop p-delay-4" style="color: white; font-family: var(--serif); font-size: 2.5rem; line-height: 1.1; margin-bottom: 1rem;">Our Lady<br>of Sorrows</h2>
+              <p class="p-animate p-slide-left p-pop p-delay-5" style="color: #C8AA74; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem;">Hover to Read More</p>
+          </div>
+          <div class="patroness-card-image-content p-animate p-slide p-delay-5"></div>
+          <div class="patroness-card-dots p-animate">
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-6"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-7"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-8"></div>
+          </div>
+      </div>
+      <div class="patroness-card-text">
+          <h2>Mater Dolorosa</h2>
+          <p><img class="patroness-inset-img" src="https://placehold.co/300x400?text=Filler+Inset" alt="Filler Inset" />Our Lady of Sorrows, depicted as “Mater Dolorosa” (Mother of Sorrows) has been the subject of some key works of Roman Catholic Marian art. In other representations the Virgin Mary is depicted with seven swords in her heart, a reference to the prophecy of Simeon at the Presentation of Jesus at the Temple.</p>
+          <ol style="margin-left: 1.5rem; color: var(--ink-soft); line-height: 1.6; font-size: 1.05rem;">
+              <li>The Prophecy of Simeon.</li>
+              <li>The Flight into Egypt.</li>
+              <li>The Loss of the Child Jesus in the Temple of Jerusalem.</li>
+              <li>Mary’s meeting Jesus on the Via Dolorosa.</li>
+              <li>The Crucifixion of Jesus on Mount Calvary.</li>
+              <li>Jesus is Taken Down from the Cross.</li>
+              <li>The Burial of Jesus by Joseph of Arimathea.</li>
+          </ol>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>St. Sebastian</h2><span class="rule"></span></div>
 <p>St. Sebastian was a Roman soldier and early Christian martyr (d. c. 288 AD), renowned for his secret support of persecuted Christians during the reign of Emperor Diocletian. A captain of the Praetorian Guard, he maintained his Christian faith in secret until it was discovered, leading to his condemnation.</p>
@@ -93,8 +299,13 @@
 </div></div></section>
 <section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>St. Alphonsa</h2><span class="rule"></span></div>
+<p>St. Alphonsa (1910–1946) was the first woman of Indian origin to be canonized as a saint in the Catholic Church. A member of the Franciscan Clarist Congregation, she dedicated her life to prayer, humility, and selfless service despite enduring great physical suffering. She is widely revered as a model of faith, patience, and unwavering trust in God.</p>
 </div></div></section>
 <section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<div class="section-head"><span class="eyebrow">Archbishop</span><h2>Mar Joseph Pamplany</h2><span class="rule"></span></div>
+<p>Mar Joseph Pamplany was born on 3 December 1969 in Charal, Kannur district, Kerala, as the fifth of seven children of Thomas and Mary Pamplany. He completed his schooling in Charal and Kilianthara before joining the Minor Seminary of Tellicherry in 1988. He later pursued philosophy and theology at St. Joseph’s Pontifical Seminary, Alwaye, and was ordained a priest on 30 December 1997. After serving as assistant vicar at Peravoor and vicar at Deepagiri Parish, he went to Belgium in 2001, where he obtained a Licentiate and a Doctorate in Biblical Theology from KU Leuven. On returning to India, he served in various pastoral and academic roles, including Director of the Bible Apostolate and founder of the Alpha Institute of Theology & Science.</p>
+</div></div></section>
+<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>St. Francis de Sales</h2><span class="rule"></span></div>
 <p>St. Francis de Sales was a Catholic bishop, spiritual writer, and prominent figure of the late 16th and early 17th centuries. Renowned for his patience, gentleness, and pastoral wisdom during the Protestant Reformation, he became one of the Church’s most influential spiritual guides. His celebrated work, Introduction to a Devout Life , emphasizes that holiness is attainable for people in all walks of life. He is honored as a Doctor of the Church and serves as the patron saint of journalists, writers, educators, and the deaf .</p>
 <h3>Life and Accomplishments</h3>
