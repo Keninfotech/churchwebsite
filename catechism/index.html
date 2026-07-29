@@ -214,14 +214,39 @@
 /* Stats Section */
 .stats-section {
   text-align: center;
-  padding: 4rem 2rem 2rem;
+  padding: 5rem 2rem;
+}
+.stats-heading-wrapper {
+  margin-bottom: 3rem;
 }
 .stats-heading {
-  color: #b54917;
+  color: #8c381c;
   font-family: var(--serif, 'Cormorant Garamond', serif);
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 2.5rem;
+  margin: 0;
+}
+.stats-dot {
+  color: #d1b570;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0.2rem 0;
+}
+.stats-subtitle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.stats-subtitle {
+  color: #333;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 1.1rem;
+}
+.stats-leaf {
+  width: 24px;
+  height: 24px;
+  stroke: #8fa679;
 }
 .stats-grid {
   display: grid;
@@ -231,25 +256,50 @@
   margin: 0 auto;
 }
 .stat-card {
-  background-color: #c9ceb5;
+  background-color: #ffffff;
   border-radius: 8px;
-  padding: 1.5rem 1rem;
+  border-bottom: 5px solid #627b53;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 2rem 1rem;
   text-align: center;
 }
+.stat-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background-color: #e8ecdf;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: #566c48;
+}
 .stat-number {
-  color: #0b1a80;
-  font-size: 2rem;
+  color: #2b451c;
+  font-size: 3.5rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-family: var(--sans, 'Inter', sans-serif);
+  margin-bottom: 0;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  line-height: 1;
+}
+.stat-dots {
+  color: #a4b39b;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  margin: 0.2rem 0 0.8rem;
+  line-height: 0.5;
 }
 .stat-label {
   color: #333;
   font-size: 0.95rem;
+  font-weight: 500;
   font-family: var(--sans, 'Inter', sans-serif);
 }
 @media (max-width: 900px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .stats-grid { grid-template-columns: 1fr; }
 }
 
 /* Future Plans */
@@ -395,38 +445,79 @@
 
 <section class="stats-section bg-soft">
   <div class="container" data-reveal>
-    <h2 class="stats-heading">Sunday School Current strength</h2>
+    <div class="stats-heading-wrapper">
+      <h2 class="stats-heading">Sunday School Current Strength</h2>
+      <div class="stats-dot">&bull;</div>
+      <div class="stats-subtitle-wrapper">
+        <svg class="stats-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 0 8.48A11.83 11.83 0 0 1 11 20z" transform="scale(-1, 1) translate(-24, 0)"/></svg>
+        <span class="stats-subtitle">Nurturing young hearts in faith and knowledge.</span>
+        <svg class="stats-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 0 8.48A11.83 11.83 0 0 1 11 20z"/></svg>
+      </div>
+    </div>
+    
     <div class="stats-grid">
       <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 1.5-2 1.5c0 2 1.5 3 2.5 3.5"/></svg>
+        </div>
         <div class="stat-number">17</div>
-        <div class="stat-label">Students in Nursery</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In Nursery</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        </div>
         <div class="stat-number">205</div>
-        <div class="stat-label">Students in LP</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In LP</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10Z"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/><path d="M8 10h8"/><path d="M8 14h8"/></svg>
+        </div>
         <div class="stat-number">149</div>
-        <div class="stat-label">Students in UP</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In UP</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
         <div class="stat-number">134</div>
-        <div class="stat-label">Students in HS</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In HS</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-10 5v15h20V7z"/><path d="M12 2v20"/><path d="M8 22v-5h8v5"/><path d="M8 12h8"/><path d="M8 7h8"/></svg>
+        </div>
         <div class="stat-number">63</div>
-        <div class="stat-label">Students in HSS</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In HSS</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M12 4a6 6 0 0 0-6 6"/><path d="M18 10a6 6 0 0 0-6-6"/></svg>
+        </div>
         <div class="stat-number">276</div>
+        <div class="stat-dots">.....</div>
         <div class="stat-label">Number of Boys</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M6 10c0-3 2-5 6-5s6 2 6 5c0 1.5-1 3-2 3s-2-1.5-4-1.5-3 1.5-4 1.5-2-1.5-2-3z"/></svg>
+        </div>
         <div class="stat-number">293</div>
+        <div class="stat-dots">.....</div>
         <div class="stat-label">Number of Girls</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
         <div class="stat-number">569</div>
+        <div class="stat-dots">.....</div>
         <div class="stat-label">Total Students</div>
       </div>
     </div>
