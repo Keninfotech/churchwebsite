@@ -176,325 +176,262 @@
       <p>Scroll through the 15 council-member groups &mdash; each card stacks on the last as you move through the deck.</p>
     </div>
 
-    <div class="stack" style="--stack-top: 100px;">
-      
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 01</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Alphonsa - Vidya Nagar / Hebbagodi / Surya City</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Abhilash Sebastian</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9008544008">9008544008</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Anoop Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:7567469503">7567469503</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Sonya Reji</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9449447154">9449447154</a></div>
-                  </div></li>
-            </ul>
+    <style>
+    .accordion-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        padding: 2.5rem;
+        background-color: #d1d4c2;
+        border-radius: 4px;
+    }
+    .accordion-col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .accordion-item {
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    .accordion-header {
+        background-color: #aecd9a;
+        padding: 0.8rem 1rem;
+        cursor: pointer;
+        font-weight: 700;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1.05rem;
+        font-family: var(--serif, serif);
+        border: 1px solid rgba(255,255,255,0.6);
+        transition: all 0.2s ease;
+    }
+    .accordion-header:hover {
+        background-color: #a0c28c;
+    }
+    .accordion-header.active {
+        color: #1a2a8c;
+    }
+    .accordion-icon {
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: normal;
+        font-family: monospace;
+    }
+    .accordion-header.active .accordion-icon {
+        color: #1a2a8c;
+    }
+    .accordion-content {
+        display: none;
+        background-color: #e5ecd9;
+        padding: 1.2rem 1.5rem;
+        border: 1px solid rgba(255,255,255,0.6);
+        border-top: none;
+    }
+    .accordion-member {
+        margin-bottom: 0.4rem;
+        color: #111;
+        font-size: 0.95rem;
+        font-weight: 600;
+        font-family: sans-serif;
+    }
+    @media (max-width: 900px) {
+        .accordion-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+
+    <script>
+    function toggleAccordion(element) {
+        const content = element.nextElementSibling;
+        const icon = element.querySelector('.accordion-icon');
+        
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            element.classList.remove("active");
+            icon.textContent = "+";
+        } else {
+            content.style.display = "block";
+            element.classList.add("active");
+            icon.textContent = "-";
+        }
+    }
+    </script>
+
+    <div class="accordion-grid">
+      <div class="accordion-col">
+        <!-- Col 1 -->
+        <div class="accordion-item">
+          <div class="accordion-header active" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">-</span> St. Alphonsa - Vidya Nagar / Hebbagodi / Surya City
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 02</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Kuriakose Chavara - Behind Suvidya / Opp to Biocon</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Manoj Abraham</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9448583059">9448583059</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Augustine Paul</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9900045725">9900045725</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Deepa Mathew</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9845021056">9845021056</a></div>
-                  </div></li>
-            </ul>
+          <div class="accordion-content" style="display: block;">
+            <div class="accordion-member">Mr. Abhilash Sebastian (9008544008)</div>
+            <div class="accordion-member">Mr. Anoop Joseph (7567469503)</div>
+            <div class="accordion-member">Ms. Sonya Reji (9449447154)</div>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 03</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Antony - Singasandra</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Jenson Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9902979430">9902979430</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Jerish John</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:8884048111">8884048111</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Jincy Anil</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9916800897">9916800897</a></div>
-                  </div></li>
-            </ul>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Antony - Singasandra
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 04</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Mary's - Yarandahalli / RK Township</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Shine George</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:8296851512">8296851512</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Rohit Tomy</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9611577412">9611577412</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Rose Maria George</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9446440419">9446440419</a></div>
-                  </div></li>
-            </ul>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Manoj Abraham (9448583059)</div>
+            <div class="accordion-member">Mr. Augustine Paul (9900045725)</div>
+            <div class="accordion-member">Ms. Deepa Mathew (9845021056)</div>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 05</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Evuprasayamma - Ananthnagara / Arana</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Sabu Thomas</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9811390636">9811390636</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Atul Amos Kurion</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:8050800553">8050800553</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Bessy Binny</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:8123113523">8123113523</a></div>
-                  </div></li>
-            </ul>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Evuprasayamma - Ananthnagara / Arana
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 06</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Mother Theresa - GPR Layout</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Joshy Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9342545731">9342545731</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Sebastian Varkey</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9845651340">9845651340</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Rajkumar</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9940044149">9940044149</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Sowmya Jayesh</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9880659598">9880659598</a></div>
-                  </div></li>
-            </ul>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Jenson Joseph (9902979430)</div>
+            <div class="accordion-member">Mr. Jerish John (8884048111)</div>
+            <div class="accordion-member">Ms. Jincy Anil (9916800897)</div>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 07</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Michael's - Ananthnagar / Vasundara Layout</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Joseph K.S</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9243999999">9243999999</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Manu K.M</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:7090206510">7090206510</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Jisha Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9242512345">9242512345</a></div>
-                  </div></li>
-            </ul>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Michael's - Ananthnagar / Vasundara Layout
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 08</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Peter - Hosa Road</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Sajan Devis</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9916380078">9916380078</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Tijo Tom</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9986034643">9986034643</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Sandya Manalil</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:8308050983">8308050983</a></div>
-                  </div></li>
-            </ul>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Shine George (8296851512)</div>
+            <div class="accordion-member">Mr. Rohit Tomy (9611577412)</div>
+            <div class="accordion-member">Ms. Rose Maria George (9446440419)</div>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 09</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Kuriakose Chavara - Behind Suvidya / Opp to Biocon</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Rathesh Tom</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9846559966">9846559966</a></div>
-                  </div></li>
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Roshan Cyriac</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9535727439">9535727439</a></div>
-                  </div></li>
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Lisamma Mathew</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9008103225">9008103225</a></div>
-                  </div></li>
-            </ul>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Francis De Sales - SFS Enclave
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 10</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Mary's - Yarandahalli / RK Township</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Shijoy Yesudas</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9886001428">9886001428</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Vinu Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9986573619">9986573619</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Tessymol Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9886849466">9886849466</a></div>
-                  </div></li>
-            </ul>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Sabu Thomas (9811390636)</div>
+            <div class="accordion-member">Mr. Atul Amos Kurion (8050800553)</div>
+            <div class="accordion-member">Ms. Bessy Binny (8123113523)</div>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 11</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Mother Theresa - GPR Layout</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Thomas K Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9449003538">9449003538</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Sunitha George</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9480523501">9480523501</a></div>
-                  </div></li>
-            </ul>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. George - Ittina Neela / Dollars Town
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 12</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Peter - Hosa Road</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Joby George</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9886191794">9886191794</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Thomas Aykkara</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9886478777">9886478777</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Merly Jomon</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9945455660">9945455660</a></div>
-                  </div></li>
-            </ul>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Joshy Joseph (9342545731)</div>
+            <div class="accordion-member">Mr. Sebastian Varkey (9845651340)</div>
+            <div class="accordion-member">Mr. Rajkumar (9940044149)</div>
+            <div class="accordion-member">Ms. Sowmya Jayesh (9880659598)</div>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 13</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Sebastian - Kammasandra</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Jaijee Jacob</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9986697457">9986697457</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Leo Micheal</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9886175480">9886175480</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Asha Charlie</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9900195121">9900195121</a></div>
-                  </div></li>
-            </ul>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Joseph - Electronic City Phase-II
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 14</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Thomas - Electronic city Phase-I</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Sijo Mathew</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:8123481074">8123481074</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Leo Raphy</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9901753630">9901753630</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Francina</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9740030454">9740030454</a></div>
-                  </div></li>
-            </ul>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Joseph K.S (9243999999)</div>
+            <div class="accordion-member">Mr. Manu K.M (7090206510)</div>
+            <div class="accordion-member">Ms. Jisha Joseph (9242512345)</div>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">Group 15</span>
-          <div class="stack__inner">
-            <div>
-              <h3>St. Vincent de Paul - Daddy's Garden</h3>
-              <p style="color: var(--ink-muted); font-size: .95rem;">Representatives serving the parish community in 2025 &ndash; 2026.</p>
-            </div>
-            <ul class="rows">
-              <li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Benny Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9880466882">9880466882</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Mr. Bijo Joseph</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:9886828100">9886828100</a></div>
-                  </div></li><li><div>
-                    <div style="font-weight:600; color: var(--ink);">Ms. Viveena Robert</div>
-                    <div style="color: var(--ink-muted); font-size:.9rem;"><a href="tel:7204243114">7204243114</a></div>
-                  </div></li>
-            </ul>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Jude - Huskur/Chikkanagamangala
           </div>
-        </article>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Sajan Devis (9916380078)</div>
+            <div class="accordion-member">Mr. Tijo Tom (9986034643)</div>
+            <div class="accordion-member">Ms. Sandya Manalil (8308050983)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-col">
+        <!-- Col 2 -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Kuriakose Chavara - Behind Suvidya / Opp to Biocon
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Rathesh Tom (9846559966)</div>
+            <div class="accordion-member">Mr. Roshan Cyriac (9535727439)</div>
+            <div class="accordion-member">Ms. Lisamma Mathew (9008103225)</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Mary's - Yarandahalli / RK Township
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Shijoy Yesudas (9886001428)</div>
+            <div class="accordion-member">Mr. Vinu Joseph (9986573619)</div>
+            <div class="accordion-member">Ms. Tessymol Joseph (9886849466)</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Mother Theresa - GPR Layout
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Thomas K Joseph (9449003538)</div>
+            <div class="accordion-member">Ms. Sunitha George (9480523501)</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Peter - Hosa Road
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Joby George (9886191794)</div>
+            <div class="accordion-member">Mr. Thomas Aykkara (9886478777)</div>
+            <div class="accordion-member">Ms. Merly Jomon (9945455660)</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Sebastian - Kammasandra
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Jaijee Jacob (9986697457)</div>
+            <div class="accordion-member">Mr. Leo Micheal (9886175480)</div>
+            <div class="accordion-member">Ms. Asha Charlie (9900195121)</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Thomas - Electronic city Phase-I
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Sijo Mathew (8123481074)</div>
+            <div class="accordion-member">Mr. Leo Raphy (9901753630)</div>
+            <div class="accordion-member">Ms. Francina (9740030454)</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="accordion-icon">+</span> St. Vincent de Paul - Daddy's Garden
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-member">Mr. Benny Joseph (9880466882)</div>
+            <div class="accordion-member">Mr. Bijo Joseph (9886828100)</div>
+            <div class="accordion-member">Ms. Viveena Robert (7204243114)</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
