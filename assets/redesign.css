@@ -45,6 +45,9 @@
 
   --container: 1200px;
 
+  /* header height (kept in sync with header/crest breakpoints below) */
+  --header-h: 104px;
+
   /* fluid spacing */
   --sp-4: clamp(16px, 1.8vw, 28px);
   --sp-5: clamp(24px, 2.6vw, 40px);
@@ -234,6 +237,7 @@ h4 {
   display: block;
   color: transparent;
   /* Hide the OLS text */
+  transition: width .3s ease, height .3s ease;
 }
 
 .brand__name {
@@ -408,14 +412,23 @@ h4 {
   box-shadow: 0 12px 28px -8px rgba(169, 134, 47, .7);
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 900px) {
+  :root {
+    --header-h: 88px;
+  }
+
+  .brand__crest {
+    width: 72px;
+    height: 72px;
+  }
+
   .site-header__inner {
     grid-template-columns: auto 1fr auto;
   }
 
   .primary-nav {
     position: fixed;
-    inset: 78px 0 auto 0;
+    inset: var(--header-h) 0 auto 0;
     background: var(--bg);
     max-height: 0;
     overflow: hidden;
@@ -460,6 +473,17 @@ h4 {
 
   .nav-toggle {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-h: 72px;
+  }
+
+  .brand__crest {
+    width: 56px;
+    height: 56px;
   }
 }
 
@@ -519,8 +543,8 @@ section.tight {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: calc(100vh - 104px);
-  min-height: calc(100dvh - 104px);
+  min-height: calc(100vh - var(--header-h));
+  min-height: calc(100dvh - var(--header-h));
   display: flex;
   align-items: center;
   padding: 80px 0;
@@ -798,7 +822,7 @@ section.tight {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
 
   .grid--2,
   .grid--3,
@@ -911,7 +935,7 @@ section.tight {
 /* ---------- Person card ---------- */
 .person {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: clamp(90px, 15vw, 160px) 1fr;
   gap: 28px;
   padding: 30px;
   background: #fff;
@@ -944,9 +968,8 @@ section.tight {
   margin: 6px 0 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .person {
-    grid-template-columns: 100px 1fr;
     padding: 22px;
     gap: 18px;
   }
@@ -1017,7 +1040,7 @@ section.tight {
   align-items: center;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .stack__inner {
     grid-template-columns: 1fr;
   }
@@ -1232,7 +1255,7 @@ section.tight {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -1710,7 +1733,7 @@ section.tight {
 }
 
 /* ---------- Mobile nav stagger ---------- */
-@media (max-width: 1080px) {
+@media (max-width: 900px) {
   .primary-nav>ul>li {
     opacity: 0;
     transform: translateY(-8px);
@@ -2090,24 +2113,24 @@ html.pt-out body {
 
 .img-wrapper img {
   display: block;
-  width: 220px;
-  height: 220px;
+  width: clamp(150px, 18vw, 220px);
+  height: clamp(150px, 18vw, 220px);
   object-fit: cover;
   border-radius: 3px;
   vertical-align: top;
   filter: saturate(72%) sepia(12%);
-  transition: filter .4s ease;
+  transition: filter .4s ease, width .3s ease, height .3s ease;
 }
 
 .img-wrapper:nth-child(6n+2) img,
 .img-wrapper:nth-child(6n+6) img {
-  width: 190px;
-  height: 260px;
+  width: clamp(130px, 15.6vw, 190px);
+  height: clamp(178px, 21.3vw, 260px);
 }
 
 .img-wrapper:nth-child(6n+3) img {
-  width: 250px;
-  height: 190px;
+  width: clamp(171px, 20.5vw, 250px);
+  height: clamp(130px, 15.6vw, 190px);
 }
 
 .img-wrapper:hover img {
@@ -2121,14 +2144,6 @@ html.pt-out body {
 
   .img-wrapper {
     margin-left: -1.75rem;
-  }
-
-  .img-wrapper img,
-  .img-wrapper:nth-child(6n+2) img,
-  .img-wrapper:nth-child(6n+6) img,
-  .img-wrapper:nth-child(6n+3) img {
-    width: 170px;
-    height: 170px;
   }
 }
 
@@ -2257,7 +2272,7 @@ html.pt-out body {
   opacity: .7;
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1200px) {
   .ministries-scroll__hint {
     display: none;
   }
@@ -2271,6 +2286,8 @@ html.pt-out body {
   margin-top: 2rem;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  container-type: inline-size;
+  container-name: marquee;
 }
 
 .marquee__track {
@@ -2317,17 +2334,27 @@ html.pt-out body {
   height: 180px;
 }
 
-/* Saints: 4 visible, smaller portrait tiles, 2s per step feel via fast loop */
+/* Saints: 4 visible, smaller portrait tiles, 2s per step feel via fast loop.
+   Sized against the marquee's own container width (via container query units)
+   rather than the raw viewport, so it stays consistent with --container: 1200px
+   instead of ballooning on ultra-wide screens. */
 .marquee--saints {
   --marquee-duration: 24s;
 }
 
 .marquee--saints .marquee__item {
-  width: calc((100vw - 6rem) / 4);
+  width: calc((100cqw - 6rem) / 4);
   max-width: 240px;
   min-width: 170px;
   aspect-ratio: 3 / 4;
   position: relative;
+}
+
+/* Fallback for browsers without container query unit support */
+@supports not (width: 1cqw) {
+  .marquee--saints .marquee__item {
+    width: calc((100% - 6rem) / 4);
+  }
 }
 
 .marquee--saints .marquee__item img {
@@ -2580,12 +2607,10 @@ html.pt-out body {
   height: 340px;
   margin-bottom: 0;
   background:
-    linear-gradient(
-      to bottom,
+    linear-gradient(to bottom,
       rgba(238, 241, 230, 0.45) 0%,
       rgba(238, 241, 230, 0.82) 70%,
-      rgba(238, 241, 230, 0.97) 100%
-    ),
+      rgba(238, 241, 230, 0.97) 100%),
     url('../assets/church.webp') center 40% / cover no-repeat;
 }
 
@@ -2802,7 +2827,7 @@ html.pt-out body {
   margin: 0 !important;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .announce-body {
     grid-template-columns: 1fr;
   }
@@ -2831,13 +2856,17 @@ html.pt-out body {
   padding: 0;
 }
 
-/* Decorative image top-right */
+/* Decorative image top-right.
+   Sized with aspect-ratio + max-height instead of a % of the flex
+   parent's height, since that height is driven by content (unstable)
+   rather than the viewport. */
 .catechism-bg-img {
   position: absolute;
   top: 0;
   right: 0;
-  width: 55%;
-  height: 75%;
+  width: min(55%, 640px);
+  aspect-ratio: 4 / 5;
+  max-height: 75vh;
   pointer-events: none;
   z-index: 0;
 }
@@ -2850,31 +2879,23 @@ html.pt-out body {
   display: block;
   filter: saturate(65%) sepia(8%) brightness(1.05);
   /* Fade: left edge and bottom edge both dissolve into the background */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 50%,
-    transparent 100%
-  ),
-  linear-gradient(
-    to right,
-    transparent 0%,
-    black 35%,
-    black 100%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      black 0%,
+      black 50%,
+      transparent 100%),
+    linear-gradient(to right,
+      transparent 0%,
+      black 35%,
+      black 100%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 50%,
-    transparent 100%
-  ),
-  linear-gradient(
-    to right,
-    transparent 0%,
-    black 35%,
-    black 100%
-  );
+  mask-image: linear-gradient(to bottom,
+      black 0%,
+      black 50%,
+      transparent 100%),
+    linear-gradient(to right,
+      transparent 0%,
+      black 35%,
+      black 100%);
   mask-composite: intersect;
 }
 
@@ -2974,13 +2995,13 @@ html.pt-out body {
   align-items: center;
   justify-content: center;
   margin-bottom: clamp(.6rem, 1.5vh, 1.25rem);
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 4px 12px rgba(200,170,110,0.15);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(200, 170, 110, 0.15);
   transition: border-color .35s ease, box-shadow .35s ease;
 }
 
 .cat-card:hover .cat-card__icon {
   border-color: var(--gold);
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 6px 20px rgba(169,134,47,0.25);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 6px 20px rgba(169, 134, 47, 0.25);
 }
 
 .cat-card__title {
@@ -3037,6 +3058,7 @@ html.pt-out body {
 
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
+
   /* Remove section top padding so image sits flush at top */
   .catechism-section {
     padding-top: 0;
@@ -3044,7 +3066,9 @@ html.pt-out body {
 
   .catechism-bg-img {
     width: 100%;
+    aspect-ratio: auto;
     height: 240px;
+    max-height: none;
     position: relative;
     top: auto;
     right: auto;
@@ -3052,8 +3076,8 @@ html.pt-out body {
   }
 
   .catechism-bg-img img {
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
   }
 
   .catechism-head {
@@ -3116,7 +3140,7 @@ html.pt-out body {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .catechism-section {
     padding: var(--sp-6) 0;
   }
@@ -3143,13 +3167,16 @@ html.pt-out body {
   padding: 0;
 }
 
-/* Book image — top-right, fades on left and bottom */
+/* Book image — top-right, fades on left and bottom.
+   Sized with aspect-ratio + max-height rather than a % of the flex
+   parent's (content-driven) height. */
 .pub-bg-img {
   position: absolute;
   top: 0;
   right: 0;
-  width: 48%;
-  height: 72%;
+  width: min(48%, 560px);
+  aspect-ratio: 4 / 5;
+  max-height: 72vh;
   pointer-events: none;
   z-index: 0;
 }
@@ -3161,31 +3188,23 @@ html.pt-out body {
   object-position: center top;
   display: block;
   filter: saturate(60%) sepia(10%) brightness(1.05);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 45%,
-    transparent 100%
-  ),
-  linear-gradient(
-    to right,
-    transparent 0%,
-    black 30%,
-    black 100%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      black 0%,
+      black 45%,
+      transparent 100%),
+    linear-gradient(to right,
+      transparent 0%,
+      black 30%,
+      black 100%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 45%,
-    transparent 100%
-  ),
-  linear-gradient(
-    to right,
-    transparent 0%,
-    black 30%,
-    black 100%
-  );
+  mask-image: linear-gradient(to bottom,
+      black 0%,
+      black 45%,
+      transparent 100%),
+    linear-gradient(to right,
+      transparent 0%,
+      black 30%,
+      black 100%);
   mask-composite: intersect;
 }
 
@@ -3291,7 +3310,7 @@ html.pt-out body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8);
   transition: border-color .35s ease;
 }
 
@@ -3359,7 +3378,7 @@ html.pt-out body {
 }
 
 /* ---- Mobile ---- */
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .pub-section {
     padding-top: 0;
   }
@@ -3369,13 +3388,15 @@ html.pt-out body {
     top: auto;
     right: auto;
     width: 100%;
+    aspect-ratio: auto;
     height: 200px;
+    max-height: none;
     margin-bottom: -20px;
   }
 
   .pub-bg-img img {
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
   }
 
   .pub-head {
@@ -3409,7 +3430,8 @@ html.pt-out body {
   position: relative;
   overflow: hidden;
   padding: var(--sp-8) 0 var(--sp-6);
-  background: var(--bg-body); /* matches the warm soft background */
+  background: var(--bg-body);
+  /* matches the warm soft background */
 }
 
 /* Decorative background church image */
@@ -3511,12 +3533,12 @@ html.pt-out body {
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 8px 24px -12px rgba(31,36,21,0.08), 0 3px 0 0 rgba(200, 170, 110, 0.4);
+  box-shadow: 0 8px 24px -12px rgba(31, 36, 21, 0.08), 0 3px 0 0 rgba(200, 170, 110, 0.4);
 }
 
 .exp-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 14px 32px -12px rgba(31,36,21,0.12), 0 3px 0 0 var(--gold);
+  box-shadow: 0 14px 32px -12px rgba(31, 36, 21, 0.12), 0 3px 0 0 var(--gold);
 }
 
 .exp-card__icon {
@@ -3584,18 +3606,18 @@ html.pt-out body {
 }
 
 /* ---- Mobile Responsive ---- */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .explore-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .explore-cards {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .explore-bg-img {
     width: 100%;
     height: 300px;
@@ -3606,21 +3628,72 @@ html.pt-out body {
 
 /* Desktop/Mobile Only display utility */
 @media (max-width: 899px) {
-  .desktop-only { display: none !important; }
+  .desktop-only {
+    display: none !important;
+  }
 }
+
 @media (min-width: 900px) {
-  .mobile-only { display: none !important; }
+  .mobile-only {
+    display: none !important;
+  }
 }
 
 /* Scrolly Animation */
-.scrolly { position: relative; padding: 60px 0 120px; }
-.scrolly-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.scrolly-media { position: sticky; top: 15vh; height: 70vh; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-md); }
-.scrolly-media .img { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 0.6s ease, transform 1s ease; transform: scale(1.06); }
-.scrolly-media .img.on { opacity: 1; transform: scale(1); }
-.scrolly-steps { display: flex; flex-direction: column; gap: 35vh; padding: 15vh 0; }
-.scrolly .step { opacity: 0.25; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
-.scrolly .step.on { opacity: 1; transform: translateY(0); }
+.scrolly {
+  position: relative;
+  padding: 60px 0 120px;
+}
+
+.scrolly-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.scrolly-media {
+  position: sticky;
+  top: 15vh;
+  height: 70vh;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+
+.scrolly-media .img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 1s ease;
+  transform: scale(1.06);
+}
+
+.scrolly-media .img.on {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scrolly-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 35vh;
+  padding: 15vh 0;
+}
+
+.scrolly .step {
+  opacity: 0.25;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(20px);
+}
+
+.scrolly .step.on {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .scrolly .step .num {
   display: inline-flex;
@@ -3663,7 +3736,7 @@ html.pt-out body {
   margin-bottom: 40px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .mass-schedule-grid {
     grid-template-columns: 1fr;
     max-width: 480px;
@@ -3721,7 +3794,7 @@ html.pt-out body {
   margin: -22px auto 8px;
   position: relative;
   z-index: 2;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   border: 2px solid #d9bf7c;
 }
 
@@ -3842,7 +3915,7 @@ html.pt-out body {
   gap: 8px;
 }
 
-.schedule-row + .schedule-row {
+.schedule-row+.schedule-row {
   border-top: 1px dashed rgba(231, 224, 205, 0.9);
 }
 
