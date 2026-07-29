@@ -71,7 +71,6 @@
 </section>
 <style>
 .catechism-section {
-  background-color: #dfdbcc;
   padding: 4rem 2rem;
 }
 .cat-heading {
@@ -211,134 +210,573 @@
   </div>
 </section>
 
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<style>
+/* Stats Section */
+.stats-section {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+}
+.stats-heading {
+  color: #b54917;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.stat-card {
+  background-color: #c9ceb5;
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+.stat-number {
+  color: #0b1a80;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: var(--sans, 'Inter', sans-serif);
+}
+.stat-label {
+  color: #333;
+  font-size: 0.95rem;
+  font-family: var(--sans, 'Inter', sans-serif);
+}
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
+/* Future Plans */
+.plans-section {
+  padding: 2rem 2rem 4rem;
+  text-align: center;
+}
+.plans-title {
+  color: #b54917;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.plans-subtitle {
+  color: #333;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+.plans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.plan-card {
+  background-color: #aebfab;
+  border: 2px solid #8e9e8b;
+  border-radius: 4px;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.plan-heading {
+  color: #821515;
+  text-align: center;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.plan-list li {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #222;
+  line-height: 1.5;
+}
+.plan-list li strong {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .plans-grid { grid-template-columns: 1fr; }
+}
 
-<h4>MAY TO JUNE</h4>
-<p>31 st May 2025: First Holy Communion</p>
-<p>25 th MAY 2025: Teachers Training Program</p>
-<p>1 st JUNE 2025: Parish Level Inaugural of Catechism for Academic Year 2024 – 2025 followed by Students Retreat</p>
-<p>8 th JUNE 2025: Staff Meeting &amp; Year Plan Discussion</p>
-<p>15 th JUNE 2025: Parents Orientation &amp; PTA Meeting</p>
-<p>22 nd JUNE 2025: Basic Catechism Training for New Catechism Teachers</p>
-<h4>JULY TO AUGUST</h4>
-<p>6 th JULY 2025: CML &amp; Holy Childhood Inauguration, Dukhrana Celebration &amp; Parish Level Academics Excellence Award Ceremony, Class wise Food Fest (Class 5 &amp; above)</p>
-<p>13 th JULY 2025: First Delegates Meeting</p>
-<p>27 th JULY 2025: Parish Level Family Bible Quiz</p>
-<p>3 rd AUGUST 2025: Angles Meet 2025</p>
-<p>10 th AUGUST 2025: Seraphim Meet 2025 (Gathering of Altar Angels)</p>
-<p>17 th AUGUST 2025: Family Bible Quiz</p>
-<p>24 th AUGUST 2025: Student Bible Exam</p>
-<p>31 st AUGUST 2025: Onam Celebrations</p>
-<h4>SEPTEMBER TO DECEMBER</h4>
-<p>13th SEPTEMBER 2025: Parish Feast 28 th SEPTEMBER 2025: Logos Quiz 2025</p>
-<p>19 th OCTOBER 2025: Parish Level Bible Kalotsavam</p>
-<p>26 th OCTOBER 2025: Mission Carnival by CML Students</p>
-<p>9 th NOVEMBER 2025: Mission Quest Online, First Semester Exam, Second Delegates Meeting @ OLS Church</p>
-<p>16 th November 2025: Centralized evaluation of Class X and XII First Semester Exam answer sheets</p>
-<p>30 th November 2025: Forane Level Bible Kalotsavam 2025</p>
-<p>7 th DECEMBER 2025: Outreach Program for Class 5 to 8</p>
-<p>14 th DECEMBER 2025: Outreach Program for Class 5 to 12</p>
-<p>21 nd December 2025: Christmas Celebrations</p>
-<h4>JANUARY TO MAY</h4>
-<p>4th JANUARY 2026: Diocese Level Student Bible Quiz 1 st FEBRUARY 2026: Second Semester Exam</p>
-<p>8 th FEBRUARY 2026: Centralized evaluation of Class X and XII Second Semester Exam answer sheets</p>
-<p>22 nd FEBRUARY 2026: Bible Sunday &amp; New Testament Scripture Scribing Program Closure</p>
-<p>1 st MARCH 2026: Students Retreat</p>
-<p>5 th APRIL 2026: Easter Egg Painting</p>
-<p>3 rd MAY 2026: Annual Report for AY 2025 – 2026</p>
-<p>31 st MAY 2026: Teacher Training – 2026</p>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Current Administrative Team</h2><span class="rule"></span></div>
-<h3>Mr. Shine Williams</h3>
-<h3>Ms. Sheril Jose</h3>
-<h3>Ms. Priya Mathew</h3>
-<h3>Ms. Linta Scariah</h3>
+/* Teachers Tabs */
+.teachers-section {
+  padding: 2rem 2rem 4rem;
+}
+.teachers-heading {
+  color: #b54917;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+}
+.tab-btn {
+  background-color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.tab-btn.active {
+  background-color: #555;
+  color: #fff;
+}
+.tab-content {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.tab-content.active {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+.tab-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.tab-details {
+  flex: 1;
+}
+.tab-details p {
+  margin-bottom: 1rem;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 1rem;
+  color: #333;
+}
+.admin-team {
+  text-align: center;
+  margin-top: 4rem;
+}
+.admin-team h3 {
+  font-size: 1.1rem;
+  color: #333;
+  font-family: var(--sans, 'Inter', sans-serif);
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 768px) {
+  .tab-content.active {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+</style>
 
-<p>Class Name: Class 1</p>
-<p>Class Section: A</p>
-<p>Class Teacher’s Name: Deepthi Soni</p>
-<p>Mobile: 9611144607</p>
-<p>Number of Students: 23</p>
-<p>No of Boys: 11</p>
-<p>No of Girls: 12</p>
-<p>Class Section: B</p>
-<p>Class Teacher’s Name: Deepthi Tom Mobile: 9480637629</p>
-<p>Number of Students: 17</p>
-<p>No of Boys: 9</p>
-<p>No of Girls: 8</p>
-<p>Class Name: Class 2</p>
-<p>Class Teacher’s Name: Simi Shinto Mobile: 9741709713</p>
-<p>Number of Students: 21</p>
-<p>No of Boys: 8</p>
-<p>No of Girls: 13</p>
-<p>Class Teacher’s Name: Lissy Thomas Mobile: 7892562182</p>
-<p>Number of Students: 18</p>
-<p>No of Boys: 6</p>
-<p>Class Name: Class 3</p>
-<p>Class Teacher’s Name: Christy John Mobile: 9823439834</p>
-<p>No of Boys: 5</p>
-<p>No of Girls: 16</p>
-<p>Class Teacher’s Name: Sr. Rosy</p>
-<p>Mobile: 9495661649</p>
-<p>Number of Students: 25</p>
-<p>No of Boys: 13</p>
-<p>Class Name: Class 4</p>
-<p>Class Teacher’s Name: Sr. Geena Mobile: 9902873204</p>
-<p>Number of Students: 19</p>
-<p>Class Teacher’s Name: Sr. Kochuthresia</p>
-<p>Mobile: 8904701752</p>
-<p>Class Name: Class 5</p>
-<p>Class Teacher’s Name: Cini Angelus Mobile: 8431452415</p>
-<p>Number of Students: 22</p>
-<p>No of Girls: 11</p>
-<p>Class Teacher’s Name: Sophie Agnes Mobile: 9895775767</p>
-<p>Class Name: Class 6</p>
-<p>Class Teacher’s Name: Lejo K L Mobile: 9972184052</p>
-<p>Number of Students: 10</p>
-<p>No of Girls: 2</p>
-<p>Class Teacher’s Name: Gracelind Albert Mobile: 8123257427</p>
-<p>Number of Students: 20</p>
-<p>No of Boys: 12</p>
-<p>Class Name: Class 7</p>
-<p>Class Teacher’s Name: Terrince A Joseph Mobile: 9986006905</p>
-<p>No of Boys: 10</p>
-<p>No of Girls: 10</p>
-<p>Class Teacher’s Name: Jeseentha Mathew Mobile: 9901534807</p>
-<p>Class Name: Class 8</p>
-<p>Class Teacher’s Name: Rohit Tomy</p>
-<p>Mobile: 9611577412</p>
-<p>No of Girls: 15</p>
-<p>Class Teacher’s Name: Dayas Dixen Mobile: 8867415649</p>
-<p>Class Name: Class 9</p>
-<p>Class Teacher’s Name: Br. Christin Tom</p>
-<p>Mobile: 8289886530</p>
-<p>No of Girls: 9</p>
-<p>Class Teacher’s Name: Mareena Tom Mobile: 8147544270</p>
-<p>Number of Students: 15</p>
-<p>No of Girls: 6</p>
-<p>Class Name: Class 10</p>
-<p>Class Teacher’s Name: Charlie Paul Mobile: 9886827242</p>
-<p>Number of Students: 16</p>
-<p>Class Name: Class 11</p>
-<p>Class Teacher’s Name: Sheryl Jose Mobile: 9845357765</p>
-<p>Number of Students: 36</p>
-<p>No of Boys: 16</p>
-<p>No of Girls: 20</p>
-<p>Class Name: Class 12</p>
-<p>Class Teacher’s Name: Varghese Thattil Mobile: 9848565563</p>
+<section class="stats-section bg-soft">
+  <div class="container" data-reveal>
+    <h2 class="stats-heading">Sunday School Current strength</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">17</div>
+        <div class="stat-label">Students in Nursery</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">205</div>
+        <div class="stat-label">Students in LP</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">149</div>
+        <div class="stat-label">Students in UP</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">134</div>
+        <div class="stat-label">Students in HS</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">63</div>
+        <div class="stat-label">Students in HSS</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">276</div>
+        <div class="stat-label">Number of Boys</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">293</div>
+        <div class="stat-label">Number of Girls</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">569</div>
+        <div class="stat-label">Total Students</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h3>Mr. Jestin James</h3>
-<h3>Dr Angel Sajo</h3>
-<h3>Ms. Cini Angelous</h3>
-<h3>Ms. Sunitha Jaison</h3>
-<h3>Mr. Deepak Joseph</h3>
+<section class="plans-section">
+  <div class="container" data-reveal>
+    <h2 class="plans-title">OUR FUTURE PLANS</h2>
+    <p class="plans-subtitle">Here are our plans for the future that our department is planning to do for the children of our parish</p>
+    
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-heading">MAY TO JUNE</div>
+        <ul class="plan-list">
+          <li><strong>31st May 2025:</strong> First Holy Communion</li>
+          <li><strong>25th MAY 2025:</strong> Teachers Training Program</li>
+          <li><strong>1st JUNE 2025:</strong> Parish Level Inaugural of Catechism for Academic Year 2024 &ndash; 2025 followed by Students Retreat</li>
+          <li><strong>8th JUNE 2025:</strong> Staff Meeting &amp; Year Plan Discussion</li>
+          <li><strong>15th JUNE 2025:</strong> Parents Orientation &amp; PTA Meeting</li>
+          <li><strong>22nd JUNE 2025:</strong> Basic Catechism Training for New Catechism Teachers</li>
+        </ul>
+      </div>
+      
+      <div class="plan-card">
+        <div class="plan-heading">JULY TO AUGUST</div>
+        <ul class="plan-list">
+          <li><strong>6th JULY 2025:</strong> CML &amp; Holy Childhood Inauguration, Dukhrana Celebration &amp; Parish Level Academics Excellence Award Ceremony, Class wise Food Fest (Class 5 &amp; above)</li>
+          <li><strong>13th JULY 2025:</strong> First Delegates Meeting</li>
+          <li><strong>27th JULY 2025:</strong> Parish Level Family Bible Quiz</li>
+          <li><strong>3rd AUGUST 2025:</strong> Angles Meet 2025</li>
+          <li><strong>10th AUGUST 2025:</strong> Seraphim Meet 2025 (Gathering of Altar Angels)</li>
+          <li><strong>17th AUGUST 2025:</strong> Family Bible Quiz</li>
+          <li><strong>24th AUGUST 2025:</strong> Student Bible Exam</li>
+          <li><strong>31st AUGUST 2025:</strong> Onam Celebrations</li>
+        </ul>
+      </div>
+      
+      <div class="plan-card">
+        <div class="plan-heading">SEPTEMBER TO DECEMBER</div>
+        <ul class="plan-list">
+          <li><strong>13th SEPTEMBER 2025:</strong> Parish Feast</li>
+          <li><strong>28th SEPTEMBER 2025:</strong> Logos Quiz 2025</li>
+          <li><strong>19th OCTOBER 2025:</strong> Parish Level Bible Kalotsavam</li>
+          <li><strong>26th OCTOBER 2025:</strong> Mission Carnival by CML Students</li>
+          <li><strong>9th NOVEMBER 2025:</strong> Mission Quest Online, First Semester Exam, Second Delegates Meeting @ OLS Church</li>
+          <li><strong>16th November 2025:</strong> Centralized evaluation of Class X and XII First Semester Exam answer sheets</li>
+          <li><strong>30th November 2025:</strong> Forane Level Bible Kalotsavam 2025</li>
+          <li><strong>7th DECEMBER 2025:</strong> Outreach Program for Class 5 to 8</li>
+          <li><strong>14th DECEMBER 2025:</strong> Outreach Program for Class 5 to 12</li>
+          <li><strong>21st December 2025:</strong> Christmas Celebrations</li>
+        </ul>
+      </div>
+      
+      <div class="plan-card">
+        <div class="plan-heading">JANUARY TO MAY</div>
+        <ul class="plan-list">
+          <li><strong>4th JANUARY 2026:</strong> Diocese Level Student Bible Quiz</li>
+          <li><strong>1st FEBRUARY 2026:</strong> Second Semester Exam</li>
+          <li><strong>8th FEBRUARY 2026:</strong> Centralized evaluation of Class X and XII Second Semester Exam answer sheets</li>
+          <li><strong>22nd FEBRUARY 2026:</strong> Bible Sunday &amp; New Testament Scripture Scribing Program Closure</li>
+          <li><strong>1st MARCH 2026:</strong> Students Retreat</li>
+          <li><strong>5th APRIL 2026:</strong> Easter Egg Painting</li>
+          <li><strong>3rd MAY 2026:</strong> Annual Report for AY 2025 &ndash; 2026</li>
+          <li><strong>31st MAY 2026:</strong> Teacher Training &ndash; 2026</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h3>Bro. Ashin Antu</h3>
-<h3>Mr. Abhinav Tom</h3>
-<h3>Ms. Iva Maria Philip</h3>
-</div></div></section>
+<section class="teachers-section bg-soft">
+  <div class="container" data-reveal>
+    <h2 class="teachers-heading">Catechism Teachers</h2>
+    
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-target="c1a" onclick="openClass('c1a')">Class 1 - Sec A</button>
+      <button class="tab-btn" data-target="c1b" onclick="openClass('c1b')">Class 1 - Sec B</button>
+      <button class="tab-btn" data-target="c2a" onclick="openClass('c2a')">Class 2 - Sec A</button>
+      <button class="tab-btn" data-target="c2b" onclick="openClass('c2b')">Class 2 - Sec B</button>
+      <button class="tab-btn" data-target="c3a" onclick="openClass('c3a')">Class 3 - Sec A</button>
+      <button class="tab-btn" data-target="c3b" onclick="openClass('c3b')">Class 3 - Sec B</button>
+      <button class="tab-btn" data-target="c4a" onclick="openClass('c4a')">Class 4 - Sec A</button>
+      <button class="tab-btn" data-target="c4b" onclick="openClass('c4b')">Class 4 - Sec B</button>
+      <button class="tab-btn" data-target="c5a" onclick="openClass('c5a')">Class 5 - Sec A</button>
+      <button class="tab-btn" data-target="c5b" onclick="openClass('c5b')">Class 5 - Sec B</button>
+      <button class="tab-btn" data-target="c6a" onclick="openClass('c6a')">Class 6 - Sec A</button>
+      <button class="tab-btn" data-target="c6b" onclick="openClass('c6b')">Class 6 - Sec B</button>
+      <button class="tab-btn" data-target="c7a" onclick="openClass('c7a')">Class 7 - Sec A</button>
+      <button class="tab-btn" data-target="c7b" onclick="openClass('c7b')">Class 7 - Sec B</button>
+      <button class="tab-btn" data-target="c8a" onclick="openClass('c8a')">Class 8 - Sec A</button>
+      <button class="tab-btn" data-target="c8b" onclick="openClass('c8b')">Class 8 - Sec B</button>
+      <button class="tab-btn" data-target="c9a" onclick="openClass('c9a')">Class 9 - Sec A</button>
+      <button class="tab-btn" data-target="c9b" onclick="openClass('c9b')">Class 9 - Sec B</button>
+      <button class="tab-btn" data-target="c10a" onclick="openClass('c10a')">Class 10 - Sec A</button>
+      <button class="tab-btn" data-target="c11a" onclick="openClass('c11a')">Class 11 - Sec A</button>
+      <button class="tab-btn" data-target="c12a" onclick="openClass('c12a')">Class 12 - Sec A</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="teacherPanes">
+      <div class="tab-content active" id="c1a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 1</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Deepthi Soni</p>
+          <p><strong>Mobile:</strong> 9611144607</p>
+          <p><strong>Number of Students:</strong> 23</p>
+          <p><strong>No of Boys:</strong> 11</p>
+          <p><strong>No of Girls:</strong> 12</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c1b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 1</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Deepthi Tom</p>
+          <p><strong>Mobile:</strong> 9480637629</p>
+          <p><strong>Number of Students:</strong> 17</p>
+          <p><strong>No of Boys:</strong> 9</p>
+          <p><strong>No of Girls:</strong> 8</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c2a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 2</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Simi Shinto</p>
+          <p><strong>Mobile:</strong> 9741709713</p>
+          <p><strong>Number of Students:</strong> 21</p>
+          <p><strong>No of Boys:</strong> 8</p>
+          <p><strong>No of Girls:</strong> 13</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c2b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 2</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Lissy Thomas</p>
+          <p><strong>Mobile:</strong> 7892562182</p>
+          <p><strong>Number of Students:</strong> 18</p>
+          <p><strong>No of Boys:</strong> 6</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c3a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 3</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Christy John</p>
+          <p><strong>Mobile:</strong> 9823439834</p>
+          <p><strong>No of Boys:</strong> 5</p>
+          <p><strong>No of Girls:</strong> 16</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c3b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 3</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Sr. Rosy</p>
+          <p><strong>Mobile:</strong> 9495661649</p>
+          <p><strong>Number of Students:</strong> 25</p>
+          <p><strong>No of Boys:</strong> 13</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c4a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 4</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Sr. Geena</p>
+          <p><strong>Mobile:</strong> 9902873204</p>
+          <p><strong>Number of Students:</strong> 19</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c4b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 4</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Sr. Kochuthresia</p>
+          <p><strong>Mobile:</strong> 8904701752</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c5a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 5</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Cini Angelus</p>
+          <p><strong>Mobile:</strong> 8431452415</p>
+          <p><strong>Number of Students:</strong> 22</p>
+          <p><strong>No of Girls:</strong> 11</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c5b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 5</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Sophie Agnes</p>
+          <p><strong>Mobile:</strong> 9895775767</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c6a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 6</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Lejo K L</p>
+          <p><strong>Mobile:</strong> 9972184052</p>
+          <p><strong>Number of Students:</strong> 10</p>
+          <p><strong>No of Girls:</strong> 2</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c6b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 6</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Gracelind Albert</p>
+          <p><strong>Mobile:</strong> 8123257427</p>
+          <p><strong>Number of Students:</strong> 20</p>
+          <p><strong>No of Boys:</strong> 12</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c7a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 7</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Terrince A Joseph</p>
+          <p><strong>Mobile:</strong> 9986006905</p>
+          <p><strong>No of Boys:</strong> 10</p>
+          <p><strong>No of Girls:</strong> 10</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c7b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 7</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Jeseentha Mathew</p>
+          <p><strong>Mobile:</strong> 9901534807</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c8a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 8</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Rohit Tomy</p>
+          <p><strong>Mobile:</strong> 9611577412</p>
+          <p><strong>No of Girls:</strong> 15</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c8b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 8</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Dayas Dixen</p>
+          <p><strong>Mobile:</strong> 8867415649</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c9a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 9</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Br. Christin Tom</p>
+          <p><strong>Mobile:</strong> 8289886530</p>
+          <p><strong>No of Girls:</strong> 9</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c9b">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 9</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Mareena Tom</p>
+          <p><strong>Mobile:</strong> 8147544270</p>
+          <p><strong>Number of Students:</strong> 15</p>
+          <p><strong>No of Girls:</strong> 6</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c10a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 10</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Charlie Paul</p>
+          <p><strong>Mobile:</strong> 9886827242</p>
+          <p><strong>Number of Students:</strong> 16</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c11a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 11</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Sheryl Jose</p>
+          <p><strong>Mobile:</strong> 9845357765</p>
+          <p><strong>Number of Students:</strong> 36</p>
+          <p><strong>No of Boys:</strong> 16</p>
+          <p><strong>No of Girls:</strong> 20</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c12a">
+        <img src="../assets/catechsismindex.png" alt="Class" class="tab-img">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 12</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Varghese Thattil</p>
+          <p><strong>Mobile:</strong> 9848565563</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="admin-team">
+      <h2 style="color: #b54917; font-family: var(--serif, 'Cormorant Garamond', serif); font-size: 1.8rem; margin-bottom: 1.5rem;">Administrative Team</h2>
+      <h3>Mr. Shine Williams</h3>
+      <h3>Ms. Sheril Jose</h3>
+      <h3>Ms. Priya Mathew</h3>
+      <h3>Ms. Linta Scariah</h3>
+      <h3>Mr. Jestin James</h3>
+      <h3>Dr Angel Sajo</h3>
+      <h3>Ms. Cini Angelous</h3>
+      <h3>Ms. Sunitha Jaison</h3>
+      <h3>Mr. Deepak Joseph</h3>
+      <h3>Bro. Ashin Antu</h3>
+      <h3>Mr. Abhinav Tom</h3>
+      <h3>Ms. Iva Maria Philip</h3>
+    </div>
+  </div>
+</section>
+
+<script>
+function openClass(tabId) {
+  document.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById(tabId).classList.add('active');
+  document.querySelector('.tab-btn[data-target="' + tabId + '"]').classList.add('active');
+}
+</script>
 <section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>Current Altar Servers List</h2><span class="rule"></span></div>
 <p>Aaron, Abel John, Aeibel, Alden Robert, Alphin, Andrews, Aron, Basil, Daniel James, Daniel Thomas, David James, Eric, Evan, Geroge</p>
