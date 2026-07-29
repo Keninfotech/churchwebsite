@@ -390,21 +390,275 @@
     </div>
   </div>
 </section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Holy Eucharist</h2><span class="rule"></span></div>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>SOURCE OF LOVE &amp; UNITY</h2><span class="rule"></span></div>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Rev. Fr. Riju Vazhaparambil MSFS</h2><span class="rule"></span></div>
-<p>( Parish Priest )</p>
-<p>This is the bread that comes down from heaven so that one may eat it and not die. I am the living bread that came down from heaven; whoever eats this bread will live forever; and the bread that I will give is my flesh for the life of the world.” – John 6: 50-51</p>
-<p>The Catechism of the Catholic Church states that the Eucharist is “the source and summit of the Christian life”(1324-1327). The other sacraments, and indeed all ecclesiastical ministries and works of the apostolate, are bound up with the Eucharist and are oriented toward it. The centre of every Catholic parish is the Eucharist and the Word of God. If we approach the Eucharistic celebration and the adoration of the Lord in the Blessed Sacrament with our whole heart and mind, the Lord pours out His blessings on our families and community. A Christian community must feed their baptismal life with an intense Eucharistic life. In prostrating oneself before the Blessed Sacrament, the adorer opens himself to the tender mercy of the Almighty which in turn, renews his heart and leads him to become more involved in his parish community.</p>
-<p>Sometimes parishes can be like dryland where it is difficult to launch new pastoral projects or revive existing but dormant ones. Times of adoration of the Blessed Sacrament are precious moments when the Lord pours out His Spirit on the various dream projects of the parish; “rivers of living water will flow from within him” -Jn. 7: 37-39. Our parish has been experiencing graces of charity and unity flowing from the Eucharist. The parishioners are attentive to each other and supportive of the priest. I believe Jesus in the Blessed Sacrament will continue to overwhelm the heart of every parishioner and open it to the mission that we seek to accomplish. His spiritual waters will irrigate the dryland; leading it to produce abundant fruits.</p>
-<p>St. Teresa of Calcutta says: “It was not until 1973 when we began the daily holy hour that our community began to grow and flourish.” St. Teresa distinguished three graces received from the Eucharistic adoration. Firstly, she learned to love her sisters with the love that flows from the heart of Jesus. Secondly, the recognition of Jesus under the appearances of bread helped her better recognize Christ in the poorest of the poor. Finally, adoration allowed her to give to the people she served, not just herself or what she possessed, but rather, Jesus who lived in her. Pope John Paul II wrote: “Proximity to Christ, in the silence of contemplation, does not separate us from our contemporaries but, rather, makes us attentive and open to the joys and sorrows of men, and it enlarges the heart to the dimensions of the world. It gives us solidarity with our brothers in humanity, particularly the littlest, who are the beloved of the Lord.”</p>
-<p>So I request everyone, young and old, to remember the words of Jesus: “I am the vine, you are the branches… without me you can do nothing” (Jn 15:5). All fruitful pastoral work flows from our union with Christ, especially through the Eucharist, the sacrament of communion with God and neighbor. The more deeply we live the Eucharist, the more authentic our love becomes in action.. I invite you to be part of Our Lady of Sorrows Church and experience God’s love in the Eucharist, sharing that love with others.</p>
-</div></div></section>
+<style>
+.sh-section {
+    background-color: #fbf8f1;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sh-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.sh-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #c9ad71;
+    margin-bottom: 0.5rem;
+}
+
+.sh-separator::before,
+.sh-separator::after {
+    content: "";
+    height: 1px;
+    width: 60px;
+    background-color: #e2d1a3;
+}
+
+.sh-header h2 {
+    font-family: var(--serif);
+    font-size: 3.2rem;
+    color: #6a2a2a;
+    margin: 0 0 1rem 0;
+}
+
+.sh-header .sh-line {
+    width: 250px;
+    height: 2px;
+    background-color: #e2d1a3;
+    margin: 0 auto;
+}
+
+.sh-grid {
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    gap: 3.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.sh-left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sh-card {
+    background-color: #fffaf0;
+    border: 2px solid #e8d9ba;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.sh-img-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: -32px;
+}
+
+.sh-img-wrap img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+.sh-badge {
+    width: 64px;
+    height: 64px;
+    background-color: #fffaf0;
+    border: 2px solid #e8d9ba;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    color: #c9ad71;
+}
+
+.sh-badge svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+.sh-h3 {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: #6a2a2a;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.sh-sub {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #c9ad71;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.sh-sub::before, .sh-sub::after {
+    content: "✦";
+    font-size: 0.7rem;
+}
+
+.sh-name {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: #6a2a2a;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.sh-role {
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #333;
+}
+
+.sh-quote-box {
+    background-color: #f7f3e8;
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+}
+
+.sh-quote-icon {
+    font-family: var(--serif);
+    font-size: 5rem;
+    color: #c9ad71;
+    line-height: 1;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    opacity: 0.6;
+}
+
+.sh-quote-text {
+    font-style: italic;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 2;
+    margin-top: 1.5rem;
+}
+
+.sh-quote-ref {
+    text-align: center;
+    color: #6a2a2a;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.sh-right-col {
+    color: #333;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+.sh-dropcap {
+    float: left;
+    font-family: var(--serif);
+    font-size: 5rem;
+    line-height: 0.8;
+    padding-top: 0.2rem;
+    padding-right: 0.5rem;
+    color: #c9ad71;
+}
+
+.sh-right-col p {
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .sh-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<section class="sh-section" data-reveal>
+  <div class="sh-header">
+    <div class="sh-separator">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 0a1 1 0 0 1 1 1v3h3a1 1 0 0 1 0 2H9v9a1 1 0 0 1-2 0V6H4a1 1 0 0 1 0-2h3V1a1 1 0 0 1 1-1z"/>
+      </svg>
+    </div>
+    <h2>Messages from the Shepherds</h2>
+    <div class="sh-line"></div>
+  </div>
+
+  <div class="sh-grid">
+    <!-- Left Column -->
+    <div class="sh-left-col">
+      <!-- Card -->
+      <div class="sh-card">
+        <div class="sh-img-wrap">
+          <img src="https://placehold.co/400x500?text=Priest+Image" alt="Rev. Fr. Riju Vazhaparambil MSFS">
+        </div>
+        <div class="sh-badge">
+          <!-- Chalice SVG Placeholder -->
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M12 2C8 2 8 5 8 5h8s0-3-4-3zM8 5v2c0 2 1.5 3.5 3 4v4H9v2h6v-2h-2v-4c1.5-.5 3-2 3-4V5H8zm4-2v2m-1-1h2"/></svg>
+        </div>
+        <h3 class="sh-h3">Holy Eucharist</h3>
+        <div class="sh-sub">SOURCE OF LOVE &amp; UNITY</div>
+        <div class="sh-name">Rev. Fr. Riju Vazhaparambil<br>MSFS</div>
+        <div class="sh-role">(Parish Priest)</div>
+      </div>
+
+      <!-- Quote -->
+      <div class="sh-quote-box">
+        <div class="sh-quote-icon">“</div>
+        <div class="sh-quote-text">
+          This is the bread that comes down from heaven so that one may eat it and not die. I am the living bread that came down from heaven; whoever eats this bread will live forever; and the bread that I will give is my flesh for the life of the world.”
+        </div>
+        <div class="sh-quote-ref">
+          – John 6: 50-51
+        </div>
+        <div class="sh-separator" style="margin-top: 1rem; margin-bottom: 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0a1 1 0 0 1 1 1v3h3a1 1 0 0 1 0 2H9v9a1 1 0 0 1-2 0V6H4a1 1 0 0 1 0-2h3V1a1 1 0 0 1 1-1z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="sh-right-col">
+      <p><span class="sh-dropcap">T</span>he Catechism of the Catholic Church states that the Eucharist is “the source and summit of the Christian life”(1324-1327). The other sacraments, and indeed all ecclesiastical ministries and works of the apostolate, are bound up with the Eucharist and are oriented toward it. The centre of every Catholic parish is the Eucharist and the Word of God. If we approach the Eucharistic celebration and the adoration of the Lord in the Blessed Sacrament with our whole heart and mind, the Lord pours out His blessings on our families and community. A Christian community must feed their baptismal life with an intense Eucharistic life. In prostrating oneself before the Blessed Sacrament, the adorer opens himself to the tender mercy of the Almighty which in turn, renews his heart and leads him to become more involved in his parish community.</p>
+      
+      <p>Sometimes parishes can be like dryland where it is difficult to launch new pastoral projects or revive existing but dormant ones. Times of adoration of the Blessed Sacrament are precious moments when the Lord pours out His Spirit on the various dream projects of the parish; “rivers of living water will flow from within him” -Jn. 7: 37-39. Our parish has been experiencing graces of charity and unity flowing from the Eucharist. The parishioners are attentive to each other and supportive of the priest. I believe Jesus in the Blessed Sacrament will continue to overwhelm the heart of every parishioner and open it to the mission that we seek to accomplish. His spiritual waters will irrigate the dryland; leading it to produce abundant fruits.</p>
+      
+      <p>St. Teresa of Calcutta says: “It was not until 1973 when we began the daily holy hour that our community began to grow and flourish.” St. Teresa distinguished three graces received from the Eucharistic adoration. Firstly, she learned to love her sisters with the love that flows from the heart of Jesus. Secondly, the recognition of Jesus under the appearances of bread helped her better recognize Christ in the poorest of the poor. Finally, adoration allowed her to give to the people she served, not just herself or what she possessed, but rather, Jesus who lived in her. Pope John Paul II wrote: “Proximity to Christ, in the silence of contemplation, does not separate us from our contemporaries but, rather, makes us attentive and open to the joys and sorrows of men, and it enlarges the heart to the dimensions of the world. It gives us solidarity with our brothers in humanity, particularly the littlest, who are the beloved of the Lord.”</p>
+      
+      <p style="margin-bottom: 0;">So I request everyone, young and old, to remember the words of Jesus: “I am the vine, you are the branches… without me you can do nothing” (Jn 15:5). All fruitful pastoral work flows from our union with Christ, especially through the Eucharist, the sacrament of communion with God and neighbor. The more deeply we live the Eucharist, the more authentic our love becomes in action.. I invite you to be part of Our Lady of Sorrows Church and experience God’s love in the Eucharist, sharing that love with others.</p>
+    </div>
+  </div>
+</section>/p>
+    </div>
+  </div>
+</section>
 </main>
 
   <footer class="site-footer">
