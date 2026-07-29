@@ -340,4 +340,30 @@
   }
   lazyInlineBackgrounds();
 
+  // ---------- Hierarchy Card Animation ----------
+  document.addEventListener("DOMContentLoaded", () => {
+    // Options for when the animation should trigger
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px -100px 0px", // Triggers slightly before element enters middle of screen
+      threshold: 0.15 // Triggers when 15% of the card is visible
+    };
+
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add the class that starts the CSS transitions
+          entry.target.classList.add("is-visible");
+          
+          // Stop observing once animated
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all hierarchy cards
+    const cards = document.querySelectorAll(".hierarchy-card");
+    cards.forEach(card => cardObserver.observe(card));
+  });
+
 })();

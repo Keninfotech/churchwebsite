@@ -3997,3 +3997,99 @@ html.pt-out body {
 .btn--navy-solid:hover {
   background: #1b3858;
 }
+
+/* ==========================================
+   Hierarchy Cards (Church Hierarchy)
+   ========================================== */
+/* Base Layout Adjustments */
+.hierarchy-card {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 3rem;
+  
+  /* Initial hidden state for the container */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reverse layout for photo-right rows */
+.hierarchy-card.photo-right {
+  flex-direction: row-reverse;
+}
+
+/* Photo Styling & Initial Offsets */
+.card-photo {
+  flex: 0 0 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  
+  /* Initial state for photo */
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1.1); /* Slight zoom initial state */
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Text Styling & Initial Offsets */
+.card-text {
+  flex: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slide Directions based on layout */
+.photo-left .card-photo { transform: translateX(-40px); }
+.photo-left .card-text  { transform: translateX(40px); }
+
+.photo-right .card-photo { transform: translateX(40px); }
+.photo-right .card-text  { transform: translateX(-40px); }
+
+
+/* ==========================================
+   ANIMATED STATE (Triggered by JS)
+   ========================================== */
+
+.hierarchy-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Photo & Text settle into place */
+.hierarchy-card.is-visible .card-photo,
+.hierarchy-card.is-visible .card-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Image zooms down to normal size */
+.hierarchy-card.is-visible .card-photo img {
+  transform: scale(1);
+}
+
+/* Staggered Delay: Text comes in 150ms after the photo */
+.hierarchy-card.is-visible .card-text {
+  transition-delay: 0.15s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hierarchy-card,
+  .hierarchy-card.photo-right {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .card-photo {
+    flex: auto;
+    width: 100%;
+  }
+}
