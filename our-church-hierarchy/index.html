@@ -69,71 +69,302 @@
     </div>
   </div>
 </section>
-<section style="padding: 4rem 0;"><div class="container" style="max-width:1000px;">
-  <div class="hierarchy-card photo-left">
-    <div class="card-photo">
-      <img src="../assets/Church%20heirarchy/Pope_Leo_XIV.webp" alt="Pope Leo XIV">
-    </div>
-    <div class="card-text">
-      <span class="role-badge" style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">His Holiness</span>
-      <h2 style="margin-top: 0; margin-bottom: 1rem; font-family: var(--serif); font-size: 2.5rem; line-height: 1.1;">Pope Leo XIV</h2>
-      <p style="color: var(--ink-soft); line-height: 1.6; font-size: 1.05rem;">Pope Leo XIV is the head of the Catholic Church and sovereign of the Vatican City State since 2025. Leo XIV is the first pope from the United States and a member of the Augustinian Order. Before becoming pope, he served as a missionary in Peru, led the worldwide Augustinian Order, and later worked in the Vatican as Prefect of the Dicastery for Bishops. He is known for his deep commitment to pastoral care, unity in the Church, and social justice. His background as a missionary shaped his concern for the poor and marginalized. A scholar of canon law, he also emphasizes discipline and renewal within the Church. He has often expressed devotion to St. Augustine, highlighting Augustine’s teachings on humility, service, and faith.</p>
-    </div>
-  </div>
-</div></section>
+<style>
+/* Animated Card Scoped Styles */
+.patroness-card-wrap {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 900px;
+	height: 480px;
+	margin: 2rem auto;
+	border: 8px solid;
+	border-image: linear-gradient(-50deg, #C8AA74, #e8d9ba, #C8AA74, #a38148, #C8AA74) 1;
+	transition: 0.3s ease-in-out;
+	position: relative;
+	overflow: hidden;
+    background: #fff;
+}
+.patroness-card-overlay {
+	position: absolute;
+    top: 0; left: 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 1.5rem;
+	background: #0f3024;
+	transition: 0.4s ease-in-out;
+	z-index: 2;
+}
+.patroness-card-overlay-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 35%;
+	height: 100%;
+	padding: 1.5rem;
+	border: 3px solid;
+	border-image: linear-gradient(to bottom, #C8AA74 5%, #0f3024 35% 65%, #C8AA74 95%) 0 0 0 100%;
+	transition: 0.3s ease-in-out 0.2s;
+	z-index: 3;
+}
+.patroness-card-image-content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 65%;
+	height: 100%;
+	background-image: url("https://placehold.co/800x600?text=Filler+Image");
+	background-size: cover;
+    background-position: center;
+	transition: 0.3s ease-in-out;
+    z-index: 1;
+}
 
-<section class="bg-soft" style="padding: 4rem 0;"><div class="container" style="max-width:1000px;">
-  <div class="hierarchy-card photo-right">
-    <div class="card-photo">
-      <img src="../assets/Church%20heirarchy/alencherry.webp" alt="Cardinal George Alencherry">
-    </div>
-    <div class="card-text">
-      <span class="role-badge" style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Major Archbishop Emeritus</span>
-      <h2 style="margin-top: 0; margin-bottom: 1rem; font-family: var(--serif); font-size: 2.5rem; line-height: 1.1;">Cardinal George Alencherry</h2>
-      <p style="color: var(--ink-soft); line-height: 1.6; font-size: 1.05rem; margin-bottom: 1rem;">Cardinal George Alencherry (born 19 April 1945) is an Indian prelate of the Syro-Malabar Catholic Church, one of the Eastern Catholic Churches in full communion with the Pope in Rome. He served as the Major Archbishop of the Syro-Malabar Church from 2011 to 2023 and was created a Cardinal by Pope Benedict XVI in 2012.</p>
-      <p style="color: var(--ink-soft); line-height: 1.6; font-size: 1.05rem;">Born in Thuruthy, Kerala, George Alencherry pursued studies in philosophy, theology, and biblical theology, earning his doctorate in Paris. He was ordained a priest on 18 December 1972 and later became the first bishop of the Diocese of Thuckalay in Tamil Nadu in 1997. In May 2011, he was elected the Major Archbishop of Ernakulam-Angamaly, becoming the head of the global Syro-Malabar Catholic community.</p>
-    </div>
-  </div>
-</div></section>
+.patroness-card-dots {
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 70px;
+	height: 1.5rem;
+	transition: 0.3s ease-in-out 0.3s;
+    z-index: 3;
+}
+.patroness-card-dot {
+	width: 12px;
+	height: 12px;
+	background: #C8AA74;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	transition: 0.3s ease-in-out 0.3s;
+}
 
-<section style="padding: 4rem 0;"><div class="container" style="max-width:1000px;">
-  <div class="hierarchy-card photo-left">
-    <div class="card-photo">
-      <img src="../assets/Church%20heirarchy/mar-raphael-thatti.webp" alt="Rt. Rev. Mar Raphael Thattil">
-    </div>
-    <div class="card-text">
-      <span class="role-badge" style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Major Archbishop</span>
-      <h2 style="margin-top: 0; margin-bottom: 1rem; font-family: var(--serif); font-size: 2.5rem; line-height: 1.1;">Rt. Rev. Mar Raphael Thattil</h2>
-      <p style="color: var(--ink-soft); line-height: 1.6; font-size: 1.05rem;">Mar Raphael Thattil is the Major Archbishop (Head) of the Syro-Malabar Church. The title of Major Archbishop is essentially equivalent to that of a patriarch. He was elected by the Holy Synod of the Syro-Malabar Church in January 2024 to succeed Cardinal George Alencherry (2011–2023), and his election was confirmed by Pope Francis. He was ordained a priest in 1980, consecrated as bishop in 2010, and served as Auxiliary Bishop of Thrissur before becoming the first Bishop of the newly formed Shamshabad Diocese in 2017. As Major Archbishop, he is focused on strengthening unity within the Church, particularly in resolving liturgical disputes, and guiding the faithful in pastoral care and missionary work.</p>
-    </div>
-  </div>
-</div></section>
+.patroness-card-text {
+	display: flex;
+    flex-direction: column;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 65%;
+	height: 100%;
+	padding: 3rem;
+	background: #fff;
+	box-shadow: inset 1px 1px 15px 0 rgba(0,0,0,0.1);
+	overflow-y: auto;
+    z-index: 1;
+}
+.patroness-card-text h2 {
+    font-family: var(--serif);
+    color: var(--ink);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+.patroness-card-text p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+}
+.patroness-inset-img {
+	max-width: 40%;
+	margin: 0.5rem 1.5rem 1rem 0;
+	border-radius: 8px;
+	float: left;
+}
 
-<section class="bg-soft" style="padding: 4rem 0;"><div class="container" style="max-width:1000px;">
-  <div class="hierarchy-card photo-right">
-    <div class="card-photo">
-      <img src="../assets/Church%20heirarchy/auixilary_bishop.webp" alt="Mar Joseph Pamplany">
-    </div>
-    <div class="card-text">
-      <span class="role-badge" style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Archbishop</span>
-      <h2 style="margin-top: 0; margin-bottom: 1rem; font-family: var(--serif); font-size: 2.5rem; line-height: 1.1;">Mar Joseph Pamplany</h2>
-      <p style="color: var(--ink-soft); line-height: 1.6; font-size: 1.05rem;">Mar Joseph Pamplany was born on 3 December 1969 in Charal, Kannur district, Kerala, as the fifth of seven children of Thomas and Mary Pamplany. He completed his schooling in Charal and Kilianthara before joining the Minor Seminary of Tellicherry in 1988. He later pursued philosophy and theology at St. Joseph’s Pontifical Seminary, Alwaye, and was ordained a priest on 30 December 1997. After serving as assistant vicar at Peravoor and vicar at Deepagiri Parish, he went to Belgium in 2001, where he obtained a Licentiate and a Doctorate in Biblical Theology from KU Leuven. On returning to India, he served in various pastoral and academic roles, including Director of the Bible Apostolate and founder of the Alpha Institute of Theology & Science.</p>
-    </div>
-  </div>
-</div></section>
+/* Hover effects */
+.patroness-card-wrap:hover .patroness-card-overlay {
+	transform: translateX(-65%);
+}
+.patroness-card-wrap:hover .patroness-card-image-content {
+	width: 40%; 
+}
+.patroness-card-wrap:hover .patroness-card-overlay-content {
+	border-left: 3px solid transparent; 
+	transition-delay: 0.2s;
+	transform: translateX(185%); /* 65% / 35% = 1.857 */
+}
+.patroness-card-wrap:hover .patroness-card-dots {
+	transform: translateX(1rem);
+}
+.patroness-card-wrap:hover .patroness-card-dot {
+	background: #fff;
+}
 
-<section style="padding: 4rem 0;"><div class="container" style="max-width:1000px;">
-  <div class="hierarchy-card photo-left">
-    <div class="card-photo">
-      <img src="../assets/Church%20heirarchy/mar-sebastian-adayanthrath.webp" alt="Rt. Rev. Sebastian Adayanthrath">
-    </div>
-    <div class="card-text">
-      <span class="role-badge" style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Bishop</span>
-      <h2 style="margin-top: 0; margin-bottom: 1rem; font-family: var(--serif); font-size: 2.5rem; line-height: 1.1;">Rt. Rev. Sebastian Adayanthrath</h2>
-      <p style="color: var(--ink-soft); line-height: 1.6; font-size: 1.05rem;">Mar Sebastian Adayantharath was born on 5 April 1957 of Ouseph Chacko and Thresiamma at Vaikom, Kerala. He had his school education at St Joseph’s LP School and St Theresa’s High School, Vaikom from 1963 to 1973. He joined the Sacred Heart Minor Seminary of the Archdiocese of Ernakulam-Angamaly on 1 July 1973. Three years later he was sent to the Papal Seminary, Pune where he did his seminary studies from 1976 to 1983 and was ordained priest on 18 December 1983 by Bishop Mar Sebastian Mankuzhikary at St Joseph’s Pontifical Seminary, Alwaye. After his ordination, Fr. Adayantharath took a Master’s Degree in Theology from Jnana-Deepa Vidyapeeth, Pune. He was appointed as the Bishop of Syro-Malabar Eparchy of Mandya by the Holy Synod of Syro-Malabar Catholic Church and Pope Francis on 30 August 2019.</p>
+/* Animations */
+.p-animate {
+	animation-duration: 0.7s;
+	animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+	animation-fill-mode: backwards;
+}
+.p-pop { animation-name: p-pop; }
+@keyframes p-pop {
+	0% { opacity: 0; transform: scale(0.5, 0.5); }
+	100% { opacity: 1; transform: scale(1, 1); }
+}
+.p-slide { animation-name: p-slide; }
+@keyframes p-slide {
+	0% { opacity: 0; transform: translate(4em, 0); }
+	100% { opacity: 1; transform: translate(0, 0); }
+}
+.p-slide-left { animation-name: p-slide-left; }
+@keyframes p-slide-left {
+	0% { opacity: 0; transform: translate(-40px, 0); }
+	100% { opacity: 1; transform: translate(0, 0); }
+}
+.p-slide-up { animation-name: p-slide-up; }
+@keyframes p-slide-up {
+	0% { opacity: 0; transform: translateY(3em); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+.p-delay-2 { animation-delay: 0.6s; }
+.p-delay-4 { animation-delay: 1.2s; }
+.p-delay-5 { animation-delay: 1.5s; }
+.p-delay-6 { animation-delay: 1.8s; }
+.p-delay-7 { animation-delay: 2.1s; }
+.p-delay-8 { animation-delay: 2.4s; }
+
+@media(max-width: 768px) {
+    .patroness-card-wrap {
+        height: auto;
+        min-height: 600px;
+        flex-direction: column;
+    }
+    .patroness-card-overlay {
+        position: relative;
+        height: 300px;
+    }
+    .patroness-card-text {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    .patroness-card-wrap:hover .patroness-card-overlay { transform: none; }
+    .patroness-card-wrap:hover .patroness-card-overlay-content { transform: none; }
+    .patroness-card-wrap:hover .patroness-card-image-content { width: 100%; }
+}
+</style>
+
+<section style="padding: 4rem 0;">
+  <div class="container" style="max-width: 900px;" data-reveal>
+    <div class="patroness-card-wrap p-animate p-pop">
+      <div class="patroness-card-overlay">
+          <div class="patroness-card-overlay-content p-animate p-slide-left p-delay-2">
+              <h2 class="p-animate p-slide-left p-pop p-delay-4" style="color: white; font-family: var(--serif); font-size: 2.5rem; line-height: 1.1; margin-bottom: 1rem;">Pope<br>Leo XIV</h2>
+              <p class="p-animate p-slide-left p-pop p-delay-5" style="color: #C8AA74; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem;">His Holiness</p>
+          </div>
+          <div class="patroness-card-image-content p-animate p-slide p-delay-5" style="background-image: url('../assets/Church%20heirarchy/Pope_Leo_XIV.webp'); background-position: top center;"></div>
+          <div class="patroness-card-dots p-animate">
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-6"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-7"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-8"></div>
+          </div>
+      </div>
+      <div class="patroness-card-text">
+          <h2>Pope Leo XIV</h2>
+          <p><img class="patroness-inset-img" src="../assets/Church%20heirarchy/Pope_Leo_XIV.webp" alt="Pope Leo XIV" style="object-fit: cover; object-position: top center;" />Pope Leo XIV is the head of the Catholic Church and sovereign of the Vatican City State since 2025. Leo XIV is the first pope from the United States and a member of the Augustinian Order. Before becoming pope, he served as a missionary in Peru, led the worldwide Augustinian Order, and later worked in the Vatican as Prefect of the Dicastery for Bishops. He is known for his deep commitment to pastoral care, unity in the Church, and social justice. His background as a missionary shaped his concern for the poor and marginalized. A scholar of canon law, he also emphasizes discipline and renewal within the Church. He has often expressed devotion to St. Augustine, highlighting Augustine’s teachings on humility, service, and faith.</p>
+      </div>
     </div>
   </div>
-</div></section>
+</section>
+
+<section class="bg-soft" style="padding: 4rem 0;">
+  <div class="container" style="max-width: 900px;" data-reveal>
+    <div class="patroness-card-wrap p-animate p-pop">
+      <div class="patroness-card-overlay">
+          <div class="patroness-card-overlay-content p-animate p-slide-left p-delay-2">
+              <h2 class="p-animate p-slide-left p-pop p-delay-4" style="color: white; font-family: var(--serif); font-size: 2.2rem; line-height: 1.1; margin-bottom: 1rem;">Cardinal<br>George<br>Alencherry</h2>
+              <p class="p-animate p-slide-left p-pop p-delay-5" style="color: #C8AA74; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem;">Major Archbishop Emeritus</p>
+          </div>
+          <div class="patroness-card-image-content p-animate p-slide p-delay-5" style="background-image: url('../assets/Church%20heirarchy/alencherry.webp'); background-position: top center;"></div>
+          <div class="patroness-card-dots p-animate">
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-6"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-7"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-8"></div>
+          </div>
+      </div>
+      <div class="patroness-card-text">
+          <h2>Cardinal George Alencherry</h2>
+          <p><img class="patroness-inset-img" src="../assets/Church%20heirarchy/alencherry.webp" alt="Cardinal George Alencherry" style="object-fit: cover; object-position: top center;" />Cardinal George Alencherry (born 19 April 1945) is an Indian prelate of the Syro-Malabar Catholic Church, one of the Eastern Catholic Churches in full communion with the Pope in Rome. He served as the Major Archbishop of the Syro-Malabar Church from 2011 to 2023 and was created a Cardinal by Pope Benedict XVI in 2012.</p>
+          <p>Born in Thuruthy, Kerala, George Alencherry pursued studies in philosophy, theology, and biblical theology, earning his doctorate in Paris. He was ordained a priest on 18 December 1972 and later became the first bishop of the Diocese of Thuckalay in Tamil Nadu in 1997. In May 2011, he was elected the Major Archbishop of Ernakulam-Angamaly, becoming the head of the global Syro-Malabar Catholic community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 4rem 0;">
+  <div class="container" style="max-width: 900px;" data-reveal>
+    <div class="patroness-card-wrap p-animate p-pop">
+      <div class="patroness-card-overlay">
+          <div class="patroness-card-overlay-content p-animate p-slide-left p-delay-2">
+              <h2 class="p-animate p-slide-left p-pop p-delay-4" style="color: white; font-family: var(--serif); font-size: 2.2rem; line-height: 1.1; margin-bottom: 1rem;">Mar Raphael<br>Thattil</h2>
+              <p class="p-animate p-slide-left p-pop p-delay-5" style="color: #C8AA74; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem;">Major Archbishop</p>
+          </div>
+          <div class="patroness-card-image-content p-animate p-slide p-delay-5" style="background-image: url('../assets/Church%20heirarchy/mar-raphael-thatti.webp'); background-position: top center;"></div>
+          <div class="patroness-card-dots p-animate">
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-6"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-7"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-8"></div>
+          </div>
+      </div>
+      <div class="patroness-card-text">
+          <h2>Rt. Rev. Mar Raphael Thattil</h2>
+          <p><img class="patroness-inset-img" src="../assets/Church%20heirarchy/mar-raphael-thatti.webp" alt="Rt. Rev. Mar Raphael Thattil" style="object-fit: cover; object-position: top center;" />Mar Raphael Thattil is the Major Archbishop (Head) of the Syro-Malabar Church. The title of Major Archbishop is essentially equivalent to that of a patriarch. He was elected by the Holy Synod of the Syro-Malabar Church in January 2024 to succeed Cardinal George Alencherry (2011–2023), and his election was confirmed by Pope Francis. He was ordained a priest in 1980, consecrated as bishop in 2010, and served as Auxiliary Bishop of Thrissur before becoming the first Bishop of the newly formed Shamshabad Diocese in 2017. As Major Archbishop, he is focused on strengthening unity within the Church, particularly in resolving liturgical disputes, and guiding the faithful in pastoral care and missionary work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-soft" style="padding: 4rem 0;">
+  <div class="container" style="max-width: 900px;" data-reveal>
+    <div class="patroness-card-wrap p-animate p-pop">
+      <div class="patroness-card-overlay">
+          <div class="patroness-card-overlay-content p-animate p-slide-left p-delay-2">
+              <h2 class="p-animate p-slide-left p-pop p-delay-4" style="color: white; font-family: var(--serif); font-size: 2.2rem; line-height: 1.1; margin-bottom: 1rem;">Mar Joseph<br>Pamplany</h2>
+              <p class="p-animate p-slide-left p-pop p-delay-5" style="color: #C8AA74; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem;">Archbishop</p>
+          </div>
+          <div class="patroness-card-image-content p-animate p-slide p-delay-5" style="background-image: url('../assets/Church%20heirarchy/auixilary_bishop.webp'); background-position: top center;"></div>
+          <div class="patroness-card-dots p-animate">
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-6"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-7"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-8"></div>
+          </div>
+      </div>
+      <div class="patroness-card-text">
+          <h2>Mar Joseph Pamplany</h2>
+          <p><img class="patroness-inset-img" src="../assets/Church%20heirarchy/auixilary_bishop.webp" alt="Mar Joseph Pamplany" style="object-fit: cover; object-position: top center;" />Mar Joseph Pamplany was born on 3 December 1969 in Charal, Kannur district, Kerala, as the fifth of seven children of Thomas and Mary Pamplany. He completed his schooling in Charal and Kilianthara before joining the Minor Seminary of Tellicherry in 1988. He later pursued philosophy and theology at St. Joseph’s Pontifical Seminary, Alwaye, and was ordained a priest on 30 December 1997. After serving as assistant vicar at Peravoor and vicar at Deepagiri Parish, he went to Belgium in 2001, where he obtained a Licentiate and a Doctorate in Biblical Theology from KU Leuven. On returning to India, he served in various pastoral and academic roles, including Director of the Bible Apostolate and founder of the Alpha Institute of Theology & Science.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 4rem 0;">
+  <div class="container" style="max-width: 900px;" data-reveal>
+    <div class="patroness-card-wrap p-animate p-pop">
+      <div class="patroness-card-overlay">
+          <div class="patroness-card-overlay-content p-animate p-slide-left p-delay-2">
+              <h2 class="p-animate p-slide-left p-pop p-delay-4" style="color: white; font-family: var(--serif); font-size: 2.2rem; line-height: 1.1; margin-bottom: 1rem;">Sebastian<br>Adayanthrath</h2>
+              <p class="p-animate p-slide-left p-pop p-delay-5" style="color: #C8AA74; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem;">Bishop</p>
+          </div>
+          <div class="patroness-card-image-content p-animate p-slide p-delay-5" style="background-image: url('../assets/Church%20heirarchy/mar-sebastian-adayanthrath.webp'); background-position: top center;"></div>
+          <div class="patroness-card-dots p-animate">
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-6"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-7"></div>
+              <div class="patroness-card-dot p-animate p-slide-up p-delay-8"></div>
+          </div>
+      </div>
+      <div class="patroness-card-text">
+          <h2>Rt. Rev. Sebastian Adayanthrath</h2>
+          <p><img class="patroness-inset-img" src="../assets/Church%20heirarchy/mar-sebastian-adayanthrath.webp" alt="Rt. Rev. Sebastian Adayanthrath" style="object-fit: cover; object-position: top center;" />Mar Sebastian Adayantharath was born on 5 April 1957 of Ouseph Chacko and Thresiamma at Vaikom, Kerala. He had his school education at St Joseph’s LP School and St Theresa’s High School, Vaikom from 1963 to 1973. He joined the Sacred Heart Minor Seminary of the Archdiocese of Ernakulam-Angamaly on 1 July 1973. Three years later he was sent to the Papal Seminary, Pune where he did his seminary studies from 1976 to 1983 and was ordained priest on 18 December 1983 by Bishop Mar Sebastian Mankuzhikary at St Joseph’s Pontifical Seminary, Alwaye. After his ordination, Fr. Adayantharath took a Master’s Degree in Theology from Jnana-Deepa Vidyapeeth, Pune. He was appointed as the Bishop of Syro-Malabar Eparchy of Mandya by the Holy Synod of Syro-Malabar Catholic Church and Pope Francis on 30 August 2019.</p>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
   <footer class="site-footer">

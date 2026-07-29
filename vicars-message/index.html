@@ -69,19 +69,327 @@
     </div>
   </div>
 </section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Fr. Robin MSFS</h2><span class="rule"></span></div>
-<h3>Asst Parish Priest</h3>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Fr. Riju MSFS</h2><span class="rule"></span></div>
-<h3>Parish Priest</h3>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Fr. Vijin MSFS</h2><span class="rule"></span></div>
-<h3>Assistant Parish Priest</h3>
+<style>
+.vicars-section {
+    padding: 6rem 0;
+    background-color: var(--bg);
+}
 
-</div></div></section>
+.vicars-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.vicars-header h2 {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    color: #6a2a2a;
+    margin-bottom: 1rem;
+}
+
+.vicars-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: #c9ad71;
+}
+
+.vicars-separator::before,
+.vicars-separator::after {
+    content: "";
+    height: 1px;
+    width: 60px;
+    background-color: #e2d1a3;
+}
+
+.vicars-separator svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.vicars-header p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.vicars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.vicar-card {
+    background-color: #faf7f2;
+    border-radius: 16px;
+    padding: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-bottom: 4px solid #c9ad71;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.vicar-img-wrapper {
+    background-color: #e6e9ee;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: -24px;
+    aspect-ratio: 4 / 5;
+}
+
+.vicar-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.vicar-icon-badge {
+    width: 44px;
+    height: 44px;
+    background-color: #faf7f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    color: #c9ad71;
+    border: 2px solid #faf7f2;
+}
+
+.vicar-icon-badge svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+.vicar-card-content {
+    background-color: #faf7f2;
+    border-radius: 12px;
+    padding: 1.5rem 1rem 1rem;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.vicar-name {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: #722b2b;
+    margin-bottom: 0.25rem;
+    margin-top: 0;
+}
+
+.vicar-role-divider {
+    width: 4px;
+    height: 4px;
+    background-color: #c9ad71;
+    border-radius: 50%;
+    margin: 0.5rem auto;
+}
+
+.vicar-role {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #4a4d44;
+    margin-bottom: 1.5rem;
+}
+
+.vicar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background-color: #833939;
+    color: white !important;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.vicar-btn:hover {
+    background-color: #6a2a2a;
+    transform: translateY(-2px);
+}
+
+.vicar-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.vicar-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+}
+
+.vicar-social-link {
+    width: 32px;
+    height: 32px;
+    background-color: #212c49;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.vicar-social-link:hover {
+    background-color: #34477a;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.vicar-social-link svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+</style>
+
+<section class="vicars-section">
+  <div class="container">
+    <div class="vicars-header" data-reveal>
+      <h2>Vicars' Message</h2>
+      <div class="vicars-separator">
+        <!-- SVG cross icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <path d="M8 0a1 1 0 0 1 1 1v3h3a1 1 0 0 1 0 2H9v9a1 1 0 0 1-2 0V6H4a1 1 0 0 1 0-2h3V1a1 1 0 0 1 1-1z"/>
+        </svg>
+      </div>
+      <p>We are here to serve you in faith, love and compassion.<br>Feel free to reach out to us.</p>
+    </div>
+
+    <div class="vicars-grid">
+      <!-- Card 1 -->
+      <div class="vicar-card" data-reveal="fade-up">
+        <div class="vicar-img-wrapper">
+          <img src="https://placehold.co/400x500?text=Blank" alt="Fr. Robin MSFS">
+        </div>
+        <div class="vicar-icon-badge">
+          <!-- Icon representing priest overlay -->
+          <svg viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7c0 2.22 1.45 4.1 3.5 4.77V13H9v2h1.5v6h3v-6H15v-2h-1.5v-1.23C15.55 11.1 17 9.22 17 7c0-2.76-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 3.5 12 3.5 15.5 5.07 15.5 7 13.93 10.5 12 10.5z"/></svg>
+        </div>
+        <div class="vicar-card-content">
+          <h3 class="vicar-name">Fr. Robin MSFS</h3>
+          <div class="vicar-role-divider"></div>
+          <div class="vicar-role">Asst Parish Priest</div>
+          
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            Contact on Mobile
+          </a>
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.44 3.33 1.21 4.76L2 22l5.48-1.39c1.4.71 2.98 1.12 4.67 1.12 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.15 19.95c-1.46 0-2.88-.38-4.14-1.11l-.3-.18-3.08.78.82-2.99-.2-.31c-.81-1.28-1.24-2.77-1.24-4.32 0-4.5 3.66-8.16 8.16-8.16s8.16 3.66 8.16 8.16c-.01 4.5-3.67 8.13-8.18 8.13z"/><path d="M16.5 14.15c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.73-.65-1.22-1.45-1.36-1.69-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.19-.47-.38-.41-.54-.42h-.46c-.16 0-.42.06-.64.3s-.84.82-.84 2.01c0 1.19.86 2.34.98 2.5.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.21-.57.21-1.06.15-1.16-.07-.09-.23-.15-.47-.27z"/></svg>
+            Contact on Whatsapp
+          </a>
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Contact on Email
+          </a>
+          
+          <div class="vicar-socials">
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="vicar-card" data-reveal="fade-up">
+        <div class="vicar-img-wrapper">
+          <img src="https://placehold.co/400x500?text=Blank" alt="Fr. Riju MSFS">
+        </div>
+        <div class="vicar-icon-badge">
+          <!-- Icon representing priest overlay -->
+          <svg viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7c0 2.22 1.45 4.1 3.5 4.77V13H9v2h1.5v6h3v-6H15v-2h-1.5v-1.23C15.55 11.1 17 9.22 17 7c0-2.76-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 3.5 12 3.5 15.5 5.07 15.5 7 13.93 10.5 12 10.5z"/></svg>
+        </div>
+        <div class="vicar-card-content">
+          <h3 class="vicar-name">Fr. Riju MSFS</h3>
+          <div class="vicar-role-divider"></div>
+          <div class="vicar-role">Parish Priest</div>
+          
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            Contact on Mobile
+          </a>
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.44 3.33 1.21 4.76L2 22l5.48-1.39c1.4.71 2.98 1.12 4.67 1.12 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.15 19.95c-1.46 0-2.88-.38-4.14-1.11l-.3-.18-3.08.78.82-2.99-.2-.31c-.81-1.28-1.24-2.77-1.24-4.32 0-4.5 3.66-8.16 8.16-8.16s8.16 3.66 8.16 8.16c-.01 4.5-3.67 8.13-8.18 8.13z"/><path d="M16.5 14.15c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.73-.65-1.22-1.45-1.36-1.69-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.19-.47-.38-.41-.54-.42h-.46c-.16 0-.42.06-.64.3s-.84.82-.84 2.01c0 1.19.86 2.34.98 2.5.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.21-.57.21-1.06.15-1.16-.07-.09-.23-.15-.47-.27z"/></svg>
+            Contact on Whatsapp
+          </a>
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Contact on Email
+          </a>
+          
+          <div class="vicar-socials">
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="vicar-card" data-reveal="fade-up">
+        <div class="vicar-img-wrapper">
+          <img src="https://placehold.co/400x500?text=Blank" alt="Fr. Vijin MSFS">
+        </div>
+        <div class="vicar-icon-badge">
+          <!-- Icon representing priest overlay -->
+          <svg viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7c0 2.22 1.45 4.1 3.5 4.77V13H9v2h1.5v6h3v-6H15v-2h-1.5v-1.23C15.55 11.1 17 9.22 17 7c0-2.76-2.24-5-5-5zm0 8.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 3.5 12 3.5 15.5 5.07 15.5 7 13.93 10.5 12 10.5z"/></svg>
+        </div>
+        <div class="vicar-card-content">
+          <h3 class="vicar-name">Fr. Vijin MSFS</h3>
+          <div class="vicar-role-divider"></div>
+          <div class="vicar-role">Assistant Parish Priest</div>
+          
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            Contact on Mobile
+          </a>
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.44 3.33 1.21 4.76L2 22l5.48-1.39c1.4.71 2.98 1.12 4.67 1.12 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.15 19.95c-1.46 0-2.88-.38-4.14-1.11l-.3-.18-3.08.78.82-2.99-.2-.31c-.81-1.28-1.24-2.77-1.24-4.32 0-4.5 3.66-8.16 8.16-8.16s8.16 3.66 8.16 8.16c-.01 4.5-3.67 8.13-8.18 8.13z"/><path d="M16.5 14.15c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.03-.38-1.96-1.21-.73-.65-1.22-1.45-1.36-1.69-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.19-.47-.38-.41-.54-.42h-.46c-.16 0-.42.06-.64.3s-.84.82-.84 2.01c0 1.19.86 2.34.98 2.5.12.16 1.7 2.6 4.13 3.65.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.21-.57.21-1.06.15-1.16-.07-.09-.23-.15-.47-.27z"/></svg>
+            Contact on Whatsapp
+          </a>
+          <a href="#" class="vicar-btn">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Contact on Email
+          </a>
+          
+          <div class="vicar-socials">
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
+            <a href="#" class="vicar-social-link"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>Holy Eucharist</h2><span class="rule"></span></div>
 </div></div></section>
