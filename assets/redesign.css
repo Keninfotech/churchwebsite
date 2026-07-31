@@ -553,7 +553,7 @@ section.tight {
   isolation: isolate;
   background:
     linear-gradient(180deg, rgba(31, 36, 21, .55) 0%, rgba(31, 36, 21, .7) 60%, rgba(31, 36, 21, .85) 100%),
-    url("hero.jpg") center/cover no-repeat;
+    url("church.webp") center/cover no-repeat;
 }
 
 .hero>.container {
@@ -1485,7 +1485,7 @@ section.tight {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("hero.jpg") center/cover no-repeat;
+  background: url("church.webp") center/cover no-repeat;
   transform: scale(1);
   animation: kenburns 22s ease-out both;
   will-change: transform;
