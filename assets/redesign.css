@@ -548,7 +548,7 @@ section.tight {
   display: flex;
   align-items: center;
   padding: 80px 0;
-  color: #fff;
+  color: var(--ink, #1c352d);
   overflow: hidden;
   isolation: isolate;
   background:
@@ -575,6 +575,10 @@ section.tight {
 .hero--video {
   background-image: none !important;
   background-color: transparent !important;
+  color: #fff !important;
+}
+.hero--video h1, .hero--video .eyebrow {
+  color: #fff !important;
 }
 
 .hero__video {
@@ -606,19 +610,20 @@ section.tight {
 }
 
 .hero h1 {
-  color: #fff;
+  color: var(--ink, #1c352d);
   margin: 12px 0 22px;
   letter-spacing: -.01em;
   font-weight: 500;
 }
 
 .hero .eyebrow {
-  color: #f0d78c;
+  color: var(--ink, #1c352d);
   letter-spacing: .32em;
+  font-weight: 700;
 }
 
 .hero .eyebrow::before {
-  background: #f0d78c;
+  background: var(--ink, #1c352d);
   width: 32px;
 }
 
