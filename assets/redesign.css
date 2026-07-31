@@ -2567,14 +2567,14 @@ html.pt-out body {
 .mass-quote p {
   margin: 0;
   font-family: var(--serif, serif);
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   color: var(--ink);
   display: inline;
 }
 
 .mass-quote .quote-author {
   color: var(--gold);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 500;
   white-space: nowrap;
 }
