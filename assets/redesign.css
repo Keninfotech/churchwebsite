@@ -595,8 +595,9 @@ section.tight {
 .hero__video-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(85, 107, 47, 0.75);
-  /* Olive green overlay */
+  background-color: var(--bg-soft);
+  opacity: 0.85;
+  /* Beige overlay */
   z-index: 1;
   /* Was -2 */
 }
@@ -634,7 +635,7 @@ section.tight {
 
 .hero__lead {
   font-size: 1.15rem;
-  color: rgba(255, 255, 255, .85);
+  color: var(--ink-muted, #6b6f5a);
   max-width: 55ch;
 }
 
