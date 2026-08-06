@@ -575,10 +575,23 @@ section.tight {
 .hero--video {
   background-image: none !important;
   background-color: transparent !important;
-  color: #fff !important;
+  color: #000000 !important;
 }
-.hero--video h1, .hero--video .eyebrow {
-  color: #fff !important;
+.hero--video h1,
+.hero--video .eyebrow,
+.hero--video .hero__lead {
+  color: #000000 !important;
+}
+.hero--video .eyebrow::before {
+  background: #000000 !important;
+}
+.hero--video .btn--ghost {
+  border-color: #000000 !important;
+  color: #000000 !important;
+}
+.hero--video .btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  color: #000000 !important;
 }
 
 .hero__video {
@@ -748,14 +761,14 @@ section.tight {
 }
 
 .btn--ghost {
-  border-color: rgba(255, 255, 255, .55);
-  color: #fff !important;
+  border-color: rgba(0, 0, 0, 0.55);
+  color: #000000 !important;
   background: transparent;
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, .12);
-  color: #fff !important;
+  background: rgba(0, 0, 0, 0.08);
+  color: #000000 !important;
 }
 
 .btn--outline-gold {
@@ -4211,4 +4224,42 @@ html.pt-out body {
 .schedule-card__church-illustration svg {
   width: 180px;
   height: auto;
+}
+
+/* Force all hero section text and buttons from white to black */
+.hero,
+.hero--video,
+.hero h1,
+.hero h2,
+.hero h3,
+.hero .eyebrow,
+.hero .hero__lead,
+.hero p,
+.hero--video h1,
+.hero--video h2,
+.hero--video h3,
+.hero--video .eyebrow,
+.hero--video .hero__lead,
+.hero--video p {
+  color: #000000 !important;
+}
+
+.hero .eyebrow::before,
+.hero--video .eyebrow::before {
+  background-color: #000000 !important;
+  background: #000000 !important;
+}
+
+.hero .btn--ghost,
+.hero--video .btn--ghost,
+.btn--ghost {
+  border-color: #000000 !important;
+  color: #000000 !important;
+}
+
+.hero .btn--ghost:hover,
+.hero--video .btn--ghost:hover,
+.btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  color: #000000 !important;
 }
