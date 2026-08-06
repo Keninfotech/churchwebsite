@@ -425,7 +425,7 @@ h4 {
   }
 
   .site-header__inner {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr auto;
   }
 
   .primary-nav {
