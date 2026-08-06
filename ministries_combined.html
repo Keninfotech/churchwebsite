@@ -41,24 +41,22 @@
       justify-content: center;
     }
 
-    /* Sketch filter church background */
+    /* Church background without grayscale */
     .min-hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background: url('../assets/church.webp') center 30% / cover no-repeat;
-      filter: grayscale(100%) contrast(140%) brightness(110%) opacity(0.18);
-      mix-blend-mode: multiply;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Gradient overlay to fade it into the page */
+    /* Gradient overlay to fade it into the page and provide a bright wash for the text */
     .min-hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(253, 250, 243, 0.4) 0%, rgba(253, 250, 243, 0.8) 60%, #fdfaf3 100%);
+      background: linear-gradient(to bottom, rgba(253, 250, 243, 0.7) 0%, rgba(253, 250, 243, 0.85) 60%, #fdfaf3 100%);
       pointer-events: none;
       z-index: 1;
     }

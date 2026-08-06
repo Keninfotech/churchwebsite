@@ -578,9 +578,7 @@ section.tight {
   color: var(--ink, #1c352d);
   overflow: hidden;
   isolation: isolate;
-  background:
-    linear-gradient(180deg, rgba(31, 36, 21, .55) 0%, rgba(31, 36, 21, .7) 60%, rgba(31, 36, 21, .85) 100%),
-    url("church.webp") center/cover no-repeat;
+  background: #fdfaf3;
 }
 
 .hero>.container {
@@ -594,9 +592,8 @@ section.tight {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(1200px 500px at 80% 0%, rgba(217, 191, 124, .20), transparent 60%);
-  z-index: 1;
-  /* Was -1 */
+  background: linear-gradient(to bottom, rgba(253, 250, 243, 0.7) 0%, rgba(253, 250, 243, 0.85) 60%, #fdfaf3 100%);
+  z-index: -1;
 }
 
 .hero--video {
@@ -1523,7 +1520,7 @@ section.tight {
 
 /* ---------- Hero choreography + Ken Burns ---------- */
 .hero {
-  background: linear-gradient(180deg, rgba(31, 36, 21, .55) 0%, rgba(31, 36, 21, .7) 60%, rgba(31, 36, 21, .85) 100%);
+  background: #fdfaf3;
 }
 
 .hero::after {
