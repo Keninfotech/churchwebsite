@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ministries · Our Lady of Sorrows, Electronics City</title>
+<meta name="description" content="Catechism, the Cherupushpa Mission League, and Holy Childhood — faith formation ministries of Our Lady of Sorrows Church, Electronics City.">
+<meta property="og:title" content="Ministries · Our Lady of Sorrows, Electronics City">
+<meta property="og:description" content="Catechism, the Cherupushpa Mission League, and Holy Childhood — faith formation ministries of Our Lady of Sorrows Church.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/redesign.css">
+
+<style>
+  /* ---------- Ministries overview & tab system ---------- */
+  .min-hero {
+    position: relative;
+    padding: clamp(1.5rem, 4vw, 3rem) 2rem;
+    text-align: center;
+    background: radial-gradient(ellipse at top, rgba(200,170,110,0.10), transparent 60%);
+    overflow: hidden;
+    min-height: calc(100vh - var(--header-h, 104px));
+    min-height: calc(100dvh - var(--header-h, 104px));
+    max-height: calc(100vh - var(--header-h, 104px));
+    max-height: calc(100dvh - var(--header-h, 104px));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .min-hero-content { max-width: 700px; margin: 0 auto; }
+  .min-hero__eyebrow {
+    display: inline-flex; align-items: center; gap: .75rem;
+    color: #a9843f; font-family: var(--sans,'Inter',sans-serif);
+    font-weight: 600; letter-spacing: .3em; font-size: .78rem;
+    text-transform: uppercase; margin-bottom: 1.1rem;
+  }
+  .min-hero__eyebrow::before, .min-hero__eyebrow::after {
+    content: ''; width: 34px; height: 1px; background: #c8aa6e;
+  }
+  .min-hero h1 {
+    font-family: var(--serif,'Cormorant Garamond',serif);
+    font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.6rem);
+    color: #16281f; margin: 0 0 1rem;
+  }
+  .min-hero p {
+    max-width: 640px; margin: 0 auto; color: #5a5648;
+    font-size: 1.05rem; line-height: 1.7;
+  }
+
+  /* Overview cards */
+  .min-grid-section { padding: 1rem 2rem 4rem; }
+  .min-grid {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+  }
+  .min-card {
+    position: relative;
+    background: #fffdf8;
+    border: 1px solid #e7ddc6;
+    border-radius: 14px;
+    padding: 1.8rem 1.4rem 1.6rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex; flex-direction: column; gap: .85rem;
+    opacity: 0; transform: translateY(16px);
+    transition: box-shadow .3s ease, border-color .3s ease, transform .35s ease, opacity .5s ease;
+    font: inherit; color: inherit;
+  }
+  .min-card.is-in { opacity: 1; transform: translateY(0); }
+  .min-card:hover, .min-card:focus-visible {
+    border-color: #c8aa6e;
+    box-shadow: 0 14px 30px -12px rgba(90, 66, 20, 0.28);
+    transform: translateY(-4px);
+    outline: none;
+  }
+  .min-card.is-active {
+    border-color: #b98e47;
+    box-shadow: 0 0 0 2px rgba(185,142,71,0.35), 0 14px 30px -12px rgba(90,66,20,0.28);
+  }
+  .min-card__icon {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: #f4ecd8; color: #a9743a;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .min-card__icon svg { width: 21px; height: 21px; }
+  .min-card__name {
+    font-family: var(--serif,'Cormorant Garamond',serif);
+    font-weight: 700; font-size: 1.18rem; color: #16281f; line-height: 1.25;
+  }
+  .min-card__tag {
+    font-size: .86rem; line-height: 1.5; color: #6a6555;
+  }
+  @media (max-width: 760px) { .min-grid { grid-template-columns: 1fr; } }
+
+  /* Sticky tab bar */
+  .min-tabs-wrap {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(253, 251, 244, 0.92);
+    backdrop-filter: saturate(160%) blur(8px);
+    border-top: 1px solid #ece3cd; border-bottom: 1px solid #ece3cd;
+  }
+  .min-tabs {
+    max-width: 900px; margin: 0 auto; padding: .7rem 2rem;
+    display: flex; gap: .4rem; overflow-x: auto; justify-content: center;
+    scrollbar-width: thin;
+  }
+  .min-tabs::-webkit-scrollbar { height: 5px; }
+  .min-tabs::-webkit-scrollbar-thumb { background: #d8cba4; border-radius: 5px; }
+  .min-tab {
+    flex-shrink: 0; border: none; background: transparent;
+    font-family: var(--sans,'Inter',sans-serif);
+    font-size: .86rem; font-weight: 600; color: #6c6754;
+    padding: .55rem 1rem; border-radius: 999px; cursor: pointer;
+    transition: background .25s ease, color .25s ease;
+    white-space: nowrap;
+  }
+  .min-tab:hover { color: #16281f; background: #f1e9d5; }
+  .min-tab.is-active { color: #fff; background: #16281f; }
+  .min-tab.is-active .min-tab__dot { background: #c8aa6e; }
+
+  /* Panels */
+  .min-panels { position: relative; background: #fff; }
+  .ministry-panel { display: none; }
+  .ministry-panel.is-active {
+    display: block;
+    animation: minPanelIn .5s cubic-bezier(.22,.61,.36,1);
+  }
+  @keyframes minPanelIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Reveal-on-scroll (self-contained, independent of external reveal handling) */
+  [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  [data-reveal].is-in { opacity: 1 !important; transform: none !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .min-card, [data-reveal], .ministry-panel.is-active { transition: none !important; animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <div class="topbar__inner">
+      <div>Diocese of Mandya · Syro-Malabar Church</div>
+      <div><a href="./contact-us/">Contact</a> &nbsp;·&nbsp; <a href="./donate-to-parish/">Donate</a></div>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./">
+        <span class="brand__crest" aria-hidden="true">OLS</span>
+        <span class="brand__name">
+          <span class="brand__title">Our Lady of Sorrows Church</span>
+          <span class="brand__sub">Electronics City (Hebbagodi)</span>
+        </span>
+      </a>
+      <nav class="primary-nav" data-primary-nav aria-label="Main navigation"><ul><li><a href="./">Home</a></li>
+        <li class="has-sub">
+          <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
+          <ul><li><a href="./our-patroness/">Our Patroness</a></li><li><a href="./our-church-hierarchy/">Our Church Hierarchy</a></li><li><a href="./parish-history/">Parish History</a></li><li><a href="./vicars-message/">Vicars Message</a></li><li><a href="./donate-to-parish/">Donate to Parish</a></li><li><a href="./saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li></ul>
+        </li>
+        <li class="has-sub">
+          <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
+          <ul><li><a href="./parish-council-2/">Parish Council</a></li><li><a href="./wards/">Wards</a></li><li><a href="./construction-committee/">Construction Committee</a></li><li><a href="./parish-choir/">Parish Choir</a></li><li><a href="./obituaries/">Obituaries</a></li><li><a href="./cri-electronics-city/">CRI Electronics City</a></li><li><a href="./business-directory/">Business Directory</a></li><li><a href="./gallery/">Gallery</a></li></ul>
+        </li>
+        <li><a href="./ministries_combined.html">Ministries</a></li><li><a href="./catechism_cml_holychildhood_combined.html">Catechism</a></li><li><a href="./contact-us/">Contact Us</a></li></ul></nav>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a class="nav-cta" href="./donate-to-parish/">Donate</a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+      </div>
+    </div>
+  </header>
+<main id="main">
+<section class="min-hero" data-reveal>
+  <div class="min-hero-content">
+    <span class="min-hero__eyebrow">Our Lady of Sorrows &middot; Electronics City</span>
+    <h1>Ministries</h1>
+    <p>Catechism, the Cherupushpa Mission League, and Holy Childhood — choose one below to explore who leads it, what it does, and what it has been up to.</p>
+  </div>
+</section>
+
+<section class="min-grid-section">
+  <div class="min-grid" id="minGrid">
+      <button class="min-card" type="button" data-target="catechism" aria-label="View Catechism / Sunday School">
+        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 9.5 12 5l10 4.5-10 4.5-10-4.5z"/><path d="M6 11.5v4.7c0 1.6 3 3 6 3s6-1.4 6-3v-4.7"/><path d="M22 9.5v6"/></svg></span>
+        <span class="min-card__name">Catechism / Sunday School</span>
+        <span class="min-card__tag">Faith formation for 569 students, from Nursery through Class 12.</span>
+      </button>
+      <button class="min-card" type="button" data-target="cml" aria-label="View Cherupushpa Mission League">
+        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="5.5" r="2.2"/><circle cx="12" cy="18.5" r="2.2"/><circle cx="5.5" cy="12" r="2.2"/><circle cx="18.5" cy="12" r="2.2"/></svg></span>
+        <span class="min-card__name">Cherupushpa Mission League</span>
+        <span class="min-card__tag">Asia's largest lay missionary movement, formed for children.</span>
+      </button>
+      <button class="min-card" type="button" data-target="holy-childhood" aria-label="View Holy Childhood">
+        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><circle cx="8.2" cy="7" r="2.4"/><path d="M4 20.5v-1.6a3.8 3.8 0 0 1 3.8-3.8h0.8a3.8 3.8 0 0 1 3.8 3.8v1.6"/><circle cx="17.3" cy="9.2" r="2"/><path d="M14.8 20.5v-1.3a2.9 2.9 0 0 1 2.9-2.9h0a2.9 2.9 0 0 1 2.7 1.8"/></svg></span>
+        <span class="min-card__name">Holy Childhood</span>
+        <span class="min-card__tag">Children praying and sacrificing for children worldwide.</span>
+      </button></div>
+</section>
+
+<div class="min-tabs-wrap">
+  <nav class="min-tabs" id="minTabs" aria-label="Ministry tabs">
+    <button class="min-tab" type="button" data-target="catechism"><span class="min-tab__dot" style="display:inline-block;width:5px;height:5px;border-radius:50%;background:transparent;margin-right:.4rem;vertical-align:middle;transition:background .25s ease;"></span>Catechism / Sunday School</button><button class="min-tab" type="button" data-target="cml"><span class="min-tab__dot" style="display:inline-block;width:5px;height:5px;border-radius:50%;background:transparent;margin-right:.4rem;vertical-align:middle;transition:background .25s ease;"></span>Cherupushpa Mission League</button><button class="min-tab" type="button" data-target="holy-childhood"><span class="min-tab__dot" style="display:inline-block;width:5px;height:5px;border-radius:50%;background:transparent;margin-right:.4rem;vertical-align:middle;transition:background .25s ease;"></span>Holy Childhood</button>
+  </nav>
+</div>
+
+<div class="min-panels" id="minPanels">
+  
+<div class="ministry-panel" id="panel-catechism" data-slug="catechism">
+  
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div data-reveal>
+        <span class="eyebrow">Formation</span>
+        <h1>Catechism / Sunday School</h1>
+        <span class="rule"></span>
+        <div style="margin-top: 1.5rem;">
+          <a href="./donate-to-parish/" class="btn btn--primary" style="background-color: #1c352d; border-color: #1c352d; color: #fff;">Donate Us</a>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__art-badge"><div class="num">OLS</div><div class="lbl">Parish · Electronics City</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.catechism-section {
+  padding: 4rem 2rem;
+}
+.cat-heading {
+  color: #a42c2c;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cat-text {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.cat-text p {
+  margin-bottom: 1.5rem;
+}
+.cat-list {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: cat-counter;
+  margin-bottom: 1.5rem;
+}
+.cat-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.cat-list li::before {
+  counter-increment: cat-counter;
+  content: counter(cat-counter) ". ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 400;
+}
+.cat-list-title {
+  font-weight: 700;
+  display: block;
+}
+.cat-list-desc {
+  display: block;
+  margin-top: 0.2rem;
+}
+.cat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #666;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+.cat-btn:hover {
+  opacity: 0.9;
+  color: white;
+}
+.cat-img-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+.cat-img-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+@media (max-width: 900px) {
+  .cat-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+</style>
+
+<section class="catechism-section">
+  <div class="container" style="max-width:1200px;" data-reveal>
+    <div class="cat-grid">
+      <div class="cat-text">
+        <h2 class="cat-heading">Online Blog for Catechism Resources</h2>
+        <p>To support the faith formation of our parish community, we have created an <strong>online blog</strong> that brings together helpful resources for children, youth, and adults. Through this initiative, we hope to make catechism more engaging, accessible, and enriching for everyone. The blog provides direct links to the following resources:</p>
+        
+        <ul class="cat-list">
+          <li>
+            <span class="cat-list-title">Catechism Classes &ndash; YouTube</span>
+            <span class="cat-list-desc">Online catechism class videos designed to strengthen knowledge of the Catholic faith in an easy-to-follow format.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">Holy Mass &ndash; YouTube Live Streaming</span>
+            <span class="cat-list-desc">Participate in the celebration of the Holy Eucharist from your homes through live-streamed Masses.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">SM Smart Catechism</span>
+            <span class="cat-list-desc">A digital platform offering structured catechism lessons with interactive content for deeper learning.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">YouCat.org</span>
+            <span class="cat-list-desc">The official Youth Catechism resource, answering questions of faith in a clear and simple way, especially for young people.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">3 Minute Catechism</span>
+            <span class="cat-list-desc">Short animated videos that explain essential truths of the Catholic faith in just a few minutes.</span>
+          </li>
+          <li>
+            <span class="cat-list-title">Bible Stories</span>
+            <span class="cat-list-desc">Engaging and faith-filled stories from the Bible, helping children and families to know and love the Word of God.</span>
+          </li>
+        </ul>
+        
+        <p>We invite all parishioners, especially parents, teachers, and students, to make use of these resources. May this online platform strengthen our faith journey and bring us closer to Christ.</p>
+        
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <a href="#" class="cat-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            Visit Blog
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Stats Section */
+.stats-section {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+.stats-heading-wrapper {
+  margin-bottom: 3rem;
+}
+.stats-heading {
+  color: #8c381c;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+.stats-dot {
+  color: #d1b570;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0.2rem 0;
+}
+.stats-subtitle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.stats-subtitle {
+  color: #333;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 1.1rem;
+}
+.stats-leaf {
+  width: 24px;
+  height: 24px;
+  stroke: #8fa679;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border-bottom: 5px solid #627b53;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.stat-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background-color: #e8ecdf;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: #566c48;
+}
+.stat-number {
+  color: #2b451c;
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  line-height: 1;
+}
+.stat-dots {
+  color: #a4b39b;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  margin: 0.2rem 0 0.8rem;
+  line-height: 0.5;
+}
+.stat-label {
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: var(--sans, 'Inter', sans-serif);
+}
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* Future Plans */
+.plans-section {
+  padding: 4rem 2rem 5rem;
+  background-color: #fdfaf3;
+  position: relative;
+  overflow: hidden;
+}
+.plans-title-wrapper {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.plans-decor-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #a47d3c;
+  margin-bottom: 0.5rem;
+}
+.plans-decor-top svg { width: 24px; height: 24px; stroke: #a47d3c; }
+.plans-decor-top::before, .plans-decor-top::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background-color: #a47d3c;
+}
+.plans-title {
+  color: #3b5336;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+}
+.plans-subtitle {
+  color: #555;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+.plans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.plan-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 0 1.5rem 1.5rem;
+  position: relative;
+  border: 1px solid #f0f0f0;
+  margin-top: 1.5rem; 
+}
+.theme-green { box-shadow: 6px 6px 0px #d2dfce; }
+.theme-olive { box-shadow: 6px 6px 0px #e5ebc6; }
+.theme-gold  { box-shadow: 6px 6px 0px #f6e6c4; }
+.theme-blue  { box-shadow: 6px 6px 0px #dbe4f0; }
+
+.plan-card-header {
+  position: relative;
+  background: linear-gradient(90deg, var(--h-color) 0%, #ffffff 80%);
+  margin: 0 -1.5rem 1.5rem;
+  padding: 1.2rem 1rem 1.2rem 4.5rem;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 2px dashed var(--h-color);
+}
+.theme-green .plan-card-header { --h-color: #d2dfce; }
+.theme-olive .plan-card-header { --h-color: #e5ebc6; }
+.theme-gold  .plan-card-header { --h-color: #f6e6c4; }
+.theme-blue  .plan-card-header { --h-color: #dbe4f0; }
+
+.plan-badge {
+  position: absolute;
+  top: -1.2rem;
+  left: -0.5rem;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+.theme-green .plan-badge { background-color: #55754f; }
+.theme-olive .plan-badge { background-color: #7b8849; }
+.theme-gold  .plan-badge { background-color: #b28033; }
+.theme-blue  .plan-badge { background-color: #3b506f; }
+
+.plan-heading {
+  color: #2b3a25;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+}
+.theme-gold .plan-heading { color: #5a4019; }
+.theme-blue .plan-heading { color: #1e2c40; }
+
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.plan-list li {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  display: flex;
+  gap: 0.8rem;
+}
+.plan-list li strong {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.plan-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.45rem;
+}
+.theme-green .plan-list li::before { background-color: #55754f; }
+.theme-olive .plan-list li::before { background-color: #7b8849; }
+.theme-gold  .plan-list li::before { background-color: #b28033; }
+.theme-blue  .plan-list li::before { background-color: #3b506f; }
+
+.plans-footer {
+  text-align: center;
+  margin-top: 4rem;
+}
+.plans-quote {
+  font-style: italic;
+  font-size: 1.2rem;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.plans-quote svg { width: 24px; height: 24px; stroke: #a47d3c; }
+.plans-ref {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #777;
+  font-family: var(--sans, 'Inter', sans-serif);
+  margin-top: 0.5rem;
+}
+@media (max-width: 768px) {
+  .plans-grid { grid-template-columns: 1fr; }
+}
+
+/* Teachers Tabs */
+.teachers-section {
+  padding: 2rem 2rem 4rem;
+}
+.teachers-heading {
+  color: #b54917;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+}
+.tab-btn {
+  background-color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.tab-btn.active {
+  background-color: #555;
+  color: #fff;
+}
+.tab-content {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.tab-content.active {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+}
+.tab-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.tab-details {
+  flex: 1;
+}
+.tab-details p {
+  margin-bottom: 1rem;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 1rem;
+  color: #333;
+}
+.admin-team {
+  text-align: center;
+  margin-top: 4rem;
+}
+.admin-team h3 {
+  font-size: 1.1rem;
+  color: #333;
+  font-family: var(--sans, 'Inter', sans-serif);
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 768px) {
+  .tab-content.active {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+</style>
+
+<section class="stats-section bg-soft">
+  <div class="container" data-reveal>
+    <div class="stats-heading-wrapper">
+      <h2 class="stats-heading">Sunday School Current Strength</h2>
+      <div class="stats-dot">&bull;</div>
+      <div class="stats-subtitle-wrapper">
+        <svg class="stats-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 0 8.48A11.83 11.83 0 0 1 11 20z" transform="scale(-1, 1) translate(-24, 0)"/></svg>
+        <span class="stats-subtitle">Nurturing young hearts in faith and knowledge.</span>
+        <svg class="stats-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 0 8.48A11.83 11.83 0 0 1 11 20z"/></svg>
+      </div>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 1.5-2 1.5c0 2 1.5 3 2.5 3.5"/></svg>
+        </div>
+        <div class="stat-number">17</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In Nursery</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        </div>
+        <div class="stat-number">205</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In LP</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10Z"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/><path d="M8 10h8"/><path d="M8 14h8"/></svg>
+        </div>
+        <div class="stat-number">149</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In UP</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="stat-number">134</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In HS</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-10 5v15h20V7z"/><path d="M12 2v20"/><path d="M8 22v-5h8v5"/><path d="M8 12h8"/><path d="M8 7h8"/></svg>
+        </div>
+        <div class="stat-number">63</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Students In HSS</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M12 4a6 6 0 0 0-6 6"/><path d="M18 10a6 6 0 0 0-6-6"/></svg>
+        </div>
+        <div class="stat-number">276</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Number of Boys</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M6 10c0-3 2-5 6-5s6 2 6 5c0 1.5-1 3-2 3s-2-1.5-4-1.5-3 1.5-4 1.5-2-1.5-2-3z"/></svg>
+        </div>
+        <div class="stat-number">293</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Number of Girls</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="stat-number">569</div>
+        <div class="stat-dots">.....</div>
+        <div class="stat-label">Total Students</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plans-section">
+  <div class="container" data-reveal>
+    <div class="plans-title-wrapper">
+      <div class="plans-decor-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 0 8.48A11.83 11.83 0 0 1 11 20z" transform="scale(-1, 1) translate(-24, 0)"/></svg>
+        <span style="font-size: 1.8rem; line-height: 1;">&dagger;</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 0 8.48A11.83 11.83 0 0 1 11 20z"/></svg>
+      </div>
+      <h2 class="plans-title">OUR FUTURE PLANS</h2>
+      <p class="plans-subtitle">Here are our plans for the future that our department is planning to do for the children of our parish</p>
+    </div>
+    
+    <div class="plans-grid">
+      <!-- MAY TO JUNE (Green Theme) -->
+      <div class="plan-card theme-green">
+        <div class="plan-card-header">
+          <div class="plan-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="plan-heading">MAY TO JUNE</h3>
+        </div>
+        <ul class="plan-list">
+          <li><strong>31st MAY 2025:</strong> First Holy Communion</li>
+          <li><strong>25th MAY 2025:</strong> Teachers Training Program</li>
+          <li><strong>1st JUNE 2025:</strong> Parish Level Inaugural of Catechism for Academic Year 2024 &ndash; 2025 followed by Students Retreat</li>
+          <li><strong>8th JUNE 2025:</strong> Staff Meeting &amp; Year Plan Discussion</li>
+          <li><strong>15th JUNE 2025:</strong> Parents Orientation &amp; PTA Meeting</li>
+          <li><strong>22nd JUNE 2025:</strong> Basic Catechism Training for New Catechism Teachers</li>
+        </ul>
+      </div>
+      
+      <!-- JULY TO AUGUST (Olive Theme) -->
+      <div class="plan-card theme-olive">
+        <div class="plan-card-header">
+          <div class="plan-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M10 4h4M4 14l8-8 8 8v8H4zM10 22v-4a2 2 0 0 1 4 0v4"/></svg>
+          </div>
+          <h3 class="plan-heading">JULY TO AUGUST</h3>
+        </div>
+        <ul class="plan-list">
+          <li><strong>6th JULY 2025:</strong> CML &amp; Holy Childhood Inauguration, Dukhrana Celebration &amp; Parish Level Academics Excellence Award Ceremony, Class wise Food Fest (Class 5 &amp; above)</li>
+          <li><strong>13th JULY 2025:</strong> First Delegates Meeting</li>
+          <li><strong>27th JULY 2025:</strong> Parish Level Family Bible Quiz</li>
+          <li><strong>3rd AUGUST 2025:</strong> Angles Meet 2025</li>
+          <li><strong>10th AUGUST 2025:</strong> Seraphim Meet 2025 (Gathering of Altar Angels)</li>
+          <li><strong>17th AUGUST 2025:</strong> Family Bible Quiz</li>
+          <li><strong>24th AUGUST 2025:</strong> Student Bible Exam</li>
+          <li><strong>31st AUGUST 2025:</strong> Onam Celebrations</li>
+        </ul>
+      </div>
+      
+      <!-- SEPTEMBER TO DECEMBER (Gold Theme) -->
+      <div class="plan-card theme-gold">
+        <div class="plan-card-header">
+          <div class="plan-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2h8l-1 8h-6zM12 10v10M9 20h6"/></svg>
+          </div>
+          <h3 class="plan-heading">SEPTEMBER TO DECEMBER</h3>
+        </div>
+        <ul class="plan-list">
+          <li><strong>13th SEPTEMBER 2025:</strong> Parish Feast</li>
+          <li><strong>28th SEPTEMBER 2025:</strong> Logos Quiz 2025</li>
+          <li><strong>19th OCTOBER 2025:</strong> Parish Level Bible Kalotsavam</li>
+          <li><strong>26th OCTOBER 2025:</strong> Mission Carnival by CML Students</li>
+          <li><strong>9th NOVEMBER 2025:</strong> Mission Quest Online, First Semester Exam, Second Delegates Meeting @ OLS Church</li>
+          <li><strong>16th November 2025:</strong> Centralized evaluation of Class X and XII First Semester Exam answer sheets</li>
+          <li><strong>30th November 2025:</strong> Forane Level Bible Kalotsavam 2025</li>
+          <li><strong>7th DECEMBER 2025:</strong> Outreach Program for Class 5 to 8</li>
+          <li><strong>14th DECEMBER 2025:</strong> Outreach Program for Class 5 to 12</li>
+          <li><strong>21st December 2025:</strong> Christmas Celebrations</li>
+        </ul>
+      </div>
+      
+      <!-- JANUARY TO MAY (Blue Theme) -->
+      <div class="plan-card theme-blue">
+        <div class="plan-card-header">
+          <div class="plan-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"/><line x1="10" y1="10" x2="14" y2="10"/><line x1="12" y1="8" x2="12" y2="13"/></svg>
+          </div>
+          <h3 class="plan-heading">JANUARY TO MAY</h3>
+        </div>
+        <ul class="plan-list">
+          <li><strong>4th JANUARY 2026:</strong> Diocese Level Student Bible Quiz</li>
+          <li><strong>1st FEBRUARY 2026:</strong> Second Semester Exam</li>
+          <li><strong>8th FEBRUARY 2026:</strong> Centralized evaluation of Class X and XII Second Semester Exam answer sheets</li>
+          <li><strong>22nd FEBRUARY 2026:</strong> Bible Sunday &amp; New Testament Scripture Scribing Program Closure</li>
+          <li><strong>1st MARCH 2026:</strong> Students Retreat</li>
+          <li><strong>5th APRIL 2026:</strong> Easter Egg Painting</li>
+          <li><strong>3rd MAY 2026:</strong> Annual Report for AY 2025 &ndash; 2026</li>
+          <li><strong>31st MAY 2026:</strong> Teacher Training &ndash; 2026</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="plans-footer">
+      <div class="plans-quote">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 0 8.48A11.83 11.83 0 0 1 11 20z" transform="scale(-1, 1) translate(-24, 0)"/></svg>
+        &ldquo;Train up a child in the way he should go; even when he is old he will not depart from it.&rdquo;
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 0 8.48A11.83 11.83 0 0 1 11 20z"/></svg>
+      </div>
+      <div class="plans-ref">&ndash; Proverbs 22:6</div>
+    </div>
+  </div>
+</section>
+
+<section class="teachers-section bg-soft">
+  <div class="container" data-reveal>
+    <h2 class="teachers-heading">Catechism Teachers</h2>
+    
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-target="c1a" onclick="openClass('c1a')">Class 1 - Sec A</button>
+      <button class="tab-btn" data-target="c1b" onclick="openClass('c1b')">Class 1 - Sec B</button>
+      <button class="tab-btn" data-target="c2a" onclick="openClass('c2a')">Class 2 - Sec A</button>
+      <button class="tab-btn" data-target="c2b" onclick="openClass('c2b')">Class 2 - Sec B</button>
+      <button class="tab-btn" data-target="c3a" onclick="openClass('c3a')">Class 3 - Sec A</button>
+      <button class="tab-btn" data-target="c3b" onclick="openClass('c3b')">Class 3 - Sec B</button>
+      <button class="tab-btn" data-target="c4a" onclick="openClass('c4a')">Class 4 - Sec A</button>
+      <button class="tab-btn" data-target="c4b" onclick="openClass('c4b')">Class 4 - Sec B</button>
+      <button class="tab-btn" data-target="c5a" onclick="openClass('c5a')">Class 5 - Sec A</button>
+      <button class="tab-btn" data-target="c5b" onclick="openClass('c5b')">Class 5 - Sec B</button>
+      <button class="tab-btn" data-target="c6a" onclick="openClass('c6a')">Class 6 - Sec A</button>
+      <button class="tab-btn" data-target="c6b" onclick="openClass('c6b')">Class 6 - Sec B</button>
+      <button class="tab-btn" data-target="c7a" onclick="openClass('c7a')">Class 7 - Sec A</button>
+      <button class="tab-btn" data-target="c7b" onclick="openClass('c7b')">Class 7 - Sec B</button>
+      <button class="tab-btn" data-target="c8a" onclick="openClass('c8a')">Class 8 - Sec A</button>
+      <button class="tab-btn" data-target="c8b" onclick="openClass('c8b')">Class 8 - Sec B</button>
+      <button class="tab-btn" data-target="c9a" onclick="openClass('c9a')">Class 9 - Sec A</button>
+      <button class="tab-btn" data-target="c9b" onclick="openClass('c9b')">Class 9 - Sec B</button>
+      <button class="tab-btn" data-target="c10a" onclick="openClass('c10a')">Class 10 - Sec A</button>
+      <button class="tab-btn" data-target="c11a" onclick="openClass('c11a')">Class 11 - Sec A</button>
+      <button class="tab-btn" data-target="c12a" onclick="openClass('c12a')">Class 12 - Sec A</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="teacherPanes">
+      <div class="tab-content active" id="c1a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 1</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Deepthi Soni</p>
+          <p><strong>Mobile:</strong> 9611144607</p>
+          <p><strong>Number of Students:</strong> 23</p>
+          <p><strong>No of Boys:</strong> 11</p>
+          <p><strong>No of Girls:</strong> 12</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c1b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 1</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Deepthi Tom</p>
+          <p><strong>Mobile:</strong> 9480637629</p>
+          <p><strong>Number of Students:</strong> 17</p>
+          <p><strong>No of Boys:</strong> 9</p>
+          <p><strong>No of Girls:</strong> 8</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c2a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 2</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Simi Shinto</p>
+          <p><strong>Mobile:</strong> 9741709713</p>
+          <p><strong>Number of Students:</strong> 21</p>
+          <p><strong>No of Boys:</strong> 8</p>
+          <p><strong>No of Girls:</strong> 13</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c2b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 2</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Lissy Thomas</p>
+          <p><strong>Mobile:</strong> 7892562182</p>
+          <p><strong>Number of Students:</strong> 18</p>
+          <p><strong>No of Boys:</strong> 6</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c3a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 3</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Christy John</p>
+          <p><strong>Mobile:</strong> 9823439834</p>
+          <p><strong>No of Boys:</strong> 5</p>
+          <p><strong>No of Girls:</strong> 16</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c3b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 3</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Sr. Rosy</p>
+          <p><strong>Mobile:</strong> 9495661649</p>
+          <p><strong>Number of Students:</strong> 25</p>
+          <p><strong>No of Boys:</strong> 13</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c4a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 4</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Sr. Geena</p>
+          <p><strong>Mobile:</strong> 9902873204</p>
+          <p><strong>Number of Students:</strong> 19</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c4b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 4</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Sr. Kochuthresia</p>
+          <p><strong>Mobile:</strong> 8904701752</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c5a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 5</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Cini Angelus</p>
+          <p><strong>Mobile:</strong> 8431452415</p>
+          <p><strong>Number of Students:</strong> 22</p>
+          <p><strong>No of Girls:</strong> 11</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c5b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 5</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Sophie Agnes</p>
+          <p><strong>Mobile:</strong> 9895775767</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c6a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 6</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Lejo K L</p>
+          <p><strong>Mobile:</strong> 9972184052</p>
+          <p><strong>Number of Students:</strong> 10</p>
+          <p><strong>No of Girls:</strong> 2</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c6b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 6</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Gracelind Albert</p>
+          <p><strong>Mobile:</strong> 8123257427</p>
+          <p><strong>Number of Students:</strong> 20</p>
+          <p><strong>No of Boys:</strong> 12</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c7a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 7</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Terrince A Joseph</p>
+          <p><strong>Mobile:</strong> 9986006905</p>
+          <p><strong>No of Boys:</strong> 10</p>
+          <p><strong>No of Girls:</strong> 10</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c7b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 7</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Jeseentha Mathew</p>
+          <p><strong>Mobile:</strong> 9901534807</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c8a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 8</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Rohit Tomy</p>
+          <p><strong>Mobile:</strong> 9611577412</p>
+          <p><strong>No of Girls:</strong> 15</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c8b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 8</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Dayas Dixen</p>
+          <p><strong>Mobile:</strong> 8867415649</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c9a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 9</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Br. Christin Tom</p>
+          <p><strong>Mobile:</strong> 8289886530</p>
+          <p><strong>No of Girls:</strong> 9</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c9b">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 9</p>
+          <p><strong>Class Section:</strong> B</p>
+          <p><strong>Class Teacher's Name:</strong> Mareena Tom</p>
+          <p><strong>Mobile:</strong> 8147544270</p>
+          <p><strong>Number of Students:</strong> 15</p>
+          <p><strong>No of Girls:</strong> 6</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c10a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 10</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Charlie Paul</p>
+          <p><strong>Mobile:</strong> 9886827242</p>
+          <p><strong>Number of Students:</strong> 16</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c11a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 11</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Sheryl Jose</p>
+          <p><strong>Mobile:</strong> 9845357765</p>
+          <p><strong>Number of Students:</strong> 36</p>
+          <p><strong>No of Boys:</strong> 16</p>
+          <p><strong>No of Girls:</strong> 20</p>
+        </div>
+      </div>
+      <div class="tab-content" id="c12a">
+        <div class="tab-details">
+          <p><strong>Class Name:</strong> Class 12</p>
+          <p><strong>Class Section:</strong> A</p>
+          <p><strong>Class Teacher's Name:</strong> Varghese Thattil</p>
+          <p><strong>Mobile:</strong> 9848565563</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="admin-team">
+      <h2 style="color: #b54917; font-family: var(--serif, 'Cormorant Garamond', serif); font-size: 1.8rem; margin-bottom: 1.5rem;">Administrative Team</h2>
+      <h3>Mr. Shine Williams</h3>
+      <h3>Ms. Sheril Jose</h3>
+      <h3>Ms. Priya Mathew</h3>
+      <h3>Ms. Linta Scariah</h3>
+      <h3>Mr. Jestin James</h3>
+      <h3>Dr Angel Sajo</h3>
+      <h3>Ms. Cini Angelous</h3>
+      <h3>Ms. Sunitha Jaison</h3>
+      <h3>Mr. Deepak Joseph</h3>
+      <h3>Bro. Ashin Antu</h3>
+      <h3>Mr. Abhinav Tom</h3>
+      <h3>Ms. Iva Maria Philip</h3>
+    </div>
+  </div>
+</section>
+
+<script>
+function openClass(tabId) {
+  document.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById(tabId).classList.add('active');
+  document.querySelector('.tab-btn[data-target="' + tabId + '"]').classList.add('active');
+}
+</script>
+<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<div class="section-head"><span class="eyebrow">Section</span><h2>Current Altar Servers List</h2><span class="rule"></span></div>
+<p>Aaron, Abel John, Aeibel, Alden Robert, Alphin, Andrews, Aron, Basil, Daniel James, Daniel Thomas, David James, Eric, Evan, Geroge</p>
+<h6>Hayden, Heinze, Ivan, Ivan Steve, Jenovin, Jessa, Jones, Jovan,Juvel, Kevin, Rayan Joseph, Ron, Ron Linto, and Sereha</h6>
+</div></div></section>
+<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<div class="section-head"><span class="eyebrow">Section</span><h2>LOOKING BACK TO THE BEGINNINGS…</h2><span class="rule"></span></div>
+<p>Syro Malabar Kurbana was introduced in our parish in the year 2002 and back then the Catechism classes for our children were conducted alongside the Latin rites in our home parish (SFS Church). The basic idea of beginning the Catechism classes for our children was to prepare them well for their first Holy Communion.</p>
+<p>In the year 2007, Catechism classes were completely shifted to Syro-Malabar rites and children began taking classes regularly every Sunday’s after the Holy Mass. The Catechism classes were restructured class-wise with 40 students in the year 2009-2010 .</p>
+<p>During the year 2012-2013 our Catechism classes came under Mandya Diocese then known as Syro-Malabar Bangalore Mission. During this period the children from our Catechism classes took part in all the activities conducted in the Diocese and showcased their mantle, which made our parish well known among other parishes and the people of our diocese. In the following years our parish also became a part of the Mission League of our dioceses and actively took part in the mission League activities.</p>
+<p>We remember in our prayers all the priests, sisters and all other members who worked hard and made their immense contribution towards bringing the Catechism classes of our parish to an “A category” level in the diocese of Mandya today, which includes MSFS brothers, La Salette brothers, DSFS sisters, SD sisters, Holy Spirit Sisters and all other Catechism Teachers. Our biggest Achievement in this period is is that two of our children, Bro. Asher Mathew and Sr. Jincy George have chosen the path of God to become the faithful missionaries of God.</p>
+</div></div></section>
+<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<div class="section-head"><span class="eyebrow">Section</span><h2>OLS Catechism</h2><span class="rule"></span></div>
+<h4>Catechism Students Retreat 2023- Our Lady of Sorrows Church Hebbagodi</h4>
+<h4>Solemn Holy Communion on 20th May 2023</h4>
+<h4>Our Lady of Sorrows Church Hebbagodi - Cherupushpa Mission League Inaguration</h4>
+<h4>OLS Church Feast 2025 - Catechism Students Dance</h4>
+<h4>OLS Church Feast 2025 - Catechism students' performance</h4>
+
+</div></div></section>
+
+</div>
+<div class="ministry-panel" id="panel-cml" data-slug="cml">
+  
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div data-reveal>
+        <span class="eyebrow">Ministry</span>
+        <h1>Cherupushpa Mission League</h1>
+        <span class="rule"></span>
+        <div style="margin-top: 1.5rem;">
+          <a href="./donate-to-parish/" class="btn btn--primary" style="background-color: #1c352d; border-color: #1c352d; color: #fff;">Donate Us</a>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__art-badge"><div class="num">OLS</div><div class="lbl">Parish · Electronics City</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.cml-dropcap {
+  float: left;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 4rem;
+  line-height: 0.75;
+  margin-right: 0.5rem;
+  margin-top: 0.3rem;
+  color: var(--gold, #b98e47);
+}
+.cml-report h2 {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-weight: 400;
+  font-size: 2.8rem;
+  color: #333;
+  letter-spacing: 0;
+  margin-bottom: 1rem;
+}
+.cml-report h3 {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-weight: 400;
+  color: #444;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.cml-report p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+</style>
+<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<p><span class="cml-dropcap">C</span>herupushpa mission league (cml) was officially inaugurated at the east ham mass centre on the 6th july 2014 by rev. Fr. Jose anthiyamkulam, chaplain of syro malabar church, brent wood diocese, in presence of trustees mr.paul kuruvilla, mrs.josy shajan, committe members, catechism teachers, students and all the members gathered. It was also the very same day the mass centre celebrated the feast of st. Alphonsa of bharananganam where cherupushpa mission league was originally founded. During this occasion every child from the catechism classes were given the cml badges and officially became the members of the organisation. They also took a pledge to endorse the motto of cml in their life for the creation of a better community.</p>
+<p>Cherupushpa mission league (cml) is an indigenous lay missionary organisation and also the biggest missionary organisation for laity in asia. Cml was started under the guidance and blessings of the bishop of the changanacherry arch diocese mar james kaalassery, in the year 1947 at bharananganam by the living legend of kerala church – kunjettan (mr. P.c. Abraham pallaattukunnel) and late v. Rev. Fr. Joseph malipparambil who was the founder director of cml. Cherupushpa mission league was founded to foster vocation promotion and also to help mission activities across the country by means of man, money and prayers.</p>
+</div></div></section>
+
+<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose cml-report" data-reveal>
+<div class="section-head"><span class="eyebrow">Report</span><h2>CML Activity Report</h2><span class="rule"></span></div>
+
+<h3>Diocese-Level CML Inauguration</h3>
+<p>Our Lady of Sorrows Church, Hebbagodi was proudly represented at the Diocese-level Cherupushpa Mission League (CML) Inauguration held on 29th June 2025. The event marked the official commencement of diocesan CML activities for the academic year 2025–2026.</p>
+<p><strong>Parish Representatives:</strong> Evan, David, Abina, Abhinav, Sharath, Charlie</p>
+
+<h3>Leadership Achievements</h3>
+<p>Abhinav was elected as the President (Core Member) of Hongasandra Forane CML. Sharath Tom was elected as the Animator representing Hongasandra Forane.</p>
+<p>We express our sincere gratitude to the parents, class teachers, and all supporters for their constant encouragement, guidance, and nominations.</p>
+
+<h3>Implore Series – Prayer for Persecuted Christians</h3>
+<p>As part of the Implore Series with the theme “Persecuted Christians”, our students actively participated by preparing and presenting a prayer video, offering prayers and solidarity for Christians facing persecution across the world.</p>
+
+<h3>CML Annual Day &amp; Workshop</h3>
+<p>Our students enthusiastically participated in the CML Annual Day celebrations. They took part in the Rally Competition and attended the CML Workshop, which focused on nurturing faith, leadership qualities, and missionary spirit. The active involvement of our students from Our Lady of Sorrows Church, Hebbagodi in diocesan and forane-level CML activities reflects their strong faith foundation and commitment to service and leadership. We congratulate all participants and office bearers and wish them continued success in their mission.</p>
+</div></div></section>
+
+
+</div>
+<div class="ministry-panel" id="panel-holy-childhood" data-slug="holy-childhood">
+  
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div data-reveal>
+        <span class="eyebrow">Ministry</span>
+        <h1>Holy Childhood</h1>
+        <span class="rule"></span>
+        <div style="margin-top: 1.5rem;">
+          <a href="./donate-to-parish/" class="btn btn--primary" style="background-color: #1c352d; border-color: #1c352d; color: #fff;">Donate Us</a>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__art-badge"><div class="num">OLS</div><div class="lbl">Parish · Electronics City</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-white"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<p><span class="hc-dropcap">T</span>he Holy Childhood group in the Catholic Church is a missionary moveme nt dedicated to nurturing faith, compassion, and missionary spirit in children. Founded in 1843 by Bishop Charles de Forbin-Janson in France , its mission is to help children develop a love for Jesus and an awareness of the needs of children everywhere, especially in mission territories.</p>
+<p>Members of the Holy Childhood group are encouraged to:</p>
+<ul class="rows"><li>Pray daily for other children around the world, especially those in need.</li><li>Offer small sacrifices and live with simplicity, sharing what they have with less fortunate children.</li><li>Grow in missionary awareness , learning about the universal Church and the call to bring Christ’s love to all people.</li><li>Participate in parish and school activities , often through special gatherings, prayers, and celebrations like Mission Sunday .</li></ul>
+<p>The motto often associated with the Holy Childhood is: “Children helping children” – reminding us that even the smallest acts of faith, prayer, and charity can make a difference.</p>
+<p>By being part of this group, children not only strengthen their own Christian formation but also become active participants in the mission of the Church, spreading love and hope beyond their own communities.</p>
+</div></div></section>
+<style>
+.hc-dropcap {
+  float: left;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 4.5rem;
+  line-height: 0.75;
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+  color: var(--gold, #b98e47);
+}
+.hc-animators-section {
+  position: relative;
+  padding: 6rem 2rem;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+.hc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.hc-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #c09e58;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+.hc-eyebrow .hc-line {
+  height: 1px;
+  width: 45px;
+  background-color: #c09e58;
+}
+.hc-eyebrow-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #c09e58;
+}
+.hc-title {
+  color: #263521;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+}
+.hc-separator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c09e58;
+  margin-bottom: 3.5rem;
+}
+.hc-separator .hc-line-long {
+  height: 1px;
+  flex: 1;
+  max-width: 140px;
+  background-color: rgba(192, 158, 88, 0.4);
+}
+.hc-card {
+  background: rgba(253, 252, 248, 0.9);
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.04), 0 0 0 1px rgba(255,255,255,0.8) inset;
+  max-width: 420px;
+  position: relative;
+}
+.hc-person {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+.hc-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #2b3a25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e2cfa7;
+  flex-shrink: 0;
+  border: 1px solid rgba(226, 207, 167, 0.3);
+  box-shadow: 0 8px 20px rgba(43, 58, 37, 0.15);
+}
+.hc-person-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hc-name {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 1.7rem;
+  color: #263521;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.hc-person-line {
+  height: 1px;
+  background: rgba(192, 158, 88, 0.3);
+  width: 30px;
+  margin-top: 0.5rem;
+}
+.hc-card-divider {
+  height: 1px;
+  background: rgba(192, 158, 88, 0.15);
+  margin: 1.5rem 0;
+}
+.hc-art {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+.hc-arch {
+  width: 380px;
+  height: 480px;
+  background: #fdfcf9;
+  border-radius: 200px 200px 0 0;
+  border: 2px solid #e1d3b3;
+  border-bottom: none;
+  box-shadow: inset 0 20px 60px rgba(230, 222, 203, 0.5), 0 20px 40px rgba(0,0,0,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hc-arch-inner {
+  width: 350px;
+  height: 450px;
+  border-radius: 180px 180px 0 0;
+  border: 1px solid rgba(192, 158, 88, 0.3);
+  border-bottom: none;
+  position: absolute;
+  bottom: 0;
+}
+.hc-arch svg {
+  width: 240px;
+  height: auto;
+  color: #d4bc8b;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+.hc-wave {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  height: auto;
+  z-index: 1;
+  color: #425239;
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .hc-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hc-title { text-align: center; }
+  .hc-eyebrow, .hc-separator { justify-content: center; }
+  .hc-card { margin: 0 auto; }
+}
+</style>
+
+<section class="hc-animators-section">
+  <div class="container" style="max-width: 1100px;" data-reveal>
+    <div class="hc-grid">
+      <!-- Left Content -->
+      <div class="hc-content">
+        <div class="hc-eyebrow">
+          <span class="hc-line"></span>
+          <div class="hc-eyebrow-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 4v16M6 10h12" />
+              <path d="M12 2l2 2-2 2-2-2 2-2z" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <span>SECTION</span>
+          <span class="hc-line"></span>
+        </div>
+        
+        <h2 class="hc-title">Holy Childhood<br>Animators</h2>
+        
+        <div class="hc-separator">
+          <span class="hc-line-long"></span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C12 2 15 8 15 12C15 16 12 22 12 22C12 22 9 16 9 12C9 8 12 2 12 2Z"/>
+            <path d="M2 12C2 12 8 9 12 9C16 9 22 12 22 12C22 12 16 15 12 15C8 15 2 12 2 12Z"/>
+          </svg>
+          <span class="hc-line-long"></span>
+        </div>
+        
+        <div class="hc-card">
+          <!-- Animator 1 -->
+          <div class="hc-person">
+            <div class="hc-avatar">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="hc-person-info">
+              <div class="hc-name">Mr. Gini Dixen</div>
+              <div class="hc-person-line"></div>
+            </div>
+          </div>
+          
+          <div class="hc-card-divider"></div>
+          
+          <!-- Animator 2 -->
+          <div class="hc-person">
+            <div class="hc-avatar">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+                <path d="M8 11c-1.5 2-1.5 4-1.5 4 M16 11c1.5 2 1.5 4 1.5 4"/>
+              </svg>
+            </div>
+            <div class="hc-person-info">
+              <div class="hc-name">Ms. Sonia VL</div>
+              <div class="hc-person-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Graphic -->
+      <div class="hc-art">
+        <div class="hc-arch">
+          <div class="hc-arch-inner"></div>
+          <!-- Reconstructed Silhouette Graphic -->
+          <svg viewBox="0 0 200 220" fill="currentColor">
+            <!-- Glowing cross -->
+            <path d="M96 20h8v30h20v8h-20v50h-8V58H76v-8h20V20z" opacity="0.9"/>
+            <path d="M100 15 L100 5 M110 20 L120 10 M120 40 L135 40 M120 50 L130 60 M100 85 L100 100 M80 50 L70 60 M80 40 L65 40 M90 20 L80 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <!-- Elegant Open Book Base -->
+            <path d="M40 180 Q70 200 100 180 Q130 200 160 180 L160 190 Q130 210 100 190 Q70 210 40 190 Z" opacity="0.8"/>
+            <!-- Book Pages Details -->
+            <path d="M40 170 Q70 190 100 170 Q130 190 160 170 L160 175 Q130 195 100 175 Q70 195 40 175 Z" opacity="0.9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom Right Wave Graphic -->
+  <svg class="hc-wave" viewBox="0 0 1000 300" preserveAspectRatio="none">
+    <path d="M1000 300 L0 300 C200 200 400 350 1000 50 Z" fill="currentColor"/>
+    <!-- Subtle Church Sketch Overlay -->
+    <path d="M800 200 L800 120 L830 80 L860 120 L860 200 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    <path d="M830 80 L830 50 M825 60 L835 60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    <path d="M750 200 L750 150 L780 130 L800 150 M860 150 L880 130 L910 150 L910 200" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  </svg>
+</section>
+<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
+<div class="section-head"><span class="eyebrow">Representatives</span><h2>Holy Childhood Representatives</h2><span class="rule"></span></div>
+<ul class="rows">
+  <li><strong>Mr. Jhonson Jijo</strong></li>
+  <li><strong>Mr. Arvin Renju</strong></li>
+  <li><strong>Mr. John Joseph</strong></li>
+  <li><strong>Mr. Aron Rexon</strong></li>
+  <li><strong>Ms. Rachel Maria</strong></li>
+  <li><strong>Ms. Dahlia Anthony</strong></li>
+  <li><strong>Ms. Jessa Rino George</strong></li>
+  <li><strong>Ms. Andrea Anthony</strong></li>
+</ul>
+</div></div></section>
+
+
+</div>
+</div>
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Our Lady of Sorrows</h4>
+          <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
+        </div>
+        
+          <div>
+            <h4>Parish</h4>
+             <ul><li><a href="./parish-history/">Parish History</a></li><li><a href="./vicars-message/">Vicars Message</a></li><li><a href="./our-patroness/">Our Patroness</a></li><li><a href="./our-church-hierarchy/">Our Church Hierarchy</a></li></ul>
+          </div>
+          <div>
+            <h4>Community</h4>
+             <ul><li><a href="./parish-council-2/">Parish Council</a></li><li><a href="./wards/">Wards</a></li><li><a href="./construction-committee/">Construction Committee</a></li><li><a href="./gallery/">Gallery</a></li></ul>
+          </div>
+          <div>
+            <h4>Get in touch</h4>
+             <ul><li><a href="./contact-us/">Contact Us</a></li><li><a href="./donate-to-parish/">Donate to Parish</a></li><li><a href="./business-directory/">Business Directory</a></li><li><a href="./obituaries/">Obituaries</a></li></ul>
+          </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Our Lady of Sorrows Parish. All rights reserved.</div>
+        <div><span class="accent">Ad Majorem Dei Gloriam</span></div>
+      </div>
+    </div>
+  </footer>
+<script src="./assets/redesign.js" defer></script>
+
+<script>
+(function() {
+  var slugs = ["catechism","cml","holy-childhood"];
+  var cards = document.querySelectorAll('.min-card');
+  var tabs = document.querySelectorAll('.min-tab');
+  var panels = document.querySelectorAll('.ministry-panel');
+  var tabsWrap = document.querySelector('.min-tabs-wrap');
+
+  function activate(slug, opts) {
+    opts = opts || {};
+    cards.forEach(function(c){ c.classList.toggle('is-active', c.dataset.target === slug); });
+    tabs.forEach(function(t){ t.classList.toggle('is-active', t.dataset.target === slug); });
+    panels.forEach(function(p){
+      if (p.dataset.slug === slug) {
+        p.classList.remove('is-active');
+        void p.offsetWidth; /* restart animation */
+        p.classList.add('is-active');
+      } else {
+        p.classList.remove('is-active');
+      }
+    });
+    if (history.replaceState) history.replaceState(null, '', '#' + slug);
+    if (opts.scroll !== false) {
+      var target = tabsWrap || document.getElementById('minPanels');
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 10, behavior: 'smooth' });
+    }
+    revealActivePanel();
+  }
+
+  cards.forEach(function(c){
+    c.addEventListener('click', function(){ activate(c.dataset.target); });
+  });
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ activate(t.dataset.target); });
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.min-card').forEach(function(el){ io.observe(el); });
+
+  function revealActivePanel() {
+    var active = document.querySelector('.ministry-panel.is-active');
+    if (!active) return;
+    active.querySelectorAll('[data-reveal]').forEach(function(el, i){
+      if (el.classList.contains('is-in')) return;
+      setTimeout(function(){ el.classList.add('is-in'); }, Math.min(i, 8) * 60);
+    });
+  }
+
+  document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+  var mo = new MutationObserver(function(){
+    document.querySelectorAll('[data-reveal]:not(.is-in)').forEach(function(el){ io.observe(el); });
+  });
+  mo.observe(document.getElementById('minPanels'), { attributes: true, subtree: true, attributeFilter: ['class'] });
+
+  var initial = (location.hash || '').replace('#', '');
+  if (slugs.indexOf(initial) === -1) initial = slugs[0];
+  activate(initial, { scroll: false });
+  revealActivePanel();
+})();
+</script>
+</body>
+</html>
