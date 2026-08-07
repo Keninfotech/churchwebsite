@@ -695,6 +695,9 @@ section.tight {
 }
 
 /* Decorative art badge (replaced with jubilee-year.webp) */
+.hero:not(.hero--video) .hero__art {
+  display: none !important;
+}
 .hero__art {
   width: clamp(120px, 16vw, 220px);
   max-width: none;
@@ -4363,11 +4366,11 @@ html.pt-out body {
 }
 
 .social-anim li a {
-  width: 50px;
-  height: 50px;
+  width: 38px;
+  height: 38px;
   background-color: #fff;
   text-align: center;
-  line-height: 50px;
+  line-height: 38px;
   margin: 0;
   display: block;
   border-radius: 50%;
@@ -4392,7 +4395,7 @@ html.pt-out body {
   transition: transform .5s;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 24px;
+  background-size: 18px;
 }
 
 .site-footer ul.social-anim li a:hover::after {
