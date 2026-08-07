@@ -219,6 +219,12 @@ h4 {
   padding-right: calc(clamp(16px, 3.4vw, 34px) + env(safe-area-inset-right));
   max-width: var(--container);
   margin: 0 auto;
+  transition: padding .3s ease;
+}
+
+.site-header.scrolled .site-header__inner {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .brand {
@@ -240,6 +246,11 @@ h4 {
   color: transparent;
   /* Hide the OLS text */
   transition: width .3s ease, height .3s ease;
+}
+
+.site-header.scrolled .brand__crest {
+  width: 55px;
+  height: 55px;
 }
 
 .brand__name {
