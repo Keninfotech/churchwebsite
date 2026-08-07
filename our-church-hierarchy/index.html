@@ -106,7 +106,7 @@
 	padding: 1.5rem;
 	border: 3px solid;
 	border-image: linear-gradient(to bottom, #C8AA74 5%, #0f3024 35% 65%, #C8AA74 95%) 0 0 0 100%;
-	transition: 0.3s ease-in-out 0.2s;
+	transition: 0.3s ease-in-out;
 	z-index: 3;
 }
 .patroness-card-image-content {
@@ -132,7 +132,7 @@
 	align-items: center;
 	width: 70px;
 	height: 1.5rem;
-	transition: 0.3s ease-in-out 0.3s;
+	transition: 0.3s ease-in-out;
     z-index: 3;
 }
 .patroness-card-dot {
@@ -141,7 +141,7 @@
 	background: #C8AA74;
 	border: 1px solid #fff;
 	border-radius: 50%;
-	transition: 0.3s ease-in-out 0.3s;
+	transition: 0.3s ease-in-out;
 }
 
 .patroness-card-text {
@@ -186,11 +186,12 @@
 }
 .patroness-card-wrap:hover .patroness-card-overlay-content {
 	border-left: 3px solid transparent; 
-	transition-delay: 0.2s;
-	transform: translateX(185%); /* 65% / 35% = 1.857 */
+	opacity: 0;
+	visibility: hidden;
 }
 .patroness-card-wrap:hover .patroness-card-dots {
-	transform: translateX(1rem);
+	opacity: 0;
+	visibility: hidden;
 }
 .patroness-card-wrap:hover .patroness-card-dot {
 	background: #fff;
@@ -245,7 +246,8 @@
         height: auto;
     }
     .patroness-card-wrap:hover .patroness-card-overlay { transform: none; }
-    .patroness-card-wrap:hover .patroness-card-overlay-content { transform: none; }
+    .patroness-card-wrap:hover .patroness-card-overlay-content { transform: none; opacity: 1; visibility: visible; }
+    .patroness-card-wrap:hover .patroness-card-dots { transform: none; opacity: 1; visibility: visible; }
     .patroness-card-wrap:hover .patroness-card-image-content { width: 100%; }
 }
 </style>
