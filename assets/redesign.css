@@ -217,7 +217,7 @@ h4 {
   padding: 6px clamp(16px, 3.4vw, 34px);
   padding-left: calc(clamp(16px, 3.4vw, 34px) + env(safe-area-inset-left));
   padding-right: calc(clamp(16px, 3.4vw, 34px) + env(safe-area-inset-right));
-  max-width: var(--container);
+  max-width: 1440px;
   margin: 0 auto;
   transition: padding .3s ease;
 }
