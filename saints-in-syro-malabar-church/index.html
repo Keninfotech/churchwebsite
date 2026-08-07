@@ -42,8 +42,6 @@
       transition: transform .6s cubic-bezier(.22, .61, .36, 1), box-shadow .6s ease;
     }
 
-    .saint-card:hover .saint-card__head figure img,
-    .saint-card:focus-within .saint-card__head figure img,
     .saint-card.is-open .saint-card__head figure img {
       transform: scale(1.035);
       box-shadow: 0 24px 55px -20px rgba(31, 36, 21, .4);
@@ -75,8 +73,6 @@
       transition: transform .45s cubic-bezier(.22, .61, .36, 1);
     }
 
-    .saint-card:hover .saint-card__hint,
-    .saint-card:focus-within .saint-card__hint,
     .saint-card.is-open .saint-card__hint {
       opacity: 0;
       transform: translateY(-6px);
@@ -90,8 +86,6 @@
       transition: grid-template-rows .7s cubic-bezier(.22, .61, .36, 1);
     }
 
-    .saint-card:hover .saint-card__body,
-    .saint-card:focus-within .saint-card__body,
     .saint-card.is-open .saint-card__body {
       grid-template-rows: 1fr;
     }
@@ -103,8 +97,6 @@
       transition: opacity .5s ease .08s, transform .5s cubic-bezier(.22, .61, .36, 1) .08s;
     }
 
-    .saint-card:hover .saint-card__body-inner,
-    .saint-card:focus-within .saint-card__body-inner,
     .saint-card.is-open .saint-card__body-inner {
       opacity: 1;
       transform: translateY(0);
@@ -707,11 +699,32 @@
   <script>
     (function () {
       document.querySelectorAll('.saint-card').forEach(function (card) {
+        var hint = card.querySelector('.saint-card__hint');
+        var head = card.querySelector('.saint-card__head');
+
+        function open() { card.classList.add('is-open'); }
+        function close() { card.classList.remove('is-open'); }
         function toggle() { card.classList.toggle('is-open'); }
-        card.addEventListener('click', function (e) {
-          if (e.target.closest('a')) return; // let real links work normally
-          toggle();
-        });
+
+        // Desktop: hovering (or keyboard-focusing) the pill is what opens it —
+        // hovering the portrait itself does nothing.
+        if (hint) {
+          hint.addEventListener('mouseenter', open);
+          hint.addEventListener('focus', open);
+        }
+
+        // Once open, the mouse can move down into the revealed text to read it;
+        // it only closes again when the mouse leaves the card entirely.
+        card.addEventListener('mouseleave', close);
+
+        // Touch / keyboard fallback: tapping the portrait or the pill toggles it.
+        // (Tapping inside the already-open text itself won't close it.)
+        if (head) {
+          head.addEventListener('click', function (e) {
+            if (e.target.closest('a')) return;
+            toggle();
+          });
+        }
         card.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
