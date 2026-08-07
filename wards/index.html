@@ -71,12 +71,12 @@
 </section>
 <style>
 .wards-section {
-    background-color: #e3dec9;
+    background-color: #ffffff;
     padding: 4rem 1rem;
 }
 .wards-title {
     text-align: center;
-    color: #b33919;
+    color: var(--ink, #1c261e);
     font-family: var(--serif);
     font-size: 2.8rem;
     font-weight: 700;
@@ -100,29 +100,34 @@
 }
 .ward-tab {
     background-color: #ffffff;
-    color: #333;
-    border: none;
+    color: var(--ink, #333);
+    border: 1px solid #e7ddc6;
+    border-radius: 8px;
     padding: 0.8rem 1.2rem;
     font-size: 0.9rem;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
     transition: all 0.2s ease;
     font-weight: 500;
 }
 .ward-tab:hover {
-    background-color: #f0f0f0;
+    background-color: #fcf9f2;
+    border-color: #c8aa6e;
 }
 .ward-tab.active {
-    background-color: #5c5c5c;
+    background-color: #c8aa6e;
     color: #ffffff;
+    border-color: #b98e47;
 }
 .ward-content {
     display: none;
-    background-color: #e8e6d2;
+    background-color: #ffffff;
+    border: 1px solid #e7ddc6;
+    border-radius: 16px;
     max-width: 1100px;
     margin: 0 auto;
     padding: 2.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 24px -12px rgba(31, 36, 21, 0.08);
 }
 .ward-content.active {
     display: block;

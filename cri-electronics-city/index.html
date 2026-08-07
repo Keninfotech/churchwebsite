@@ -75,10 +75,10 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 3rem 2rem;
-    background-color: #d1cca8;
+    background-color: #f7f3eb;
   }
   .cri-heading {
-    color: #b54917;
+    color: var(--ink, #1c261e);
     font-size: 2.2rem;
     font-family: var(--serif, 'Cormorant Garamond', serif);
     font-weight: 700;
@@ -100,39 +100,47 @@
     gap: 2px;
   }
   .cri-accordion-item {
-    border: 1px solid rgba(255,255,255,0.7);
+    border: 1px solid #e2dac8;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 6px;
   }
   .cri-accordion-header {
-    background-color: #abcbaa;
-    padding: 0.6rem 1rem;
+    background-color: #eae4d4;
+    padding: 0.8rem 1.2rem;
     cursor: pointer;
-    color: #222;
+    color: var(--ink, #222);
     display: flex;
     align-items: center;
     gap: 0.8rem;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     font-family: var(--sans, 'Inter', sans-serif);
     transition: all 0.2s;
   }
   .cri-accordion-header:hover {
-    background-color: #9ab99a;
+    background-color: #e0d7c3;
   }
   .cri-accordion-header.active {
-    background-color: #d1e2cc;
+    background-color: #c8aa6e;
+    color: #ffffff;
   }
   .cri-accordion-icon {
-    color: #fff;
+    color: #c8aa6e;
     font-family: monospace;
     font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .cri-accordion-header.active .cri-accordion-icon {
+    color: #ffffff;
   }
   .cri-accordion-content {
     display: none;
-    background-color: #dbe4ce;
+    background-color: #ffffff;
     padding: 1rem 1.5rem;
     font-size: 0.95rem;
     color: #333;
-    border-top: 1px solid rgba(255,255,255,0.7);
+    border-top: 1px solid #e2dac8;
   }
   
   /* Right side - Grid */
