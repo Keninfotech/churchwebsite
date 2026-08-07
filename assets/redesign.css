@@ -4287,3 +4287,53 @@ html.pt-out body {
   background: rgba(0, 0, 0, 0.08) !important;
   color: #000000 !important;
 }
+
+/* Universal Holographic Hover for all cards */
+.card, .min-card, .ministry-card, .mass-card, .announce-quote-card, .cat-card, .pub-card, .exp-card, .schedule-card, .hierarchy-card, .council-card, .ward-card, .obituary-card, .gallery-card, .history-card, .news-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before, .min-card::before, .ministry-card::before, .mass-card::before, .announce-quote-card::before, .cat-card::before, .pub-card::before, .exp-card::before, .schedule-card::before, .hierarchy-card::before, .council-card::before, .ward-card::before, .obituary-card::before, .gallery-card::before, .history-card::before, .news-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 35%, 
+    rgba(212, 181, 114, 0.6) 45%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(212, 181, 114, 0.6) 55%,
+    transparent 65%,
+    transparent
+  );
+  transform: rotate(-45deg) translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.card:hover::before, .card:focus-visible::before,
+.min-card:hover::before, .min-card:focus-visible::before,
+.ministry-card:hover::before, .ministry-card:focus-visible::before,
+.mass-card:hover::before, .mass-card:focus-visible::before,
+.announce-quote-card:hover::before, .announce-quote-card:focus-visible::before,
+.cat-card:hover::before, .cat-card:focus-visible::before,
+.pub-card:hover::before, .pub-card:focus-visible::before,
+.exp-card:hover::before, .exp-card:focus-visible::before,
+.schedule-card:hover::before, .schedule-card:focus-visible::before,
+.hierarchy-card:hover::before, .hierarchy-card:focus-visible::before,
+.council-card:hover::before, .council-card:focus-visible::before,
+.ward-card:hover::before, .ward-card:focus-visible::before,
+.obituary-card:hover::before, .obituary-card:focus-visible::before,
+.gallery-card:hover::before, .gallery-card:focus-visible::before,
+.history-card:hover::before, .history-card:focus-visible::before,
+.news-card:hover::before, .news-card:focus-visible::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}

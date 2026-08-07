@@ -156,6 +156,26 @@
       transition: box-shadow .3s ease, border-color .3s ease, transform .35s ease, opacity .5s ease;
       font: inherit;
       color: inherit;
+      overflow: hidden;
+    }
+
+    .min-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        0deg, 
+        transparent, 
+        transparent 40%, 
+        rgba(200, 170, 116, 0.3)
+      );
+      transform: rotate(-45deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+      pointer-events: none;
     }
 
     .min-card.is-in {
@@ -169,6 +189,11 @@
       box-shadow: 0 14px 30px -12px rgba(90, 66, 20, 0.28);
       transform: translateY(-4px);
       outline: none;
+    }
+    .min-card:hover::before,
+    .min-card:focus-visible::before {
+      opacity: 1;
+      transform: rotate(-45deg) translateY(100%);
     }
 
     .min-card.is-active {
