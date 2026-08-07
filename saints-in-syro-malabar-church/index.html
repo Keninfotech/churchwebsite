@@ -1,21 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saints in Syro Malabar Church · Our Lady of Sorrows, Electronics City</title>
-<meta name="description" content="St. Alphonsa , the first woman saint of India and the first canonized saint from the Syro-Malabar Catholic Church , stands as a shining example of holiness">
-<meta property="og:title" content="Saints in Syro Malabar Church · Our Lady of Sorrows, Electronics City">
-<meta property="og:description" content="St. Alphonsa , the first woman saint of India and the first canonized saint from the Syro-Malabar Catholic Church , stands as a shining example of holiness">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="../favicon.ico" type="image/x-icon">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/redesign.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saints in Syro Malabar Church · Our Lady of Sorrows, Electronics City</title>
+  <meta name="description"
+    content="St. Alphonsa , the first woman saint of India and the first canonized saint from the Syro-Malabar Catholic Church , stands as a shining example of holiness">
+  <meta property="og:title" content="Saints in Syro Malabar Church · Our Lady of Sorrows, Electronics City">
+  <meta property="og:description"
+    content="St. Alphonsa , the first woman saint of India and the first canonized saint from the Syro-Malabar Catholic Church , stands as a shining example of holiness">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/redesign.css">
+
+  <style>
+    /* ---------- Saint hover-reveal cards ---------- */
+    .saint-card {
+      cursor: pointer;
+      outline: none;
+      border-radius: 18px;
+      transition: box-shadow .4s ease;
+    }
+
+    .saint-card:focus-visible {
+      box-shadow: 0 0 0 3px rgba(169, 134, 47, .35);
+    }
+
+    .saint-card__head {
+      position: relative;
+    }
+
+    .saint-card__head figure img {
+      transition: transform .6s cubic-bezier(.22, .61, .36, 1), box-shadow .6s ease;
+    }
+
+    .saint-card:hover .saint-card__head figure img,
+    .saint-card:focus-within .saint-card__head figure img,
+    .saint-card.is-open .saint-card__head figure img {
+      transform: scale(1.035);
+      box-shadow: 0 24px 55px -20px rgba(31, 36, 21, .4);
+    }
+
+    .saint-card__hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      margin: -0.25rem auto 1.75rem;
+      padding: .5rem 1.1rem;
+      border: 1px solid var(--gold-soft, #d9bf7c);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--gold, #a9862f);
+      font-family: var(--sans, 'Inter', sans-serif);
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    .saint-card__hint svg {
+      width: 14px;
+      height: 14px;
+      transition: transform .45s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .saint-card:hover .saint-card__hint,
+    .saint-card:focus-within .saint-card__hint,
+    .saint-card.is-open .saint-card__hint {
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+    }
+
+    /* the grid-rows "auto height" transition trick */
+    .saint-card__body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .7s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .saint-card:hover .saint-card__body,
+    .saint-card:focus-within .saint-card__body,
+    .saint-card.is-open .saint-card__body {
+      grid-template-rows: 1fr;
+    }
+
+    .saint-card__body-inner {
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity .5s ease .08s, transform .5s cubic-bezier(.22, .61, .36, 1) .08s;
+    }
+
+    .saint-card:hover .saint-card__body-inner,
+    .saint-card:focus-within .saint-card__body-inner,
+    .saint-card.is-open .saint-card__body-inner {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .saint-card__body,
+      .saint-card__body-inner,
+      .saint-card__hint,
+      .saint-card__head figure img {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
@@ -34,149 +140,500 @@
           <span class="brand__sub">Electronics City (Hebbagodi)</span>
         </span>
       </a>
-      <nav class="primary-nav" data-primary-nav aria-label="Main navigation"><ul><li><a href="../">Home</a></li>
-        <li class="has-sub">
-          <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../our-patroness/">Our Patroness</a></li><li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li><li><a href="../parish-history/">Parish History</a></li><li><a href="../vicars-message/">Vicars Message</a></li><li><a href="../donate-to-parish/">Donate to Parish</a></li><li><a href="../saints-in-syro-malabar-church/" aria-current="page">Saints in Syro Malabar Church</a></li></ul>
-        </li>
-        <li class="has-sub">
-          <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../parish-council-2/">Parish Council</a></li><li><a href="../wards/">Wards</a></li><li><a href="../construction-committee/">Construction Committee</a></li><li><a href="../parish-choir/">Parish Choir</a></li><li><a href="../obituaries/">Obituaries</a></li><li><a href="../cri-electronics-city/">CRI Electronics City</a></li><li><a href="../business-directory/">Business Directory</a></li><li><a href="../gallery/">Gallery</a></li></ul>
-        </li>
-        <li><a href="../ministries_combined.html">Ministries</a></li><li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li><li><a href="../contact-us/">Contact Us</a></li></ul></nav>
+      <nav class="primary-nav" data-primary-nav aria-label="Main navigation">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li class="has-sub">
+            <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../our-patroness/">Our Patroness</a></li>
+              <li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li>
+              <li><a href="../parish-history/">Parish History</a></li>
+              <li><a href="../vicars-message/">Vicars Message</a></li>
+              <li><a href="../donate-to-parish/">Donate to Parish</a></li>
+              <li><a href="../saints-in-syro-malabar-church/" aria-current="page">Saints in Syro Malabar Church</a></li>
+            </ul>
+          </li>
+          <li class="has-sub">
+            <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../parish-council-2/">Parish Council</a></li>
+              <li><a href="../wards/">Wards</a></li>
+              <li><a href="../construction-committee/">Construction Committee</a></li>
+              <li><a href="../parish-choir/">Parish Choir</a></li>
+              <li><a href="../obituaries/">Obituaries</a></li>
+              <li><a href="../cri-electronics-city/">CRI Electronics City</a></li>
+              <li><a href="../business-directory/">Business Directory</a></li>
+              <li><a href="../gallery/">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="../ministries_combined.html">Ministries</a></li>
+          <li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
+          <li><a href="../contact-us/">Contact Us</a></li>
+        </ul>
+      </nav>
       <div style="display:flex; gap:10px; align-items:center;">
         <a class="nav-cta" href="../donate-to-parish/">Donate</a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
+          aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
-<main id="main">
+  <main id="main">
 
-<section class="hero">
-  <div class="container">
-    <div class="hero__grid">
-      <div data-reveal>
-        <span class="eyebrow">Saints</span>
-        <h1>Saints in the Syro-Malabar Church</h1>
-        <span class="rule"></span>
-        <div style="margin-top: 1.5rem;">
-          <a href="../donate-to-parish/" class="btn btn--primary" style="background-color: #1c352d; border-color: #1c352d; color: #fff;">Donate Us</a>
+    <section class="hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div data-reveal>
+            <span class="eyebrow">Saints</span>
+            <h1>Saints in the Syro-Malabar Church</h1>
+            <span class="rule"></span>
+            <div style="margin-top: 1.5rem;">
+              <a href="../donate-to-parish/" class="btn btn--primary"
+                style="background-color: #1c352d; border-color: #1c352d; color: #fff;">Donate Us</a>
+            </div>
+          </div>
+          <div class="hero__art" aria-hidden="true">
+            <div class="hero__art-badge">
+              <div class="num">OLS</div>
+              <div class="lbl">Parish · Electronics City</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero__art" aria-hidden="true">
-        <div class="hero__art-badge"><div class="num">OLS</div><div class="lbl">Parish · Electronics City</div></div>
+    </section>
+    <section>
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>St. Alphonsa of the Immaculate Conception (1910–1946)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="st.alphonsama.jpeg.webp"
+                alt="Saint Alphonsa of the Immaculate Conception" style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">St. Alphonsa</figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>St. Alphonsa , the first woman saint of India and the first canonized saint from the Syro-Malabar
+                Catholic Church , stands as a shining example of holiness, purity, and patient suffering. She was born
+                as Anna Muttathupadathu on August 19, 1910 , in Kudamaloor , near Kottayam in Kerala, to a deeply devout
+                Christian family.</p>
+              <p>From her earliest years, Anna was drawn to a life of prayer and sacrifice. She experienced many trials,
+                including the loss of her mother just 40 days after her birth. Raised by her aunt, she grew up with a
+                strong desire to dedicate herself completely to Jesus. To avoid marriage and remain faithful to her vow
+                of virginity, she once deliberately burned her foot , an act that left her with lifelong scars but also
+                showed her total commitment to God's call.</p>
+              <p>In 1927, she joined the Franciscan Clarist Congregation (FCC) and took the name Sister Alphonsa of the
+                Immaculate Conception . Her religious life, though filled with love and prayer, was also marked by
+                constant illness and suffering —including fever, accidents, and physical weakness. Despite this, she
+                remained serene and joyful, offering all her pain for the love of Christ and for the salvation of souls.
+                Her words reflected her deep spirituality: "I consider a day without suffering as a day lost."</p>
+              <p>Her quiet life of hidden sanctity deeply moved all who met her. Those around her witnessed her
+                patience, humility, and forgiveness even amidst great pain. St. Alphonsa's faith transformed her
+                suffering into a source of grace and inspiration for others.</p>
+              <p>She was called to her heavenly reward on July 28, 1946 , at the age of 35. After her death, many
+                miracles were reported through her intercession, and devotion to her spread quickly across Kerala and
+                beyond.</p>
+              <p>Recognizing her heroic virtues, Pope John Paul II beatified her on February 8, 1986 , at Kottayam, and
+                later, Pope Benedict XVI canonized her on October 12, 2008 , at St. Peter's Square in Rome.</p>
+              <p>Today, St. Alphonsa is venerated as the Patron Saint of Suffering and the Youth . Her feast is
+                celebrated on July 28 every year. She remains a powerful example of holiness through humility, purity,
+                and endurance , reminding us that true sanctity lies in loving God wholeheartedly, even in the midst of
+                pain and trials.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>St. Alphonsa of the Immaculate Conception (1910–1946)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="st.alphonsama.jpeg.webp" alt="Saint Alphonsa of the Immaculate Conception" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">St. Alphonsa</figcaption></figure>
-<p>St. Alphonsa , the first woman saint of India and the first canonized saint from the Syro-Malabar Catholic Church , stands as a shining example of holiness, purity, and patient suffering. She was born as Anna Muttathupadathu on August 19, 1910 , in Kudamaloor , near Kottayam in Kerala, to a deeply devout Christian family.</p>
-<p>From her earliest years, Anna was drawn to a life of prayer and sacrifice. She experienced many trials, including the loss of her mother just 40 days after her birth. Raised by her aunt, she grew up with a strong desire to dedicate herself completely to Jesus. To avoid marriage and remain faithful to her vow of virginity, she once deliberately burned her foot , an act that left her with lifelong scars but also showed her total commitment to God’s call.</p>
-<p>In 1927, she joined the Franciscan Clarist Congregation (FCC) and took the name Sister Alphonsa of the Immaculate Conception . Her religious life, though filled with love and prayer, was also marked by constant illness and suffering —including fever, accidents, and physical weakness. Despite this, she remained serene and joyful, offering all her pain for the love of Christ and for the salvation of souls. Her words reflected her deep spirituality: “I consider a day without suffering as a day lost.”</p>
-<p>Her quiet life of hidden sanctity deeply moved all who met her. Those around her witnessed her patience, humility, and forgiveness even amidst great pain. St. Alphonsa’s faith transformed her suffering into a source of grace and inspiration for others.</p>
-<p>She was called to her heavenly reward on July 28, 1946 , at the age of 35. After her death, many miracles were reported through her intercession, and devotion to her spread quickly across Kerala and beyond.</p>
-<p>Recognizing her heroic virtues, Pope John Paul II beatified her on February 8, 1986 , at Kottayam, and later, Pope Benedict XVI canonized her on October 12, 2008 , at St. Peter’s Square in Rome.</p>
-<p>Today, St. Alphonsa is venerated as the Patron Saint of Suffering and the Youth . Her feast is celebrated on July 28 every year. She remains a powerful example of holiness through humility, purity, and endurance , reminding us that true sanctity lies in loving God wholeheartedly, even in the midst of pain and trials.</p>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Saint Kuriakose Elias Chavara (1805–1871)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="St-Kuriakos-Elias-Chavara-canonized-2014.jpeg.webp" alt="Saint Kuriakose Elias Chavara" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">St. Kuriakose Elias Chavara</figcaption></figure>
-<p>Saint Kuriakose Elias Chavara was one of the greatest saints and reformers in the history of the Syro-Malabar Catholic Church. Born on February 10, 1805 , in Kainakary , a small village in Kerala, India, he was the sixth child of devout parents, Iko Chavara and Mariyam Thoppil . From his childhood, he showed a deep love for prayer and service to God.</p>
-<p>He joined the seminary at a young age and was ordained a priest in 1829 . Deeply moved by the needs of the Church and society, Fr. Chavara dedicated his life to spiritual renewal, education, and social upliftment. Along with two other priests, he founded the Carmelites of Mary Immaculate (CMI) in 1831 — the first indigenous religious congregation for men in India. This congregation played a major role in strengthening the Church through education, preaching, and pastoral service.</p>
-<p>Fr. Chavara believed that education was a divine instrument for the betterment of society. He established the first Catholic Sanskrit school in Kerala and introduced the visionary idea of “a school with every church.” Because of this mission, he is often called the Father of Literacy in Kerala.</p>
-<p>He also founded the Congregation of the Mother of Carmel (CMC) in 1866 , the first religious congregation for women in India, encouraging women to lead lives of holiness, prayer, and service.</p>
-<p>A man of deep spirituality, St. Chavara promoted family prayer and community life. He introduced the beautiful tradition of Evening Family Prayer , urging every family to “pray together and stay together.” His writings and spiritual insights guided families toward love, peace, and holiness.</p>
-<p>Beyond his work for the Church, St. Chavara was a true social reformer. He worked for the dignity of all people, supported the poor, and promoted equality and justice. His compassion and leadership helped transform Kerala into a land known for faith and education.</p>
-<p>Saint Kuriakose Elias Chavara passed away on January 3, 1871 , leaving behind a shining legacy of holiness, education, and service. He was beatified in 1986 by Pope John Paul II and canonized as a saint by Pope Francis on November 23, 2014 .</p>
-<p>Today, St. Chavara is venerated as a model priest, educator, and social reformer , who showed through his life that true holiness means serving God through love and service to others. His vision continues to inspire the Church, especially in India, to live in faith, unity, and compassion.</p>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Saint Euphrasia Eluvathingal (1877–1952)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="St euphrasia.webp" alt="Saint Euphrasia Eluvathingal" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Saint Euphrasia Eluvathingal</figcaption></figure>
-<p>“The Praying Mother” of the Syro-Malabar Church</p>
-<p>Saint Euphrasia Eluvathingal , also lovingly called “Evuprasiamma” , was a woman of deep prayer, humility, and unwavering faith. She was born on October 17, 1877 , in Kattur, Thrissur District, Kerala , into a devout Catholic family. Her parents, Anthony and Kunjethy Eluvathingal , raised her in strong Christian values, and from her childhood, she showed an extraordinary love for prayer and devotion to the Blessed Sacrament.</p>
-<p>As a young girl, she desired to dedicate her entire life to God. At the age of 17, she joined the Congregation of the Mother of Carmel (CMC) — the first indigenous religious congregation for women in India, founded by Saint Kuriakose Elias Chavara . She made her final vows in 1900 , taking the name Sister Euphrasia of the Sacred Heart of Jesus .</p>
-<p>Her life was marked by deep contemplation, love for the Eucharist, devotion to the Virgin Mary , and constant prayer for the Church and the world. She spent long hours before the Blessed Sacrament, interceding for others. Her spiritual directors and superiors often referred to her as a “living tabernacle of the Holy Spirit.”</p>
-<p>Sister Euphrasia served as the Mother Superior of St. Mary’s Convent, Ollur, where she guided her fellow sisters with gentleness, compassion, and spiritual wisdom. Her humility and obedience inspired everyone around her. She was known for her ability to find joy in suffering and for her unwavering trust in God’s will.</p>
-<p>Though she lived a hidden life inside the convent walls, her holiness radiated far beyond them. Many who met her experienced peace, healing, and spiritual renewal. Her intercessory prayers brought blessings to countless people.</p>
-<p>Saint Euphrasia passed away peacefully on August 29, 1952 , after a life wholly devoted to prayer and service. The Church recognized her sanctity, and she was beatified on December 3, 2006 , and canonized as a saint by Pope Francis on November 23, 2014 , alongside Saint Kuriakose Elias Chavara .</p>
-<p>She is fondly remembered as the “Praying Mother” of the Congregation of the Mother of Carmel and the Syro-Malabar Church — a shining example of how a life of prayer, simplicity, and love can transform the world.</p>
-
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Blessed Mariam Thresia Chiramel (1876–1926)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="st.-marium-thresia-1.webp" alt="Blessed Mariam Thresia Chiramel" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Blessed Mariam Thresia Chiramel</figcaption></figure>
-<p>A Pioneer of Family Apostolate and Service to the Needy</p>
-<p>Blessed Mariam Thresia Chiramel was a visionary saint of the Syro-Malabar Church , renowned for her deep prayer life, mystical experiences, and dedication to serving the poor and strengthening family life. She was born on April 26, 1876 , in Puthenchira, Kerala , into a devout Catholic family. From childhood, she was known for her piety, compassion, and a strong desire to dedicate her life to God.</p>
-<p>Despite her young age, Mariam Thresia felt a profound calling to serve the Church and society. She faced initial family resistance but persisted in following God’s will. In 1914 , she founded the Congregation of the Holy Family , a religious community dedicated to the spiritual formation of families, education of children, and service to the poor and marginalized . Her work emphasized the importance of prayer, family values, and charitable service.</p>
-<p>Blessed Mariam Thresia led a life marked by sacrifice, mystical union with God, and tireless service . She guided her sisters with love and spiritual wisdom, nurturing them to become instruments of God’s mercy in society. Her life inspired countless people to live their faith actively through prayer, charity, and family apostolate.</p>
-<p>She passed away on June 8, 1926 , after a life wholly devoted to God and service to humanity. Recognizing her heroic virtues, the Church beatified her on April 9, 2000 , and she is venerated as a model for family life, prayer, and service .</p>
-<p>Legacy of Blessed Mariam Thresia:</p>
-<ul class="rows"><li>Founder of the Congregation of the Holy Family .</li><li>Advocate for family apostolate, education, and service to the poor .</li><li>Model of prayer, holiness, and selfless dedication .</li></ul>
-<p>Feast Day: June 8</p>
-
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Venerable Payyappilly Varghese Kathanar (1876–1929)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="VARGHESE_PALACKAPPILLY.webp" alt="Venerable Payyappilly Varghese Kathanar" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Venerable Payyappilly Varghese Kathanar</figcaption></figure>
-<p>A Servant of God and Shepherd of Compassion</p>
-<p>Venerable Payyappilly Varghese Kathanar was a devoted priest of the Syro-Malabar Catholic Church , known for his deep faith, humility, and service to the poor and suffering. He was born on August 8, 1876 , in Perumanoor, Kochi, Kerala , to Payyappilly Palakkappilly Lonan and Kunjumariam . From his early years, he showed a strong inclination toward prayer, charity, and a desire to serve God and others.</p>
-<p>He was ordained a priest on December 21, 1907 , for the Archdiocese of Ernakulam , and served with exceptional dedication in various parishes. Fr. Varghese Kathanar was admired for his pastoral zeal , gentleness , and commitment to education and social welfare . He worked tirelessly for the spiritual and material upliftment of his people, emphasizing faith formation, family life, and community service.</p>
-<p>One of his most enduring contributions was the founding of the Congregation of the Sisters of the Destitute (SD) in 1927 . The congregation was established to serve “ the poorest of the poor, abandoned, and destitute ,” reflecting his deep compassion and Christ-centered love. This congregation continues his mission today through hospitals, schools, orphanages, and social service centers across the world.</p>
-<p>Fr. Payyappilly was known for his simplicity of life , spirit of prayer , and readiness to help anyone in need . During times of flood and famine, he opened church resources and even his own residence to provide food and shelter to the needy. His parishioners affectionately called him the “Priest of the Poor.”</p>
-<p>He passed away on October 5, 1929 , leaving behind a shining legacy of love, service, and holiness. His life continues to inspire priests, religious, and lay faithful to live a life of faith in action.</p>
-<p>Recognizing his heroic virtues, the Holy See declared him “Venerable” on July 14, 2018 , marking an important step toward his canonization.</p>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Venerable Fr. Thomas Kurialacherry (1873–1925)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="kuriyalassery.webp" alt="Venerable Fr. Thomas Kurialacherry" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Venerable Fr. Thomas Kurialacherry</figcaption></figure>
-<p>A Pioneer of Catholic Education and Spiritual Renewal</p>
-<p>Venerable Fr. Thomas Kurialacherry was a devoted priest of the Syro-Malabar Catholic Church , celebrated for his visionary leadership, pastoral zeal, and dedication to education and the formation of youth. He was born on March 16, 1873 , in Kochi, Kerala , into a devout Christian family. From an early age, he showed a deep love for God, prayer, and learning.</p>
-<p>He was ordained a priest on December 21, 1898 , and served in various parishes where his deep faith and pastoral care made a profound impact. Fr. Kurialacherry believed that education and faith formation were inseparable , and he dedicated himself to establishing schools, catechetical centers, and institutions to nurture both the spiritual and intellectual growth of children and youth.</p>
-<p>In 1911, he was appointed as the first Bishop of Changanacherry , where he worked tirelessly to organize and strengthen the Syro-Malabar Church. He emphasized missionary zeal, spiritual renewal, and pastoral care , encouraging priests, religious, and laity to serve the Church with dedication. He also promoted the involvement of women in education and social service, fostering the growth of religious congregations and charitable institutions.</p>
-<p>Fr. Kurialacherry was known for his humility, simplicity, and deep compassion . He spent countless hours guiding priests, supporting families, and tending to the spiritual needs of his flock. His letters, sermons, and writings continue to inspire faithful Christians.</p>
-<p>He passed away on June 2, 1925 , leaving behind a legacy of faith, education, and pastoral leadership. Recognizing his heroic virtues, the Holy See declared him Venerable , honoring his life of holiness and service to the Church.</p>
-
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Blessed Rani Maria (1954–1995)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="bl.-rani-maria-1686136940.webp" alt="Blessed Rani Maria Vattalil" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Blessed Rani Maria Vattalil</figcaption></figure>
-<p>A Martyr of Love and Justice</p>
-<p>Blessed Rani Maria Vattalil was a courageous Indian nun who gave her life serving the poor and oppressed. She was born on March 29, 1954 , in Kerala, India , to a Christian family deeply rooted in faith. From a young age, she was drawn to prayer, service, and helping those in need.</p>
-<p>She joined the Franciscan Clarist Congregation (FCC) and devoted herself to the service of marginalized communities, particularly in rural Madhya Pradesh. Rani Maria worked tirelessly to empower the poor, fight social injustice, and bring hope to those who were voiceless and oppressed.</p>
-<p>Her bold efforts to uplift landless laborers and educate them about their rights, however, faced fierce opposition. On February 25, 1995 , she was tragically martyred while defending the rights of the poor. Her death became a powerful testimony of her unwavering faith, courage, and commitment to God’s work on earth.</p>
-<p>Rani Maria was beatified by Pope Benedict XVI on April 4, 2017 , recognizing her as a martyr of charity and justice . She is remembered for her extraordinary compassion, fearless advocacy, and the ultimate sacrifice she made in the service of the Lord.</p>
-<p>Legacy of Blessed Rani Maria:</p>
-<ul class="rows"><li>A model of courage, charity, and social justice .</li><li>Inspired generations to serve the poor and defend the marginalized.</li><li>A living witness that faith and action can transform society .</li></ul>
-<p>Feast Day: February 25</p>
-</div></div></section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Fr. Augustine Thevarparambil (Kunjachan) (1890–1973)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="Bl.-Thevarparambil-Kunjachan.webp" alt="Fr. Augustine Thevarparambil Kunjachan" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Fr. Augustine Thevarparambil (Kunjachan)</figcaption></figure>
-<p>A Priest of the Poor and Advocate for the Dalits</p>
-<p>Fr. Augustine Thevarparambil , fondly called “Kunjachan” (meaning “Little Father”), was a beloved Syro-Malabar priest known for his deep compassion, simplicity, and lifelong dedication to serving the marginalized. He was born in 1890 in Kerala, India , into a devout Christian family. From an early age, he felt a calling to serve God through the priesthood.</p>
-<p>Ordained as a priest, Fr. Kunjachan dedicated his ministry to uplifting the Dalit communities in Kerala, who faced severe social discrimination. He worked tirelessly to provide education, spiritual guidance, and social support, helping them integrate fully into society and the Church. His love, humility, and approachability earned him the affectionate title of Kunjachan , as he became a spiritual father to countless families.</p>
-<p>Fr. Augustine was known for his devotion to the Eucharist, simplicity of life, and unshakeable faith . He often walked long distances to reach remote villages, bringing the sacraments, teaching catechism, and advocating for justice. Through his ministry, he transformed lives, built faith communities, and inspired many to live lives of service.</p>
-<p>He passed away in 1973 , leaving behind a legacy of love, humility, and service to the poor. Recognizing his heroic virtues, the Church declared him Venerable , moving closer toward his canonization.</p>
-<p>Legacy of Fr. Augustine Thevarparambil (Kunjachan):</p>
-<ul class="rows"><li>Tireless servant of the Dalits and marginalized communities .</li><li>A model of humility, charity, and pastoral care .</li><li>Demonstrated that the priesthood is a call to love and serve the poorest of the poor .</li></ul>
-<p>Feast Day: November 4</p>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Fr. Joseph Vithayathil (1892–1984)</h2><span class="rule"></span></div>
-<figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="vithayathil.webp" alt="Fr. Joseph Vithayathil" style="width:100%;display:block;border-radius:1rem;"><figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Fr. Joseph Vithayathil</figcaption></figure>
-<p>The Spiritual Guide of Blessed Mariam Thresia</p>
-<p>Fr. Joseph Vithayathil was a devoted priest of the Syro-Malabar Church , best known as the spiritual director and guide of Blessed Mariam Thresia , founder of the Congregation of the Holy Family. He was born on May 16, 1892 , in Kerala, India , into a devout Catholic family. From a young age, he felt a strong calling to the priesthood and to serve God through a life of holiness.</p>
-<p>Ordained as a priest, Fr. Joseph dedicated himself to spiritual guidance, pastoral care, and the promotion of holiness among the faithful. He became the spiritual father and confidant of Mariam Thresia , guiding her in her mystical experiences, her commitment to prayer, and her mission of founding a congregation devoted to the education and upliftment of families and the poor.</p>
-<p>Known for his humility, wisdom, and deep prayer life , Fr. Joseph worked tirelessly to foster faith, discipline, and charity among the faithful. His life reflected a perfect balance of pastoral zeal and contemplative prayer , making him a model of priestly sanctity.</p>
-<p>He passed away on March 15, 1984 , leaving a lasting legacy of holiness, guidance, and dedication to the spiritual growth of individuals and the Church. Recognized for his virtues, the Church declared him Venerable , honoring his lifelong service and devotion.</p>
-<p>Legacy of Fr. Joseph Vithayathil:</p>
-<ul class="rows"><li>Spiritual guide of Blessed Mariam Thresia .</li><li>Model of prayer, humility, and pastoral care .</li><li>Dedicated life to uplifting families and nurturing faith .</li></ul>
-<p>Feast Day: March 15</p>
-</div></div></section>
-</main>
+    </section>
+    <section class="bg-soft">
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>Saint Kuriakose Elias Chavara (1805–1871)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
+                src="St-Kuriakos-Elias-Chavara-canonized-2014.jpeg.webp" alt="Saint Kuriakose Elias Chavara"
+                style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">St. Kuriakose Elias Chavara
+              </figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>Saint Kuriakose Elias Chavara was one of the greatest saints and reformers in the history of the
+                Syro-Malabar Catholic Church. Born on February 10, 1805 , in Kainakary , a small village in Kerala,
+                India, he was the sixth child of devout parents, Iko Chavara and Mariyam Thoppil . From his childhood,
+                he showed a deep love for prayer and service to God.</p>
+              <p>He joined the seminary at a young age and was ordained a priest in 1829 . Deeply moved by the needs of
+                the Church and society, Fr. Chavara dedicated his life to spiritual renewal, education, and social
+                upliftment. Along with two other priests, he founded the Carmelites of Mary Immaculate (CMI) in 1831 —
+                the first indigenous religious congregation for men in India. This congregation played a major role in
+                strengthening the Church through education, preaching, and pastoral service.</p>
+              <p>Fr. Chavara believed that education was a divine instrument for the betterment of society. He
+                established the first Catholic Sanskrit school in Kerala and introduced the visionary idea of "a school
+                with every church." Because of this mission, he is often called the Father of Literacy in Kerala.</p>
+              <p>He also founded the Congregation of the Mother of Carmel (CMC) in 1866 , the first religious
+                congregation for women in India, encouraging women to lead lives of holiness, prayer, and service.</p>
+              <p>A man of deep spirituality, St. Chavara promoted family prayer and community life. He introduced the
+                beautiful tradition of Evening Family Prayer , urging every family to "pray together and stay together."
+                His writings and spiritual insights guided families toward love, peace, and holiness.</p>
+              <p>Beyond his work for the Church, St. Chavara was a true social reformer. He worked for the dignity of
+                all people, supported the poor, and promoted equality and justice. His compassion and leadership helped
+                transform Kerala into a land known for faith and education.</p>
+              <p>Saint Kuriakose Elias Chavara passed away on January 3, 1871 , leaving behind a shining legacy of
+                holiness, education, and service. He was beatified in 1986 by Pope John Paul II and canonized as a saint
+                by Pope Francis on November 23, 2014 .</p>
+              <p>Today, St. Chavara is venerated as a model priest, educator, and social reformer , who showed through
+                his life that true holiness means serving God through love and service to others. His vision continues
+                to inspire the Church, especially in India, to live in faith, unity, and compassion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>Saint Euphrasia Eluvathingal (1877–1952)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="St euphrasia.webp"
+                alt="Saint Euphrasia Eluvathingal" style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Saint Euphrasia Eluvathingal
+              </figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>"The Praying Mother" of the Syro-Malabar Church</p>
+              <p>Saint Euphrasia Eluvathingal , also lovingly called "Evuprasiamma" , was a woman of deep prayer,
+                humility, and unwavering faith. She was born on October 17, 1877 , in Kattur, Thrissur District, Kerala
+                , into a devout Catholic family. Her parents, Anthony and Kunjethy Eluvathingal , raised her in strong
+                Christian values, and from her childhood, she showed an extraordinary love for prayer and devotion to
+                the Blessed Sacrament.</p>
+              <p>As a young girl, she desired to dedicate her entire life to God. At the age of 17, she joined the
+                Congregation of the Mother of Carmel (CMC) — the first indigenous religious congregation for women in
+                India, founded by Saint Kuriakose Elias Chavara . She made her final vows in 1900 , taking the name
+                Sister Euphrasia of the Sacred Heart of Jesus .</p>
+              <p>Her life was marked by deep contemplation, love for the Eucharist, devotion to the Virgin Mary , and
+                constant prayer for the Church and the world. She spent long hours before the Blessed Sacrament,
+                interceding for others. Her spiritual directors and superiors often referred to her as a "living
+                tabernacle of the Holy Spirit."</p>
+              <p>Sister Euphrasia served as the Mother Superior of St. Mary's Convent, Ollur, where she guided her
+                fellow sisters with gentleness, compassion, and spiritual wisdom. Her humility and obedience inspired
+                everyone around her. She was known for her ability to find joy in suffering and for her unwavering trust
+                in God's will.</p>
+              <p>Though she lived a hidden life inside the convent walls, her holiness radiated far beyond them. Many
+                who met her experienced peace, healing, and spiritual renewal. Her intercessory prayers brought
+                blessings to countless people.</p>
+              <p>Saint Euphrasia passed away peacefully on August 29, 1952 , after a life wholly devoted to prayer and
+                service. The Church recognized her sanctity, and she was beatified on December 3, 2006 , and canonized
+                as a saint by Pope Francis on November 23, 2014 , alongside Saint Kuriakose Elias Chavara .</p>
+              <p>She is fondly remembered as the "Praying Mother" of the Congregation of the Mother of Carmel and the
+                Syro-Malabar Church — a shining example of how a life of prayer, simplicity, and love can transform the
+                world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-soft">
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>Blessed Mariam Thresia Chiramel (1876–1926)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
+                src="st.-marium-thresia-1.webp" alt="Blessed Mariam Thresia Chiramel"
+                style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Blessed Mariam Thresia Chiramel
+              </figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>A Pioneer of Family Apostolate and Service to the Needy</p>
+              <p>Blessed Mariam Thresia Chiramel was a visionary saint of the Syro-Malabar Church , renowned for her
+                deep prayer life, mystical experiences, and dedication to serving the poor and strengthening family
+                life. She was born on April 26, 1876 , in Puthenchira, Kerala , into a devout Catholic family. From
+                childhood, she was known for her piety, compassion, and a strong desire to dedicate her life to God.</p>
+              <p>Despite her young age, Mariam Thresia felt a profound calling to serve the Church and society. She
+                faced initial family resistance but persisted in following God's will. In 1914 , she founded the
+                Congregation of the Holy Family , a religious community dedicated to the spiritual formation of
+                families, education of children, and service to the poor and marginalized . Her work emphasized the
+                importance of prayer, family values, and charitable service.</p>
+              <p>Blessed Mariam Thresia led a life marked by sacrifice, mystical union with God, and tireless service .
+                She guided her sisters with love and spiritual wisdom, nurturing them to become instruments of God's
+                mercy in society. Her life inspired countless people to live their faith actively through prayer,
+                charity, and family apostolate.</p>
+              <p>She passed away on June 8, 1926 , after a life wholly devoted to God and service to humanity.
+                Recognizing her heroic virtues, the Church beatified her on April 9, 2000 , and she is venerated as a
+                model for family life, prayer, and service .</p>
+              <p>Legacy of Blessed Mariam Thresia:</p>
+              <ul class="rows">
+                <li>Founder of the Congregation of the Holy Family .</li>
+                <li>Advocate for family apostolate, education, and service to the poor .</li>
+                <li>Model of prayer, holiness, and selfless dedication .</li>
+              </ul>
+              <p>Feast Day: June 8</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>Venerable Payyappilly Varghese Kathanar (1876–1929)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
+                src="VARGHESE_PALACKAPPILLY.webp" alt="Venerable Payyappilly Varghese Kathanar"
+                style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Venerable Payyappilly Varghese Kathanar
+              </figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>A Servant of God and Shepherd of Compassion</p>
+              <p>Venerable Payyappilly Varghese Kathanar was a devoted priest of the Syro-Malabar Catholic Church ,
+                known for his deep faith, humility, and service to the poor and suffering. He was born on August 8, 1876
+                , in Perumanoor, Kochi, Kerala , to Payyappilly Palakkappilly Lonan and Kunjumariam . From his early
+                years, he showed a strong inclination toward prayer, charity, and a desire to serve God and others.</p>
+              <p>He was ordained a priest on December 21, 1907 , for the Archdiocese of Ernakulam , and served with
+                exceptional dedication in various parishes. Fr. Varghese Kathanar was admired for his pastoral zeal ,
+                gentleness , and commitment to education and social welfare . He worked tirelessly for the spiritual and
+                material upliftment of his people, emphasizing faith formation, family life, and community service.</p>
+              <p>One of his most enduring contributions was the founding of the Congregation of the Sisters of the
+                Destitute (SD) in 1927 . The congregation was established to serve " the poorest of the poor, abandoned,
+                and destitute ," reflecting his deep compassion and Christ-centered love. This congregation continues
+                his mission today through hospitals, schools, orphanages, and social service centers across the world.
+              </p>
+              <p>Fr. Payyappilly was known for his simplicity of life , spirit of prayer , and readiness to help anyone
+                in need . During times of flood and famine, he opened church resources and even his own residence to
+                provide food and shelter to the needy. His parishioners affectionately called him the "Priest of the
+                Poor."</p>
+              <p>He passed away on October 5, 1929 , leaving behind a shining legacy of love, service, and holiness. His
+                life continues to inspire priests, religious, and lay faithful to live a life of faith in action.</p>
+              <p>Recognizing his heroic virtues, the Holy See declared him "Venerable" on July 14, 2018 , marking an
+                important step toward his canonization.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-soft">
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>Venerable Fr. Thomas Kurialacherry (1873–1925)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="kuriyalassery.webp"
+                alt="Venerable Fr. Thomas Kurialacherry" style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Venerable Fr. Thomas Kurialacherry
+              </figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>A Pioneer of Catholic Education and Spiritual Renewal</p>
+              <p>Venerable Fr. Thomas Kurialacherry was a devoted priest of the Syro-Malabar Catholic Church ,
+                celebrated for his visionary leadership, pastoral zeal, and dedication to education and the formation of
+                youth. He was born on March 16, 1873 , in Kochi, Kerala , into a devout Christian family. From an early
+                age, he showed a deep love for God, prayer, and learning.</p>
+              <p>He was ordained a priest on December 21, 1898 , and served in various parishes where his deep faith and
+                pastoral care made a profound impact. Fr. Kurialacherry believed that education and faith formation were
+                inseparable , and he dedicated himself to establishing schools, catechetical centers, and institutions
+                to nurture both the spiritual and intellectual growth of children and youth.</p>
+              <p>In 1911, he was appointed as the first Bishop of Changanacherry , where he worked tirelessly to
+                organize and strengthen the Syro-Malabar Church. He emphasized missionary zeal, spiritual renewal, and
+                pastoral care , encouraging priests, religious, and laity to serve the Church with dedication. He also
+                promoted the involvement of women in education and social service, fostering the growth of religious
+                congregations and charitable institutions.</p>
+              <p>Fr. Kurialacherry was known for his humility, simplicity, and deep compassion . He spent countless
+                hours guiding priests, supporting families, and tending to the spiritual needs of his flock. His
+                letters, sermons, and writings continue to inspire faithful Christians.</p>
+              <p>He passed away on June 2, 1925 , leaving behind a legacy of faith, education, and pastoral leadership.
+                Recognizing his heroic virtues, the Holy See declared him Venerable , honoring his life of holiness and
+                service to the Church.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>Blessed Rani Maria (1954–1995)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
+                src="bl.-rani-maria-1686136940.webp" alt="Blessed Rani Maria Vattalil"
+                style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Blessed Rani Maria Vattalil
+              </figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>A Martyr of Love and Justice</p>
+              <p>Blessed Rani Maria Vattalil was a courageous Indian nun who gave her life serving the poor and
+                oppressed. She was born on March 29, 1954 , in Kerala, India , to a Christian family deeply rooted in
+                faith. From a young age, she was drawn to prayer, service, and helping those in need.</p>
+              <p>She joined the Franciscan Clarist Congregation (FCC) and devoted herself to the service of marginalized
+                communities, particularly in rural Madhya Pradesh. Rani Maria worked tirelessly to empower the poor,
+                fight social injustice, and bring hope to those who were voiceless and oppressed.</p>
+              <p>Her bold efforts to uplift landless laborers and educate them about their rights, however, faced fierce
+                opposition. On February 25, 1995 , she was tragically martyred while defending the rights of the poor.
+                Her death became a powerful testimony of her unwavering faith, courage, and commitment to God's work on
+                earth.</p>
+              <p>Rani Maria was beatified by Pope Benedict XVI on April 4, 2017 , recognizing her as a martyr of charity
+                and justice . She is remembered for her extraordinary compassion, fearless advocacy, and the ultimate
+                sacrifice she made in the service of the Lord.</p>
+              <p>Legacy of Blessed Rani Maria:</p>
+              <ul class="rows">
+                <li>A model of courage, charity, and social justice .</li>
+                <li>Inspired generations to serve the poor and defend the marginalized.</li>
+                <li>A living witness that faith and action can transform society .</li>
+              </ul>
+              <p>Feast Day: February 25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-soft">
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>Fr. Augustine Thevarparambil (Kunjachan) (1890–1973)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
+                src="Bl.-Thevarparambil-Kunjachan.webp" alt="Fr. Augustine Thevarparambil Kunjachan"
+                style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Fr. Augustine Thevarparambil
+                (Kunjachan)</figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>A Priest of the Poor and Advocate for the Dalits</p>
+              <p>Fr. Augustine Thevarparambil , fondly called "Kunjachan" (meaning "Little Father"), was a beloved
+                Syro-Malabar priest known for his deep compassion, simplicity, and lifelong dedication to serving the
+                marginalized. He was born in 1890 in Kerala, India , into a devout Christian family. From an early age,
+                he felt a calling to serve God through the priesthood.</p>
+              <p>Ordained as a priest, Fr. Kunjachan dedicated his ministry to uplifting the Dalit communities in
+                Kerala, who faced severe social discrimination. He worked tirelessly to provide education, spiritual
+                guidance, and social support, helping them integrate fully into society and the Church. His love,
+                humility, and approachability earned him the affectionate title of Kunjachan , as he became a spiritual
+                father to countless families.</p>
+              <p>Fr. Augustine was known for his devotion to the Eucharist, simplicity of life, and unshakeable faith .
+                He often walked long distances to reach remote villages, bringing the sacraments, teaching catechism,
+                and advocating for justice. Through his ministry, he transformed lives, built faith communities, and
+                inspired many to live lives of service.</p>
+              <p>He passed away in 1973 , leaving behind a legacy of love, humility, and service to the poor.
+                Recognizing his heroic virtues, the Church declared him Venerable , moving closer toward his
+                canonization.</p>
+              <p>Legacy of Fr. Augustine Thevarparambil (Kunjachan):</p>
+              <ul class="rows">
+                <li>Tireless servant of the Dalits and marginalized communities .</li>
+                <li>A model of humility, charity, and pastoral care .</li>
+                <li>Demonstrated that the priesthood is a call to love and serve the poorest of the poor .</li>
+              </ul>
+              <p>Feast Day: November 4</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container" style="max-width:900px;">
+        <div class="saint-card" data-reveal tabindex="0">
+          <div class="saint-card__head">
+            <div class="section-head"><span class="eyebrow">Section</span>
+              <h2>Fr. Joseph Vithayathil (1892–1984)</h2><span class="rule"></span>
+            </div>
+            <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="vithayathil.webp"
+                alt="Fr. Joseph Vithayathil" style="width:100%;display:block;border-radius:1rem;">
+              <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Fr. Joseph Vithayathil</figcaption>
+            </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg><span>Hover to read the full story</span></button>
+          </div>
+          <div class="saint-card__body">
+            <div class="saint-card__body-inner prose">
+              <p>The Spiritual Guide of Blessed Mariam Thresia</p>
+              <p>Fr. Joseph Vithayathil was a devoted priest of the Syro-Malabar Church , best known as the spiritual
+                director and guide of Blessed Mariam Thresia , founder of the Congregation of the Holy Family. He was
+                born on May 16, 1892 , in Kerala, India , into a devout Catholic family. From a young age, he felt a
+                strong calling to the priesthood and to serve God through a life of holiness.</p>
+              <p>Ordained as a priest, Fr. Joseph dedicated himself to spiritual guidance, pastoral care, and the
+                promotion of holiness among the faithful. He became the spiritual father and confidant of Mariam Thresia
+                , guiding her in her mystical experiences, her commitment to prayer, and her mission of founding a
+                congregation devoted to the education and upliftment of families and the poor.</p>
+              <p>Known for his humility, wisdom, and deep prayer life , Fr. Joseph worked tirelessly to foster faith,
+                discipline, and charity among the faithful. His life reflected a perfect balance of pastoral zeal and
+                contemplative prayer , making him a model of priestly sanctity.</p>
+              <p>He passed away on March 15, 1984 , leaving a lasting legacy of holiness, guidance, and dedication to
+                the spiritual growth of individuals and the Church. Recognized for his virtues, the Church declared him
+                Venerable , honoring his lifelong service and devotion.</p>
+              <p>Legacy of Fr. Joseph Vithayathil:</p>
+              <ul class="rows">
+                <li>Spiritual guide of Blessed Mariam Thresia .</li>
+                <li>Model of prayer, humility, and pastoral care .</li>
+                <li>Dedicated life to uplifting families and nurturing faith .</li>
+              </ul>
+              <p>Feast Day: March 15</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container">
@@ -188,24 +645,56 @@
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
           <ul class="social-anim">
-            <li class="inst"><a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px; margin-top: 13px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a></li>
-            <li class="fb"><a href="#" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px; margin-top: 13px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a></li>
-            <li class="yt"><a href="#" aria-label="YouTube"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px; margin-top: 13px;"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a></li>
+            <li class="inst"><a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width: 24px; height: 24px; margin-top: 13px;">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg></a></li>
+            <li class="fb"><a href="#" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width: 24px; height: 24px; margin-top: 13px;">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg></a></li>
+            <li class="yt"><a href="#" aria-label="YouTube"><svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width: 24px; height: 24px; margin-top: 13px;">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                  </path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg></a></li>
           </ul>
         </div>
-        
-          <div>
-            <h4>Parish</h4>
-            <ul><li><a href="../parish-history/">Parish History</a></li><li><a href="../vicars-message/">Vicars Message</a></li><li><a href="../our-patroness/">Our Patroness</a></li><li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li></ul>
-          </div>
-          <div>
-            <h4>Community</h4>
-            <ul><li><a href="../parish-council-2/">Parish Council</a></li><li><a href="../wards/">Wards</a></li><li><a href="../construction-committee/">Construction Committee</a></li><li><a href="../gallery/">Gallery</a></li></ul>
-          </div>
-          <div>
-            <h4>Get in touch</h4>
-            <ul><li><a href="../contact-us/">Contact Us</a></li><li><a href="../donate-to-parish/">Donate to Parish</a></li><li><a href="../business-directory/">Business Directory</a></li><li><a href="../obituaries/">Obituaries</a></li></ul>
-          </div>
+
+        <div>
+          <h4>Parish</h4>
+          <ul>
+            <li><a href="../parish-history/">Parish History</a></li>
+            <li><a href="../vicars-message/">Vicars Message</a></li>
+            <li><a href="../our-patroness/">Our Patroness</a></li>
+            <li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <ul>
+            <li><a href="../parish-council-2/">Parish Council</a></li>
+            <li><a href="../wards/">Wards</a></li>
+            <li><a href="../construction-committee/">Construction Committee</a></li>
+            <li><a href="../gallery/">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in touch</h4>
+          <ul>
+            <li><a href="../contact-us/">Contact Us</a></li>
+            <li><a href="../donate-to-parish/">Donate to Parish</a></li>
+            <li><a href="../business-directory/">Business Directory</a></li>
+            <li><a href="../obituaries/">Obituaries</a></li>
+          </ul>
+        </div>
       </div>
       <div class="footer-bottom">
         <div>© 2026 Our Lady of Sorrows Parish. All rights reserved.</div>
@@ -213,6 +702,25 @@
       </div>
     </div>
   </footer>
-<script src="../assets/redesign.js" defer></script>
+  <script src="../assets/redesign.js" defer></script>
+
+  <script>
+    (function () {
+      document.querySelectorAll('.saint-card').forEach(function (card) {
+        function toggle() { card.classList.toggle('is-open'); }
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return; // let real links work normally
+          toggle();
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        });
+      });
+    })();
+  </script>
 </body>
+
 </html>
