@@ -16,25 +16,89 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/redesign.css">
 <style>
+  ul.rows {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+  }
   @media (min-width: 768px) {
     ul.rows {
-      display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      padding: 0;
     }
-    ul.rows li {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-      list-style: none;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  }
+  ul.rows li.normal-card {
+    background: var(--white);
+    padding: 1.5rem !important;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    border: none;
+  }
+  ul.rows li.flip-card {
+    background: transparent !important;
+    perspective: 1000px;
+    list-style: none;
+    margin: 0;
+    min-height: 120px;
+    display: block;
+    padding: 0 !important;
+    border: none;
+  }
+  ul.rows li.flip-card::before {
+    display: none !important;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+    gap: 14px;
+  }
+  .flip-card-front::before, .flip-card-back::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+    background: var(--ink, #1c352d);
+    color: #fff;
+  }
+  .flip-card-back strong {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
   }
 </style>
 </head>
@@ -98,43 +162,85 @@
 <section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Members</span><h2>Core Committee Members</h2><span class="rule"></span></div>
   <ul class="rows">
-  <li><strong>Fr. Riju Vazhaparambil MSFS</strong></li>
-  <li><strong>Fr. Jane MSFS</strong></li>
-  <li><strong>Fr. Vijin Kottoor MSFS</strong></li>
-  <li><strong>Joseph KS</strong></li>
-  <li><strong>Rahu Joseph</strong></li>
-  <li><strong>Jenson Joseph</strong></li>
-  <li><strong>Raj Kumar</strong></li>
-  <li><strong>Geo Paul</strong></li>
-  <li><strong>Thomas VT</strong></li>
-  <li><strong>Praveen Ampatt</strong></li>
-  <li><strong>Thomas MP</strong></li>
-  <li><strong>Sunil T Paul</strong></li>
-  <li><strong>Joshy Joseph</strong></li>
-  <li><strong>Thomas Alakalam</strong></li>
-  <li><strong>Tommy Antony</strong></li>
-  <li><strong>Sabu Jose</strong></li>
-  <li><strong>Jaijee Jacob</strong></li>
-  <li><strong>Biju Philip</strong></li>
-  <li><strong>Benny Mathew</strong></li>
-  <li><strong>Jessie Thomas</strong></li>
-  <li><strong>Lijo George</strong></li>
-</ul>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Fr. Riju Vazhaparambil MSFS</strong></div>
+        <div class="flip-card-back"><strong>Parish Priest &amp; Construction Convenor</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Fr. Robin MSFS</strong></div>
+        <div class="flip-card-back"><strong>Asst Parish Priest</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Fr. Vijin Kottoor MSFS</strong></div>
+        <div class="flip-card-back"><strong>Asst Parish Priest</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Joseph KS</strong></div>
+        <div class="flip-card-back"><strong>Trustee</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Rahu Joseph</strong></div>
+        <div class="flip-card-back"><strong>Trustee</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Jenson Joseph</strong></div>
+        <div class="flip-card-back"><strong>Trustee</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Raj Kumar</strong></div>
+        <div class="flip-card-back"><strong>Trustee</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Geo Paul</strong></div>
+        <div class="flip-card-back"><strong>Construction Committee Secretary</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Thomas VT</strong></div>
+        <div class="flip-card-back"><strong>Finance Committee Convenor</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Praveen Ampatt</strong></div>
+        <div class="flip-card-back"><strong>Finance Committee Treasurer</strong></div>
+      </div>
+    </li>
+    <li class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front"><strong>Thomas MP</strong></div>
+        <div class="flip-card-back"><strong>Vendor Management</strong></div>
+      </div>
+    </li>
+    <li class="normal-card"><strong>Sunil T Paul</strong></li>
+    <li class="normal-card"><strong>Joshy Joseph</strong></li>
+    <li class="normal-card"><strong>Thomas Alakalam</strong></li>
+    <li class="normal-card"><strong>Tommy Antony</strong></li>
+    <li class="normal-card"><strong>Sabu Jose</strong></li>
+    <li class="normal-card"><strong>Jaijee Jacob</strong></li>
+    <li class="normal-card"><strong>Biju Philip</strong></li>
+    <li class="normal-card"><strong>Benny Mathew</strong></li>
+    <li class="normal-card"><strong>Jessie Thomas</strong></li>
+    <li class="normal-card"><strong>Lijo George</strong></li>
+  </ul>
 </div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Committee</span><h2>Construction Committee</h2><span class="rule"></span></div>
-<ul class="rows">
-  <li><strong>Parish Priest &amp; Construction Convenor</strong></li>
-  <li><strong>Asst. Parish Priest</strong></li>
-  <li><strong>Trustee</strong></li>
-  <li><strong>Construction Secretary</strong></li>
-  <li><strong>Thomas VT (Primary)</strong></li>
-  <li><strong>MP Thomas (Primary)</strong></li>
-  <li><strong>Thomas Tharakan (Primary)</strong></li>
-  <li><strong>Thomas Alakalam (Primary)</strong></li>
-  <li><strong>Shine Williams (Primary)</strong></li>
-</ul>
-</div></div></section>
+
 </main>
 
   <footer class="site-footer">
