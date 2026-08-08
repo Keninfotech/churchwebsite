@@ -111,6 +111,31 @@
         transition: none !important;
       }
     }
+
+    /* ---------- Compact saint sections so they fit the viewport ---------- */
+    @media (min-width: 641px) {
+      .saint-card__head figure {
+        max-width: 300px !important;
+        margin: 1rem auto .5rem !important;
+      }
+
+      main section {
+        padding: clamp(28px, 3vw, 48px) 0 !important;
+      }
+
+      .saint-card .section-head {
+        margin-bottom: .75rem;
+      }
+
+      .saint-card .section-head h2 {
+        font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+      }
+
+      .saint-card__hint {
+        margin: -0.1rem auto 1rem;
+        padding: .4rem .9rem;
+      }
+    }
   </style>
 </head>
 
