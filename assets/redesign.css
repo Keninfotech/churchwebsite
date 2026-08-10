@@ -1280,6 +1280,7 @@ section.tight {
   color: #d9d5c5;
   padding: var(--sp-7) 0 32px;
   margin-top: 0;
+  border-top: 1px solid var(--gold);
 }
 
 .site-footer h4 {
