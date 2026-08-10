@@ -703,14 +703,14 @@ section.tight {
   max-width: none;
   aspect-ratio: 1;
   margin: 0;
-  background: #000 url('jubilee-year.webp') center/contain no-repeat;
+  background: url('jubilee-year.webp?v=3') center/contain no-repeat;
   position: absolute;
   right: clamp(12px, 2vw, 24px);
   bottom: clamp(12px, 2vw, 24px);
   display: block;
   border: 1px solid var(--gold-soft);
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  box-shadow: none;
   z-index: 5;
 }
 
