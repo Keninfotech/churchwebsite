@@ -2734,7 +2734,7 @@ html.pt-out body {
 /* --- Body two-column --- */
 .announce-body {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 260px 1.3fr 1fr;
   gap: 0;
   background: #fff;
   border-radius: var(--radius-lg);
@@ -2884,6 +2884,12 @@ html.pt-out body {
   margin: 0 !important;
 }
 
+@media (max-width: 1100px) {
+  .announce-body {
+    grid-template-columns: 220px 1fr 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .announce-body {
     grid-template-columns: 1fr;
@@ -2893,6 +2899,11 @@ html.pt-out body {
     border-right: none;
     border-bottom: 1px solid var(--line);
     padding: 2rem;
+  }
+
+  .announce-notice {
+    border-left: none;
+    border-top: 1px solid var(--line);
   }
 
   .announce-hero {
