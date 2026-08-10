@@ -558,7 +558,7 @@
             <line x1="55" y1="12" x2="65" y2="12"/>
             <!-- Right leaves -->
             <path d="M75 15 C80 10, 85 15, 90 15 C85 18, 80 20, 75 15 Z"/>
-            <path d="M85 15 C90 8, 95 15, 100 15 C95 18, 90 20, 85 15 Z"/>
+<path d="M85 15 C90 8, 95 15, 100 15 C95 18, 90 20, 85 15 Z"/>
             <path d="M95 15 C100 8, 105 15, 110 15 C105 18, 100 20, 95 15 Z"/>
             <path d="M75 15 L110 15"/>
           </svg>
@@ -567,23 +567,21 @@
     </section>
 
     <section class="announce-section bg-cool">
-      <!-- Hero banner -->
+      <!-- Hero banner: split layout - text left, church image right -->
       <div class="announce-hero">
-        <img src="./assets/church.webp" alt="Our Lady of Sorrows Church" class="announce-hero__img">
-        <div class="announce-hero__overlay"></div>
-        <div class="container announce-hero__content">
-          <span class="eyebrow announce-hero__eyebrow">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-            Announcements
-          </span>
-          <h2 class="announce-hero__title">Parish<br>Announcements</h2>
+        <div class="announce-hero__text">
+          <span class="announce-hero__cross" aria-hidden="true">✟</span>
+          <h2 class="announce-hero__title">Parish<br><span>Announcements</span></h2>
           <span class="announce-hero__rule"></span>
           <p class="announce-hero__sub"><em>Together in Faith, Building Our Future</em></p>
+        </div>
+        <div class="announce-hero__img-panel">
+          <img src="./assets/church.webp" alt="Our Lady of Sorrows Church" class="announce-hero__img">
         </div>
       </div>
 
       <!-- Body -->
-      <div class="container">
+      <div class="announce-wide-container">
         <div class="announce-body" data-reveal>
 
           <!-- Left: scripture quote card -->
@@ -600,10 +598,15 @@
 
           <!-- Middle: Vicar's message -->
           <div class="announce-items" style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <p style="margin-bottom: 0.25rem; line-height: 1.5;">
-              <span style="color: #c9ad71; font-family: var(--serif); font-size: 1.8rem; margin-right: 0.5rem;">My Dear Brothers and Sisters in Christ,</span>
-              <span style="font-weight: 600; color: #833939; font-size: 1.1rem;">Greetings of peace in the Lord!</span>
-            </p>
+            <div style="margin-bottom: 0.5rem;">
+              <h3 style="font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--ink); margin: 0 0 0.25rem; line-height: 1.2; font-weight: 500;">My Dear Brothers and<br>Sisters in Christ,</h3>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin: 0.6rem 0;">
+                <span style="flex: 0 0 40px; height: 1.5px; background: var(--gold-soft);"></span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2L15 7H21V22H3V7H9L12 2Z"/></svg>
+                <span style="flex: 0 0 40px; height: 1.5px; background: var(--gold-soft);"></span>
+              </div>
+              <p style="font-weight: 700; color: #833939; font-size: 1rem; margin: 0; font-family: var(--sans);">Greetings of peace in the Lord!</p>
+            </div>
 
             <p style="line-height: 1.5; margin: 0;">I hope this letter finds you and your family well. As the Parish Priest of Our Lady of Sorrows (OLS), I humbly invite you to become a part of a historic and faith-filled journey—the completion of our new church, a sacred home where generations will gather to worship, pray, and grow in faith.</p>
 
