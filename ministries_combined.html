@@ -416,6 +416,7 @@
     }
 
     .ob-avatar-wrap {
+      position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
       border-radius: 16px;
@@ -423,6 +424,58 @@
       border: 2px solid #c8aa6e;
       background: #f4ecdc;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .ob-role-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(15, 30, 22, 0.94) 0%,
+        rgba(15, 30, 22, 0.62) 55%,
+        rgba(15, 30, 22, 0.1) 100%
+      );
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0.85rem 0.6rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .ob-card:hover .ob-role-overlay,
+    .ob-avatar-wrap:hover .ob-role-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .ob-role-badge {
+      display: inline-block;
+      background: rgba(200, 170, 110, 0.28);
+      color: #fdfaf2;
+      border: 1.5px solid #c8aa6e;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-family: var(--sans, 'Inter', sans-serif);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transform: translateY(10px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      max-width: 95%;
+      line-height: 1.25;
+    }
+
+    .ob-card:hover .ob-role-badge,
+    .ob-avatar-wrap:hover .ob-role-badge {
+      transform: translateY(0);
     }
 
     .ob-avatar {
@@ -701,66 +754,77 @@
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Fr. Riju MSFS.webp" alt="Fr. Riju MSFS" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Director</span></div>
                   </div>
                   <span class="ob-name">Fr. Riju MSFS</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Reji C Sebastian.jpg" alt="Mr. Reji C Sebastian" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">President</span></div>
                   </div>
                   <span class="ob-name">Mr. Reji C Sebastian</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Nishad Sunny.jpg" alt="Mr. Nishad Sunny" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. Nishad Sunny</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Rino George.jpg" alt="Mr. Rino George" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Rino George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Johny Kurian.jpg" alt="Mr. Johny Kurian" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Vice President</span></div>
                   </div>
                   <span class="ob-name">Mr. Johny Kurian</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Jenson Joseph.jpg" alt="Mr. Jenson Joseph" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Joint Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. Jenson Joseph</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Aneem Mathew.jpg" alt="Mr. Aneem Mathew" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Joint Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Aneem Mathew</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Babu Antony.jpeg" alt="Mr. Babu Antony" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Executive Member</span></div>
                   </div>
                   <span class="ob-name">Mr. Babu Antony</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Biju Philip.jpeg" alt="Mr. Biju Philip" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Executive Member</span></div>
                   </div>
                   <span class="ob-name">Mr. Biju Philip</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Binoj Abraham.jpeg" alt="Mr. Binoj Abraham" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Executive Member</span></div>
                   </div>
                   <span class="ob-name">Mr. Binoj Abraham</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Pithruvedi/Mr. Joby.jpeg" alt="Mr. Joby" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Executive Member</span></div>
                   </div>
                   <span class="ob-name">Mr. Joby</span>
                 </li>
@@ -835,42 +899,49 @@
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Mathruvedi/Fr. Riju MSFS.jpg" alt="Fr. Riju MSFS" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Director</span></div>
                   </div>
                   <span class="ob-name">Fr. Riju MSFS</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Mathruvedi/Sr. Jancy Chacko.jpg" alt="Sr. Jancy Chacko" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Animator</span></div>
                   </div>
                   <span class="ob-name">Sr. Jancy Chacko</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Mathruvedi/Ms. Viveena Robert.jpg" alt="Ms. Viveena Robert" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">President</span></div>
                   </div>
                   <span class="ob-name">Ms. Viveena Robert</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Mathruvedi/Ms. Sonia Reji.jpg" alt="Ms. Sonia Reji" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Ms. Sonia Reji</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Mathruvedi/Ms. Tintu Subin.jpg" alt="Ms. Tintu Subin" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Treasurer</span></div>
                   </div>
                   <span class="ob-name">Ms. Tintu Subin</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Mathruvedi/Ms. Litty John.jpg" alt="Ms. Litty John" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Vice President</span></div>
                   </div>
                   <span class="ob-name">Ms. Litty John</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Mathruvedi/Ms. Soumya Davis.jpg" alt="Ms. Soumya Davis" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Joint Secretary</span></div>
                   </div>
                   <span class="ob-name">Ms. Soumya Davis</span>
                 </li>
@@ -986,72 +1057,84 @@
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Fr. Riju MSFS.jpg" alt="Fr. Riju MSFS" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Chairman &amp; Asst Director</span></div>
                   </div>
                   <span class="ob-name">Fr. Riju MSFS</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <div class="ob-avatar--fallback" aria-hidden="true">SJ</div>
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Animator</span></div>
                   </div>
                   <span class="ob-name">Sr. Jeena DSFS</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <div class="ob-avatar--fallback" aria-hidden="true">BC</div>
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Asst Animator</span></div>
                   </div>
                   <span class="ob-name">Br. Christian</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Mr. Jivin George.jpg" alt="Mr. Jivin George" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">President</span></div>
                   </div>
                   <span class="ob-name">Mr. Jivin George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Alan-Charly.jpg" alt="Mr. Alan Charly" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. Alan Charly</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Dayas Dixon.jpg" alt="Mr. Dayas Dixon" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Dayas Dixon</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Joshmi Mathew.jpg" alt="Ms. Joshmi Mathew" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Vice President</span></div>
                   </div>
                   <span class="ob-name">Ms. Joshmi Mathew</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Esther Rose.jpg" alt="Ms. Esther Rose" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Joint Secretary</span></div>
                   </div>
                   <span class="ob-name">Ms. Esther Rose</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Binosh Sibi.jpg" alt="Mr. Binosh Sibi" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Media Head</span></div>
                   </div>
                   <span class="ob-name">Mr. Binosh Sibi</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Asha Elizabath.jpg" alt="Ms. Asha Elizabeth" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Councilor 1</span></div>
                   </div>
                   <span class="ob-name">Ms. Asha Elizabeth</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/sujan Thomas.jpg" alt="Mr. Sujan Thomas" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Councilor 2</span></div>
                   </div>
                   <span class="ob-name">Mr. Sujan Thomas</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Youth Ministry/Allen-Robert.jpg" alt="Mr. Allen Robert" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Sports &amp; Culturals Head</span></div>
                   </div>
                   <span class="ob-name">Mr. Allen Robert</span>
                 </li>
@@ -1148,36 +1231,42 @@
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Vincent de Paul/Anoop George.jpg" alt="Mr. Anoop George" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">President</span></div>
                   </div>
                   <span class="ob-name">Mr. Anoop George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Vincent de Paul/james joseph.jpg" alt="Mr. James Joseph" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. James Joseph</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Vincent de Paul/Lijo George.jpg" alt="Mr. Lijo George" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Lijo George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Vincent de Paul/Robert Jose.jpg" alt="Mr. Robert Jose" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Vice President</span></div>
                   </div>
                   <span class="ob-name">Mr. Robert Jose</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Vincent de Paul/Sunumon George.jpg" alt="Mr. Sunumon George" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Joint Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. Sunumon George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Vincent de Paul/Charlie PV.jpg" alt="Mr. Charlie P V" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Joint Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Charlie P V</span>
                 </li>
@@ -1393,12 +1482,14 @@
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Laity Commission/Mr. James Joseph.jpg" alt="Mr. James Joseph" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Coordinator</span></div>
                   </div>
                   <span class="ob-name">Mr. James Joseph</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
                     <img src="./assets/Images/Laity Commission/Ms. Remya Paul.jpg" alt="Ms. Remya Paul" class="ob-avatar" loading="lazy">
+                    <div class="ob-role-overlay"><span class="ob-role-badge">Coordinator</span></div>
                   </div>
                   <span class="ob-name">Ms. Remya Paul</span>
                 </li>
