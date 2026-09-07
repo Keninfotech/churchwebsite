@@ -459,6 +459,111 @@
     margin-top: 0.3rem;
   }
 
+  /* Transport & Metro Subsections */
+  .cri-subgroup-title {
+    font-size: 1.15rem;
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-weight: 700;
+    color: var(--ink, #1c261e);
+    margin: 2rem 0 0.85rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #e2dac8;
+  }
+
+  .badge-transit {
+    background: #f0f9ff;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+  }
+  .badge-bus {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+  }
+  .badge-toll {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+  }
+  .badge-rto {
+    background: #faf5ff;
+    color: #6b21a8;
+    border: 1px solid #e9d5ff;
+  }
+
+  .cri-metro-table-wrapper {
+    background: #ffffff;
+    border: 1px solid #e2dac8;
+    border-radius: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 2px 6px rgba(31, 36, 21, 0.03);
+    margin-bottom: 1.5rem;
+  }
+  .cri-metro-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.84rem;
+    text-align: left;
+  }
+  .cri-metro-table th {
+    background-color: #f5f0e4;
+    color: #554e3d;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid #ded6c2;
+    white-space: nowrap;
+  }
+  .cri-metro-table td {
+    padding: 0.6rem 0.85rem;
+    border-bottom: 1px solid #f1ebe0;
+    vertical-align: middle;
+  }
+  .cri-metro-table tr:last-child td {
+    border-bottom: none;
+  }
+  .cri-metro-table tr:hover td {
+    background-color: #faf7f2;
+  }
+  .cri-metro-station {
+    font-weight: 600;
+    color: #1f2415;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .cri-metro-area {
+    color: #525846;
+    font-size: 0.82rem;
+  }
+  .badge-yellow-line {
+    background: #fef9c3;
+    color: #854d0e;
+    border: 1px solid #facc15;
+    font-weight: 700;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    padding: 0.18rem 0.55rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    white-space: nowrap;
+  }
+  .metro-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ca8a04;
+    display: inline-block;
+  }
+
   @media (max-width: 900px) {
     .cri-layout {
       grid-template-columns: 1fr;
@@ -1161,6 +1266,230 @@ function setCriFilter(category, btn) {
         <p style="margin: 0; font-weight: 600;">No matching contacts found</p>
         <span style="font-size: 0.8rem; color: #8c826e;">Try adjusting your search query or selecting another filter category.</span>
       </div>
+    </div>
+
+    <!-- Transport & Travel Helplines -->
+    <div class="cri-subgroup-title">
+      <span>🚆</span> Transport &amp; Travel Reservations
+    </div>
+    <div class="cri-cards-grid" style="margin-bottom: 1.5rem;">
+      <!-- Transport 1: Railway Reservation -->
+      <div class="cri-util-card">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-transit">
+            <span>🚆</span> Railway
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Railway Reservation Counter</h3>
+          <span class="cri-card-sub">Electronic City</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08028520012" class="cri-card-phone">080 2852 0012</a>
+          <a href="tel:08028520012" class="cri-call-action" title="Call Railway Reservation Counter" aria-label="Call 080 2852 0012">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Transport 2: KSRTC Bus Reservation -->
+      <div class="cri-util-card">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-bus">
+            <span>🚌</span> KSRTC Bus
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">KSRTC Bus Reservation</h3>
+          <span class="cri-card-sub">Electronic City</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08028523344" class="cri-card-phone">080 2852 3344</a>
+          <a href="tel:08028523344" class="cri-call-action" title="Call KSRTC Bus Reservation" aria-label="Call 080 2852 3344">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Transport 3: KSRTC Travel House -->
+      <div class="cri-util-card">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-bus">
+            <span>🚌</span> Travel House
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">KSRTC Travel House</h3>
+          <span class="cri-card-sub">Booking &amp; Inquiry</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:09900521547" class="cri-card-phone">099005 21547</a>
+          <a href="tel:09900521547" class="cri-call-action" title="Call KSRTC Travel House" aria-label="Call 099005 21547">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Transport 4: BETL Elevated Tollway -->
+      <div class="cri-util-card">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-toll">
+            <span>🛣️</span> Tollway
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">BETL / Elevated Tollway</h3>
+          <span class="cri-card-sub">Helpline &amp; Assistance</span>
+        </div>
+        <div class="cri-card-footer" style="flex-direction: column; align-items: stretch; gap: 0.35rem;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.35rem;">
+            <a href="tel:08028520758" class="cri-card-phone">080 2852 0758</a>
+            <a href="tel:08028520758" class="cri-call-action" title="Call Tollway Landline" aria-label="Call 080 2852 0758">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Call</span>
+            </a>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.35rem;">
+            <a href="tel:18004258444" class="cri-card-phone">1800 425 8444</a>
+            <a href="tel:18004258444" class="cri-call-action" title="Call Tollway Toll-Free" aria-label="Call 1800 425 8444">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Call</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transport 5: Electronic City RTO -->
+      <div class="cri-util-card">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-rto">
+            <span>🚗</span> RTO Office
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Electronic City RTO</h3>
+          <span class="cri-card-sub">Regional Transport Office</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08025735522" class="cri-card-phone">080 2573 5522</a>
+          <a href="tel:08025735522" class="cri-call-action" title="Call Electronic City RTO" aria-label="Call 080 2573 5522">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metro Stations Section -->
+    <div class="cri-subgroup-title">
+      <span>🚇</span> Namma Metro (Yellow Line) Stations
+    </div>
+    <div class="cri-metro-table-wrapper">
+      <table class="cri-metro-table">
+        <thead>
+          <tr>
+            <th style="width: 44%;">Metro Station</th>
+            <th style="width: 26%;">Line</th>
+            <th style="width: 30%;">Area</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="cri-metro-station">
+                <span>🚇</span> Electronic City
+              </span>
+            </td>
+            <td>
+              <span class="badge-yellow-line">
+                <span class="metro-dot"></span> Yellow Line
+              </span>
+            </td>
+            <td class="cri-metro-area">Electronic City</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cri-metro-station">
+                <span>🚇</span> Infosys Foundation Konappana Agrahara
+              </span>
+            </td>
+            <td>
+              <span class="badge-yellow-line">
+                <span class="metro-dot"></span> Yellow Line
+              </span>
+            </td>
+            <td class="cri-metro-area">Konappana Agrahara</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cri-metro-station">
+                <span>🚇</span> Huskur Road
+              </span>
+            </td>
+            <td>
+              <span class="badge-yellow-line">
+                <span class="metro-dot"></span> Yellow Line
+              </span>
+            </td>
+            <td class="cri-metro-area">Veerasandra / Electronic City</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cri-metro-station">
+                <span>🚇</span> Biocon Hebbagodi
+              </span>
+            </td>
+            <td>
+              <span class="badge-yellow-line">
+                <span class="metro-dot"></span> Yellow Line
+              </span>
+            </td>
+            <td class="cri-metro-area">Hebbagodi</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cri-metro-station">
+                <span>🚇</span> Beratena Agrahara
+              </span>
+            </td>
+            <td>
+              <span class="badge-yellow-line">
+                <span class="metro-dot"></span> Yellow Line
+              </span>
+            </td>
+            <td class="cri-metro-area">Basapura / Electronic City</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cri-metro-station">
+                <span>🚇</span> Hosa Road
+              </span>
+            </td>
+            <td>
+              <span class="badge-yellow-line">
+                <span class="metro-dot"></span> Yellow Line
+              </span>
+            </td>
+            <td class="cri-metro-area">Hosa Road</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="cri-metro-station">
+                <span>🚇</span> Delta Electronics Bommasandra
+              </span>
+            </td>
+            <td>
+              <span class="badge-yellow-line">
+                <span class="metro-dot"></span> Yellow Line
+              </span>
+            </td>
+            <td class="cri-metro-area">Bommasandra</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
