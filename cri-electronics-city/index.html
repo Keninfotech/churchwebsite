@@ -70,12 +70,18 @@
   </div>
 </section>
 <style>
+  .cri-section {
+    background-color: #f7f3eb;
+    width: 100%;
+  }
   .cri-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.35fr;
     gap: 2rem;
-    padding: 3rem 2rem;
-    background-color: #f7f3eb;
+    padding: 3rem 1.5rem;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
   .cri-heading {
     color: var(--ink, #1c261e);
@@ -143,51 +149,320 @@
     border-top: 1px solid #e2dac8;
   }
   
-  /* Right side - Grid */
-  .cri-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  /* Right side - Public Utility Table & Directory */
+  .cri-utility-header {
+    margin-bottom: 1.25rem;
   }
-  .cri-card {
-    background-color: #fff;
-    padding: 1.5rem 1rem;
-    text-align: center;
+  .cri-em-bar {
+    background: #fff8f3;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    padding: 0.75rem 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .cri-em-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #c2410c;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .cri-em-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+  .cri-em-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #ffffff;
+    border: 1px solid #fdba74;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #1f2415;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .cri-em-chip:hover {
+    background: #ea580c;
+    color: #ffffff !important;
+    border-color: #ea580c;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(234, 88, 12, 0.25);
+  }
+  .cri-em-chip strong {
+    font-weight: 700;
+  }
+
+  .cri-controls {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  .cri-search-wrap {
+    position: relative;
+    display: flex;
     align-items: center;
-    gap: 1rem;
-    min-height: 120px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   }
-  .cri-card-title {
-    font-size: 0.95rem;
+  .cri-search-wrap svg {
+    position: absolute;
+    left: 0.85rem;
+    color: #8c826e;
+    pointer-events: none;
+  }
+  .cri-search-input {
+    width: 100%;
+    padding: 0.55rem 0.85rem 0.55rem 2.25rem;
+    border: 1px solid #dcd4c0;
+    border-radius: 8px;
+    background: #ffffff;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.88rem;
+    color: #1f2415;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cri-search-input:focus {
+    border-color: #c8aa6e;
+    box-shadow: 0 0 0 3px rgba(200, 170, 110, 0.2);
+  }
+  .cri-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .cri-pill-btn {
+    background: #ebe4d4;
+    border: 1px solid transparent;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.76rem;
     font-weight: 600;
-    color: #333;
+    color: #4a463a;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .cri-pill-btn:hover {
+    background: #ddd4be;
+    color: #1f2415;
+  }
+  .cri-pill-btn.active {
+    background: #1c352d;
+    color: #ffffff;
+    border-color: #1c352d;
+  }
+
+  .cri-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  @media (min-width: 480px) and (max-width: 767px) {
+    .cri-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 768px) {
+    .cri-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .cri-util-card {
+    background: #ffffff;
+    border: 1px solid #e5dcce;
+    border-radius: 9px;
+    padding: 0.75rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(31, 36, 21, 0.03);
+    min-height: 110px;
+    box-sizing: border-box;
+  }
+  .cri-util-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(31, 36, 21, 0.08);
+    border-color: #c8aa6e;
+  }
+
+  .cri-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+  }
+
+  .cri-card-body {
+    flex-grow: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .cri-card-name {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #1f2415;
+    margin: 0;
     line-height: 1.3;
+    font-family: var(--sans, 'Inter', sans-serif);
+    word-break: break-word;
   }
+
+  .cri-card-sub {
+    font-weight: 400;
+    font-size: 0.74rem;
+    color: #6b6f5a;
+    display: block;
+    margin-top: 0.15rem;
+    line-height: 1.25;
+  }
+
+  .cri-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed #ede5d5;
+    margin-top: auto;
+    flex-wrap: wrap;
+  }
+
   .cri-card-phone {
-    font-size: 0.85rem;
-    color: #555;
-    text-transform: uppercase;
-    line-height: 1.4;
+    font-weight: 700;
+    color: #1f2415;
+    font-size: 0.82rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-family: var(--sans, 'Inter', sans-serif);
+    white-space: nowrap;
   }
-  
+  .cri-card-phone:hover {
+    color: #a9843f;
+    text-decoration: underline;
+  }
+  .cri-card-phone.phone-alert {
+    color: #dc2626;
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+
+  .cri-no-results {
+    grid-column: 1 / -1;
+    background: #ffffff;
+    border: 1px dashed #dcd4c0;
+    border-radius: 9px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: #6b6f5a;
+    font-size: 0.88rem;
+    display: none;
+  }
+
+  .cri-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.18rem 0.45rem;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.2;
+  }
+  .badge-police {
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+  }
+  .badge-hospital {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+  .badge-clinic {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+  .badge-pharmacy {
+    background: #fff7ed;
+    color: #9a3412;
+    border: 1px solid #fed7aa;
+  }
+  .badge-post {
+    background: #faf5ff;
+    color: #6b21a8;
+    border: 1px solid #e9d5ff;
+  }
+  .badge-fire {
+    background: #fff1f2;
+    color: #9f1239;
+    border: 1px solid #fecdd3;
+  }
+  .badge-emergency {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+  }
+  .badge-electricity {
+    background: #fefce8;
+    color: #854d0e;
+    border: 1px solid #fef08a;
+  }
+
+  .cri-call-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #1c352d;
+    color: #ffffff !important;
+    padding: 0.28rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  .cri-call-action:hover {
+    background: #c8aa6e;
+    color: #16281f !important;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  }
+  .cri-call-action.btn-emergency {
+    background: #dc2626;
+  }
+  .cri-call-action.btn-emergency:hover {
+    background: #b91c1c;
+    color: #ffffff !important;
+  }
+  .cri-verify-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: #b45309;
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    margin-top: 0.3rem;
+  }
+
   @media (max-width: 900px) {
     .cri-layout {
       grid-template-columns: 1fr;
       padding: 2rem 1rem;
-    }
-  }
-  @media (max-width: 600px) {
-    .cri-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (max-width: 400px) {
-    .cri-grid {
-      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -207,8 +482,42 @@ function toggleCriAccordion(element) {
         icon.textContent = "-";
     }
 }
+
+function filterCriUtilities() {
+    const query = (document.getElementById('utilSearch').value || '').toLowerCase().trim();
+    const cards = document.querySelectorAll('#criCardsGrid .cri-util-card');
+    const activeBtn = document.querySelector('.cri-pill-btn.active');
+    const activeFilter = activeBtn ? activeBtn.getAttribute('data-filter') || 'all' : 'all';
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const cardCat = (card.getAttribute('data-cat') || '').toLowerCase();
+        const matchesQuery = !query || text.includes(query);
+        const matchesFilter = activeFilter === 'all' || cardCat.includes(activeFilter);
+
+        if (matchesQuery && matchesFilter) {
+            card.style.display = 'flex';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    const noResults = document.getElementById('criNoResults');
+    if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+}
+
+function setCriFilter(category, btn) {
+    document.querySelectorAll('.cri-pill-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCriUtilities();
+}
 </script>
 
+<section class="cri-section">
 <div class="cri-layout">
   <div class="cri-col">
     <h2 class="cri-heading">Religious Congregations</h2>
@@ -443,89 +752,419 @@ function toggleCriAccordion(element) {
   </div>
   
   <div class="cri-col">
-    <h2 class="cri-heading">Public Utility Numbers</h2>
+    <div class="cri-utility-header">
+      <h2 class="cri-heading">Public Utility Numbers</h2>
+      <p class="cri-subtitle">Essential contacts, emergency services, and healthcare facilities in Electronic City.</p>
+      
+      <!-- Quick Emergency Dial Bar -->
+      <div class="cri-em-bar">
+        <div class="cri-em-title">
+          <span>⚡</span> Quick Emergency Dial
+        </div>
+        <div class="cri-em-chips">
+          <a href="tel:108" class="cri-em-chip">
+            <span>🚑 Ambulance</span>
+            <strong>108</strong>
+          </a>
+          <a href="tel:100" class="cri-em-chip">
+            <span>👮 Police</span>
+            <strong>100</strong>
+          </a>
+          <a href="tel:08022971576" class="cri-em-chip">
+            <span>🚒 Fire</span>
+            <strong>080 2297 1576</strong>
+          </a>
+          <a href="tel:1912" class="cri-em-chip">
+            <span>⚡ BESCOM</span>
+            <strong>1912</strong>
+          </a>
+        </div>
+      </div>
+
+      <!-- Search and Filter Controls -->
+      <div class="cri-controls">
+        <div class="cri-search-wrap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="utilSearch" class="cri-search-input" placeholder="Search by name, service, or number..." onkeyup="filterCriUtilities()">
+        </div>
+        <div class="cri-pills">
+          <button type="button" class="cri-pill-btn active" data-filter="all" onclick="setCriFilter('all', this)">All (18)</button>
+          <button type="button" class="cri-pill-btn" data-filter="emergency" onclick="setCriFilter('emergency', this)">Emergency</button>
+          <button type="button" class="cri-pill-btn" data-filter="hospital" onclick="setCriFilter('hospital', this)">Hospitals</button>
+          <button type="button" class="cri-pill-btn" data-filter="clinic" onclick="setCriFilter('clinic', this)">Clinics &amp; Pharma</button>
+          <button type="button" class="cri-pill-btn" data-filter="police" onclick="setCriFilter('police', this)">Police</button>
+          <button type="button" class="cri-pill-btn" data-filter="utility" onclick="setCriFilter('utility', this)">Services</button>
+        </div>
+      </div>
+    </div>
     
-    <div class="cri-grid">
-      <div class="cri-card">
-        <div class="cri-card-title">Apollo Clinic, Electronics City</div>
-        <div class="cri-card-phone">PHONES 096060<br>60870</div>
+    <!-- Cards Component -->
+    <div class="cri-cards-grid" id="criCardsGrid">
+      <!-- 1. Electronic city police Station -->
+      <div class="cri-util-card" data-cat="police">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-police">
+            <span>🚓</span> Police Station
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Electronic city police Station</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08022943469" class="cri-card-phone">080 2294 3469</a>
+          <a href="tel:08022943469" class="cri-call-action" title="Call Electronic city police Station" aria-label="Call 080 2294 3469">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">The Dentist</div>
-        <div class="cri-card-phone">PHONES 078199<br>98800</div>
+
+      <!-- 2. Electronic city Traffic Police Station -->
+      <div class="cri-util-card" data-cat="police">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-police">
+            <span>🚓</span> Traffic Police
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Electronic city Traffic Police Station</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08022943718" class="cri-card-phone">080 2294 3718</a>
+          <a href="tel:08022943718" class="cri-call-action" title="Call Traffic Police Station" aria-label="Call 080 2294 3718">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">Kalyan Clinic, Electronics City</div>
-        <div class="cri-card-phone">PHONES 080886<br>47987</div>
+
+      <!-- 3. Hebbagodi Police Station -->
+      <div class="cri-util-card" data-cat="police">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-police">
+            <span>🚓</span> Police Station
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Hebbagodi Police Station</h3>
+          <span class="cri-verify-tag">Verify number before publishing</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08027832922" class="cri-card-phone">080 2783 2922</a>
+          <a href="tel:08027832922" class="cri-call-action" title="Call Hebbagodi Police Station" aria-label="Call 080 2783 2922">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      
-      <div class="cri-card">
-        <div class="cri-card-title">Sankalp<br>Nethralaya</div>
-        <div class="cri-card-phone">PHONES 080 2258<br>0466</div>
+
+      <!-- 4. KIMS Hospitals -->
+      <div class="cri-util-card" data-cat="hospital">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-hospital">
+            <span>🏥</span> Hospital
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">KIMS Hospitals, Electronic City</h3>
+          <span class="cri-card-sub">(Krishna Institute of Medical Sciences)</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08065561000" class="cri-card-phone">080 6556 1000</a>
+          <a href="tel:08065561000" class="cri-call-action" title="Call KIMS Hospitals" aria-label="Call 080 6556 1000">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">LMotherhood<br>Hospital</div>
-        <div class="cri-card-phone">PHONES 080 6954<br>9278</div>
+
+      <!-- 5. Kauvery Hospital -->
+      <div class="cri-util-card" data-cat="hospital">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-hospital">
+            <span>🏥</span> Hospital
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Kauvery Hospital Electronic City</h3>
+          <span class="cri-card-sub">Bengaluru</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08068016801" class="cri-card-phone">080 6801 6801</a>
+          <a href="tel:08068016801" class="cri-call-action" title="Call Kauvery Hospital" aria-label="Call 080 6801 6801">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">Nimhans Hospital</div>
-        <div class="cri-card-phone">PHONES 080 2699<br>5000</div>
+
+      <!-- 6. Manipal Hospital -->
+      <div class="cri-util-card" data-cat="hospital">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-hospital">
+            <span>🏥</span> Hospital
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Manipal Hospital Electronic City</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08021214141" class="cri-card-phone">080 2121 4141</a>
+          <a href="tel:08021214141" class="cri-call-action" title="Call Manipal Hospital" aria-label="Call 080 2121 4141">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      
-      <div class="cri-card">
-        <div class="cri-card-title">Narayana<br>Multispeciality</div>
-        <div class="cri-card-phone">PHONES 080675<br>06870</div>
+
+      <!-- 7. SACRED OAK HOSPITAL -->
+      <div class="cri-util-card" data-cat="hospital">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-hospital">
+            <span>🏥</span> Hospital
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">SACRED OAK HOSPITAL</h3>
+          <span class="cri-card-sub">Electronic City</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08050304155" class="cri-card-phone">080 5030 4155</a>
+          <a href="tel:08050304155" class="cri-call-action" title="Call SACRED OAK HOSPITAL" aria-label="Call 080 5030 4155">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">St. John's Medical<br>Collage</div>
-        <div class="cri-card-phone">PHONES 080 2206<br>5000</div>
+
+      <!-- 8. Cloudnine Hospital -->
+      <div class="cri-util-card" data-cat="hospital">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-hospital">
+            <span>🏥</span> Maternity Hospital
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Cloudnine Hospital - Electronic City</h3>
+          <span class="cri-card-sub">Maternity &amp; Pregnancy Care Centre</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:09972899728" class="cri-card-phone">099728 99728</a>
+          <a href="tel:09972899728" class="cri-call-action" title="Call Cloudnine Hospital" aria-label="Call 099728 99728">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">Cloudnine Hospital</div>
-        <div class="cri-card-phone">PHONES 099728<br>99728</div>
+
+      <!-- 9. Apollo Clinic -->
+      <div class="cri-util-card" data-cat="clinic">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-clinic">
+            <span>🩺</span> Clinic
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Apollo Clinic</h3>
+          <span class="cri-card-sub">Electronic City Phase 1, Bengaluru</span>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:18001031010" class="cri-card-phone">1800 103 1010</a>
+          <a href="tel:18001031010" class="cri-call-action" title="Call Apollo Clinic" aria-label="Call 1800 103 1010">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      
-      <div class="cri-card">
-        <div class="cri-card-title">Hebbagodi Police<br>Station</div>
-        <div class="cri-card-phone">PHONES 080 2783<br>2922</div>
+
+      <!-- 10. Neo Health Clinics -->
+      <div class="cri-util-card" data-cat="clinic">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-clinic">
+            <span>🩺</span> Clinic
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Neo Health Clinics</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:09379666000" class="cri-card-phone">093796 66000</a>
+          <a href="tel:09379666000" class="cri-call-action" title="Call Neo Health Clinics" aria-label="Call 093796 66000">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">E- City Police<br>Station</div>
-        <div class="cri-card-phone">PHONES 080<br>22943469</div>
+
+      <!-- 11. RxDx Clinics -->
+      <div class="cri-util-card" data-cat="clinic">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-clinic">
+            <span>🩺</span> Clinic
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">RxDx Clinics, Electronic City</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:09014091111" class="cri-card-phone">090140 91111</a>
+          <a href="tel:09014091111" class="cri-call-action" title="Call RxDx Clinics" aria-label="Call 090140 91111">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">Electronic City Post<br>Office</div>
-        <div class="cri-card-phone">PHONES 080<br>28520119</div>
+
+      <!-- 12. Aster Pharmacy -->
+      <div class="cri-util-card" data-cat="clinic">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-pharmacy">
+            <span>💊</span> Pharmacy
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Aster Pharmacy - Electronic City</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08071178108" class="cri-card-phone">080 7117 8108</a>
+          <a href="tel:08071178108" class="cri-call-action" title="Call Aster Pharmacy" aria-label="Call 080 7117 8108">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      
-      <div class="cri-card">
-        <div class="cri-card-title">Kauvery Hospital<br>Electronic City</div>
-        <div class="cri-card-phone">PHONES 080 6801<br>6801</div>
+
+      <!-- 13. Electronic city Post office -->
+      <div class="cri-util-card" data-cat="utility">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-post">
+            <span>📮</span> Post Office
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Electronic city Post office</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:08028520119" class="cri-card-phone">080 2852 0119</a>
+          <a href="tel:08028520119" class="cri-call-action" title="Call Electronic City Post Office" aria-label="Call 080 2852 0119">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">Springleaf Hospital</div>
-        <div class="cri-card-phone">PHONES 074111<br>22444</div>
+
+      <!-- 14. Bommasandra Post Office -->
+      <div class="cri-util-card" data-cat="utility">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-post">
+            <span>📮</span> Post Office
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Bommasandra Post Office</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:18002666868" class="cri-card-phone">1800 266 6868</a>
+          <a href="tel:18002666868" class="cri-call-action" title="Call Bommasandra Post Office" aria-label="Call 1800 266 6868">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">SACRED OAK<br>HOSPITAL</div>
-        <div class="cri-card-phone">PHONES 080503<br>04155</div>
+
+      <!-- 15. Electronic City Fire Department -->
+      <div class="cri-util-card" data-cat="emergency">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-fire">
+            <span>🚒</span> Fire Station
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Electronic City Fire Department</h3>
+        </div>
+        <div class="cri-card-footer" style="flex-direction: column; align-items: stretch; gap: 0.4rem;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+            <a href="tel:08022971576" class="cri-card-phone">080 2297 1576</a>
+            <a href="tel:08022971576" class="cri-call-action btn-emergency" title="Call Fire Dept Line 1" aria-label="Call 080 2297 1576">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Call</span>
+            </a>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+            <a href="tel:08022971577" class="cri-card-phone">080 2297 1577</a>
+            <a href="tel:08022971577" class="cri-call-action btn-emergency" title="Call Fire Dept Line 2" aria-label="Call 080 2297 1577">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Call</span>
+            </a>
+          </div>
+        </div>
       </div>
-      
-      <div class="cri-card">
-        <div class="cri-card-title">NV Hospital</div>
-        <div class="cri-card-phone">PHONES 090081<br>06900</div>
+
+      <!-- 16. Emergency Ambulance -->
+      <div class="cri-util-card" data-cat="emergency">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-emergency">
+            <span>🚑</span> Ambulance
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Emergency Ambulance</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:108" class="cri-card-phone phone-alert">108</a>
+          <a href="tel:108" class="cri-call-action btn-emergency" title="Call Ambulance 108" aria-label="Call 108">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">Neo Health Clinics</div>
-        <div class="cri-card-phone">PHONES 093796<br>66000</div>
+
+      <!-- 17. Police Control Room -->
+      <div class="cri-util-card" data-cat="emergency police">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-emergency">
+            <span>👮</span> Police Emergency
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">Police Control Room</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:100" class="cri-card-phone phone-alert">100</a>
+          <a href="tel:100" class="cri-call-action btn-emergency" title="Call Police 100" aria-label="Call 100">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
       </div>
-      <div class="cri-card">
-        <div class="cri-card-title">Bommasandra<br>Post Office</div>
-        <div class="cri-card-phone">PHONES 1800 266<br>6868</div>
+
+      <!-- 18. BESCOM -->
+      <div class="cri-util-card" data-cat="utility">
+        <div class="cri-card-top">
+          <span class="cri-badge badge-electricity">
+            <span>⚡</span> Electricity
+          </span>
+        </div>
+        <div class="cri-card-body">
+          <h3 class="cri-card-name">BESCOM</h3>
+        </div>
+        <div class="cri-card-footer">
+          <a href="tel:1912" class="cri-card-phone">1912</a>
+          <a href="tel:1912" class="cri-call-action" title="Call BESCOM 1912" aria-label="Call 1912">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="criNoResults" class="cri-no-results">
+        <p style="margin: 0; font-weight: 600;">No matching contacts found</p>
+        <span style="font-size: 0.8rem; color: #8c826e;">Try adjusting your search query or selecting another filter category.</span>
       </div>
     </div>
   </div>
 </div>
+</section>
 </main>
 
   <footer class="site-footer">
