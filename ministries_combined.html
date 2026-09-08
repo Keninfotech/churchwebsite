@@ -1615,8 +1615,17 @@
       mo.observe(document.getElementById('minPanels'), { attributes: true, subtree: true, attributeFilter: ['class'] });
 
       var initial = (location.hash || '').replace('#', '');
-      if (slugs.indexOf(initial) === -1) initial = slugs[0];
+      var hasHash = slugs.indexOf(initial) !== -1;
+      if (!hasHash) initial = slugs[0];
       activate(initial, { scroll: false });
+      if (hasHash) {
+        setTimeout(function () {
+          var target = tabsWrap || document.getElementById('minPanels');
+          if (target) {
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 10, behavior: 'auto' });
+          }
+        }, 80);
+      }
       revealActivePanel();
     })();
   </script>
