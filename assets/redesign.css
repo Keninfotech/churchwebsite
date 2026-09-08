@@ -200,7 +200,7 @@ h4 {
   z-index: 50;
   background: var(--bg);
   box-shadow: 0 1px 0 rgba(31, 36, 21, .06), 0 10px 30px -20px rgba(31, 36, 21, .15);
-  transition: background .35s ease, box-shadow .35s ease, padding .35s ease;
+  transition: background .35s ease, box-shadow .35s ease;
   padding-top: env(safe-area-inset-top);
 }
 
@@ -219,7 +219,7 @@ h4 {
   padding-right: calc(clamp(16px, 3.4vw, 34px) + env(safe-area-inset-right));
   max-width: 1440px;
   margin: 0 auto;
-  transition: padding .3s ease;
+  transition: padding .3s cubic-bezier(.22, .61, .36, 1);
 }
 
 .site-header.scrolled .site-header__inner {
@@ -245,7 +245,7 @@ h4 {
   display: block;
   color: transparent;
   /* Hide the OLS text */
-  transition: width .3s ease, height .3s ease;
+  transition: width .3s cubic-bezier(.22, .61, .36, 1), height .3s cubic-bezier(.22, .61, .36, 1);
 }
 
 .site-header.scrolled .brand__crest {

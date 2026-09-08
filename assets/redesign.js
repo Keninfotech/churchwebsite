@@ -126,17 +126,17 @@
       /*
        * Hysteresis:
        *
-       * Enter compact mode after 40px.
-       * Do not return to full mode until we are below 8px.
+       * Enter compact mode after 80px.
+       * Do not return to full mode until we are below 15px.
        *
-       * This prevents the class from constantly being added/removed
-       * while the browser is processing the navbar transition.
+       * This provides a generous 65px buffer that completely prevents
+       * the class from flipping back and forth or causing any scroll stutter.
        */
-      if (!headerScrolled && y > 40) {
+      if (!headerScrolled && y > 80) {
         headerScrolled = true;
         header.classList.add("scrolled");
       }
-      else if (headerScrolled && y < 8) {
+      else if (headerScrolled && y < 15) {
         headerScrolled = false;
         header.classList.remove("scrolled");
       }
