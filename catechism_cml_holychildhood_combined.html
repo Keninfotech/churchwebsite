@@ -31,8 +31,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .min-hero-content { max-width: 700px; margin: 0 auto; }
+  .min-hero-content { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+  .min-hero--video { background: transparent !important; }
   .min-hero__eyebrow {
     display: inline-flex; align-items: center; gap: .75rem;
     color: #a9843f; font-family: var(--sans,'Inter',sans-serif);
@@ -204,7 +204,9 @@
     </div>
   </header>
 <main id="main">
-<section class="min-hero" data-reveal>
+<section class="min-hero min-hero--video" data-reveal>
+  <video class="hero__video" src="jesus.mp4" autoplay loop muted playsinline></video>
+  <div class="hero__video-overlay"></div>
   <div class="min-hero-content">
     <span class="min-hero__eyebrow">Our Lady of Sorrows &middot; Electronics City</span>
     <h1>Catechism</h1>
