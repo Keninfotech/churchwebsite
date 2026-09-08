@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ministries · Our Lady of Sorrows, Electronics City</title>
-<meta name="description" content="Catechism, the Cherupushpa Mission League, and Holy Childhood — faith formation ministries of Our Lady of Sorrows Church, Electronics City.">
-<meta property="og:title" content="Ministries · Our Lady of Sorrows, Electronics City">
-<meta property="og:description" content="Catechism, the Cherupushpa Mission League, and Holy Childhood — faith formation ministries of Our Lady of Sorrows Church.">
+<title>Catechism, Cherupushpa Mission League &amp; Holy Childhood · Our Lady of Sorrows</title>
+<meta name="description" content="Catechism Sunday School, Cherupushpa Mission League (CML), and Holy Childhood ministries at Our Lady of Sorrows Church, Electronics City.">
+<meta property="og:title" content="Catechism, Cherupushpa Mission League &amp; Holy Childhood · Our Lady of Sorrows">
+<meta property="og:description" content="Faith formation, Cherupushpa Mission League (CML), and Holy Childhood ministries at Our Lady of Sorrows Church, Electronics City.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -17,63 +17,143 @@
 <link rel="stylesheet" href="./assets/redesign.css">
 
 <style>
-  /* ---------- Ministries overview & tab system ---------- */
+  /* ---------- Ministries overview & card system ---------- */
   .min-hero {
     position: relative;
     padding: clamp(1.5rem, 4vw, 3rem) 2rem;
     text-align: center;
-    background: radial-gradient(ellipse at top, rgba(200,170,110,0.10), transparent 60%);
+    background: #fdfaf3;
     overflow: hidden;
+
+    /* Fit exactly one screen, minus the sticky header — matches .hero elsewhere on the site */
     min-height: calc(100vh - var(--header-h, 104px));
     min-height: calc(100dvh - var(--header-h, 104px));
     max-height: calc(100vh - var(--header-h, 104px));
     max-height: calc(100dvh - var(--header-h, 104px));
+
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .min-hero-content { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
-  .min-hero--video { background: transparent !important; }
+
+  /* Church background without grayscale */
+  .min-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('./assets/church.webp') center 30% / cover no-repeat;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Gradient overlay to fade it into the page and provide a bright wash for the text */
+  .min-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(253, 250, 243, 0.7) 0%, rgba(253, 250, 243, 0.85) 60%, #fdfaf3 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .min-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
   .min-hero__eyebrow {
-    display: inline-flex; align-items: center; gap: .75rem;
-    color: #a9843f; font-family: var(--sans,'Inter',sans-serif);
-    font-weight: 600; letter-spacing: .3em; font-size: .78rem;
-    text-transform: uppercase; margin-bottom: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #92753a;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-weight: 600;
+    letter-spacing: .25em;
+    font-size: .85rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
   }
-  .min-hero__eyebrow::before, .min-hero__eyebrow::after {
-    content: ''; width: 34px; height: 1px; background: #c8aa6e;
+
+  .min-hero__eyebrow::before,
+  .min-hero__eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(200, 170, 110, 0.5);
+    max-width: 120px;
   }
+
+  .min-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    color: #c8aa6e;
+  }
+
+  .min-divider::before,
+  .min-divider::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: rgba(200, 170, 110, 0.5);
+  }
+
   .min-hero h1 {
-    font-family: var(--serif,'Cormorant Garamond',serif);
-    font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.6rem);
-    color: #16281f; margin: 0 0 1rem;
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-weight: 700;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    color: #0b2e25;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
+
   .min-hero p {
-    max-width: 640px; margin: 0 auto; color: #5a5648;
-    font-size: 1.05rem; line-height: 1.7;
+    max-width: 680px;
+    margin: 1.5rem auto 0;
+    color: #4a4842;
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 
   /* Overview cards */
-  .min-grid-section { padding: 1rem 2rem 4rem; }
-  .min-grid {
-    max-width: 900px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1.1rem;
+  .min-grid-section {
+    padding: 1.5rem 2rem 4rem;
   }
+
+  .min-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
   .min-card {
     position: relative;
     background: #fffdf8;
     border: 1px solid #e7ddc6;
     border-radius: 14px;
     padding: 1.8rem 1.4rem 1.6rem;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
-    display: flex; flex-direction: column; gap: .85rem;
-    opacity: 0; transform: translateY(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .85rem;
+    opacity: 0;
+    transform: translateY(16px);
     transition: box-shadow .3s ease, border-color .3s ease, transform .35s ease, opacity .5s ease;
-    font: inherit; color: inherit;
+    font: inherit;
+    color: inherit;
     overflow: hidden;
   }
+
   .min-card::before {
     content: '';
     position: absolute;
@@ -92,62 +172,72 @@
     opacity: 0;
     pointer-events: none;
   }
-  .min-card.is-in { opacity: 1; transform: translateY(0); }
-  .min-card:hover, .min-card:focus-visible {
+
+  .min-card.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .min-card:hover,
+  .min-card:focus-visible {
     border-color: #c8aa6e;
     box-shadow: 0 14px 30px -12px rgba(90, 66, 20, 0.28);
     transform: translateY(-4px);
     outline: none;
   }
-  .min-card:hover::before, .min-card:focus-visible::before {
+  .min-card:hover::before,
+  .min-card:focus-visible::before {
     opacity: 1;
     transform: rotate(-45deg) translateY(100%);
   }
+
   .min-card.is-active {
     border-color: #b98e47;
     box-shadow: 0 0 0 2px rgba(185,142,71,0.35), 0 14px 30px -12px rgba(90,66,20,0.28);
   }
+
   .min-card__icon {
-    width: 42px; height: 42px; border-radius: 50%;
-    background: #f4ecd8; color: #a9743a;
-    display: flex; align-items: center; justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f4ecd8;
+    color: #a9743a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
   }
-  .min-card__icon svg { width: 21px; height: 21px; }
-  .min-card__name {
-    font-family: var(--serif,'Cormorant Garamond',serif);
-    font-weight: 700; font-size: 1.18rem; color: #16281f; line-height: 1.25;
-  }
-  .min-card__tag {
-    font-size: .86rem; line-height: 1.5; color: #6a6555;
-  }
-  @media (max-width: 760px) { .min-grid { grid-template-columns: 1fr; } }
 
-  /* Sticky tab bar */
-  .min-tabs-wrap {
-    position: sticky; top: 0; z-index: 40;
-    background: rgba(253, 251, 244, 0.92);
-    backdrop-filter: saturate(160%) blur(8px);
-    border-top: 1px solid #ece3cd; border-bottom: 1px solid #ece3cd;
+  .min-card__icon svg {
+    width: 21px;
+    height: 21px;
   }
-  .min-tabs {
-    max-width: 900px; margin: 0 auto; padding: .7rem 2rem;
-    display: flex; gap: .4rem; overflow-x: auto; justify-content: center;
-    scrollbar-width: thin;
+
+  .min-card__name {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-weight: 700;
+    font-size: 1.18rem;
+    color: #16281f;
+    line-height: 1.25;
   }
-  .min-tabs::-webkit-scrollbar { height: 5px; }
-  .min-tabs::-webkit-scrollbar-thumb { background: #d8cba4; border-radius: 5px; }
-  .min-tab {
-    flex-shrink: 0; border: none; background: transparent;
-    font-family: var(--sans,'Inter',sans-serif);
-    font-size: .86rem; font-weight: 600; color: #6c6754;
-    padding: .55rem 1rem; border-radius: 999px; cursor: pointer;
-    transition: background .25s ease, color .25s ease;
-    white-space: nowrap;
+
+  .min-card__tag {
+    font-size: .86rem;
+    line-height: 1.5;
+    color: #6a6555;
   }
-  .min-tab:hover { color: #16281f; background: #f1e9d5; }
-  .min-tab.is-active { color: #fff; background: #16281f; }
-  .min-tab.is-active .min-tab__dot { background: #c8aa6e; }
+
+  @media (max-width: 980px) {
+    .min-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .min-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 
   /* Panels */
   .min-panels { position: relative; background: #fff; }
@@ -205,57 +295,60 @@
     </div>
   </header>
 <main id="main">
-<section class="min-hero min-hero--video" data-reveal>
-  <video class="hero__video" src="jesus.mp4" autoplay loop muted playsinline></video>
-  <div class="hero__video-overlay"></div>
-  <div class="min-hero-content">
-    <span class="min-hero__eyebrow">Our Lady of Sorrows &middot; Electronics City</span>
-    <h1>Catechism</h1>
-    <p>Catechism, the Cherupushpa Mission League, and Holy Childhood — choose one below to explore who leads it, what it does, and what it has been up to.</p>
-  </div>
-</section>
+  <section class="min-hero" data-reveal>
+    <div class="min-hero-content">
+      <span class="min-hero__eyebrow">Our Lady of Sorrows &middot; Electronics City</span>
+      <div class="min-divider">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+      </div>
+      <h1>Faith Formation</h1>
+      <div class="min-divider">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+      </div>
+      <p>Catechism, the Cherupushpa Mission League, and Holy Childhood — choose one below to explore who leads it, what it does, and what it has been up to.</p>
+    </div>
+  </section>
 
-<section class="min-grid-section">
-  <div class="min-grid" id="minGrid">
-      <button class="min-card" type="button" data-target="catechism" aria-label="View Catechism / Sunday School">
-        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 9.5 12 5l10 4.5-10 4.5-10-4.5z"/><path d="M6 11.5v4.7c0 1.6 3 3 6 3s6-1.4 6-3v-4.7"/><path d="M22 9.5v6"/></svg></span>
+  <section class="min-grid-section">
+    <div class="min-grid" id="minGrid">
+      <button class="min-card is-active" type="button" data-target="catechism" aria-label="View Catechism / Sunday School">
+        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 5l10 4.5-10 4.5-10-4.5z"/><path d="M6 11.5v4.7c0 1.6 3 3 6 3s6-1.4 6-3v-4.7"/><path d="M22 9.5v6"/></svg></span>
         <span class="min-card__name">Catechism / Sunday School</span>
         <span class="min-card__tag">Faith formation for 569 students, from Nursery through Class 12.</span>
       </button>
       <button class="min-card" type="button" data-target="cml" aria-label="View Cherupushpa Mission League">
-        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="5.5" r="2.2"/><circle cx="12" cy="18.5" r="2.2"/><circle cx="5.5" cy="12" r="2.2"/><circle cx="18.5" cy="12" r="2.2"/></svg></span>
+        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="5.5" r="2.2"/><circle cx="12" cy="18.5" r="2.2"/><circle cx="5.5" cy="12" r="2.2"/><circle cx="18.5" cy="12" r="2.2"/></svg></span>
         <span class="min-card__name">Cherupushpa Mission League</span>
         <span class="min-card__tag">Asia's largest lay missionary movement, formed for children.</span>
       </button>
       <button class="min-card" type="button" data-target="holy-childhood" aria-label="View Holy Childhood">
-        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><circle cx="8.2" cy="7" r="2.4"/><path d="M4 20.5v-1.6a3.8 3.8 0 0 1 3.8-3.8h0.8a3.8 3.8 0 0 1 3.8 3.8v1.6"/><circle cx="17.3" cy="9.2" r="2"/><path d="M14.8 20.5v-1.3a2.9 2.9 0 0 1 2.9-2.9h0a2.9 2.9 0 0 1 2.7 1.8"/></svg></span>
+        <span class="min-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.2" cy="7" r="2.4"/><path d="M4 20.5v-1.6a3.8 3.8 0 0 1 3.8-3.8h0.8a3.8 3.8 0 0 1 3.8 3.8v1.6"/><circle cx="17.3" cy="9.2" r="2"/><path d="M14.8 20.5v-1.3a2.9 2.9 0 0 1 2.9-2.9h0a2.9 2.9 0 0 1 2.7 1.8"/></svg></span>
         <span class="min-card__name">Holy Childhood</span>
         <span class="min-card__tag">Children praying and sacrificing for children worldwide.</span>
-      </button></div>
-</section>
-
-
-
-<div class="min-panels" id="minPanels">
-  
-<div class="ministry-panel" id="panel-catechism" data-slug="catechism">
-  
-
-<section class="hero">
-  <div class="container">
-    <div class="hero__grid">
-      <div data-reveal>
-        <span class="eyebrow">Formation</span>
-        <h1>Catechism / Sunday School</h1>
-        <span class="rule"></span>
-        <p class="hero__lead">Nurturing children and youth in the Catholic faith through scriptural teachings, sacraments, and deep Christian values every Sunday.</p>
-      </div>
-      <div class="hero__art" aria-hidden="true">
-        <div class="hero__art-badge"><div class="num">OLS</div><div class="lbl">Parish · Electronics City</div></div>
-      </div>
+      </button>
     </div>
-  </div>
-</section>
+  </section>
+
+  <div class="min-panels" id="minPanels">
+  
+    <div class="ministry-panel is-active" id="panel-catechism" data-slug="catechism">
+      <section class="hero hero--video">
+        <video class="hero__video" src="jesus.mp4" autoplay loop muted playsinline></video>
+        <div class="hero__video-overlay"></div>
+        <div class="container">
+          <div class="hero__grid">
+            <div data-reveal>
+              <span class="eyebrow">Formation</span>
+              <h1>Catechism / Sunday School</h1>
+              <span class="rule"></span>
+              <p class="hero__lead">Nurturing children and youth in the Catholic faith through scriptural teachings, sacraments, and deep Christian values every Sunday.</p>
+            </div>
+            <div class="hero__art" aria-hidden="true">
+              <div class="hero__art-badge"><div class="num">OLS</div><div class="lbl">Parish · Electronics City</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
 <style>
 /* Online Blog / Catechism Resources Section Redesign */
 .catechism-section {
@@ -1498,30 +1591,6 @@
   </div>
 </section>
     
-    <!-- administrative team moved to its own section -->
-
-    <section>
-      <div class="container" style="max-width:900px;">
-        <div class="prose" data-reveal>
-          <div class="section-head"><span class="eyebrow">Team</span><h2>Administrative Team</h2><span class="rule"></span></div>
-          <ul class="office-bearers-grid" style="list-style: none; padding: 0; margin: 0; border: 1px solid var(--line, #e2dcd0); border-radius: 8px; background: #fff; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0;">
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Shine Williams</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Sheril Jose</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Priya Mathew</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Linta Scariah</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Jestin James</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Dr. Angel Sajo</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Cini Angelous</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Sunitha Jaison</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Deepak Joseph</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Bro. Ashin Antu</span></li>
-            <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Abhinav Tom</span></li>
-            <li style="padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Iva Maria Philip</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
 <script>
 function openClass(tabId) {
   document.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
@@ -1530,23 +1599,9 @@ function openClass(tabId) {
   document.querySelector('.tab-btn[data-target="' + tabId + '"]').classList.add('active');
 }
 </script>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Current Altar Servers List</h2><span class="rule"></span></div>
-<p>Aaron, Abel John, Aeibel, Alden Robert, Alphin, Andrews, Aron, Basil, Daniel James, Daniel Thomas, David James, Eric, Evan, Geroge</p>
-<h6>Hayden, Heinze, Ivan, Ivan Steve, Jenovin, Jessa, Jones, Jovan,Juvel, Kevin, Rayan Joseph, Ron, Ron Linto, and Sereha</h6>
-</div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>LOOKING BACK TO THE BEGINNINGS…</h2><span class="rule"></span></div>
-<p>Syro Malabar Kurbana was introduced in our parish in the year 2002 and back then the Catechism classes for our children were conducted alongside the Latin rites in our home parish (SFS Church). The basic idea of beginning the Catechism classes for our children was to prepare them well for their first Holy Communion.</p>
-<p>In the year 2007, Catechism classes were completely shifted to Syro-Malabar rites and children began taking classes regularly every Sunday’s after the Holy Mass. The Catechism classes were restructured class-wise with 40 students in the year 2009-2010 .</p>
-<p>During the year 2012-2013 our Catechism classes came under Mandya Diocese then known as Syro-Malabar Bangalore Mission. During this period the children from our Catechism classes took part in all the activities conducted in the Diocese and showcased their mantle, which made our parish well known among other parishes and the people of our diocese. In the following years our parish also became a part of the Mission League of our dioceses and actively took part in the mission League activities.</p>
-<p>We remember in our prayers all the priests, sisters and all other members who worked hard and made their immense contribution towards bringing the Catechism classes of our parish to an “A category” level in the diocese of Mandya today, which includes MSFS brothers, La Salette brothers, DSFS sisters, SD sisters, Holy Spirit Sisters and all other Catechism Teachers. Our biggest Achievement in this period is is that two of our children, Bro. Asher Mathew and Sr. Jincy George have chosen the path of God to become the faithful missionaries of God.</p>
-</div></div></section>
-
-
 </div>
+
 <div class="ministry-panel" id="panel-cml" data-slug="cml">
-  
 
 <section class="hero">
   <div class="container">
@@ -1618,10 +1673,53 @@ function openClass(tabId) {
 <p>Our students enthusiastically participated in the CML Annual Day celebrations. They took part in the Rally Competition and attended the CML Workshop, which focused on nurturing faith, leadership qualities, and missionary spirit. The active involvement of our students from Our Lady of Sorrows Church, Hebbagodi in diocesan and forane-level CML activities reflects their strong faith foundation and commitment to service and leadership. We congratulate all participants and office bearers and wish them continued success in their mission.</p>
 </div></div></section>
 
+<section>
+  <div class="container" style="max-width:900px;">
+    <div class="prose" data-reveal>
+      <div class="section-head"><span class="eyebrow">Team</span><h2>Administrative Team</h2><span class="rule"></span></div>
+      <ul class="office-bearers-grid" style="list-style: none; padding: 0; margin: 0; border: 1px solid var(--line, #e2dcd0); border-radius: 8px; background: #fff; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0;">
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Shine Williams</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Sheril Jose</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Priya Mathew</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Linta Scariah</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Jestin James</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Dr. Angel Sajo</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Cini Angelous</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Sunitha Jaison</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Deepak Joseph</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Bro. Ashin Antu</span></li>
+        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Abhinav Tom</span></li>
+        <li style="padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Iva Maria Philip</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bg-soft">
+  <div class="container" style="max-width:900px;">
+    <div class="prose" data-reveal>
+      <div class="section-head"><span class="eyebrow">Section</span><h2>Current Altar Servers List</h2><span class="rule"></span></div>
+      <p>Aaron, Abel John, Aeibel, Alden Robert, Alphin, Andrews, Aron, Basil, Daniel James, Daniel Thomas, David James, Eric, Evan, Geroge</p>
+      <h6 style="color:var(--muted,#666); font-weight:600; line-height:1.6; margin-top:1rem;">Hayden, Heinze, Ivan, Ivan Steve, Jenovin, Jessa, Jones, Jovan,Juvel, Kevin, Rayan Joseph, Ron, Ron Linto, and Sereha</h6>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container" style="max-width:900px;">
+    <div class="prose" data-reveal>
+      <div class="section-head"><span class="eyebrow">Section</span><h2>LOOKING BACK TO THE BEGINNINGS…</h2><span class="rule"></span></div>
+      <p>Syro Malabar Kurbana was introduced in our parish in the year 2002 and back then the Catechism classes for our children were conducted alongside the Latin rites in our home parish (SFS Church). The basic idea of beginning the Catechism classes for our children was to prepare them well for their first Holy Communion.</p>
+      <p>In the year 2007, Catechism classes were completely shifted to Syro-Malabar rites and children began taking classes regularly every Sunday’s after the Holy Mass. The Catechism classes were restructured class-wise with 40 students in the year 2009-2010 .</p>
+      <p>During the year 2012-2013 our Catechism classes came under Mandya Diocese then known as Syro-Malabar Bangalore Mission. During this period the children from our Catechism classes took part in all the activities conducted in the Diocese and showcased their mantle, which made our parish well known among other parishes and the people of our diocese. In the following years our parish also became a part of the Mission League of our dioceses and actively took part in the mission League activities.</p>
+      <p>We remember in our prayers all the priests, sisters and all other members who worked hard and made their immense contribution towards bringing the Catechism classes of our parish to an “A category” level in the diocese of Mandya today, which includes MSFS brothers, La Salette brothers, DSFS sisters, SD sisters, Holy Spirit Sisters and all other Catechism Teachers. Our biggest Achievement in this period is is that two of our children, Bro. Asher Mathew and Sr. Jincy George have chosen the path of God to become the faithful missionaries of God.</p>
+    </div>
+  </div>
+</section>
 
 </div>
+
 <div class="ministry-panel" id="panel-holy-childhood" data-slug="holy-childhood">
-  
 
 <section class="hero">
   <div class="container">
@@ -1638,6 +1736,10 @@ function openClass(tabId) {
     </div>
   </div>
 </section>
+
+<section class="bg-soft">
+  <div class="container" style="max-width:900px;">
+    <div class="prose" data-reveal>
       <div class="section-head"><span class="eyebrow">Section</span>
         <h2>Holy Childhood Animators</h2><span class="rule"></span>
       </div>
@@ -1664,7 +1766,6 @@ function openClass(tabId) {
     </div>
   </div>
 </section>
-
 
 </div>
 </div>
@@ -1711,14 +1812,16 @@ function openClass(tabId) {
 (function() {
   var slugs = ["catechism","cml","holy-childhood"];
   var cards = document.querySelectorAll('.min-card');
-  var tabs = document.querySelectorAll('.min-tab');
   var panels = document.querySelectorAll('.ministry-panel');
-  var tabsWrap = document.querySelector('.min-tabs-wrap');
 
   function activate(slug, opts) {
     opts = opts || {};
-    cards.forEach(function(c){ c.classList.toggle('is-active', c.dataset.target === slug); });
-    tabs.forEach(function(t){ t.classList.toggle('is-active', t.dataset.target === slug); });
+    if (slugs.indexOf(slug) === -1) slug = slugs[0];
+
+    cards.forEach(function(c){
+      c.classList.toggle('is-active', c.dataset.target === slug);
+    });
+
     panels.forEach(function(p){
       if (p.dataset.slug === slug) {
         p.classList.remove('is-active');
@@ -1728,19 +1831,32 @@ function openClass(tabId) {
         p.classList.remove('is-active');
       }
     });
+
     if (history.replaceState) history.replaceState(null, '', '#' + slug);
+
     if (opts.scroll !== false) {
-      var target = tabsWrap || document.getElementById('minPanels');
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 10, behavior: 'smooth' });
+      var target = document.getElementById('minPanels');
+      if (target) {
+        var header = document.querySelector('.site-header');
+        var headerH = header ? header.offsetHeight : 104;
+        var topPos = target.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({ top: topPos, behavior: 'smooth' });
+      }
     }
     revealActivePanel();
   }
 
   cards.forEach(function(c){
-    c.addEventListener('click', function(){ activate(c.dataset.target); });
+    c.addEventListener('click', function(){
+      activate(c.dataset.target);
+    });
   });
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){ activate(t.dataset.target); });
+
+  window.addEventListener('hashchange', function() {
+    var hash = (location.hash || '').replace('#', '');
+    if (slugs.indexOf(hash) !== -1) {
+      activate(hash, { scroll: true });
+    }
   });
 
   var io = new IntersectionObserver(function(entries){
@@ -1767,11 +1883,26 @@ function openClass(tabId) {
   var mo = new MutationObserver(function(){
     document.querySelectorAll('[data-reveal]:not(.is-in)').forEach(function(el){ io.observe(el); });
   });
-  mo.observe(document.getElementById('minPanels'), { attributes: true, subtree: true, attributeFilter: ['class'] });
+  var minPanels = document.getElementById('minPanels');
+  if (minPanels) {
+    mo.observe(minPanels, { attributes: true, subtree: true, attributeFilter: ['class'] });
+  }
 
   var initial = (location.hash || '').replace('#', '');
-  if (slugs.indexOf(initial) === -1) initial = slugs[0];
+  var hasHash = slugs.indexOf(initial) !== -1;
+  if (!hasHash) initial = slugs[0];
   activate(initial, { scroll: false });
+  if (hasHash) {
+    setTimeout(function() {
+      var target = document.getElementById('minPanels');
+      if (target) {
+        var header = document.querySelector('.site-header');
+        var headerH = header ? header.offsetHeight : 104;
+        var topPos = target.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({ top: topPos, behavior: 'auto' });
+      }
+    }, 100);
+  }
   revealActivePanel();
 })();
 </script>
