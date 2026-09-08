@@ -716,7 +716,15 @@ main > .hero--vincent:first-child {
   display: block;
 }
 
-.hero-bg-joseph img,
+.hero-bg-joseph img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: right center;
+  display: block;
+}
+
 .hero-bg-vincent img {
   height: 100%;
   width: auto;
@@ -724,6 +732,7 @@ main > .hero--vincent:first-child {
   object-fit: contain;
   object-position: right center;
   display: block;
+  transform: scaleX(-1);
 }
 
 @media (max-width: 768px) {
