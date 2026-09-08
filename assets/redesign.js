@@ -191,7 +191,7 @@
   );
 
   var auto = document.querySelectorAll(
-    ".section-head, .prose, figure, .card, .tile, .person, .stack__item"
+    ".section-head, .prose, figure, .card, .tile, .person, .stack__item, .priest-card"
   );
 
   var autoContainers = document.querySelectorAll(

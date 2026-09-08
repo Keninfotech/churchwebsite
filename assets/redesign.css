@@ -1267,6 +1267,314 @@ main>.hero--holychild:first-child {
   }
 }
 
+/* ---------- Previous Parish Priests: Table Cards & Table View ---------- */
+.priests-view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.priests-count {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+}
+
+.priests-count strong {
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+.view-toggle {
+  display: inline-flex;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.view-toggle__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  color: var(--ink-muted);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-toggle__btn:hover {
+  color: var(--ink);
+}
+
+.view-toggle__btn.is-active {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(14, 58, 64, 0.25);
+}
+
+.priests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.priest-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: 0 4px 16px rgba(31, 36, 21, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.priest-card:nth-child(even) {
+  background: linear-gradient(180deg, #ffffff 0%, var(--gold-050) 100%);
+  border-color: rgba(111, 163, 169, 0.4);
+}
+
+.priest-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -10px rgba(14, 58, 64, 0.16);
+  border-color: var(--gold-soft);
+}
+
+.priest-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.priest-card__num {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+
+.priest-card__badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--blue-500);
+  background: var(--blue-050);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 97, 106, 0.15);
+}
+
+.priest-card__body {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.priest-card__photo-wrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--gold-soft);
+  background: var(--bg-soft);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.priest-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.priest-card__photo-wrap--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(14, 58, 64, .08), rgba(23, 97, 106, .12));
+  color: var(--gold-soft);
+}
+
+.priest-card__details {
+  flex: 1;
+  min-width: 0;
+}
+
+.priest-card__name {
+  font-family: var(--serif);
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.priest-card__desc {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Table View */
+.priests-table-wrap {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 18px rgba(31, 36, 21, 0.05);
+  overflow: hidden;
+}
+
+.priests-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.priests-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.priests-table thead tr {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.priests-table th {
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+}
+
+.priests-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.priests-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.priests-table tbody tr:hover {
+  background: var(--gold-050);
+}
+
+.priests-table tbody tr:nth-child(even) {
+  background: #fbfbf9;
+}
+
+.priests-table tbody tr:nth-child(even):hover {
+  background: var(--gold-050);
+}
+
+.priests-table__num {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-align: center;
+  display: block;
+}
+
+.priests-table__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--gold-soft);
+  margin: 0 auto;
+  background: var(--bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.priests-table__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.priests-table__avatar--placeholder {
+  background: linear-gradient(135deg, rgba(14, 58, 64, .08), rgba(23, 97, 106, .12));
+  color: var(--gold-soft);
+}
+
+.priests-table__name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 2px 0;
+}
+
+.priests-table__role {
+  font-size: 0.82rem;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.priests-table__desc {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .priests-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .priests-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .priest-card {
+    padding: 18px;
+  }
+  .priest-card__photo-wrap {
+    width: 76px;
+    height: 76px;
+    border-radius: 12px;
+  }
+  .priest-card__name {
+    font-size: 1.15rem;
+  }
+}
+
 /* ---------- Scroll reveal ---------- */
 [data-reveal] {
   opacity: 0;

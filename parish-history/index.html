@@ -100,149 +100,428 @@
       <span class="eyebrow">Legacy</span>
       <h2>Previous Parish Priests</h2>
       <span class="rule rule--center"></span>
-      <p>Scroll through the shepherds who have led our community.</p>
+      <p>The shepherds who have faithfully guided and nurtured our parish community through the years.</p>
     </div>
 
-    <div class="stack" style="--stack-top: 110px;">
+    <!-- View Switcher -->
+    <div class="priests-view-header" data-reveal>
+      <p class="priests-count"><strong>12</strong> Shepherds of Our Lady of Sorrows Parish</p>
+      <div class="view-toggle" role="tablist" aria-label="Display style">
+        <button type="button" class="view-toggle__btn is-active" id="btn-view-cards" aria-selected="true" title="Cards Grid View">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Cards View</span>
+        </button>
+        <button type="button" class="view-toggle__btn" id="btn-view-table" aria-selected="false" title="Table View">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Table View</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards Grid View (Table Cards) -->
+    <div class="priests-grid" id="priests-cards-view">
       
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 01</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Mathew Kalathinkal" style="background: none;">
-              <img src="../assets/Parish History/Fr Mathew Kalathinkal.jpg" alt="Fr Mathew Kalathinkal" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Mathew Kalathinkal</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 01</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Mathew Kalathinkal.jpg" alt="Fr Mathew Kalathinkal" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 02</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Alocious Kuzuppallil" style="background: none;">
-              <img src="../assets/Parish History/Fr Alocious Kuzuppallil.jpg" alt="Fr Alocious Kuzuppallil" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Alocious Kuzuppallil</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Mathew Kalathinkal</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 03</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Vinod Kanattu" style="background: none;">
-              <img src="../assets/Parish History/Fr Vinod Kanattu.jpeg" alt="Fr Vinod Kanattu" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Vinod Kanattu</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 02</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Alocious Kuzuppallil.jpg" alt="Fr Alocious Kuzuppallil" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 04</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Manu Kumbidiyamakkal"></div>
-            <div>
-              <h3>Fr Manu Kumbidiyamakkal</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Alocious Kuzuppallil</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 05</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Jino Plathottathil" style="background: none;">
-              <img src="../assets/Parish History/Fr Jino Plathottathil.jpeg" alt="Fr Jino Plathottathil" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Jino Plathottathil</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 03</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Vinod Kanattu.jpeg" alt="Fr Vinod Kanattu" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 06</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Jaison Kollarayathu"></div>
-            <div>
-              <h3>Fr Jaison Kollarayathu</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Vinod Kanattu</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 07</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Jose Kokkandathil" style="background: none;">
-              <img src="../assets/Parish History/Fr Jose Kokkandathil.jpeg" alt="Fr Jose Kokkandathil" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Jose Kokkandathil</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 04</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap priest-card__photo-wrap--placeholder" aria-label="Portrait placeholder for Fr Manu Kumbidiyamakkal">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 08</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Lalu Thadathilankal" style="background: none;">
-              <img src="../assets/Parish History/Fr Lalu Thadathilankal.jpg" alt="Fr Lalu Thadathilankal" style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Lalu Thadathilankal</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Manu Kumbidiyamakkal</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 09</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Raison Kaduvakkuzhi"></div>
-            <div>
-              <h3>Fr Raison Kaduvakkuzhi</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 05</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Jino Plathottathil.jpeg" alt="Fr Jino Plathottathil" class="priest-card__img" style="object-position: center 15%;" loading="lazy">
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 10</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Tony Erniyakulathil" style="background: none;">
-              <img src="../assets/Parish History/Fr Tony Erniyakulathil.jpg" alt="Fr Tony Erniyakulathil" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Tony Erniyakulathil</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Jino Plathottathil</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 11</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Nirmal Pulikkalath" style="background: none;">
-              <img src="../assets/Parish History/Fr Nirmal Pulikkalath.jpeg" alt="Fr Nirmal Pulikkalath" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Nirmal Pulikkalath</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 06</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap priest-card__photo-wrap--placeholder" aria-label="Portrait placeholder for Fr Jaison Kollarayathu">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
-        </article>
-        <article class="stack__item" data-reveal>
-          <span class="stack__num">No. 12</span>
-          <div class="stack__inner">
-            <div class="img-slot img-slot--square" aria-label="Portrait of Fr Mathew Elayadathamadam" style="background: none;">
-              <img src="../assets/Parish History/Fr Mathew Elayadathamadam.jpeg" alt="Fr Mathew Elayadathamadam" style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%; position: relative; z-index: 2;" loading="lazy">
-            </div>
-            <div>
-              <h3>Fr Mathew Elayadathamadam</h3>
-              <p style="color: var(--ink-muted);">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
-            </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Jaison Kollarayathu</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
           </div>
-        </article>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 07</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Jose Kokkandathil.jpeg" alt="Fr Jose Kokkandathil" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+          </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Jose Kokkandathil</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 08</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Lalu Thadathilankal.jpg" alt="Fr Lalu Thadathilankal" class="priest-card__img" style="object-position: center 25%;" loading="lazy">
+          </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Lalu Thadathilankal</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 09</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap priest-card__photo-wrap--placeholder" aria-label="Portrait placeholder for Fr Raison Kaduvakkuzhi">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Raison Kaduvakkuzhi</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 10</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Tony Erniyakulathil.jpg" alt="Fr Tony Erniyakulathil" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+          </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Tony Erniyakulathil</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 11</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Nirmal Pulikkalath.jpeg" alt="Fr Nirmal Pulikkalath" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+          </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Nirmal Pulikkalath</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="priest-card" data-reveal>
+        <div class="priest-card__header">
+          <span class="priest-card__num">No. 12</span>
+          <span class="priest-card__badge">Former Parish Priest</span>
+        </div>
+        <div class="priest-card__body">
+          <div class="priest-card__photo-wrap">
+            <img src="../assets/Parish History/Fr Mathew Elayadathamadam.jpeg" alt="Fr Mathew Elayadathamadam" class="priest-card__img" style="object-position: center 25%;" loading="lazy">
+          </div>
+          <div class="priest-card__details">
+            <h3 class="priest-card__name">Fr Mathew Elayadathamadam</h3>
+            <p class="priest-card__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Table View -->
+    <div class="priests-table-wrap" id="priests-table-view" style="display: none;">
+      <div class="priests-table-scroll">
+        <table class="priests-table">
+          <thead>
+            <tr>
+              <th style="width: 70px; text-align: center;">No.</th>
+              <th style="width: 80px; text-align: center;">Portrait</th>
+              <th>Priest Name</th>
+              <th>Assignment & Service</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="priests-table__num">01</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Mathew Kalathinkal.jpg" alt="Fr Mathew Kalathinkal" style="object-position: center 20%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Mathew Kalathinkal</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">02</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Alocious Kuzuppallil.jpg" alt="Fr Alocious Kuzuppallil" style="object-position: center 20%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Alocious Kuzuppallil</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">03</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Vinod Kanattu.jpeg" alt="Fr Vinod Kanattu" style="object-position: center 20%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Vinod Kanattu</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">04</span></td>
+              <td>
+                <div class="priests-table__avatar priests-table__avatar--placeholder" aria-label="Placeholder for Fr Manu Kumbidiyamakkal">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Manu Kumbidiyamakkal</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">05</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Jino Plathottathil.jpeg" alt="Fr Jino Plathottathil" style="object-position: center 15%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Jino Plathottathil</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">06</span></td>
+              <td>
+                <div class="priests-table__avatar priests-table__avatar--placeholder" aria-label="Placeholder for Fr Jaison Kollarayathu">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Jaison Kollarayathu</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">07</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Jose Kokkandathil.jpeg" alt="Fr Jose Kokkandathil" style="object-position: center 20%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Jose Kokkandathil</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">08</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Lalu Thadathilankal.jpg" alt="Fr Lalu Thadathilankal" style="object-position: center 25%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Lalu Thadathilankal</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">09</span></td>
+              <td>
+                <div class="priests-table__avatar priests-table__avatar--placeholder" aria-label="Placeholder for Fr Raison Kaduvakkuzhi">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Raison Kaduvakkuzhi</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">10</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Tony Erniyakulathil.jpg" alt="Fr Tony Erniyakulathil" style="object-position: center 20%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Tony Erniyakulathil</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">11</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Nirmal Pulikkalath.jpeg" alt="Fr Nirmal Pulikkalath" style="object-position: center 20%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Nirmal Pulikkalath</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="priests-table__num">12</span></td>
+              <td>
+                <div class="priests-table__avatar">
+                  <img src="../assets/Parish History/Fr Mathew Elayadathamadam.jpeg" alt="Fr Mathew Elayadathamadam" style="object-position: center 25%;" loading="lazy">
+                </div>
+              </td>
+              <td>
+                <h4 class="priests-table__name">Fr Mathew Elayadathamadam</h4>
+                <span class="priests-table__role">Former Parish Priest</span>
+              </td>
+              <td>
+                <p class="priests-table__desc">Served as parish priest of Our Lady of Sorrows, Electronics City.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
@@ -287,5 +566,33 @@
     </div>
   </footer>
 <script src="../assets/redesign.js" defer></script>
+<script>
+  (function() {
+    var btnCards = document.getElementById('btn-view-cards');
+    var btnTable = document.getElementById('btn-view-table');
+    var viewCards = document.getElementById('priests-cards-view');
+    var viewTable = document.getElementById('priests-table-view');
+
+    if (btnCards && btnTable && viewCards && viewTable) {
+      btnCards.addEventListener('click', function() {
+        btnCards.classList.add('is-active');
+        btnCards.setAttribute('aria-selected', 'true');
+        btnTable.classList.remove('is-active');
+        btnTable.setAttribute('aria-selected', 'false');
+        viewCards.style.display = 'grid';
+        viewTable.style.display = 'none';
+      });
+
+      btnTable.addEventListener('click', function() {
+        btnTable.classList.add('is-active');
+        btnTable.setAttribute('aria-selected', 'true');
+        btnCards.classList.remove('is-active');
+        btnCards.setAttribute('aria-selected', 'false');
+        viewCards.style.display = 'none';
+        viewTable.style.display = 'block';
+      });
+    }
+  })();
+</script>
 </body>
 </html>
