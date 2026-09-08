@@ -650,10 +650,13 @@ section.tight {
   /* Was -2 */
 }
 
-/* Hero with Patron Artwork (Mother Mary for Mathruvedi, St. Joseph for Pithruvedi, St. Vincent de Paul) */
+/* Hero with Patron Artwork (Mother Mary for Mathruvedi, St. Joseph for Pithruvedi, St. Vincent de Paul, Cherupushpa for CML, Youth for Youth Ministry, Mother Mary for Laity Commission) */
 .hero--mothermary,
 .hero--stjoseph,
-.hero--vincent {
+.hero--vincent,
+.hero--cml,
+.hero--youth,
+.hero--laity {
   position: relative;
   overflow: hidden;
   background: linear-gradient(to right, #FDFBF7 40%, rgba(253, 251, 247, 0.9) 55%, transparent 85%), #FDFBF7 !important;
@@ -669,7 +672,10 @@ section.tight {
 
 main > .hero--mothermary:first-child,
 main > .hero--stjoseph:first-child,
-main > .hero--vincent:first-child {
+main > .hero--vincent:first-child,
+main > .hero--cml:first-child,
+main > .hero--youth:first-child,
+main > .hero--laity:first-child {
   height: calc(100vh - var(--header-h, 76px));
   height: calc(100dvh - var(--header-h, 76px));
 }
@@ -679,13 +685,22 @@ main > .hero--vincent:first-child {
 .hero--stjoseph::before,
 .hero--stjoseph::after,
 .hero--vincent::before,
-.hero--vincent::after {
+.hero--vincent::after,
+.hero--cml::before,
+.hero--cml::after,
+.hero--youth::before,
+.hero--youth::after,
+.hero--laity::before,
+.hero--laity::after {
   display: none !important;
 }
 
 .hero-bg-mary,
 .hero-bg-joseph,
-.hero-bg-vincent {
+.hero-bg-vincent,
+.hero-bg-cml,
+.hero-bg-youth,
+.hero-bg-laity {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -716,7 +731,10 @@ main > .hero--vincent:first-child {
   display: block;
 }
 
-.hero-bg-joseph img {
+.hero-bg-joseph img,
+.hero-bg-cml img,
+.hero-bg-youth img,
+.hero-bg-laity img {
   height: 100%;
   width: auto;
   max-width: 100%;
@@ -738,7 +756,10 @@ main > .hero--vincent:first-child {
 @media (max-width: 768px) {
   .hero--mothermary,
   .hero--stjoseph,
-  .hero--vincent {
+  .hero--vincent,
+  .hero--cml,
+  .hero--youth,
+  .hero--laity {
     height: auto;
     min-height: 480px;
     padding: 60px 0;
@@ -747,7 +768,10 @@ main > .hero--vincent:first-child {
 
   .hero-bg-mary,
   .hero-bg-joseph,
-  .hero-bg-vincent {
+  .hero-bg-vincent,
+  .hero-bg-cml,
+  .hero-bg-youth,
+  .hero-bg-laity {
     width: 100%;
     max-width: 100%;
     opacity: 0.22;
