@@ -1137,15 +1137,30 @@
 }
 .tab-content.active {
   display: flex;
-  gap: 4rem;
+  gap: 3.5rem;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .tab-img {
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
+  max-width: 100%;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 12px;
+  border: 2px solid var(--gold, #c8aa6e);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .tab-content.active {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .tab-img {
+    width: 220px;
+    height: 220px;
+  }
 }
 .tab-details {
   flex: 1;
@@ -1166,10 +1181,112 @@
   font-family: var(--sans, 'Inter', sans-serif);
   margin-bottom: 0.5rem;
 }
-@media (max-width: 768px) {
-  .tab-content.active {
-    flex-direction: column;
-    gap: 2rem;
+
+/* Office Bearers Cards Grid (Postcards Style) */
+.office-bearers-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem 1.25rem;
+}
+
+.ob-card {
+  background: #ffffff;
+  border: 1.5px solid #ded5c5;
+  border-radius: 20px;
+  padding: 10px 10px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(22, 40, 31, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.ob-card:hover {
+  transform: translateY(-4px);
+  border-color: #c8aa6e;
+  box-shadow: 0 12px 28px rgba(90, 66, 20, 0.14);
+}
+
+.ob-avatar-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #c8aa6e;
+  background: #f4ecdc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.ob-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.ob-card:hover .ob-avatar {
+  transform: scale(1.03);
+}
+
+.ob-avatar--fallback {
+  width: 100%;
+  height: 100%;
+  background: #f4ecdc;
+  color: #8b6623;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-weight: 700;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: .5px;
+}
+
+.ob-name {
+  margin-top: 0.75rem;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--ink, #16281f);
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  .office-bearers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .office-bearers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+  .ob-card {
+    padding: 8px 8px 12px 8px;
+    border-radius: 16px;
+  }
+  .ob-avatar-wrap {
+    border-radius: 12px;
+  }
+  .ob-name {
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .office-bearers-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -1411,6 +1528,7 @@
           <p><strong>No of Boys:</strong> 9</p>
           <p><strong>No of Girls:</strong> 8</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Deepthi Tom.jpg" alt="Deepthi Tom" class="tab-img">
       </div>
       <div class="tab-content" id="c2a">
         <div class="tab-details">
@@ -1422,6 +1540,7 @@
           <p><strong>No of Boys:</strong> 8</p>
           <p><strong>No of Girls:</strong> 13</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Simi Shinto.jpg" alt="Simi Shinto" class="tab-img">
       </div>
       <div class="tab-content" id="c2b">
         <div class="tab-details">
@@ -1432,6 +1551,7 @@
           <p><strong>Number of Students:</strong> 18</p>
           <p><strong>No of Boys:</strong> 6</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Lissy Thomas.jpg" alt="Lissy Thomas" class="tab-img">
       </div>
       <div class="tab-content" id="c3a">
         <div class="tab-details">
@@ -1452,6 +1572,7 @@
           <p><strong>Number of Students:</strong> 25</p>
           <p><strong>No of Boys:</strong> 13</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Sr. Rosy.jpg" alt="Sr. Rosy" class="tab-img">
       </div>
       <div class="tab-content" id="c4a">
         <div class="tab-details">
@@ -1469,6 +1590,7 @@
           <p><strong>Class Teacher's Name:</strong> Sr. Kochuthresia</p>
           <p><strong>Mobile:</strong> 8904701752</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Sr. Kochuthresia.jpg" alt="Sr. Kochuthresia" class="tab-img">
       </div>
       <div class="tab-content" id="c5a">
         <div class="tab-details">
@@ -1479,6 +1601,7 @@
           <p><strong>Number of Students:</strong> 22</p>
           <p><strong>No of Girls:</strong> 11</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Cini Angelus.jpeg" alt="Cini Angelus" class="tab-img">
       </div>
       <div class="tab-content" id="c5b">
         <div class="tab-details">
@@ -1507,6 +1630,7 @@
           <p><strong>Number of Students:</strong> 20</p>
           <p><strong>No of Boys:</strong> 12</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Gracelind Albert.jpg" alt="Gracelind Albert" class="tab-img">
       </div>
       <div class="tab-content" id="c7a">
         <div class="tab-details">
@@ -1525,6 +1649,7 @@
           <p><strong>Class Teacher's Name:</strong> Jeseentha Mathew</p>
           <p><strong>Mobile:</strong> 9901534807</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Jeseentha Mathew.jpg" alt="Jeseentha Mathew" class="tab-img">
       </div>
       <div class="tab-content" id="c8a">
         <div class="tab-details">
@@ -1581,6 +1706,7 @@
           <p><strong>No of Boys:</strong> 16</p>
           <p><strong>No of Girls:</strong> 20</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Sheryl Jose.jpg" alt="Sheryl Jose" class="tab-img">
       </div>
       <div class="tab-content" id="c12a">
         <div class="tab-details">
@@ -1589,6 +1715,7 @@
           <p><strong>Class Teacher's Name:</strong> Varghese Thattil</p>
           <p><strong>Mobile:</strong> 9848565563</p>
         </div>
+        <img src="./assets/Catechism/Sunday School/Varghese Thattil.jpg" alt="Varghese Thattil" class="tab-img">
       </div>
     </div>
     </div>
@@ -1603,6 +1730,111 @@ function openClass(tabId) {
   document.querySelector('.tab-btn[data-target="' + tabId + '"]').classList.add('active');
 }
 </script>
+
+<section>
+  <div class="container" style="max-width:1040px;">
+    <div class="prose" data-reveal>
+      <div class="section-head"><span class="eyebrow">Team</span><h2>Administrative Team</h2><span class="rule"></span></div>
+      <ul class="office-bearers-grid">
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Mr. shine Williams.jpeg" alt="Mr. Shine Williams" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Mr. Shine Williams</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Ms. Sheril Jose.jpg" alt="Ms. Sheril Jose" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Sheril Jose</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Ms. Priya Mathew.jpg" alt="Ms. Priya Mathew" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Priya Mathew</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Ms. Linta Scariah.jpg" alt="Ms. Linta Scariah" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Linta Scariah</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Mr. Jestin James.jpeg" alt="Mr. Jestin James" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Mr. Jestin James</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Dr Angel Sajo.jpg" alt="Dr. Angel Sajo" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Dr. Angel Sajo</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Ms. Cini Angelous.jpeg" alt="Ms. Cini Angelous" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Cini Angelous</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Ms. Sunitha Jaison.jpg" alt="Ms. Sunitha Jaison" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Sunitha Jaison</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Sunday School/Mr. Deepak Joseph.jpg" alt="Mr. Deepak Joseph" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Mr. Deepak Joseph</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <div class="ob-avatar--fallback">BA</div>
+          </div>
+          <span class="ob-name">Bro. Ashin Antu</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <div class="ob-avatar--fallback">AT</div>
+          </div>
+          <span class="ob-name">Mr. Abhinav Tom</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <div class="ob-avatar--fallback">IP</div>
+          </div>
+          <span class="ob-name">Ms. Iva Maria Philip</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bg-soft">
+  <div class="container" style="max-width:900px;">
+    <div class="prose" data-reveal>
+      <div class="section-head"><span class="eyebrow">Section</span><h2>Current Altar Servers List</h2><span class="rule"></span></div>
+      <p>Aaron, Abel John, Aeibel, Alden Robert, Alphin, Andrews, Aron, Basil, Daniel James, Daniel Thomas, David James, Eric, Evan, Geroge</p>
+      <h6 style="color:var(--muted,#666); font-weight:600; line-height:1.6; margin-top:1rem;">Hayden, Heinze, Ivan, Ivan Steve, Jenovin, Jessa, Jones, Jovan,Juvel, Kevin, Rayan Joseph, Ron, Ron Linto, and Sereha</h6>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container" style="max-width:900px;">
+    <div class="prose" data-reveal>
+      <div class="section-head"><span class="eyebrow">Section</span><h2>LOOKING BACK TO THE BEGINNINGS…</h2><span class="rule"></span></div>
+      <p>Syro Malabar Kurbana was introduced in our parish in the year 2002 and back then the Catechism classes for our children were conducted alongside the Latin rites in our home parish (SFS Church). The basic idea of beginning the Catechism classes for our children was to prepare them well for their first Holy Communion.</p>
+      <p>In the year 2007, Catechism classes were completely shifted to Syro-Malabar rites and children began taking classes regularly every Sunday’s after the Holy Mass. The Catechism classes were restructured class-wise with 40 students in the year 2009-2010 .</p>
+      <p>During the year 2012-2013 our Catechism classes came under Mandya Diocese then known as Syro-Malabar Bangalore Mission. During this period the children from our Catechism classes took part in all the activities conducted in the Diocese and showcased their mantle, which made our parish well known among other parishes and the people of our diocese. In the following years our parish also became a part of the Mission League of our dioceses and actively took part in the mission League activities.</p>
+      <p>We remember in our prayers all the priests, sisters and all other members who worked hard and made their immense contribution towards bringing the Catechism classes of our parish to an “A category” level in the diocese of Mandya today, which includes MSFS brothers, La Salette brothers, DSFS sisters, SD sisters, Holy Spirit Sisters and all other Catechism Teachers. Our biggest Achievement in this period is is that two of our children, Bro. Asher Mathew and Sr. Jincy George have chosen the path of God to become the faithful missionaries of God.</p>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <div class="ministry-panel" id="panel-cml" data-slug="cml">
@@ -1733,50 +1965,6 @@ function openClass(tabId) {
 <p>Our students enthusiastically participated in the CML Annual Day celebrations. They took part in the Rally Competition and attended the CML Workshop, which focused on nurturing faith, leadership qualities, and missionary spirit. The active involvement of our students from Our Lady of Sorrows Church, Hebbagodi in diocesan and forane-level CML activities reflects their strong faith foundation and commitment to service and leadership. We congratulate all participants and office bearers and wish them continued success in their mission.</p>
 </div></div></section>
 
-<section>
-  <div class="container" style="max-width:900px;">
-    <div class="prose" data-reveal>
-      <div class="section-head"><span class="eyebrow">Team</span><h2>Administrative Team</h2><span class="rule"></span></div>
-      <ul class="office-bearers-grid" style="list-style: none; padding: 0; margin: 0; border: 1px solid var(--line, #e2dcd0); border-radius: 8px; background: #fff; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0;">
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Shine Williams</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Sheril Jose</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Priya Mathew</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Linta Scariah</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Jestin James</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Dr. Angel Sajo</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Cini Angelous</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Sunitha Jaison</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Deepak Joseph</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Bro. Ashin Antu</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Abhinav Tom</span></li>
-        <li style="padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Iva Maria Philip</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="bg-soft">
-  <div class="container" style="max-width:900px;">
-    <div class="prose" data-reveal>
-      <div class="section-head"><span class="eyebrow">Section</span><h2>Current Altar Servers List</h2><span class="rule"></span></div>
-      <p>Aaron, Abel John, Aeibel, Alden Robert, Alphin, Andrews, Aron, Basil, Daniel James, Daniel Thomas, David James, Eric, Evan, Geroge</p>
-      <h6 style="color:var(--muted,#666); font-weight:600; line-height:1.6; margin-top:1rem;">Hayden, Heinze, Ivan, Ivan Steve, Jenovin, Jessa, Jones, Jovan,Juvel, Kevin, Rayan Joseph, Ron, Ron Linto, and Sereha</h6>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container" style="max-width:900px;">
-    <div class="prose" data-reveal>
-      <div class="section-head"><span class="eyebrow">Section</span><h2>LOOKING BACK TO THE BEGINNINGS…</h2><span class="rule"></span></div>
-      <p>Syro Malabar Kurbana was introduced in our parish in the year 2002 and back then the Catechism classes for our children were conducted alongside the Latin rites in our home parish (SFS Church). The basic idea of beginning the Catechism classes for our children was to prepare them well for their first Holy Communion.</p>
-      <p>In the year 2007, Catechism classes were completely shifted to Syro-Malabar rites and children began taking classes regularly every Sunday’s after the Holy Mass. The Catechism classes were restructured class-wise with 40 students in the year 2009-2010 .</p>
-      <p>During the year 2012-2013 our Catechism classes came under Mandya Diocese then known as Syro-Malabar Bangalore Mission. During this period the children from our Catechism classes took part in all the activities conducted in the Diocese and showcased their mantle, which made our parish well known among other parishes and the people of our diocese. In the following years our parish also became a part of the Mission League of our dioceses and actively took part in the mission League activities.</p>
-      <p>We remember in our prayers all the priests, sisters and all other members who worked hard and made their immense contribution towards bringing the Catechism classes of our parish to an “A category” level in the diocese of Mandya today, which includes MSFS brothers, La Salette brothers, DSFS sisters, SD sisters, Holy Spirit Sisters and all other Catechism Teachers. Our biggest Achievement in this period is is that two of our children, Bro. Asher Mathew and Sr. Jincy George have chosen the path of God to become the faithful missionaries of God.</p>
-    </div>
-  </div>
-</section>
-
 </div>
 
 <div class="ministry-panel" id="panel-holy-childhood" data-slug="holy-childhood">
@@ -1798,30 +1986,78 @@ function openClass(tabId) {
 </section>
 
 <section class="bg-soft">
-  <div class="container" style="max-width:900px;">
+  <div class="container" style="max-width:1040px;">
     <div class="prose" data-reveal>
       <div class="section-head"><span class="eyebrow">Section</span>
         <h2>Holy Childhood Animators</h2><span class="rule"></span>
       </div>
-      <ul class="office-bearers-grid"
-        style="list-style: none; padding: 0; margin: 0; border: 1px solid var(--line, #e2dcd0); border-radius: 8px; background: #fff; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0; margin-bottom: 3rem;">
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Gini Dixen</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Sonia VL</span></li>
+      <ul class="office-bearers-grid" style="margin-bottom: 3rem;">
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <div class="ob-avatar--fallback">GD</div>
+          </div>
+          <span class="ob-name">Mr. Gini Dixen</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Ms. Sonia.jpeg" alt="Ms. Sonia VL" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Sonia VL</span>
+        </li>
       </ul>
 
       <div class="section-head"><span class="eyebrow">Section</span>
         <h2>Holy Childhood Representatives</h2><span class="rule"></span>
       </div>
-      <ul class="office-bearers-grid"
-        style="list-style: none; padding: 0; margin: 0; border: 1px solid var(--line, #e2dcd0); border-radius: 8px; background: #fff; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0;">
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Jhonson Jijo</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Arvin Renju</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. John Joseph</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Mr. Aron Rexon</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Rachel Maria</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Dahlia Anthony</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Jessa Rino George</span></li>
-        <li style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line, #e2dcd0); display: flex; align-items: center; gap: 1rem;"><div style="width: 3px; height: 1.2em; background-color: var(--gold, #c8aa6e);"></div><span style="font-weight: 500; color: var(--ink);">Ms. Andrea Anthony</span></li>
+      <ul class="office-bearers-grid">
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Jhonson Jijo.jpeg" alt="Mr. Jhonson Jijo" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Mr. Jhonson Jijo</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Mr. Arvin Renju.jpg" alt="Mr. Arvin Renju" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Mr. Arvin Renju</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Mr. John Joseph.jpeg" alt="Mr. John Joseph" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Mr. John Joseph</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Mr. Aron Rexon.jpg" alt="Mr. Aron Rexon" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Mr. Aron Rexon</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Ms. Rachel Maria.jpeg" alt="Ms. Rachel Maria" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Rachel Maria</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Ms. Dahlia Anthony.jpeg" alt="Ms. Dahlia Anthony" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Dahlia Anthony</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Ms. Jessa Rino George.jpg" alt="Ms. Jessa Rino George" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Jessa Rino George</span>
+        </li>
+        <li class="ob-card">
+          <div class="ob-avatar-wrap">
+            <img src="./assets/Catechism/Holy Child/Ms. Andrea Anthony.jpeg" alt="Ms. Andrea Anthony" class="ob-avatar" loading="lazy">
+          </div>
+          <span class="ob-name">Ms. Andrea Anthony</span>
+        </li>
       </ul>
     </div>
   </div>
