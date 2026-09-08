@@ -650,9 +650,10 @@ section.tight {
   /* Was -2 */
 }
 
-/* Hero with Patron Artwork (Mother Mary for Mathruvedi, St. Joseph for Pithruvedi) */
+/* Hero with Patron Artwork (Mother Mary for Mathruvedi, St. Joseph for Pithruvedi, St. Vincent de Paul) */
 .hero--mothermary,
-.hero--stjoseph {
+.hero--stjoseph,
+.hero--vincent {
   position: relative;
   overflow: hidden;
   background: linear-gradient(to right, #FDFBF7 40%, rgba(253, 251, 247, 0.9) 55%, transparent 85%), #FDFBF7 !important;
@@ -667,7 +668,8 @@ section.tight {
 }
 
 main > .hero--mothermary:first-child,
-main > .hero--stjoseph:first-child {
+main > .hero--stjoseph:first-child,
+main > .hero--vincent:first-child {
   height: calc(100vh - var(--header-h, 76px));
   height: calc(100dvh - var(--header-h, 76px));
 }
@@ -675,12 +677,15 @@ main > .hero--stjoseph:first-child {
 .hero--mothermary::before,
 .hero--mothermary::after,
 .hero--stjoseph::before,
-.hero--stjoseph::after {
+.hero--stjoseph::after,
+.hero--vincent::before,
+.hero--vincent::after {
   display: none !important;
 }
 
 .hero-bg-mary,
-.hero-bg-joseph {
+.hero-bg-joseph,
+.hero-bg-vincent {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -711,7 +716,8 @@ main > .hero--stjoseph:first-child {
   display: block;
 }
 
-.hero-bg-joseph img {
+.hero-bg-joseph img,
+.hero-bg-vincent img {
   height: 100%;
   width: auto;
   max-width: 100%;
@@ -722,7 +728,8 @@ main > .hero--stjoseph:first-child {
 
 @media (max-width: 768px) {
   .hero--mothermary,
-  .hero--stjoseph {
+  .hero--stjoseph,
+  .hero--vincent {
     height: auto;
     min-height: 480px;
     padding: 60px 0;
@@ -730,7 +737,8 @@ main > .hero--stjoseph:first-child {
   }
 
   .hero-bg-mary,
-  .hero-bg-joseph {
+  .hero-bg-joseph,
+  .hero-bg-vincent {
     width: 100%;
     max-width: 100%;
     opacity: 0.22;
