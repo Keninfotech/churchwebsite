@@ -650,13 +650,15 @@ section.tight {
   /* Was -2 */
 }
 
-/* Hero with Patron Artwork (Mother Mary for Mathruvedi, St. Joseph for Pithruvedi, St. Vincent de Paul, Cherupushpa for CML, Youth for Youth Ministry, Mother Mary for Laity Commission) */
+/* Hero with Patron Artwork (Mother Mary for Mathruvedi, St. Joseph for Pithruvedi, St. Vincent de Paul, Cherupushpa for CML, Youth for Youth Ministry, Mother Mary for Laity Commission, Catechism, Holy Childhood) */
 .hero--mothermary,
 .hero--stjoseph,
 .hero--vincent,
 .hero--cml,
 .hero--youth,
-.hero--laity {
+.hero--laity,
+.hero--catechism,
+.hero--holychild {
   position: relative;
   overflow: hidden;
   background: linear-gradient(to right, #FDFBF7 40%, rgba(253, 251, 247, 0.9) 55%, transparent 85%), #FDFBF7 !important;
@@ -675,7 +677,9 @@ main > .hero--stjoseph:first-child,
 main > .hero--vincent:first-child,
 main > .hero--cml:first-child,
 main > .hero--youth:first-child,
-main > .hero--laity:first-child {
+main > .hero--laity:first-child,
+main > .hero--catechism:first-child,
+main > .hero--holychild:first-child {
   height: calc(100vh - var(--header-h, 76px));
   height: calc(100dvh - var(--header-h, 76px));
 }
@@ -691,7 +695,11 @@ main > .hero--laity:first-child {
 .hero--youth::before,
 .hero--youth::after,
 .hero--laity::before,
-.hero--laity::after {
+.hero--laity::after,
+.hero--catechism::before,
+.hero--catechism::after,
+.hero--holychild::before,
+.hero--holychild::after {
   display: none !important;
 }
 
@@ -700,7 +708,9 @@ main > .hero--laity:first-child {
 .hero-bg-vincent,
 .hero-bg-cml,
 .hero-bg-youth,
-.hero-bg-laity {
+.hero-bg-laity,
+.hero-bg-catechism,
+.hero-bg-holychild {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -734,7 +744,9 @@ main > .hero--laity:first-child {
 .hero-bg-joseph img,
 .hero-bg-cml img,
 .hero-bg-youth img,
-.hero-bg-laity img {
+.hero-bg-laity img,
+.hero-bg-catechism img,
+.hero-bg-holychild img {
   height: 100%;
   width: auto;
   max-width: 100%;
@@ -759,7 +771,9 @@ main > .hero--laity:first-child {
   .hero--vincent,
   .hero--cml,
   .hero--youth,
-  .hero--laity {
+  .hero--laity,
+  .hero--catechism,
+  .hero--holychild {
     height: auto;
     min-height: 480px;
     padding: 60px 0;
@@ -771,7 +785,9 @@ main > .hero--laity:first-child {
   .hero-bg-vincent,
   .hero-bg-cml,
   .hero-bg-youth,
-  .hero-bg-laity {
+  .hero-bg-laity,
+  .hero-bg-catechism,
+  .hero-bg-holychild {
     width: 100%;
     max-width: 100%;
     opacity: 0.22;
