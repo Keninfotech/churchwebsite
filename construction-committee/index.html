@@ -79,7 +79,6 @@
     backface-visibility: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;
     background: var(--white);
     padding: 1.25rem 1rem;
     border-radius: var(--radius);
@@ -87,19 +86,43 @@
     box-sizing: border-box;
     gap: 14px;
   }
-  .flip-card-front::before, .flip-card-back::before {
+  .flip-card-front {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .flip-card-front::before {
+    display: none !important;
+  }
+  .member-avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 2px solid var(--gold, #c5a059);
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+  .flip-card-front strong {
+    font-size: 0.98rem;
+    line-height: 1.35;
+    color: var(--ink, #1f2a48);
+  }
+  .flip-card-back {
+    justify-content: center;
+    text-align: center;
+    transform: rotateY(180deg);
+    background: var(--ink, #1c352d);
+    color: #fff;
+  }
+  .flip-card-back::before {
     content: "";
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: var(--gold);
-    margin-top: 8px;
+    margin-top: 2px;
     flex-shrink: 0;
-  }
-  .flip-card-back {
-    transform: rotateY(180deg);
-    background: var(--ink, #1c352d);
-    color: #fff;
   }
   .flip-card-back strong {
     color: #fff;
@@ -116,7 +139,7 @@
       padding: 1.5rem !important;
     }
     .flip-card-front, .flip-card-back {
-      padding: 1.5rem;
+      padding: 1.25rem 1.5rem;
     }
   }
 </style>
@@ -181,67 +204,100 @@
   <ul class="rows">
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Fr. Riju Vazhaparambil MSFS</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Fr. Riju Vazhaparambil MSFS.webp" alt="Fr. Riju Vazhaparambil MSFS" class="member-avatar" loading="lazy">
+          <div><strong>Fr. Riju Vazhaparambil MSFS</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Parish Priest &amp; Construction Convenor</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Fr. Robin MSFS</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Fr. Robin MSFS.jpg" alt="Fr. Robin MSFS" class="member-avatar" loading="lazy">
+          <div><strong>Fr. Robin MSFS</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Asst Parish Priest</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Fr. Vijin Kottoor MSFS</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Fr. Vijin Kottoor MSFS.jpg" alt="Fr. Vijin Kottoor MSFS" class="member-avatar" loading="lazy" style="object-position: center 25%;">
+          <div><strong>Fr. Vijin Kottoor MSFS</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Asst Parish Priest</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Joseph KS</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Joseph KS.jpg" alt="Joseph KS" class="member-avatar" loading="lazy">
+          <div><strong>Joseph KS</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Rahu Joseph</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Rahu Joseph.jpg" alt="Rahu Joseph" class="member-avatar" loading="lazy">
+          <div><strong>Rahu Joseph</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Jenson Joseph</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Jenson Joseph.jpg" alt="Jenson Joseph" class="member-avatar" loading="lazy">
+          <div><strong>Jenson Joseph</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Raj Kumar</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Raj Kumar.jpg" alt="Raj Kumar" class="member-avatar" loading="lazy">
+          <div><strong>Raj Kumar</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Geo Paul</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Geo Paul.jpg" alt="Geo Paul" class="member-avatar" loading="lazy">
+          <div><strong>Geo Paul</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Construction Committee Secretary</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Thomas VT</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Thomas VT.jpeg" alt="Thomas VT" class="member-avatar" loading="lazy">
+          <div><strong>Thomas VT</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Finance Committee Convenor</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Praveen Ampatt</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Praveen Ampatt.jpg" alt="Praveen Ampatt" class="member-avatar" loading="lazy">
+          <div><strong>Praveen Ampatt</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Finance Committee Treasurer</strong></div>
       </div>
     </li>
     <li class="flip-card">
       <div class="flip-card-inner">
-        <div class="flip-card-front"><strong>Thomas MP</strong></div>
+        <div class="flip-card-front">
+          <img src="../assets/Constrction Committee/Thomas MP.jpg" alt="Thomas MP" class="member-avatar" loading="lazy">
+          <div><strong>Thomas MP</strong></div>
+        </div>
         <div class="flip-card-back"><strong>Vendor Management</strong></div>
       </div>
     </li>
