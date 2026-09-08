@@ -650,8 +650,9 @@ section.tight {
   /* Was -2 */
 }
 
-/* Hero with Mother Mary artwork (faded seamlessly into warm background) */
-.hero--mothermary {
+/* Hero with Patron Artwork (Mother Mary for Mathruvedi, St. Joseph for Pithruvedi) */
+.hero--mothermary,
+.hero--stjoseph {
   position: relative;
   overflow: hidden;
   background: linear-gradient(to right, #FDFBF7 40%, rgba(253, 251, 247, 0.9) 55%, transparent 85%), #FDFBF7 !important;
@@ -665,24 +666,27 @@ section.tight {
   box-sizing: border-box;
 }
 
-main > .hero--mothermary:first-child {
+main > .hero--mothermary:first-child,
+main > .hero--stjoseph:first-child {
   height: calc(100vh - var(--header-h, 76px));
   height: calc(100dvh - var(--header-h, 76px));
 }
 
 .hero--mothermary::before,
-.hero--mothermary::after {
+.hero--mothermary::after,
+.hero--stjoseph::before,
+.hero--stjoseph::after {
   display: none !important;
 }
 
-.hero-bg-mary {
+.hero-bg-mary,
+.hero-bg-joseph {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   height: 100%;
   width: auto;
-  aspect-ratio: 1 / 1;
   max-width: 65vw;
   z-index: 1;
   pointer-events: none;
@@ -691,6 +695,10 @@ main > .hero--mothermary:first-child {
   align-items: center;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 12%, black 36%);
   mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 12%, black 36%);
+}
+
+.hero-bg-mary {
+  aspect-ratio: 1 / 1;
 }
 
 .hero-bg-mary img {
@@ -703,15 +711,26 @@ main > .hero--mothermary:first-child {
   display: block;
 }
 
+.hero-bg-joseph img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: right center;
+  display: block;
+}
+
 @media (max-width: 768px) {
-  .hero--mothermary {
+  .hero--mothermary,
+  .hero--stjoseph {
     height: auto;
     min-height: 480px;
     padding: 60px 0;
     background: #FDFBF7 !important;
   }
 
-  .hero-bg-mary {
+  .hero-bg-mary,
+  .hero-bg-joseph {
     width: 100%;
     max-width: 100%;
     opacity: 0.22;
