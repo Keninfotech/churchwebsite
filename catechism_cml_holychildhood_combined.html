@@ -36,13 +36,14 @@
     justify-content: center;
   }
 
-  /* Church background without grayscale */
-  .min-hero::before {
-    content: '';
+  /* Background video styling */
+  .min-hero__video {
     position: absolute;
-    inset: 0;
-    background: url('./assets/church.webp') center 30% / cover no-repeat;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: 0;
   }
 
@@ -51,7 +52,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(253, 250, 243, 0.7) 0%, rgba(253, 250, 243, 0.85) 60%, #fdfaf3 100%);
+    background: linear-gradient(to bottom, rgba(253, 250, 243, 0.68) 0%, rgba(253, 250, 243, 0.84) 60%, #fdfaf3 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -296,6 +297,7 @@
   </header>
 <main id="main">
   <section class="min-hero" data-reveal>
+    <video class="min-hero__video" src="jesus.mp4" autoplay loop muted playsinline></video>
     <div class="min-hero-content">
       <span class="min-hero__eyebrow">Our Lady of Sorrows &middot; Electronics City</span>
       <div class="min-divider">
@@ -332,9 +334,7 @@
   <div class="min-panels" id="minPanels">
   
     <div class="ministry-panel is-active" id="panel-catechism" data-slug="catechism">
-      <section class="hero hero--video">
-        <video class="hero__video" src="jesus.mp4" autoplay loop muted playsinline></video>
-        <div class="hero__video-overlay"></div>
+      <section class="hero">
         <div class="container">
           <div class="hero__grid">
             <div data-reveal>
