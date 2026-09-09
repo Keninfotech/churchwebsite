@@ -41,29 +41,32 @@
       justify-content: flex-start;
     }
 
-    /* Church background without grayscale */
+    /* Church background without cropping */
     .min-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: url('./assets/church.webp') center 30% / cover no-repeat;
+      background: url('./assets/church.webp') right center / contain no-repeat;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Soft left gradient overlay with opacity at the left */
+    /* Solid left gradient overlay fading to right */
     .min-hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(253, 250, 243, 0.95) 0%, rgba(253, 250, 243, 0.88) 32%, rgba(253, 250, 243, 0.5) 60%, rgba(253, 250, 243, 0.15) 80%, transparent 100%);
+      background: linear-gradient(to right, #fdfaf3 0%, #fdfaf3 35%, rgba(253, 250, 243, 0.95) 45%, rgba(253, 250, 243, 0.6) 60%, rgba(253, 250, 243, 0) 78%);
       pointer-events: none;
       z-index: 1;
     }
 
     @media (max-width: 768px) {
+      .min-hero::before {
+        background-position: center bottom;
+      }
       .min-hero::after {
-        background: linear-gradient(to bottom, rgba(253, 250, 243, 0.95) 0%, rgba(253, 250, 243, 0.85) 50%, rgba(253, 250, 243, 0.3) 80%, transparent 100%);
+        background: linear-gradient(to bottom, #fdfaf3 0%, #fdfaf3 35%, rgba(253, 250, 243, 0.95) 50%, rgba(253, 250, 243, 0.3) 80%, transparent 100%);
       }
     }
 
