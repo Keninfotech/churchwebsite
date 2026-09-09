@@ -51,9 +51,14 @@
       z-index: 0;
     }
 
-    /* Gradient overlay removed */
+    /* Soft left gradient overlay */
     .min-hero::after {
-      display: none;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(253, 250, 243, 0.88) 0%, rgba(253, 250, 243, 0.7) 22%, rgba(253, 250, 243, 0.3) 42%, transparent 65%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .min-hero-content {
