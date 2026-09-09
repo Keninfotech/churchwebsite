@@ -1392,6 +1392,18 @@ main>.hero--holychild:first-child {
   border: 1px solid rgba(23, 97, 106, 0.15);
 }
 
+.priest-card__badge--parish {
+  color: #833939;
+  background: #fdf3f3;
+  border-color: rgba(131, 57, 57, 0.2);
+}
+
+.priest-card__badge--asst {
+  color: #17616A;
+  background: #f0f7f8;
+  border-color: rgba(23, 97, 106, 0.2);
+}
+
 .priest-card__body {
   display: flex;
   align-items: center;
@@ -1435,15 +1447,46 @@ main>.hero--holychild:first-child {
   font-size: 1.28rem;
   font-weight: 700;
   color: var(--ink);
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
   line-height: 1.25;
 }
 
+.priest-card__period {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #0E3A40;
+  background: rgba(111, 163, 169, 0.15);
+  border: 1px solid rgba(111, 163, 169, 0.3);
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.priest-card__period svg {
+  color: var(--gold);
+}
+
 .priest-card__desc {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--ink-muted);
   margin: 0;
   line-height: 1.45;
+}
+
+.priests-table__period-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0E3A40;
+  background: #f0f7f8;
+  border: 1px solid rgba(23, 97, 106, 0.18);
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 /* Table View */
