@@ -603,7 +603,7 @@ section.tight {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(253, 250, 243, 0.88) 0%, rgba(253, 250, 243, 0.7) 22%, rgba(253, 250, 243, 0.3) 42%, transparent 65%);
+  background: linear-gradient(to right, #fdfaf3 0%, #fdfaf3 35%, rgba(253, 250, 243, 0.95) 45%, rgba(253, 250, 243, 0.6) 60%, rgba(253, 250, 243, 0) 78%);
   pointer-events: none;
   z-index: -1;
 }
@@ -618,6 +618,10 @@ section.tight {
 
   .hero::before {
     background: linear-gradient(to bottom, rgba(253, 250, 243, 0.9) 0%, rgba(253, 250, 243, 0.6) 50%, rgba(253, 250, 243, 0.15) 80%, transparent 100%);
+  }
+
+  .hero::after {
+    background-position: center bottom;
   }
 }
 
@@ -2062,7 +2066,7 @@ main>.hero--holychild:first-child {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("church.webp") center/cover no-repeat;
+  background: url("church.webp") right center / contain no-repeat;
   transform: none;
   animation: none;
 }
