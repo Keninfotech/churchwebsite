@@ -198,15 +198,15 @@ h4 {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--bg);
-  box-shadow: 0 1px 0 rgba(31, 36, 21, .06), 0 10px 30px -20px rgba(31, 36, 21, .15);
+  background: #0E3A40;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .18);
   transition: background .35s ease, box-shadow .35s ease;
   padding-top: env(safe-area-inset-top);
 }
 
 .site-header.scrolled {
-  background: var(--bg);
-  box-shadow: 0 1px 0 rgba(31, 36, 21, .08), 0 10px 30px -20px rgba(31, 36, 21, .2);
+  background: #0A3137;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, .28);
 }
 
 .site-header__inner {
@@ -269,14 +269,14 @@ h4 {
   font-family: var(--serif);
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--ink);
+  color: #ffffff;
 }
 
 .brand__sub {
   font-size: .68rem;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: rgba(255, 255, 255, .75);
   margin-top: 3px;
 }
 
@@ -306,7 +306,7 @@ h4 {
   font-size: .84rem;
   font-weight: 600;
   letter-spacing: .04em;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, .90);
   border-radius: 999px;
   transition: color .25s ease, background .25s ease;
   cursor: pointer;
@@ -314,14 +314,16 @@ h4 {
 
 .primary-nav a:hover,
 .primary-nav .nav-parent:hover,
-.primary-nav .has-sub:hover>.nav-parent,
-.primary-nav a[aria-current="page"] {
-  color: var(--ink);
-  background: rgba(23, 97, 106, .10);
+.primary-nav .has-sub:hover>.nav-parent {
+  color: #ffffff;
+  background: rgba(255, 255, 255, .16);
 }
 
 .primary-nav a[aria-current="page"] {
-  color: var(--gold);
+  color: #0E3A40;
+  background: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
 }
 
 .has-sub {
@@ -401,12 +403,12 @@ h4 {
 
 .nav-toggle {
   display: none;
-  background: none;
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .3);
   border-radius: 999px;
   padding: 9px 16px;
   cursor: pointer;
-  color: var(--ink);
+  color: #ffffff;
   font-weight: 600;
   font-size: .85rem;
 }
@@ -441,7 +443,7 @@ h4 {
     left: 0;
     right: 0;
     bottom: auto;
-    background: var(--bg);
+    background: #0E3A40;
     max-height: 0;
     overflow: hidden;
     transition: max-height .35s ease, opacity .35s ease;
@@ -2178,9 +2180,7 @@ main>.hero--holychild:first-child {
 }
 
 .primary-nav a[aria-current="page"]::after {
-  transform: scaleX(1);
-  transform-origin: left center;
-  opacity: .9;
+  display: none;
 }
 
 .primary-nav a[aria-current="page"] {
