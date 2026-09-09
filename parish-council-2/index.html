@@ -196,22 +196,23 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
-        padding: 2.5rem;
+        padding: 2rem;
         background-color: #d1d4c2;
-        border-radius: 4px;
+        border-radius: 12px;
     }
     .accordion-col {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.75rem;
     }
     .accordion-item {
-        border-radius: 2px;
+        border-radius: 8px;
         overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
     .accordion-header {
         background-color: #aecd9a;
-        padding: 0.8rem 1rem;
+        padding: 0.9rem 1.2rem;
         cursor: pointer;
         font-weight: 700;
         color: #222;
@@ -222,12 +223,16 @@
         font-family: var(--serif, serif);
         border: 1px solid rgba(255,255,255,0.6);
         transition: all 0.2s ease;
+        border-radius: 8px;
     }
     .accordion-header:hover {
         background-color: #a0c28c;
     }
     .accordion-header.active {
-        color: #1a2a8c;
+        color: #0E3A40;
+        background-color: #9cb887;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
     .accordion-icon {
         color: #fff;
@@ -236,25 +241,87 @@
         font-family: monospace;
     }
     .accordion-header.active .accordion-icon {
-        color: #1a2a8c;
+        color: #0E3A40;
     }
     .accordion-content {
         display: none;
         background-color: #e5ecd9;
-        padding: 1.2rem 1.5rem;
+        padding: 1.2rem;
         border: 1px solid rgba(255,255,255,0.6);
         border-top: none;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
     }
-    .accordion-member {
-        margin-bottom: 0.4rem;
-        color: #111;
-        font-size: 0.95rem;
-        font-weight: 600;
-        font-family: sans-serif;
+    .accordion-members-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+    .member-card {
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 1rem 0.6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border: 1px solid rgba(0,0,0,0.06);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .member-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    .member-card__img {
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center 20%;
+        margin-bottom: 0.6rem;
+        border: 3px solid #17616A;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        background: #eee;
+    }
+    .member-card__placeholder {
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #eef7f7, #d4e8e6);
+        color: #17616A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        border: 2px dashed rgba(23, 97, 106, 0.3);
+    }
+    .member-card__name {
+        font-family: var(--sans, sans-serif);
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: #1f2415;
+        margin-bottom: 0.25rem;
+        line-height: 1.3;
+    }
+    .member-card__phone {
+        font-size: 0.8rem;
+        color: #555;
+        font-weight: 500;
+    }
+    .member-card__phone a {
+        color: #17616A;
+        text-decoration: none;
+    }
+    .member-card__phone a:hover {
+        text-decoration: underline;
     }
     @media (max-width: 900px) {
         .accordion-grid {
             grid-template-columns: 1fr;
+            padding: 1rem;
         }
     }
     </style>
@@ -284,9 +351,23 @@
             <span class="accordion-icon">-</span> St. Alphonsa - Vidya Nagar / Hebbagodi / Surya City
           </div>
           <div class="accordion-content" style="display: block;">
-            <div class="accordion-member">Mr. Abhilash Sebastian (9008544008)</div>
-            <div class="accordion-member">Mr. Anoop Joseph (7567469503)</div>
-            <div class="accordion-member">Ms. Sonya Reji (9449447154)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/Abhilash Sebastian.jpg" alt="Mr. Abhilash Sebastian" loading="lazy">
+                <div class="member-card__name">Mr. Abhilash Sebastian</div>
+                <div class="member-card__phone"><a href="tel:9008544008">9008544008</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/ANOOP JOSEPH K.jpg" alt="Mr. Anoop Joseph" loading="lazy">
+                <div class="member-card__name">Mr. Anoop Joseph</div>
+                <div class="member-card__phone"><a href="tel:7567469503">7567469503</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/Sonia C.jpg" alt="Ms. Sonya Reji" loading="lazy">
+                <div class="member-card__name">Ms. Sonya Reji</div>
+                <div class="member-card__phone"><a href="tel:9449447154">9449447154</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -295,9 +376,23 @@
             <span class="accordion-icon">+</span> St. Antony - Singasandra
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Manoj Abraham (9448583059)</div>
-            <div class="accordion-member">Mr. Augustine Paul (9900045725)</div>
-            <div class="accordion-member">Ms. Deepa Mathew (9845021056)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Antony/Manoj K Abraham.jpg" alt="Mr. Manoj Abraham" loading="lazy">
+                <div class="member-card__name">Mr. Manoj Abraham</div>
+                <div class="member-card__phone"><a href="tel:9448583059">9448583059</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">AP</div>
+                <div class="member-card__name">Mr. Augustine Paul</div>
+                <div class="member-card__phone"><a href="tel:9900045725">9900045725</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Antony/Deepa Ann John.jpg" alt="Ms. Deepa Mathew" loading="lazy">
+                <div class="member-card__name">Ms. Deepa Mathew</div>
+                <div class="member-card__phone"><a href="tel:9845021056">9845021056</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -306,9 +401,23 @@
             <span class="accordion-icon">+</span> St. Evuprasayamma - Ananthnagara / Arana
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Jenson Joseph (9902979430)</div>
-            <div class="accordion-member">Mr. Jerish John (8884048111)</div>
-            <div class="accordion-member">Ms. Jincy Anil (9916800897)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Evuprasyamma/Jenson Joseph.jpg" alt="Mr. Jenson Joseph" loading="lazy">
+                <div class="member-card__name">Mr. Jenson Joseph</div>
+                <div class="member-card__phone"><a href="tel:9902979430">9902979430</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">JJ</div>
+                <div class="member-card__name">Mr. Jerish John</div>
+                <div class="member-card__phone"><a href="tel:8884048111">8884048111</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Evuprasyamma/Jincy Anil.png" alt="Ms. Jincy Anil" loading="lazy">
+                <div class="member-card__name">Ms. Jincy Anil</div>
+                <div class="member-card__phone"><a href="tel:9916800897">9916800897</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -317,9 +426,23 @@
             <span class="accordion-icon">+</span> St. Michael's - Ananthnagar / Vasundara Layout
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Shine George (8296851512)</div>
-            <div class="accordion-member">Mr. Rohit Tomy (9611577412)</div>
-            <div class="accordion-member">Ms. Rose Maria George (9446440419)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Thadathil Shine George.png" alt="Mr. Shine George" loading="lazy">
+                <div class="member-card__name">Mr. Shine George</div>
+                <div class="member-card__phone"><a href="tel:8296851512">8296851512</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Rohith Tomy.JPG" alt="Mr. Rohit Tomy" loading="lazy">
+                <div class="member-card__name">Mr. Rohit Tomy</div>
+                <div class="member-card__phone"><a href="tel:9611577412">9611577412</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Rose Maria George.HEIC" alt="Ms. Rose Maria George" loading="lazy">
+                <div class="member-card__name">Ms. Rose Maria George</div>
+                <div class="member-card__phone"><a href="tel:9446440419">9446440419</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -328,9 +451,23 @@
             <span class="accordion-icon">+</span> St. Francis De Sales - SFS Enclave
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Sabu Thomas (9811390636)</div>
-            <div class="accordion-member">Mr. Atul Amos Kurion (8050800553)</div>
-            <div class="accordion-member">Ms. Bessy Binny (8123113523)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <div class="member-card__placeholder">ST</div>
+                <div class="member-card__name">Mr. Sabu Thomas</div>
+                <div class="member-card__phone"><a href="tel:9811390636">9811390636</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">AK</div>
+                <div class="member-card__name">Mr. Atul Amos Kurion</div>
+                <div class="member-card__phone"><a href="tel:8050800553">8050800553</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Francis De Sales/Bessy Jacob.jpg" alt="Ms. Bessy Binny" loading="lazy">
+                <div class="member-card__name">Ms. Bessy Binny</div>
+                <div class="member-card__phone"><a href="tel:8123113523">8123113523</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -339,10 +476,28 @@
             <span class="accordion-icon">+</span> St. George - Ittina Neela / Dollars Town
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Joshy Joseph (9342545731)</div>
-            <div class="accordion-member">Mr. Sebastian Varkey (9845651340)</div>
-            <div class="accordion-member">Mr. Rajkumar (9940044149)</div>
-            <div class="accordion-member">Ms. Sowmya Jayesh (9880659598)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <div class="member-card__placeholder">JJ</div>
+                <div class="member-card__name">Mr. Joshy Joseph</div>
+                <div class="member-card__phone"><a href="tel:9342545731">9342545731</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">SV</div>
+                <div class="member-card__name">Mr. Sebastian Varkey</div>
+                <div class="member-card__phone"><a href="tel:9845651340">9845651340</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/Mr. Rajkumar.jpg" alt="Mr. Rajkumar" loading="lazy">
+                <div class="member-card__name">Mr. Rajkumar</div>
+                <div class="member-card__phone"><a href="tel:9940044149">9940044149</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">SJ</div>
+                <div class="member-card__name">Ms. Sowmya Jayesh</div>
+                <div class="member-card__phone"><a href="tel:9880659598">9880659598</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -351,9 +506,23 @@
             <span class="accordion-icon">+</span> St. Joseph - Electronic City Phase-II
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Joseph K.S (9243999999)</div>
-            <div class="accordion-member">Mr. Manu K.M (7090206510)</div>
-            <div class="accordion-member">Ms. Jisha Joseph (9242512345)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/Mr. Joseph.jpg" alt="Mr. Joseph K.S" loading="lazy">
+                <div class="member-card__name">Mr. Joseph K.S</div>
+                <div class="member-card__phone"><a href="tel:9243999999">9243999999</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Joseph/Manu KM.jpg" alt="Mr. Manu K.M" loading="lazy">
+                <div class="member-card__name">Mr. Manu K.M</div>
+                <div class="member-card__phone"><a href="tel:7090206510">7090206510</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">JJ</div>
+                <div class="member-card__name">Ms. Jisha Joseph</div>
+                <div class="member-card__phone"><a href="tel:9242512345">9242512345</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -362,9 +531,23 @@
             <span class="accordion-icon">+</span> St. Jude - Huskur/Chikkanagamangala
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Sajan Devis (9916380078)</div>
-            <div class="accordion-member">Mr. Tijo Tom (9986034643)</div>
-            <div class="accordion-member">Ms. Sandya Manalil (8308050983)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <div class="member-card__placeholder">SD</div>
+                <div class="member-card__name">Mr. Sajan Devis</div>
+                <div class="member-card__phone"><a href="tel:9916380078">9916380078</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Jude/Tijo Tom.jpg" alt="Mr. Tijo Tom" loading="lazy">
+                <div class="member-card__name">Mr. Tijo Tom</div>
+                <div class="member-card__phone"><a href="tel:9986034643">9986034643</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Jude/Sandhya Vincent Manalil.jpg" alt="Ms. Sandya Manalil" loading="lazy">
+                <div class="member-card__name">Ms. Sandya Manalil</div>
+                <div class="member-card__phone"><a href="tel:8308050983">8308050983</a></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -376,9 +559,23 @@
             <span class="accordion-icon">+</span> St. Kuriakose Chavara - Behind Suvidya / Opp to Biocon
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Rathesh Tom (9846559966)</div>
-            <div class="accordion-member">Mr. Roshan Cyriac (9535727439)</div>
-            <div class="accordion-member">Ms. Lisamma Mathew (9008103225)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Kuriakose/Rathesh Tom.jpg" alt="Mr. Rathesh Tom" loading="lazy">
+                <div class="member-card__name">Mr. Rathesh Tom</div>
+                <div class="member-card__phone"><a href="tel:9846559966">9846559966</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">RC</div>
+                <div class="member-card__name">Mr. Roshan Cyriac</div>
+                <div class="member-card__phone"><a href="tel:9535727439">9535727439</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Kuriakose/Lissamma Mathew.jpg" alt="Ms. Lisamma Mathew" loading="lazy">
+                <div class="member-card__name">Ms. Lisamma Mathew</div>
+                <div class="member-card__phone"><a href="tel:9008103225">9008103225</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -387,9 +584,23 @@
             <span class="accordion-icon">+</span> St. Mary's - Yarandahalli / RK Township
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Shijoy Yesudas (9886001428)</div>
-            <div class="accordion-member">Mr. Vinu Joseph (9986573619)</div>
-            <div class="accordion-member">Ms. Tessymol Joseph (9886849466)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Mary's/Shijoy Jesudas.jpg" alt="Mr. Shijoy Yesudas" loading="lazy">
+                <div class="member-card__name">Mr. Shijoy Yesudas</div>
+                <div class="member-card__phone"><a href="tel:9886001428">9886001428</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Mary's/Vinu Joseph Venadu.jpg" alt="Mr. Vinu Joseph" loading="lazy">
+                <div class="member-card__name">Mr. Vinu Joseph</div>
+                <div class="member-card__phone"><a href="tel:9986573619">9986573619</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">TJ</div>
+                <div class="member-card__name">Ms. Tessymol Joseph</div>
+                <div class="member-card__phone"><a href="tel:9886849466">9886849466</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -398,8 +609,18 @@
             <span class="accordion-icon">+</span> St. Mother Theresa - GPR Layout
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Thomas K Joseph (9449003538)</div>
-            <div class="accordion-member">Ms. Sunitha George (9480523501)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <div class="member-card__placeholder">TJ</div>
+                <div class="member-card__name">Mr. Thomas K Joseph</div>
+                <div class="member-card__phone"><a href="tel:9449003538">9449003538</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">SG</div>
+                <div class="member-card__name">Ms. Sunitha George</div>
+                <div class="member-card__phone"><a href="tel:9480523501">9480523501</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -408,9 +629,23 @@
             <span class="accordion-icon">+</span> St. Peter - Hosa Road
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Joby George (9886191794)</div>
-            <div class="accordion-member">Mr. Thomas Aykkara (9886478777)</div>
-            <div class="accordion-member">Ms. Merly Jomon (9945455660)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Peter/Joby George.jpg" alt="Mr. Joby George" loading="lazy">
+                <div class="member-card__name">Mr. Joby George</div>
+                <div class="member-card__phone"><a href="tel:9886191794">9886191794</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Peter/Thomas Aykara Joy.jpg" alt="Mr. Thomas Aykkara" loading="lazy">
+                <div class="member-card__name">Mr. Thomas Aykkara</div>
+                <div class="member-card__phone"><a href="tel:9886478777">9886478777</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Peter/Merly Jomon.JPG" alt="Ms. Merly Jomon" loading="lazy">
+                <div class="member-card__name">Ms. Merly Jomon</div>
+                <div class="member-card__phone"><a href="tel:9945455660">9945455660</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -419,9 +654,23 @@
             <span class="accordion-icon">+</span> St. Sebastian - Kammasandra
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Jaijee Jacob (9986697457)</div>
-            <div class="accordion-member">Mr. Leo Micheal (9886175480)</div>
-            <div class="accordion-member">Ms. Asha Charlie (9900195121)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Sebastian/Jaijee Jacob.jpg" alt="Mr. Jaijee Jacob" loading="lazy">
+                <div class="member-card__name">Mr. Jaijee Jacob</div>
+                <div class="member-card__phone"><a href="tel:9986697457">9986697457</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Sebastian/Lijo George P.jpg" alt="Mr. Leo Micheal" loading="lazy">
+                <div class="member-card__name">Mr. Leo Micheal</div>
+                <div class="member-card__phone"><a href="tel:9886175480">9886175480</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">AC</div>
+                <div class="member-card__name">Ms. Asha Charlie</div>
+                <div class="member-card__phone"><a href="tel:9900195121">9900195121</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -430,9 +679,23 @@
             <span class="accordion-icon">+</span> St. Thomas - Electronic city Phase-I
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Sijo Mathew (8123481074)</div>
-            <div class="accordion-member">Mr. Leo Raphy (9901753630)</div>
-            <div class="accordion-member">Ms. Francina (9740030454)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Thomas/Sijo Mathews.jpg" alt="Mr. Sijo Mathew" loading="lazy">
+                <div class="member-card__name">Mr. Sijo Mathew</div>
+                <div class="member-card__phone"><a href="tel:8123481074">8123481074</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">LR</div>
+                <div class="member-card__name">Mr. Leo Raphy</div>
+                <div class="member-card__phone"><a href="tel:9901753630">9901753630</a></div>
+              </div>
+              <div class="member-card">
+                <div class="member-card__placeholder">MF</div>
+                <div class="member-card__name">Ms. Francina</div>
+                <div class="member-card__phone"><a href="tel:9740030454">9740030454</a></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -441,9 +704,23 @@
             <span class="accordion-icon">+</span> St. Vincent de Paul - Daddy's Garden
           </div>
           <div class="accordion-content">
-            <div class="accordion-member">Mr. Benny Joseph (9880466882)</div>
-            <div class="accordion-member">Mr. Bijo Joseph (9886828100)</div>
-            <div class="accordion-member">Ms. Viveena Robert (7204243114)</div>
+            <div class="accordion-members-grid">
+              <div class="member-card">
+                <div class="member-card__placeholder">BJ</div>
+                <div class="member-card__name">Mr. Benny Joseph</div>
+                <div class="member-card__phone"><a href="tel:9880466882">9880466882</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Vincent de Paul/Bijo Joseph - Forane council member.jpg" alt="Mr. Bijo Joseph" loading="lazy">
+                <div class="member-card__name">Mr. Bijo Joseph</div>
+                <div class="member-card__phone"><a href="tel:9886828100">9886828100</a></div>
+              </div>
+              <div class="member-card">
+                <img class="member-card__img" src="../assets/Parish Council/St. Vincent de Paul/Viveena Robert.png" alt="Ms. Viveena Robert" loading="lazy">
+                <div class="member-card__name">Ms. Viveena Robert</div>
+                <div class="member-card__phone"><a href="tel:7204243114">7204243114</a></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
