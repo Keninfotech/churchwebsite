@@ -47,14 +47,9 @@
     z-index: 0;
   }
 
-  /* Gradient overlay to fade it into the page and provide a bright wash for the text */
+  /* Gradient overlay removed */
   .min-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(253, 250, 243, 0.68) 0%, rgba(253, 250, 243, 0.84) 60%, #fdfaf3 100%);
-    pointer-events: none;
-    z-index: 1;
+    display: none;
   }
 
   .min-hero-content {

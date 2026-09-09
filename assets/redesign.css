@@ -592,11 +592,7 @@ section.tight {
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(253, 250, 243, 0.7) 0%, rgba(253, 250, 243, 0.85) 60%, #fdfaf3 100%);
-  z-index: -1;
+  display: none;
 }
 
 .hero--video {
