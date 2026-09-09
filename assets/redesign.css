@@ -2578,7 +2578,7 @@ html.pt-out body {
   overflow-x: auto !important;
   overflow-y: hidden !important;
   padding: 1.5rem 1rem 2.5rem !important;
-  scroll-behavior: smooth;
+  scroll-behavior: auto !important;
   white-space: nowrap !important;
   scrollbar-width: thin;
   scrollbar-color: var(--gold-soft) transparent;

@@ -505,51 +505,80 @@
 
 
   // ---------- Awards: seamless-loop horizontal auto-scroll ----------
-  // ---------- Awards Auto Scroll ----------
   (function () {
-    const wrapper =
-      document.querySelector(
-        "[data-awards-scroll]"
-      );
-
+    const wrapper = document.querySelector("[data-awards-scroll]");
     if (!wrapper) return;
 
-
-    // Duplicate once
+    // Duplicate once for seamless infinite loop
     if (!wrapper.dataset.looped) {
-      [...wrapper.children].forEach(function (item) {
-        wrapper.appendChild(
-          item.cloneNode(true)
-        );
+      const items = Array.from(wrapper.children);
+      items.forEach(function (item) {
+        const clone = item.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        wrapper.appendChild(clone);
       });
-
       wrapper.dataset.looped = "1";
     }
 
+    let isPaused = false;
+    let isInteracting = false;
+    let resumeTimeout = null;
+    let exactScroll = wrapper.scrollLeft || 0;
+    let lastTime = performance.now();
+    const pixelsPerSecond = 40; // Silky smooth sliding speed
 
-    let speed = 0.4;
-    let exactScroll = 0;
+    // Pause on hover
+    wrapper.addEventListener("mouseenter", function () {
+      isPaused = true;
+    });
+    wrapper.addEventListener("mouseleave", function () {
+      if (!isInteracting) isPaused = false;
+    });
 
+    // Touch interaction handling for mobile
+    wrapper.addEventListener("touchstart", function () {
+      isPaused = true;
+      isInteracting = true;
+      clearTimeout(resumeTimeout);
+    }, { passive: true });
 
-    function animate() {
-      exactScroll += speed;
+    wrapper.addEventListener("touchend", function () {
+      isInteracting = false;
+      resumeTimeout = setTimeout(function () {
+        exactScroll = wrapper.scrollLeft;
+        isPaused = false;
+      }, 1500);
+    }, { passive: true });
 
-      wrapper.scrollLeft = exactScroll;
+    // Sync position if user drags/scrolls scrollbar
+    wrapper.addEventListener("scroll", function () {
+      if (isPaused || isInteracting) {
+        exactScroll = wrapper.scrollLeft;
+      }
+    }, { passive: true });
 
-      if (
-        wrapper.scrollLeft >=
-        wrapper.scrollWidth / 2
-      ) {
-        exactScroll = 0;
-        wrapper.scrollLeft = 0;
+    function animate(currentTime) {
+      const dt = (currentTime - lastTime) / 1000;
+      lastTime = currentTime;
+
+      if (!isPaused && !isInteracting && wrapper.scrollWidth > wrapper.clientWidth) {
+        const halfWidth = wrapper.scrollWidth / 2;
+        exactScroll += pixelsPerSecond * Math.min(dt, 0.1);
+
+        if (exactScroll >= halfWidth) {
+          exactScroll -= halfWidth;
+        }
+
+        wrapper.scrollLeft = exactScroll;
       }
 
       requestAnimationFrame(animate);
     }
 
-
-    animate();
-
+    requestAnimationFrame(function (time) {
+      lastTime = time;
+      requestAnimationFrame(animate);
+    });
   })();
 
 
