@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Business Directory in Parish  · Our Lady of Sorrows, Electronics City</title>
-<meta name="description" content="To strengthen community ties and support one another, we have created a Parish Business Directory . This initiative allows parishioners to easily view deta">
-<meta property="og:title" content="Business Directory in Parish  · Our Lady of Sorrows, Electronics City">
-<meta property="og:description" content="To strengthen community ties and support one another, we have created a Parish Business Directory . This initiative allows parishioners to easily view deta">
+<title>Business Directory · Our Lady of Sorrows, Electronics City</title>
+<meta name="description" content="Connect with and support entrepreneurial ventures, professional services, and local businesses run by Our Lady of Sorrows parish community members.">
+<meta property="og:title" content="Business Directory · Our Lady of Sorrows, Electronics City">
+<meta property="og:description" content="Connect with and support entrepreneurial ventures, professional services, and local businesses run by Our Lady of Sorrows parish community members.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -14,7 +14,319 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/redesign.css">
+<link rel="stylesheet" href="../assets/redesign.css?v=14">
+
+<style>
+  .biz-section {
+    background-color: #f7f3eb;
+    width: 100%;
+    padding: 3rem 1.5rem;
+    box-sizing: border-box;
+  }
+  .biz-layout {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .biz-intro {
+    background: #ffffff;
+    border: 1px solid #e2dac8;
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(28, 53, 45, 0.04);
+  }
+  .biz-intro h2 {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: 1.8rem;
+    color: var(--ink, #1c352d);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  .biz-intro p {
+    color: #4a463a;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+  }
+  .biz-benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+  @media (max-width: 768px) {
+    .biz-benefits { grid-template-columns: 1fr; }
+  }
+  .biz-benefit-card {
+    background: #fdfaf3;
+    border: 1px solid #ede5d5;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+  .biz-benefit-card strong {
+    color: #0E3A40;
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Search & Filter Controls */
+  .biz-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .biz-search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .biz-search-wrap svg {
+    position: absolute;
+    left: 1.1rem;
+    color: #0E3A40;
+    pointer-events: none;
+  }
+  .biz-search-input {
+    width: 100%;
+    padding: 0.85rem 1.25rem 0.85rem 2.8rem;
+    border: 1px solid #dcd4c0;
+    border-radius: 30px;
+    background: #ffffff;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.95rem;
+    color: #1f2415;
+    outline: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .biz-search-input:focus {
+    border-color: #0E3A40;
+    box-shadow: 0 0 0 3px rgba(14, 58, 64, 0.15);
+  }
+
+  .biz-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .biz-pill-btn {
+    background: #ebe4d4;
+    border: 1px solid transparent;
+    padding: 0.45rem 1rem;
+    border-radius: 20px;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #4a463a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .biz-pill-btn:hover {
+    background: #ddd4be;
+    color: #1f2415;
+  }
+  .biz-pill-btn.active {
+    background: #0E3A40;
+    color: #ffffff;
+    border-color: #0E3A40;
+  }
+
+  /* Cards Grid */
+  .biz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .biz-card {
+    background: #ffffff;
+    border: 1px solid #e5dcce;
+    border-radius: 12px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 10px rgba(31, 36, 21, 0.04);
+  }
+  .biz-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(14, 58, 64, 0.12);
+    border-color: #0E3A40;
+  }
+
+  .biz-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .biz-card-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1c352d;
+    margin: 0;
+    font-family: var(--sans, 'Inter', sans-serif);
+  }
+  .biz-card-ward {
+    font-size: 0.73rem;
+    font-weight: 600;
+    color: #0E3A40;
+    background: #e6f2f3;
+    padding: 0.2rem 0.55rem;
+    border-radius: 20px;
+    border: 1px solid #b3d7da;
+    white-space: nowrap;
+  }
+
+  .biz-card-occ {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #b45309;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+  }
+
+  .biz-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #ede5d5;
+    margin-top: 0.5rem;
+  }
+  .biz-card-phone-text {
+    font-size: 0.85rem;
+    color: #4a463a;
+    font-weight: 500;
+  }
+  .biz-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #0E3A40;
+    color: #ffffff !important;
+    padding: 0.38rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .biz-call-btn:hover {
+    background: #14535c;
+    box-shadow: 0 3px 8px rgba(14, 58, 64, 0.25);
+  }
+
+  /* Table View */
+  .biz-table-card {
+    background: #ffffff;
+    border: 1px solid #e5dcce;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  }
+  .biz-table-header {
+    background: #0E3A40;
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+  .biz-table-wrap {
+    overflow-x: auto;
+  }
+  table.biz-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.88rem;
+  }
+  table.biz-table th {
+    background: #f4eee2;
+    color: #1c352d;
+    font-weight: 700;
+    padding: 0.85rem 1rem;
+    border-bottom: 2px solid #e2dac8;
+    white-space: nowrap;
+  }
+  table.biz-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #eee7d8;
+    color: #2c3327;
+  }
+  table.biz-table tr:hover {
+    background: #fdfaf3;
+  }
+  .biz-no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #6b6f5a;
+    font-size: 1.05rem;
+    display: none;
+  }
+</style>
+
+<script>
+function filterBizDirectory() {
+  const query = (document.getElementById('bizSearch').value || '').toLowerCase().trim();
+  const activeBtn = document.querySelector('.biz-pill-btn.active');
+  const activeFilter = activeBtn ? activeBtn.getAttribute('data-filter') || 'all' : 'all';
+  
+  const cards = document.querySelectorAll('#bizGrid .biz-card');
+  const rows = document.querySelectorAll('#bizTableBody tr');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const cardCat = (card.getAttribute('data-cat') || '').toLowerCase();
+    const matchesQuery = !query || text.includes(query);
+    const matchesFilter = activeFilter === 'all' || cardCat.includes(activeFilter);
+
+    if (matchesQuery && matchesFilter) {
+      card.style.display = 'flex';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const rowCat = (row.getAttribute('data-cat') || '').toLowerCase();
+    const matchesQuery = !query || text.includes(query);
+    const matchesFilter = activeFilter === 'all' || rowCat.includes(activeFilter);
+
+    if (matchesQuery && matchesFilter) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+
+  const noResults = document.getElementById('bizNoResults');
+  if (noResults) {
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
+
+function setBizFilter(category, btn) {
+  document.querySelectorAll('.biz-pill-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterBizDirectory();
+}
+</script>
+
 </head>
 <body>
 
@@ -67,13 +379,754 @@
     </div>
   </div>
 </section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<p>To strengthen community ties and support one another, we have created a Parish Business Directory . This initiative allows parishioners to easily view details of businesses and services offered by fellow members of our parish.</p>
-<p>The directory serves a mutual benefit :</p>
-<ul class="rows"><li>For parishioners: it provides trusted options for various services and products within the parish community.</li><li>For business owners: it offers an opportunity to share their work, reach more people, and grow through the support of fellow parish members.</li></ul>
-<p>By making use of this directory, we not only meet our daily needs but also encourage and uplift each other’s efforts, living out the true spirit of Christian fellowship and cooperation.</p>
-<ol><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li><li>Mr. XYZ – 1234567890 – sample @abc.com</li></ol>
-</div></div></section>
+
+<section class="biz-section">
+  <div class="biz-layout">
+    
+    <!-- Directory Purpose & Intro -->
+    <div class="biz-intro" data-reveal>
+      <h2>Parish Business & Professional Directory</h2>
+      <p>To strengthen community ties and support one another, we have created the Parish Business Directory. This initiative allows parishioners to easily view details of businesses, professional services, and skilled trades offered by fellow members of our parish.</p>
+      
+      <div class="biz-benefits">
+        <div class="biz-benefit-card">
+          <strong>For Parishioners</strong>
+          It provides trusted, reliable options for various services and products directly within our parish family.
+        </div>
+        <div class="biz-benefit-card">
+          <strong>For Business Owners & Professionals</strong>
+          It offers an opportunity to share your expertise, reach fellow parishioners, and grow through mutual Christian support.
+        </div>
+      </div>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="biz-controls" data-reveal>
+      <div class="biz-search-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="bizSearch" class="biz-search-input" placeholder="Search by name, occupation, ward, or phone number..." onkeyup="filterBizDirectory()">
+      </div>
+
+      <div class="biz-pills">
+        <button class="biz-pill-btn active" data-filter="all" onclick="setBizFilter('all', this)">All Businesses (42)</button>
+        <button class="biz-pill-btn" data-filter="finance" onclick="setBizFilter('finance', this)">Finance & Accounting</button>
+        <button class="biz-pill-btn" data-filter="electrical" onclick="setBizFilter('electrical', this)">Electrical & Engineering</button>
+        <button class="biz-pill-btn" data-filter="construction" onclick="setBizFilter('construction', this)">Construction & Trades</button>
+        <button class="biz-pill-btn" data-filter="travel" onclick="setBizFilter('travel', this)">Travel & Hospitality</button>
+        <button class="biz-pill-btn" data-filter="medical" onclick="setBizFilter('medical', this)">Medical & Healthcare</button>
+        <button class="biz-pill-btn" data-filter="legal" onclick="setBizFilter('legal', this)">Legal & Public Services</button>
+      </div>
+    </div>
+
+    <!-- Directory Cards Grid -->
+    <div class="biz-grid" id="bizGrid" data-reveal>
+
+      <!-- Card 1 -->
+      <div class="biz-card" data-cat="legal">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Raju Verghese</h3>
+            <span class="biz-card-ward">St. Mary's Ward</span>
+          </div>
+          <span class="biz-card-occ">Police Department</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9449710893 / 9448431477</span>
+          <a class="biz-call-btn" href="tel:9449710893">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Deepa Thomas</h3>
+            <span class="biz-card-ward">St. Mary's Ward</span>
+          </div>
+          <span class="biz-card-occ">Finance</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9916814646</span>
+          <a class="biz-call-btn" href="tel:9916814646">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="biz-card" data-cat="electrical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Sebastian Joseph</h3>
+            <span class="biz-card-ward">St. Mary's Ward</span>
+          </div>
+          <span class="biz-card-occ">Electrical contractor</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">7535772601</span>
+          <a class="biz-call-btn" href="tel:7535772601">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="biz-card" data-cat="electrical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Antony Joseph (Denny Joseph)</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Electrician. ENG</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9845973958</span>
+          <a class="biz-call-btn" href="tel:9845973958">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="biz-card" data-cat="travel">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Babu</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Travel Agent</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9845662418 / 7829330015</span>
+          <a class="biz-call-btn" href="tel:9845662418">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Benny Paul</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Fabrication</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9902594849 / 8050931831</span>
+          <a class="biz-call-btn" href="tel:9902594849">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Jibins (Scaria)</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9742544696</span>
+          <a class="biz-call-btn" href="tel:9742544696">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Riya Joy</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9845399749</span>
+          <a class="biz-call-btn" href="tel:9845399749">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Joy. P.</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Fabrication</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9972191949</span>
+          <a class="biz-call-btn" href="tel:9972191949">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Jessy Mathew</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9880992150</span>
+          <a class="biz-call-btn" href="tel:9880992150">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Princy Mathew</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9901713604 / 8762403904</span>
+          <a class="biz-call-btn" href="tel:9901713604">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 12 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Saiju Thomas</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Fabrication</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9620403748 / 7353797818</span>
+          <a class="biz-call-btn" href="tel:9620403748">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 13 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Asha Joseph</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9448482887</span>
+          <a class="biz-call-btn" href="tel:9448482887">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 14 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Sinoj Varghese</h3>
+            <span class="biz-card-ward">St. Alphonsa Ward</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9448905100</span>
+          <a class="biz-call-btn" href="tel:9448905100">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 15 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Aneesh V.K.</h3>
+            <span class="biz-card-ward">St. Vincent De Paul</span>
+          </div>
+          <span class="biz-card-occ">Builder</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9845928032</span>
+          <a class="biz-call-btn" href="tel:9845928032">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 16 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Benny Joseph</h3>
+            <span class="biz-card-ward">St. Vincent De Paul</span>
+          </div>
+          <span class="biz-card-occ">Construction</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9880466882</span>
+          <a class="biz-call-btn" href="tel:9880466882">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 17 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Anju Christy Cyriac</h3>
+            <span class="biz-card-ward">St. Vincent De Paul</span>
+          </div>
+          <span class="biz-card-occ">Finance</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9886696846</span>
+          <a class="biz-call-btn" href="tel:9886696846">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 18 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Sunny Solomon (Nishad)</h3>
+            <span class="biz-card-ward">St. Vincent De Paul</span>
+          </div>
+          <span class="biz-card-occ">Painting</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9341934311</span>
+          <a class="biz-call-btn" href="tel:9341934311">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 19 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Binoy. K.V (Joseph)</h3>
+            <span class="biz-card-ward">St. Michael Ward</span>
+          </div>
+          <span class="biz-card-occ">Painting (Contractor)</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9972969632</span>
+          <a class="biz-call-btn" href="tel:9972969632">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 20 -->
+      <div class="biz-card" data-cat="electrical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Cyriac. M.J.</h3>
+            <span class="biz-card-ward">St. Michael Ward</span>
+          </div>
+          <span class="biz-card-occ">Electrician (Engineer)</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9731175001</span>
+          <a class="biz-call-btn" href="tel:9731175001">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 21 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Joseph Antony (Shaji)</h3>
+            <span class="biz-card-ward">St. Michael Ward</span>
+          </div>
+          <span class="biz-card-occ">House Painting Contractor</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9845182095</span>
+          <a class="biz-call-btn" href="tel:9845182095">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 22 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Jude Umesh P. Netto</h3>
+            <span class="biz-card-ward">St. Michael Ward</span>
+          </div>
+          <span class="biz-card-occ">Painter</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9141712167 / 9481047100</span>
+          <a class="biz-call-btn" href="tel:9141712167">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 23 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Roy Thomas</h3>
+            <span class="biz-card-ward">St. Michael Ward</span>
+          </div>
+          <span class="biz-card-occ">Painter</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9845959448</span>
+          <a class="biz-call-btn" href="tel:9845959448">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 24 -->
+      <div class="biz-card" data-cat="travel">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Jobil Varghese</h3>
+            <span class="biz-card-ward">St. Mother Theresa Ward</span>
+          </div>
+          <span class="biz-card-occ">Business (Travel)</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9845695353 / 8884695353</span>
+          <a class="biz-call-btn" href="tel:9845695353">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 25 -->
+      <div class="biz-card" data-cat="travel">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Babu</h3>
+            <span class="biz-card-ward">St. Thomas Ward (E-City)</span>
+          </div>
+          <span class="biz-card-occ">Travel Agent</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9743829775 / 9845433484</span>
+          <a class="biz-call-btn" href="tel:9743829775">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 26 -->
+      <div class="biz-card" data-cat="travel">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Benedict Tershies</h3>
+            <span class="biz-card-ward">St. Thomas Ward (E-City)</span>
+          </div>
+          <span class="biz-card-occ">Hotel management</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">8105209000 / 9449020327</span>
+          <a class="biz-call-btn" href="tel:8105209000">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 27 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Joy E.P.</h3>
+            <span class="biz-card-ward">St. Thomas Ward (E-City)</span>
+          </div>
+          <span class="biz-card-occ">Carpenter</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">8722426868</span>
+          <a class="biz-call-btn" href="tel:8722426868">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 28 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Thomas Antony</h3>
+            <span class="biz-card-ward">St. Antony Ward</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9945128936</span>
+          <a class="biz-call-btn" href="tel:9945128936">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 29 -->
+      <div class="biz-card" data-cat="legal">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Jaison Sebastian</h3>
+            <span class="biz-card-ward">St. Peter Ward (Hosa Road)</span>
+          </div>
+          <span class="biz-card-occ">Advocate</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9900085090</span>
+          <a class="biz-call-btn" href="tel:9900085090">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 30 -->
+      <div class="biz-card" data-cat="legal">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Mathew K.K. (Muraleedharan)</h3>
+            <span class="biz-card-ward">St. Joseph Ward</span>
+          </div>
+          <span class="biz-card-occ">Army</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">97433142205</span>
+          <a class="biz-call-btn" href="tel:97433142205">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 31 -->
+      <div class="biz-card" data-cat="legal">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Antony M.J</h3>
+            <span class="biz-card-ward">St. George Ward (Ittina)</span>
+          </div>
+          <span class="biz-card-occ">Police</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9980200866</span>
+          <a class="biz-call-btn" href="tel:9980200866">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 32 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Neena</h3>
+            <span class="biz-card-ward">St. George Ward (Ittina)</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9972962103 / 9916475363</span>
+          <a class="biz-call-btn" href="tel:9972962103">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 33 -->
+      <div class="biz-card" data-cat="medical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Murphy</h3>
+            <span class="biz-card-ward">St. George Ward (Ittina)</span>
+          </div>
+          <span class="biz-card-occ">Day Care</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9902328396</span>
+          <a class="biz-call-btn" href="tel:9902328396">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 34 -->
+      <div class="biz-card" data-cat="legal">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Zacharias George</h3>
+            <span class="biz-card-ward">St. George Ward (Ittina)</span>
+          </div>
+          <span class="biz-card-occ">Photographer</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9902268187</span>
+          <a class="biz-call-btn" href="tel:9902268187">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 35 -->
+      <div class="biz-card" data-cat="electrical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Anil T. Paul</h3>
+            <span class="biz-card-ward">St. Sebastian Ward</span>
+          </div>
+          <span class="biz-card-occ">Electrician</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9164987378 / 9916800897</span>
+          <a class="biz-call-btn" href="tel:9164987378">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 36 -->
+      <div class="biz-card" data-cat="electrical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">George. K.</h3>
+            <span class="biz-card-ward">St. Sebastian Ward</span>
+          </div>
+          <span class="biz-card-occ">Welder</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9739880024</span>
+          <a class="biz-call-btn" href="tel:9739880024">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 37 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Joseph Mathew</h3>
+            <span class="biz-card-ward">St. Sebastian Ward</span>
+          </div>
+          <span class="biz-card-occ">Contractor</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">8050820157</span>
+          <a class="biz-call-btn" href="tel:8050820157">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 38 -->
+      <div class="biz-card" data-cat="finance">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Asha Dipu</h3>
+            <span class="biz-card-ward">St. Sebastian Ward</span>
+          </div>
+          <span class="biz-card-occ">Accountant</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9482267355</span>
+          <a class="biz-call-btn" href="tel:9482267355">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 39 -->
+      <div class="biz-card" data-cat="construction">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Bobby Mathew</h3>
+            <span class="biz-card-ward">St. Chavara Kuriakose</span>
+          </div>
+          <span class="biz-card-occ">Fabrication Work</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">08296769763</span>
+          <a class="biz-call-btn" href="tel:08296769763">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 40 -->
+      <div class="biz-card" data-cat="medical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Jasmin Jossy</h3>
+            <span class="biz-card-ward">St. Evuprasyamma Ward</span>
+          </div>
+          <span class="biz-card-occ">Dietitian</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9986762232</span>
+          <a class="biz-call-btn" href="tel:9986762232">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 41 -->
+      <div class="biz-card" data-cat="medical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Dr. Babita Thomas</h3>
+            <span class="biz-card-ward">St. Evuprasyamma Ward</span>
+          </div>
+          <span class="biz-card-occ">Doctor</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9535690246</span>
+          <a class="biz-call-btn" href="tel:9535690246">Call</a>
+        </div>
+      </div>
+
+      <!-- Card 42 -->
+      <div class="biz-card" data-cat="medical">
+        <div>
+          <div class="biz-card-header">
+            <h3 class="biz-card-name">Aisha Jaice</h3>
+            <span class="biz-card-ward">St. Evuprasyamma Ward</span>
+          </div>
+          <span class="biz-card-occ">Ayurvedha Doctor</span>
+        </div>
+        <div class="biz-card-footer">
+          <span class="biz-card-phone-text">9902001010</span>
+          <a class="biz-call-btn" href="tel:9902001010">Call</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- No Results Message -->
+    <div id="bizNoResults" class="biz-no-results">
+      No parish businesses or professionals found matching your search.
+    </div>
+
+    <!-- Directory Table View -->
+    <div class="biz-table-card" data-reveal>
+      <div class="biz-table-header">Complete Parish Directory Table</div>
+      <div class="biz-table-wrap">
+        <table class="biz-table">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Ward Number</th>
+              <th>Occupation</th>
+              <th>Phone Number</th>
+              <th>Ref Page</th>
+            </tr>
+          </thead>
+          <tbody id="bizTableBody">
+            <tr data-cat="legal"><td>5</td><td><strong>Raju Verghese</strong></td><td>St. Mary's Ward (Yarandahalli)</td><td>Police Department</td><td><a href="tel:9449710893">9449710893</a> // <a href="tel:9448431477">9448431477</a></td><td>16</td></tr>
+            <tr data-cat="finance"><td>9</td><td><strong>Deepa Thomas</strong></td><td>St. Mary's Ward (Yarandahalli)</td><td>Finance</td><td><a href="tel:9916814646">9916814646</a></td><td>17</td></tr>
+            <tr data-cat="electrical"><td>14</td><td><strong>Sebastian Joseph</strong></td><td>St. Mary's Ward (Yarandahalli)</td><td>Electrical contractor</td><td><a href="tel:7535772601">7535772601</a></td><td>19</td></tr>
+            <tr data-cat="electrical"><td>20</td><td><strong>Antony Joseph (Denny Joseph)</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Electrician. ENG</td><td><a href="tel:9845973958">9845973958</a></td><td>22</td></tr>
+            <tr data-cat="travel"><td>22</td><td><strong>Babu</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Travel Agent</td><td><a href="tel:9845662418">9845662418</a>, <a href="tel:7829330015">7829330015</a></td><td>23</td></tr>
+            <tr data-cat="construction"><td>26</td><td><strong>Benny Paul</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Fabrication</td><td><a href="tel:9902594849">9902594849</a>, <a href="tel:8050931831">8050931831</a></td><td>24</td></tr>
+            <tr data-cat="finance"><td>31</td><td><strong>Jibins (Scaria)</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Accountant</td><td><a href="tel:9742544696">9742544696</a></td><td>26</td></tr>
+            <tr data-cat="finance"><td>38</td><td><strong>Riya Joy</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Accountant</td><td><a href="tel:9845399749">9845399749</a></td><td>28</td></tr>
+            <tr data-cat="construction"><td>39</td><td><strong>Joy. P.</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Fabrication</td><td><a href="tel:9972191949">9972191949</a></td><td>28</td></tr>
+            <tr data-cat="finance"><td>43</td><td><strong>Jessy Mathew</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Accountant</td><td><a href="tel:9880992150">9880992150</a></td><td>29</td></tr>
+            <tr data-cat="finance"><td>46</td><td><strong>Princy Mathew</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Accountant</td><td><a href="tel:9901713604">9901713604</a>, <a href="tel:8762403904">8762403904</a></td><td>30</td></tr>
+            <tr data-cat="construction"><td>51</td><td><strong>Saiju Thomas</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Fabrication</td><td><a href="tel:9620403748">9620403748</a>, <a href="tel:7353797818">7353797818</a></td><td>32</td></tr>
+            <tr data-cat="finance"><td>56</td><td><strong>Asha Joseph</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Accountant</td><td><a href="tel:9448482887">9448482887</a></td><td>33</td></tr>
+            <tr data-cat="finance"><td>57</td><td><strong>Sinoj Varghese</strong></td><td>St. Alphonsa Ward (Vidya Nagar)</td><td>Accountant</td><td><a href="tel:9448905100">9448905100</a></td><td>34</td></tr>
+            <tr data-cat="construction"><td>67</td><td><strong>Aneesh V.K.</strong></td><td>St. Vincent De Paul Ward (Daady's)</td><td>Builder</td><td><a href="tel:9845928032">9845928032</a></td><td>37</td></tr>
+            <tr data-cat="construction"><td>72</td><td><strong>Benny Joseph</strong></td><td>St. Vincent De Paul Ward (Daady's)</td><td>Construction</td><td><a href="tel:9880466882">9880466882</a></td><td>39</td></tr>
+            <tr data-cat="finance"><td>142</td><td><strong>Anju Christy Cyriac</strong></td><td>St. Vincent De Paul Ward (Daady's)</td><td>Finance</td><td><a href="tel:9886696846">9886696846</a></td><td>56</td></tr>
+            <tr data-cat="construction"><td>150</td><td><strong>Sunny Solomon (Nishad)</strong></td><td>St. Vincent De Paul Ward (Daady's)</td><td>Painting</td><td><a href="tel:9341934311">9341934311</a></td><td>59</td></tr>
+            <tr data-cat="construction"><td>165</td><td><strong>Binoy. K.V (Joseph)</strong></td><td>St. Michael Ward (Opp. Biocon)</td><td>Painting (Contractor)</td><td><a href="tel:9972969632">9972969632</a></td><td>66</td></tr>
+            <tr data-cat="electrical"><td>166</td><td><strong>Cyriac. M.J.</strong></td><td>St. Michael Ward (Opp. Biocon)</td><td>Electrician (Engineer)</td><td><a href="tel:9731175001">9731175001</a></td><td>66</td></tr>
+            <tr data-cat="construction"><td>168</td><td><strong>Joseph Antony (Shaji)</strong></td><td>St. Michael Ward (Opp. Biocon)</td><td>House Painting Contractor</td><td><a href="tel:9845182095">9845182095</a></td><td>67</td></tr>
+            <tr data-cat="construction"><td>171</td><td><strong>Jude Umesh P. Netto</strong></td><td>St. Michael Ward (Opp. Biocon)</td><td>Painter</td><td><a href="tel:9141712167">9141712167</a>, <a href="tel:9481047100">9481047100</a></td><td>68</td></tr>
+            <tr data-cat="construction"><td>175</td><td><strong>Roy Thomas</strong></td><td>St. Michael Ward (Opp. Biocon)</td><td>Painter</td><td><a href="tel:9845959448">9845959448</a></td><td>69</td></tr>
+            <tr data-cat="travel"><td>201</td><td><strong>Jobil Varghese</strong></td><td>St. Mother Theresa Ward (GPR)</td><td>Business (Travel)</td><td><a href="tel:9845695353">9845695353</a>, <a href="tel:8884695353">8884695353</a></td><td>79</td></tr>
+            <tr data-cat="travel"><td>215</td><td><strong>Babu</strong></td><td>St. Thomas Ward (E-City, Ph-1)</td><td>Travel Agent</td><td><a href="tel:9743829775">9743829775</a>, <a href="tel:9845433484">9845433484</a></td><td>83</td></tr>
+            <tr data-cat="travel"><td>219</td><td><strong>Benedict Tershies</strong></td><td>St. Thomas Ward (E-City, Ph-1)</td><td>Hotel management</td><td><a href="tel:8105209000">8105209000</a>, <a href="tel:9449020327">9449020327</a></td><td>83</td></tr>
+            <tr data-cat="construction"><td>291</td><td><strong>Joy E.P.</strong></td><td>St. Thomas Ward (E-City, Ph-1)</td><td>Carpenter</td><td><a href="tel:8722426868">8722426868</a></td><td>98</td></tr>
+            <tr data-cat="finance"><td>338</td><td><strong>Thomas Antony</strong></td><td>St. Antony Ward (Singasandra)</td><td>Accountant</td><td><a href="tel:9945128936">9945128936</a></td><td>112</td></tr>
+            <tr data-cat="legal"><td>352</td><td><strong>Jaison Sebastian</strong></td><td>St. Peter Ward (Hosa Road)</td><td>Advocate</td><td><a href="tel:9900085090">9900085090</a></td><td>117</td></tr>
+            <tr data-cat="legal"><td>386</td><td><strong>Mathew K.K. (Muraleedharan)</strong></td><td>St. Joseph Ward (E-City, PH-II)</td><td>Army</td><td><a href="tel:97433142205">97433142205</a></td><td>129</td></tr>
+            <tr data-cat="legal"><td>396</td><td><strong>Antony M.J</strong></td><td>St. George Ward (Ittina)</td><td>Police</td><td><a href="tel:9980200866">9980200866</a></td><td>134</td></tr>
+            <tr data-cat="finance"><td>415</td><td><strong>Neena</strong></td><td>St. George Ward (Ittina)</td><td>Accountant</td><td><a href="tel:9972962103">9972962103</a>, <a href="tel:9916475363">9916475363</a></td><td>140</td></tr>
+            <tr data-cat="medical"><td>420</td><td><strong>Murphy</strong></td><td>St. George Ward (Ittina)</td><td>Day Care</td><td><a href="tel:9902328396">9902328396</a></td><td>142</td></tr>
+            <tr data-cat="legal"><td>429</td><td><strong>Zacharias George</strong></td><td>St. George Ward (Ittina)</td><td>Photographer</td><td><a href="tel:9902268187">9902268187</a></td><td>145</td></tr>
+            <tr data-cat="electrical"><td>433</td><td><strong>Anil T. Paul</strong></td><td>St. Sebastian Ward (Kammasandra)</td><td>Electrician</td><td><a href="tel:9164987378">9164987378</a>, <a href="tel:9916800897">9916800897</a></td><td>147</td></tr>
+            <tr data-cat="electrical"><td>442</td><td><strong>George. K.</strong></td><td>St. Sebastian Ward (Kammasandra)</td><td>Welder</td><td><a href="tel:9739880024">9739880024</a></td><td>150</td></tr>
+            <tr data-cat="construction"><td>457</td><td><strong>Joseph Mathew</strong></td><td>St. Sebastian Ward (Kammasandra)</td><td>Contractor</td><td><a href="tel:8050820157">8050820157</a></td><td>155</td></tr>
+            <tr data-cat="finance"><td>464</td><td><strong>Asha Dipu</strong></td><td>St. Sebastian Ward (Kammasandra)</td><td>Accountant</td><td><a href="tel:9482267355">9482267355</a></td><td>157</td></tr>
+            <tr data-cat="construction"><td>499</td><td><strong>Bobby Mathew</strong></td><td>St. Chavara Kuriakose Ward</td><td>Fabrication Work</td><td><a href="tel:08296769763">08296769763</a></td><td>171</td></tr>
+            <tr data-cat="medical"><td>550</td><td><strong>Jasmin Jossy</strong></td><td>St. Evuprasyamma Ward</td><td>Dietitian</td><td><a href="tel:9986762232">9986762232</a></td><td>188</td></tr>
+            <tr data-cat="medical"><td>559</td><td><strong>Dr. Babita Thomas</strong></td><td>St. Evuprasyamma Ward</td><td>Doctor</td><td><a href="tel:9535690246">9535690246</a></td><td>192</td></tr>
+            <tr data-cat="medical"><td>575</td><td><strong>Aisha Jaice</strong></td><td>St. Evuprasyamma Ward</td><td>Ayurvedha Doctor</td><td><a href="tel:9902001010">9902001010</a></td><td>200</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
 <div class="section-head"><span class="eyebrow">Section</span><h2>Promotional Videos</h2><span class="rule"></span></div>
 <div style="margin-top: 2rem;">
