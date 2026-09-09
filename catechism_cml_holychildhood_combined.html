@@ -14,14 +14,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/redesign.css">
+<link rel="stylesheet" href="./assets/redesign.css?v=14">
 
 <style>
   /* ---------- Ministries overview & card system ---------- */
   .min-hero {
     position: relative;
-    padding: clamp(1.5rem, 4vw, 3rem) 2rem;
-    text-align: center;
+    padding: clamp(2rem, 5vw, 4rem) clamp(24px, 6vw, 80px);
+    text-align: left;
     background: #fdfaf3;
     overflow: hidden;
 
@@ -33,7 +33,7 @@
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* Background video styling */
@@ -47,61 +47,74 @@
     z-index: 0;
   }
 
-  /* Soft left gradient overlay */
+  /* Soft left gradient overlay with opacity at the left */
   .min-hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(253, 250, 243, 0.88) 0%, rgba(253, 250, 243, 0.7) 22%, rgba(253, 250, 243, 0.3) 42%, transparent 65%);
+    background: linear-gradient(to right, rgba(253, 250, 243, 0.95) 0%, rgba(253, 250, 243, 0.88) 32%, rgba(253, 250, 243, 0.5) 60%, rgba(253, 250, 243, 0.15) 80%, transparent 100%);
     pointer-events: none;
     z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .min-hero::after {
+      background: linear-gradient(to bottom, rgba(253, 250, 243, 0.95) 0%, rgba(253, 250, 243, 0.85) 50%, rgba(253, 250, 243, 0.3) 80%, transparent 100%);
+    }
   }
 
   .min-hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 720px;
+    margin: 0;
+    text-align: left;
   }
 
   .min-hero__eyebrow {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: flex-start;
+    gap: 0.75rem;
     color: #92753a;
     font-family: var(--sans, 'Inter', sans-serif);
     font-weight: 600;
     letter-spacing: .25em;
     font-size: .85rem;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
 
-  .min-hero__eyebrow::before,
-  .min-hero__eyebrow::after {
+  .min-hero__eyebrow::before {
     content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(200, 170, 110, 0.5);
-    max-width: 120px;
+    width: 36px;
+    height: 2px;
+    background: #c8aa6e;
+    flex-shrink: 0;
+  }
+
+  .min-hero__eyebrow::after {
+    display: none;
   }
 
   .min-divider {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: flex-start;
+    gap: 0.75rem;
     margin: 0.5rem 0;
     color: #c8aa6e;
   }
 
-  .min-divider::before,
-  .min-divider::after {
+  .min-divider::before {
     content: '';
-    width: 40px;
+    width: 36px;
     height: 1px;
     background: rgba(200, 170, 110, 0.5);
+  }
+
+  .min-divider::after {
+    display: none;
   }
 
   .min-hero h1 {
@@ -112,14 +125,16 @@
     margin: 0;
     line-height: 1.1;
     letter-spacing: -0.02em;
+    text-align: left;
   }
 
   .min-hero p {
-    max-width: 680px;
-    margin: 1.5rem auto 0;
+    max-width: 640px;
+    margin: 1.25rem 0 0;
     color: #4a4842;
     font-size: 1.1rem;
     line-height: 1.6;
+    text-align: left;
   }
 
   /* Overview cards */
