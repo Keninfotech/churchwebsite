@@ -2048,9 +2048,53 @@ main>.hero--holychild:first-child {
    Appended additions; overrides earlier rules where noted.
    ============================================================ */
 
-/* ---------- Hero choreography + Ken Burns ---------- */
-.hero {
-  background: #fdfaf3;
+/* ---------- Hero Backdrop (70% coverage with feathered alpha-blend) ---------- */
+.hero__backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%);
+}
+
+.hero__backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.hero__backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.85) 10%, rgba(253, 250, 243, 0.3) 28%, transparent 55%);
+  pointer-events: none;
+}
+
+.hero:has(.hero__backdrop)::after,
+.hero.has-backdrop::after {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .hero__backdrop {
+    width: 100% !important;
+    height: 60% !important;
+    top: auto !important;
+    bottom: 0 !important;
+    -webkit-mask-image: linear-gradient(to top, black 40%, transparent 100%) !important;
+    mask-image: linear-gradient(to top, black 40%, transparent 100%) !important;
+    opacity: 0.45;
+  }
 }
 
 .hero::after {
