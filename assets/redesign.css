@@ -484,23 +484,77 @@ h4 {
     flex-direction: column;
     box-shadow: none;
     border: none;
-    border-radius: 0;
-    padding: 0 0 0 14px;
-    background: transparent;
+    border-left: 2px solid rgba(200, 170, 110, 0.4);
+    border-radius: 0 10px 10px 0;
+    margin: 4px 0 6px 16px;
+    padding: 0 0 0 10px;
+    background: rgba(0, 0, 0, 0.15);
     opacity: 0;
     transform: none;
     pointer-events: none;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(.22, .61, .36, 1), opacity 0.4s ease, padding 0.4s ease;
-    margin-top: 0;
+    gap: 3px;
   }
 
   .has-sub.is-open>ul {
-    max-height: 600px;
+    max-height: 800px;
     opacity: 1;
     pointer-events: auto;
-    padding: 4px 0 8px 14px;
+    padding: 6px 8px 8px 12px;
+  }
+
+  .has-sub .caret {
+    transition: transform 0.25s ease;
+  }
+
+  .has-sub.is-open>.nav-parent .caret,
+  .has-sub.is-open .caret {
+    transform: rotate(225deg);
+    margin-top: 3px;
+  }
+
+  .has-sub>ul li {
+    display: block;
+    width: 100%;
+  }
+
+  .has-sub>ul a {
+    display: block;
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-size: .92rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.90) !important;
+    letter-spacing: .01em;
+    text-transform: none;
+    background: transparent;
+    box-shadow: none;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .has-sub>ul a::after {
+    display: none !important;
+  }
+
+  .has-sub>ul a:hover,
+  .has-sub>ul a:active,
+  .has-sub>ul a:focus-visible {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+  }
+
+  .has-sub>ul a[aria-current="page"] {
+    background: #ffffff !important;
+    color: #0E3A40 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  .has-sub>ul a[aria-current="page"]::after {
+    display: none !important;
   }
 
   .nav-toggle {
