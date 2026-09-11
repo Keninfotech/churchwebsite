@@ -5500,3 +5500,234 @@ dialog#contactDialog::backdrop {
 .contact-modal__btn--office:hover {
   background-color: #0E3A40;
 }
+
+/* Bottom Navigation between Pious Associations and Ministry Panels */
+.min-nav-section {
+  padding: 3.5rem 1.5rem 4rem;
+  background: linear-gradient(180deg, rgba(253, 250, 243, 0.4) 0%, rgba(246, 239, 225, 0.65) 100%);
+  border-top: 1px solid #e7ddc6;
+  margin-top: 3.5rem;
+}
+
+.min-nav-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 2.2rem;
+}
+
+.min-nav-divider__line {
+  height: 1px;
+  flex: 1;
+  max-width: 140px;
+  background: linear-gradient(90deg, transparent, rgba(200, 170, 110, 0.6), transparent);
+}
+
+.min-nav-divider__icon {
+  color: #b98e47;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fbf7ee;
+  border: 1px solid #e7ddc6;
+}
+
+.min-nav-divider__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.min-panel-nav {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.min-panel-nav__btn {
+  flex: 1;
+  max-width: 380px;
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 1.15rem 1.4rem;
+  background: #ffffff;
+  border: 1.5px solid #ded5c5;
+  border-radius: 18px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 16px rgba(22, 40, 31, 0.04);
+  transition: border-color 0.28s ease, transform 0.28s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.28s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.min-panel-nav__btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200, 170, 110, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+}
+
+.min-panel-nav__btn:hover,
+.min-panel-nav__btn:focus-visible {
+  border-color: #b98e47;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(90, 66, 20, 0.12);
+  outline: none;
+}
+
+.min-panel-nav__btn:hover::before,
+.min-panel-nav__btn:focus-visible::before {
+  opacity: 1;
+}
+
+.min-panel-nav__btn--prev {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.min-panel-nav__btn--next {
+  text-align: right;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.min-panel-nav__arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f7f1e1;
+  color: #92753a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.min-panel-nav__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.min-panel-nav__btn--prev:hover .min-panel-nav__arrow {
+  background: #16281f;
+  color: #f4ecd8;
+  transform: translateX(-3px);
+}
+
+.min-panel-nav__btn--next:hover .min-panel-nav__arrow {
+  background: #16281f;
+  color: #f4ecd8;
+  transform: translateX(3px);
+}
+
+.min-panel-nav__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.min-panel-nav__label {
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8e7a53;
+}
+
+.min-panel-nav__title {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #16281f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.25s ease;
+}
+
+.min-panel-nav__btn:hover .min-panel-nav__title {
+  color: #8b6b27;
+}
+
+.min-panel-nav__all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.15rem;
+  background: #ffffff;
+  border: 1.5px solid #ded5c5;
+  border-radius: 999px;
+  color: #5a5444;
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.min-panel-nav__all svg {
+  width: 15px;
+  height: 15px;
+  color: #92753a;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.min-panel-nav__all:hover {
+  background: #16281f;
+  border-color: #16281f;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(22, 40, 31, 0.15);
+}
+
+.min-panel-nav__all:hover svg {
+  color: #d9c184;
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .min-panel-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+  }
+  .min-panel-nav__all {
+    order: -1;
+    align-self: center;
+    margin-bottom: 0.25rem;
+  }
+  .min-panel-nav__btn {
+    max-width: 100%;
+    width: 100%;
+  }
+  .min-panel-nav__btn--next {
+    text-align: left;
+    justify-content: flex-start;
+  }
+  .min-panel-nav__btn--next .min-panel-nav__text {
+    order: 2;
+  }
+  .min-panel-nav__btn--next .min-panel-nav__arrow {
+    order: 1;
+  }
+}

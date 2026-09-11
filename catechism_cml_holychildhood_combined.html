@@ -274,6 +274,237 @@
   @media (prefers-reduced-motion: reduce) {
     .min-card, [data-reveal], .ministry-panel.is-active { transition: none !important; animation: none !important; opacity: 1 !important; transform: none !important; }
   }
+
+  /* Bottom Navigation between Faith Formation Sections */
+  .min-nav-section {
+    padding: 3.5rem 1.5rem 4rem;
+    background: linear-gradient(180deg, rgba(253, 250, 243, 0.4) 0%, rgba(246, 239, 225, 0.65) 100%);
+    border-top: 1px solid #e7ddc6;
+    margin-top: 3.5rem;
+  }
+
+  .min-nav-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .min-nav-divider__line {
+    height: 1px;
+    flex: 1;
+    max-width: 140px;
+    background: linear-gradient(90deg, transparent, rgba(200, 170, 110, 0.6), transparent);
+  }
+
+  .min-nav-divider__icon {
+    color: #b98e47;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fbf7ee;
+    border: 1px solid #e7ddc6;
+  }
+
+  .min-nav-divider__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .min-panel-nav {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  .min-panel-nav__btn {
+    flex: 1;
+    max-width: 380px;
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    padding: 1.15rem 1.4rem;
+    background: #ffffff;
+    border: 1.5px solid #ded5c5;
+    border-radius: 18px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 16px rgba(22, 40, 31, 0.04);
+    transition: border-color 0.28s ease, transform 0.28s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.28s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .min-panel-nav__btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200, 170, 110, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.28s ease;
+    pointer-events: none;
+  }
+
+  .min-panel-nav__btn:hover,
+  .min-panel-nav__btn:focus-visible {
+    border-color: #b98e47;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(90, 66, 20, 0.12);
+    outline: none;
+  }
+
+  .min-panel-nav__btn:hover::before,
+  .min-panel-nav__btn:focus-visible::before {
+    opacity: 1;
+  }
+
+  .min-panel-nav__btn--prev {
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .min-panel-nav__btn--next {
+    text-align: right;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .min-panel-nav__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f7f1e1;
+    color: #92753a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+
+  .min-panel-nav__arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .min-panel-nav__btn--prev:hover .min-panel-nav__arrow {
+    background: #16281f;
+    color: #f4ecd8;
+    transform: translateX(-3px);
+  }
+
+  .min-panel-nav__btn--next:hover .min-panel-nav__arrow {
+    background: #16281f;
+    color: #f4ecd8;
+    transform: translateX(3px);
+  }
+
+  .min-panel-nav__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .min-panel-nav__label {
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8e7a53;
+  }
+
+  .min-panel-nav__title {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #16281f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.25s ease;
+  }
+
+  .min-panel-nav__btn:hover .min-panel-nav__title {
+    color: #8b6b27;
+  }
+
+  .min-panel-nav__all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.75rem 1.15rem;
+    background: #ffffff;
+    border: 1.5px solid #ded5c5;
+    border-radius: 999px;
+    color: #5a5444;
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .min-panel-nav__all svg {
+    width: 15px;
+    height: 15px;
+    color: #92753a;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+
+  .min-panel-nav__all:hover {
+    background: #16281f;
+    border-color: #16281f;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(22, 40, 31, 0.15);
+  }
+
+  .min-panel-nav__all:hover svg {
+    color: #d9c184;
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: 768px) {
+    .min-panel-nav {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.9rem;
+    }
+    .min-panel-nav__all {
+      order: -1;
+      align-self: center;
+      margin-bottom: 0.25rem;
+    }
+    .min-panel-nav__btn {
+      max-width: 100%;
+      width: 100%;
+    }
+    .min-panel-nav__btn--next {
+      text-align: left;
+      justify-content: flex-start;
+    }
+    .min-panel-nav__btn--next .min-panel-nav__text {
+      order: 2;
+    }
+    .min-panel-nav__btn--next .min-panel-nav__arrow {
+      order: 1;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1849,6 +2080,58 @@ function openClass(tabId) {
   </div>
 </section>
 
+<!-- Bottom Navigation -->
+<section class="min-nav-section" aria-label="Section Navigation">
+  <div class="container" style="max-width: 960px;">
+    <div class="min-nav-divider">
+      <span class="min-nav-divider__line"></span>
+      <span class="min-nav-divider__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M2 12h20"/>
+        </svg>
+      </span>
+      <span class="min-nav-divider__line"></span>
+    </div>
+    <div class="min-panel-nav">
+      <a href="#holy-childhood" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="holy-childhood" aria-label="Go to previous section: Holy Childhood">
+        <div class="min-panel-nav__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </div>
+        <div class="min-panel-nav__text">
+          <span class="min-panel-nav__label">Previous Section</span>
+          <span class="min-panel-nav__title">Holy Childhood</span>
+        </div>
+      </a>
+
+      <a href="#minGrid" class="min-panel-nav__all" aria-label="View all Faith Formation sections">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+        <span>All Sections</span>
+      </a>
+
+      <a href="#cml" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="cml" aria-label="Go to next section: Cherupushpa Mission League">
+        <div class="min-panel-nav__text">
+          <span class="min-panel-nav__label">Next Section</span>
+          <span class="min-panel-nav__title">Mission League (CML)</span>
+        </div>
+        <div class="min-panel-nav__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <div class="ministry-panel" id="panel-cml" data-slug="cml">
@@ -1979,6 +2262,58 @@ function openClass(tabId) {
 <p>Our students enthusiastically participated in the CML Annual Day celebrations. They took part in the Rally Competition and attended the CML Workshop, which focused on nurturing faith, leadership qualities, and missionary spirit. The active involvement of our students from Our Lady of Sorrows Church, Hebbagodi in diocesan and forane-level CML activities reflects their strong faith foundation and commitment to service and leadership. We congratulate all participants and office bearers and wish them continued success in their mission.</p>
 </div></div></section>
 
+<!-- Bottom Navigation -->
+<section class="min-nav-section" aria-label="Section Navigation">
+  <div class="container" style="max-width: 960px;">
+    <div class="min-nav-divider">
+      <span class="min-nav-divider__line"></span>
+      <span class="min-nav-divider__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M2 12h20"/>
+        </svg>
+      </span>
+      <span class="min-nav-divider__line"></span>
+    </div>
+    <div class="min-panel-nav">
+      <a href="#catechism" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="catechism" aria-label="Go to previous section: Catechism">
+        <div class="min-panel-nav__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </div>
+        <div class="min-panel-nav__text">
+          <span class="min-panel-nav__label">Previous Section</span>
+          <span class="min-panel-nav__title">Catechism</span>
+        </div>
+      </a>
+
+      <a href="#minGrid" class="min-panel-nav__all" aria-label="View all Faith Formation sections">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+        <span>All Sections</span>
+      </a>
+
+      <a href="#holy-childhood" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="holy-childhood" aria-label="Go to next section: Holy Childhood">
+        <div class="min-panel-nav__text">
+          <span class="min-panel-nav__label">Next Section</span>
+          <span class="min-panel-nav__title">Holy Childhood</span>
+        </div>
+        <div class="min-panel-nav__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <div class="ministry-panel" id="panel-holy-childhood" data-slug="holy-childhood">
@@ -2077,6 +2412,58 @@ function openClass(tabId) {
   </div>
 </section>
 
+<!-- Bottom Navigation -->
+<section class="min-nav-section" aria-label="Section Navigation">
+  <div class="container" style="max-width: 960px;">
+    <div class="min-nav-divider">
+      <span class="min-nav-divider__line"></span>
+      <span class="min-nav-divider__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M2 12h20"/>
+        </svg>
+      </span>
+      <span class="min-nav-divider__line"></span>
+    </div>
+    <div class="min-panel-nav">
+      <a href="#cml" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="cml" aria-label="Go to previous section: Cherupushpa Mission League">
+        <div class="min-panel-nav__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </div>
+        <div class="min-panel-nav__text">
+          <span class="min-panel-nav__label">Previous Section</span>
+          <span class="min-panel-nav__title">Mission League (CML)</span>
+        </div>
+      </a>
+
+      <a href="#minGrid" class="min-panel-nav__all" aria-label="View all Faith Formation sections">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+        <span>All Sections</span>
+      </a>
+
+      <a href="#catechism" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="catechism" aria-label="Go to next section: Catechism">
+        <div class="min-panel-nav__text">
+          <span class="min-panel-nav__label">Next Section</span>
+          <span class="min-panel-nav__title">Catechism</span>
+        </div>
+        <div class="min-panel-nav__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 </div>
 </div>
 </main>
@@ -2149,8 +2536,8 @@ function openClass(tabId) {
       if (target) {
         var header = document.querySelector('.site-header');
         var headerH = header ? header.offsetHeight : 104;
-        var topPos = target.getBoundingClientRect().top + window.scrollY - headerH;
-        window.scrollTo({ top: topPos, behavior: 'smooth' });
+        var topPos = target.offsetTop - headerH;
+        window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
       }
     }
     revealActivePanel();
@@ -2159,6 +2546,31 @@ function openClass(tabId) {
   cards.forEach(function(c){
     c.addEventListener('click', function(){
       activate(c.dataset.target);
+    });
+  });
+
+  /* Bottom navigation buttons */
+  document.querySelectorAll('.min-panel-nav__btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var targetSlug = btn.getAttribute('data-target');
+      if (targetSlug) {
+        activate(targetSlug);
+      }
+    });
+  });
+
+  /* "All Sections" button in bottom nav */
+  document.querySelectorAll('.min-panel-nav__all').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.getElementById('minGrid');
+      if (target) {
+        var header = document.querySelector('.site-header');
+        var headerH = header ? header.offsetHeight : 104;
+        var offset = target.offsetTop - headerH - 20;
+        window.scrollTo({ top: Math.max(0, offset), behavior: 'smooth' });
+      }
     });
   });
 
