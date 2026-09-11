@@ -524,15 +524,22 @@
 function toggleCriAccordion(element) {
     const content = element.nextElementSibling;
     const icon = element.querySelector('.cri-accordion-icon');
+    const isCurrentlyOpen = element.classList.contains("active") || content.style.display === "block";
     
-    if (content.style.display === "block") {
-        content.style.display = "none";
-        element.classList.remove("active");
-        icon.textContent = "+";
-    } else {
+    const container = element.closest('.cri-accordion') || document;
+    container.querySelectorAll('.cri-accordion-header').forEach(h => {
+        h.classList.remove("active");
+        const ic = h.querySelector('.cri-accordion-icon');
+        if (ic) ic.textContent = "+";
+    });
+    container.querySelectorAll('.cri-accordion-content').forEach(c => {
+        c.style.display = "none";
+    });
+    
+    if (!isCurrentlyOpen) {
         content.style.display = "block";
         element.classList.add("active");
-        icon.textContent = "-";
+        if (icon) icon.textContent = "-";
     }
 }
 

@@ -325,15 +325,24 @@
     function toggleAccordion(element) {
         const content = element.nextElementSibling;
         const icon = element.querySelector('.accordion-icon');
+        const isCurrentlyOpen = element.classList.contains("active") || content.style.display === "block";
         
-        if (content.style.display === "block") {
-            content.style.display = "none";
-            element.classList.remove("active");
-            icon.textContent = "+";
-        } else {
+        // Close all accordion items across the grid
+        const grid = element.closest('.accordion-grid') || document;
+        grid.querySelectorAll('.accordion-header').forEach(h => {
+            h.classList.remove("active");
+            const ic = h.querySelector('.accordion-icon');
+            if (ic) ic.textContent = "+";
+        });
+        grid.querySelectorAll('.accordion-content').forEach(c => {
+            c.style.display = "none";
+        });
+        
+        // If it was not open, open this one
+        if (!isCurrentlyOpen) {
             content.style.display = "block";
             element.classList.add("active");
-            icon.textContent = "-";
+            if (icon) icon.textContent = "-";
         }
     }
     </script>
