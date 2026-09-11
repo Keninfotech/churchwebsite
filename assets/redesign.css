@@ -2238,6 +2238,12 @@ main>.hero--holychild:first-child {
   background-position: center center;
 }
 
+.hero--youth { --hero-bg: url("hero section images/youth ministry.jpg"); }
+.hero--youth::after {
+  background-image: url("hero section images/youth ministry.jpg");
+  background-position: center 30%;
+}
+
 .hero>.container {
   position: relative;
   z-index: 1;
