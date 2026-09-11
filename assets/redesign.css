@@ -784,7 +784,6 @@ main>.hero--holychild:first-child {
   object-fit: contain;
   object-position: right center;
   display: block;
-  transform: scaleX(-1);
 }
 
 @media (max-width: 768px) {
@@ -2066,10 +2065,41 @@ main>.hero--holychild:first-child {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("church.webp") right center / contain no-repeat;
+  background-image: var(--hero-bg, url("church.webp"));
+  background-position: right center;
+  background-size: contain;
+  background-repeat: no-repeat;
   transform: none;
   animation: none;
 }
+
+/* Page-specific Hero Background Images */
+.hero--patroness { --hero-bg: url("hero section images/Mother mary Our Patroness.jpg.jpeg"); }
+.hero--patroness::after { background-image: url("hero section images/Mother mary Our Patroness.jpg.jpeg"); }
+
+.hero--hierarchy { --hero-bg: url("hero section images/Our Church Hierarchy.jpg.jpeg"); }
+.hero--hierarchy::after { background-image: url("hero section images/Our Church Hierarchy.jpg.jpeg"); }
+
+.hero--business { --hero-bg: url("hero section images/Business.jpeg"); }
+.hero--business::after { background-image: url("hero section images/Business.jpeg"); }
+
+.hero--cri { --hero-bg: url("hero section images/CRI Electronics City.jpeg"); }
+.hero--cri::after { background-image: url("hero section images/CRI Electronics City.jpeg"); }
+
+.hero--construction { --hero-bg: url("hero section images/Construction Committee.jpg.jpeg"); }
+.hero--construction::after { background-image: url("hero section images/Construction Committee.jpg.jpeg"); }
+
+.hero--donate { --hero-bg: url("hero section images/Donate to Parish.jpg.jpeg"); }
+.hero--donate::after { background-image: url("hero section images/Donate to Parish.jpg.jpeg"); }
+
+.hero--obituaries { --hero-bg: url("hero section images/Obituaries.jpg.jpeg"); }
+.hero--obituaries::after { background-image: url("hero section images/Obituaries.jpg.jpeg"); }
+
+.hero--choir { --hero-bg: url("hero section images/Parish Choir 1.jpg.jpeg"); }
+.hero--choir::after { background-image: url("hero section images/Parish Choir 1.jpg.jpeg"); }
+
+.hero--saints { --hero-bg: url("hero section images/Saints in the Syro-Malabar Church.webp"); }
+.hero--saints::after { background-image: url("hero section images/Saints in the Syro-Malabar Church.webp"); }
 
 .hero>.container {
   position: relative;
