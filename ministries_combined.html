@@ -577,6 +577,84 @@
       }
     }
 
+    /* Objectives Box Card */
+    .objectives-box {
+      background: #ffffff;
+      border: 1.5px solid #ded5c5;
+      border-radius: 20px;
+      padding: 2.25rem 2.5rem;
+      margin: 2.75rem 0 1.5rem;
+      box-shadow: 0 10px 32px rgba(22, 40, 31, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .objectives-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #16281f 0%, #c8aa6e 50%, #16281f 100%);
+    }
+
+    .objectives-box:hover {
+      border-color: #c8aa6e;
+      box-shadow: 0 14px 38px rgba(22, 40, 31, 0.08);
+    }
+
+    .objectives-box__header {
+      margin-bottom: 1.5rem;
+    }
+
+    .objectives-box__badge {
+      display: inline-block;
+      font-family: var(--sans, 'Inter', sans-serif);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #92753a;
+      margin-bottom: 0.35rem;
+    }
+
+    .objectives-box__title {
+      font-family: var(--serif, 'Cormorant Garamond', serif) !important;
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem) !important;
+      font-weight: 700 !important;
+      color: #16281f !important;
+      margin: 0 !important;
+      letter-spacing: 0.02em !important;
+      text-transform: uppercase !important;
+    }
+
+    .objectives-box__rule {
+      width: 48px;
+      height: 2px;
+      background: #c8aa6e;
+      margin-top: 0.6rem;
+      border-radius: 2px;
+    }
+
+    .objectives-box__list {
+      margin: 0 !important;
+    }
+
+    .objectives-box__list li {
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--ink-soft, #33443d);
+    }
+
+    @media (max-width: 640px) {
+      .objectives-box {
+        padding: 1.6rem 1.35rem;
+        border-radius: 16px;
+      }
+    }
+
     /* Bottom Navigation between Pious Associations */
     .min-nav-section {
       padding: 3.5rem 1.5rem 4rem;
@@ -989,15 +1067,21 @@
                 spirit and have made an effective mark in the parish with our enthusiasm to serve others. We have
                 organised at least a program in a month for the parish for the benefits of parishners from the beginning
                 of 2019.</p>
-              <h3>OUR OBJECTIVES</h3>
-              <ul class="rows">
-                <li>All units must conduct monthly meetings and evaluate activities executed.</li>
-                <li>Celebrate the Feast of St. Joseph, the patron saint of Pithruvedi on March 19th.</li>
-                <li>Members of each unit must conduct at least one prayer meeting a month.</li>
-                <li>Give leadership for funeral rites of the deceased in the parish.</li>
-                <li>Visit the sick in the parish and provide assistance to the deserving.</li>
-                <li>Organize seminars and workshops for parents and couples.</li>
-              </ul>
+              <div class="objectives-box" data-reveal>
+                <div class="objectives-box__header">
+                  <span class="objectives-box__badge">Mission &amp; Purpose</span>
+                  <h3 class="objectives-box__title">Our Objectives</h3>
+                  <div class="objectives-box__rule" aria-hidden="true"></div>
+                </div>
+                <ul class="rows objectives-box__list">
+                  <li>All units must conduct monthly meetings and evaluate activities executed.</li>
+                  <li>Celebrate the Feast of St. Joseph, the patron saint of Pithruvedi on March 19th.</li>
+                  <li>Members of each unit must conduct at least one prayer meeting a month.</li>
+                  <li>Give leadership for funeral rites of the deceased in the parish.</li>
+                  <li>Visit the sick in the parish and provide assistance to the deserving.</li>
+                  <li>Organize seminars and workshops for parents and couples.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
