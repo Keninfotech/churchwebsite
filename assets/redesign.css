@@ -2178,6 +2178,12 @@ main>.hero--holychild:first-child {
   background-position: center 35%;
 }
 
+.hero--wards { --hero-bg: url("hero section images/wards.jpg"); }
+.hero--wards::after {
+  background-image: url("hero section images/wards.jpg");
+  background-position: center center;
+}
+
 .hero>.container {
   position: relative;
   z-index: 1;
