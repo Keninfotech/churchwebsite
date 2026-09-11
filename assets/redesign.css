@@ -2172,6 +2172,12 @@ main>.hero--holychild:first-child {
   background-position: center center;
 }
 
+.hero--history { --hero-bg: url("hero section images/parish History.jpg"); }
+.hero--history::after {
+  background-image: url("hero section images/parish History.jpg");
+  background-position: center 35%;
+}
+
 .hero>.container {
   position: relative;
   z-index: 1;
