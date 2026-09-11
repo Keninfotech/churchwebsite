@@ -1892,22 +1892,22 @@ function openClass(tabId) {
   bottom: 0;
   right: 0;
   height: 100%;
-  width: auto;
-  max-width: 65vw;
+  width: 70%;
+  max-width: 70vw;
   z-index: 1;
   pointer-events: none;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 12%, black 36%);
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 12%, black 36%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.7) 40%, black 70%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.7) 40%, black 70%);
 }
 .hero-bg-cml img {
   height: 100%;
-  width: auto;
+  width: 100%;
   max-width: 100%;
-  object-fit: contain;
-  object-position: right center;
+  object-fit: cover;
+  object-position: center 20%;
   display: block;
 }
 @media (max-width: 768px) {

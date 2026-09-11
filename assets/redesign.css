@@ -603,9 +603,9 @@ section.tight {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #fdfaf3 0%, #fdfaf3 35%, rgba(253, 250, 243, 0.95) 45%, rgba(253, 250, 243, 0.6) 60%, rgba(253, 250, 243, 0) 78%);
+  background: linear-gradient(to right, #fdfaf3 0%, #fdfaf3 30%, rgba(253, 250, 243, 0.88) 42%, rgba(253, 250, 243, 0.35) 58%, transparent 75%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -617,11 +617,20 @@ section.tight {
   }
 
   .hero::before {
-    background: linear-gradient(to bottom, rgba(253, 250, 243, 0.9) 0%, rgba(253, 250, 243, 0.6) 50%, rgba(253, 250, 243, 0.15) 80%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(253, 250, 243, 0.96) 0%, rgba(253, 250, 243, 0.82) 45%, rgba(253, 250, 243, 0.3) 75%, transparent 100%);
+    z-index: 1;
   }
 
   .hero::after {
-    background-position: center bottom;
+    width: 100% !important;
+    height: 60% !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    background-position: center center !important;
+    -webkit-mask-image: linear-gradient(to top, black 45%, transparent 100%) !important;
+    mask-image: linear-gradient(to top, black 45%, transparent 100%) !important;
+    opacity: 0.45;
   }
 }
 
@@ -738,51 +747,35 @@ main>.hero--holychild:first-child {
   bottom: 0;
   right: 0;
   height: 100%;
-  width: auto;
-  max-width: 65vw;
+  width: 70%;
+  max-width: 70vw;
   z-index: 1;
   pointer-events: none;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 12%, black 36%);
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 12%, black 36%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.7) 40%, black 70%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.7) 40%, black 70%);
 }
 
 .hero-bg-mary {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: auto;
 }
 
-.hero-bg-mary img {
-  height: 100%;
-  width: auto;
-  max-width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  object-position: right center;
-  display: block;
-}
-
+.hero-bg-mary img,
 .hero-bg-joseph img,
 .hero-bg-cml img,
 .hero-bg-youth img,
 .hero-bg-laity img,
 .hero-bg-catechism img,
-.hero-bg-holychild img {
-  height: 100%;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: right center;
-  display: block;
-}
-
+.hero-bg-holychild img,
 .hero-bg-vincent img {
   height: 100%;
-  width: auto;
+  width: 100%;
   max-width: 100%;
-  object-fit: contain;
-  object-position: right center;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center 20%;
   display: block;
 }
 
@@ -2063,43 +2056,77 @@ main>.hero--holychild:first-child {
 .hero::after {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: -2;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  z-index: 0;
   background-image: var(--hero-bg, url("church.webp"));
-  background-position: right center;
-  background-size: contain;
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.7) 40%, black 70%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 15%, rgba(0, 0, 0, 0.7) 40%, black 70%);
+  pointer-events: none;
   transform: none;
   animation: none;
 }
 
-/* Page-specific Hero Background Images */
+/* Page-specific Hero Background Images (Cover 70% with customized focus) */
 .hero--patroness { --hero-bg: url("hero section images/Mother mary Our Patroness.jpg.jpeg"); }
-.hero--patroness::after { background-image: url("hero section images/Mother mary Our Patroness.jpg.jpeg"); }
+.hero--patroness::after {
+  background-image: url("hero section images/Mother mary Our Patroness.jpg.jpeg");
+  background-position: center 15%;
+}
 
 .hero--hierarchy { --hero-bg: url("hero section images/Our Church Hierarchy.jpg.jpeg"); }
-.hero--hierarchy::after { background-image: url("hero section images/Our Church Hierarchy.jpg.jpeg"); }
+.hero--hierarchy::after {
+  background-image: url("hero section images/Our Church Hierarchy.jpg.jpeg");
+  background-position: center 20%;
+}
 
 .hero--business { --hero-bg: url("hero section images/Business.jpeg"); }
-.hero--business::after { background-image: url("hero section images/Business.jpeg"); }
+.hero--business::after {
+  background-image: url("hero section images/Business.jpeg");
+  background-position: center center;
+}
 
 .hero--cri { --hero-bg: url("hero section images/CRI Electronics City.jpeg"); }
-.hero--cri::after { background-image: url("hero section images/CRI Electronics City.jpeg"); }
+.hero--cri::after {
+  background-image: url("hero section images/CRI Electronics City.jpeg");
+  background-position: center 20%;
+}
 
 .hero--construction { --hero-bg: url("hero section images/Construction Committee.jpg.jpeg"); }
-.hero--construction::after { background-image: url("hero section images/Construction Committee.jpg.jpeg"); }
+.hero--construction::after {
+  background-image: url("hero section images/Construction Committee.jpg.jpeg");
+  background-position: center 30%;
+}
 
 .hero--donate { --hero-bg: url("hero section images/Donate to Parish.jpg.jpeg"); }
-.hero--donate::after { background-image: url("hero section images/Donate to Parish.jpg.jpeg"); }
+.hero--donate::after {
+  background-image: url("hero section images/Donate to Parish.jpg.jpeg");
+  background-position: center 20%;
+}
 
 .hero--obituaries { --hero-bg: url("hero section images/Obituaries.jpg.jpeg"); }
-.hero--obituaries::after { background-image: url("hero section images/Obituaries.jpg.jpeg"); }
+.hero--obituaries::after {
+  background-image: url("hero section images/Obituaries.jpg.jpeg");
+  background-position: center center;
+}
 
 .hero--choir { --hero-bg: url("hero section images/Parish Choir 1.jpg.jpeg"); }
-.hero--choir::after { background-image: url("hero section images/Parish Choir 1.jpg.jpeg"); }
+.hero--choir::after {
+  background-image: url("hero section images/Parish Choir 1.jpg.jpeg");
+  background-position: center 25%;
+}
 
 .hero--saints { --hero-bg: url("hero section images/Saints in the Syro-Malabar Church.webp"); }
-.hero--saints::after { background-image: url("hero section images/Saints in the Syro-Malabar Church.webp"); }
+.hero--saints::after {
+  background-image: url("hero section images/Saints in the Syro-Malabar Church.webp");
+  background-position: center center;
+}
 
 .hero>.container {
   position: relative;
