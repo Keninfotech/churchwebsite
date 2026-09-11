@@ -2057,11 +2057,58 @@ function openClass(tabId) {
   </div>
 </section>
 
+<style>
+  .altar-servers-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .altar-servers-frame {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(22, 40, 31, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1.5px solid #ded5c5;
+    background: #fdfaf3;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+  .altar-servers-frame:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(22, 40, 31, 0.16);
+    border-color: #c8aa6e;
+  }
+  .altar-servers-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+  @media (max-width: 860px) {
+    .altar-servers-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .altar-servers-photo {
+      aspect-ratio: 16 / 10;
+      max-height: 380px;
+    }
+  }
+</style>
+
 <section class="bg-soft">
-  <div class="container" style="max-width:900px;">
-    <div class="prose" data-reveal>
-      <div class="section-head"><span class="eyebrow">Section</span><h2>Current Altar Servers List</h2><span class="rule"></span></div>
-      <p>Aaron, Abel John, Aeibel, Alden Robert, Alphin, Andrews, Aron, Basil, Daniel James, Daniel Thomas, David James, Eric, Evan, Geroge, Hayden, Heinze, Ivan, Ivan Steve, Jenovin, Jessa, Jones, Jovan, Juvel, Kevin, Rayan Joseph, Ron, Ron Linto, and Sereha</p>
+  <div class="container" style="max-width:1120px;">
+    <div class="altar-servers-grid" data-reveal>
+      <div class="prose">
+        <div class="section-head"><span class="eyebrow">Section</span><h2>Current Altar Servers List</h2><span class="rule"></span></div>
+        <p>Aaron, Abel John, Aeibel, Alden Robert, Alphin, Andrews, Aron, Basil, Daniel James, Daniel Thomas, David James, Eric, Evan, Geroge, Hayden, Heinze, Ivan, Ivan Steve, Jenovin, Jessa, Jones, Jovan, Juvel, Kevin, Rayan Joseph, Ron, Ron Linto, and Sereha</p>
+      </div>
+      <div class="altar-servers-media">
+        <div class="altar-servers-frame">
+          <img src="./assets/alter2.jpg" alt="Current Altar Servers of Our Lady of Sorrows Church" class="altar-servers-photo" loading="lazy">
+        </div>
+      </div>
     </div>
   </div>
 </section>
