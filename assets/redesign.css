@@ -2244,6 +2244,12 @@ main>.hero--holychild:first-child {
   background-position: center 30%;
 }
 
+.hero--stjoseph { --hero-bg: url("hero section images/pithruedi.jpeg"); }
+.hero--stjoseph::after {
+  background-image: url("hero section images/pithruedi.jpeg");
+  background-position: center 20%;
+}
+
 .hero>.container {
   position: relative;
   z-index: 1;
