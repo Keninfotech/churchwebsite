@@ -289,9 +289,11 @@ function filterBizDirectory() {
 
   cards.forEach(card => {
     const text = card.textContent.toLowerCase();
-    const cardCat = (card.getAttribute('data-cat') || '').toLowerCase();
+    const cardCat = (card.getAttribute('data-cat') || '').toLowerCase().trim();
     const matchesQuery = !query || text.includes(query);
-    const matchesFilter = activeFilter === 'all' || cardCat.includes(activeFilter);
+    const matchesFilter = activeFilter === 'all' || 
+      cardCat === activeFilter || 
+      cardCat.split(/\s+/).includes(activeFilter);
 
     if (matchesQuery && matchesFilter) {
       card.style.display = 'flex';
@@ -303,9 +305,11 @@ function filterBizDirectory() {
 
   rows.forEach(row => {
     const text = row.textContent.toLowerCase();
-    const rowCat = (row.getAttribute('data-cat') || '').toLowerCase();
+    const rowCat = (row.getAttribute('data-cat') || '').toLowerCase().trim();
     const matchesQuery = !query || text.includes(query);
-    const matchesFilter = activeFilter === 'all' || rowCat.includes(activeFilter);
+    const matchesFilter = activeFilter === 'all' || 
+      rowCat === activeFilter || 
+      rowCat.split(/\s+/).includes(activeFilter);
 
     if (matchesQuery && matchesFilter) {
       row.style.display = '';
@@ -315,8 +319,31 @@ function filterBizDirectory() {
   });
 
   const noResults = document.getElementById('bizNoResults');
+  const tableCard = document.querySelector('.biz-table-card');
+
   if (noResults) {
-    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    if (visibleCount === 0) {
+      noResults.style.display = 'block';
+      if (query) {
+        const safeQuery = query.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        noResults.innerHTML = `<p style="margin: 0;">No parish businesses or professionals found matching "<strong>${safeQuery}</strong>".</p>`;
+      } else {
+        const catName = activeBtn ? activeBtn.textContent.trim().replace(/\s*\(\d+\)$/, '') : 'This';
+        noResults.innerHTML = `
+          <div style="max-width: 520px; margin: 1rem auto; padding: 2.5rem 1.5rem; background: #ffffff; border: 2px dashed #ded4c3; border-radius: 12px; text-align: center;">
+            <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">📂</div>
+            <h3 style="font-family: var(--sans, 'Inter', sans-serif); font-size: 1.2rem; font-weight: 700; color: #1c352d; margin-bottom: 0.5rem;">${catName} Section</h3>
+            <p style="color: #6b6f5a; font-size: 0.95rem; margin: 0; line-height: 1.5;">This section is currently empty. Listings will be added here soon once content is provided.</p>
+          </div>
+        `;
+      }
+    } else {
+      noResults.style.display = 'none';
+    }
+  }
+
+  if (tableCard) {
+    tableCard.style.display = visibleCount === 0 ? 'none' : 'block';
   }
 }
 
@@ -422,6 +449,8 @@ function setBizFilter(category, btn) {
         <button class="biz-pill-btn" data-filter="travel" onclick="setBizFilter('travel', this)">Travel & Hospitality</button>
         <button class="biz-pill-btn" data-filter="medical" onclick="setBizFilter('medical', this)">Medical & Healthcare</button>
         <button class="biz-pill-btn" data-filter="legal" onclick="setBizFilter('legal', this)">Legal & Public Services</button>
+        <button class="biz-pill-btn" data-filter="it" onclick="setBizFilter('it', this)">Information Technology (IT)</button>
+        <button class="biz-pill-btn" data-filter="resorts" onclick="setBizFilter('resorts', this)">Resorts</button>
       </div>
     </div>
 
@@ -1058,6 +1087,16 @@ function setBizFilter(category, btn) {
         </div>
       </div>
 
+      <!-- ======================================================= -->
+      <!-- IT / INFORMATION TECHNOLOGY SECTION (Empty - awaiting content) -->
+      <!-- Add cards here with data-cat="it"                       -->
+      <!-- ======================================================= -->
+
+      <!-- ======================================================= -->
+      <!-- RESORTS SECTION (Empty - awaiting content)              -->
+      <!-- Add cards here with data-cat="resorts"                  -->
+      <!-- ======================================================= -->
+
     </div>
 
     <!-- No Results Message -->
@@ -1122,6 +1161,8 @@ function setBizFilter(category, btn) {
             <tr data-cat="medical"><td>40</td><td><strong>Jasmin Jossy</strong></td><td>St. Evuprasyamma Ward</td><td>Dietitian</td><td><a href="tel:9986762232">9986762232</a></td></tr>
             <tr data-cat="medical"><td>41</td><td><strong>Dr. Babita Thomas</strong></td><td>St. Evuprasyamma Ward</td><td>Doctor</td><td><a href="tel:9535690246">9535690246</a></td></tr>
             <tr data-cat="medical"><td>42</td><td><strong>Aisha Jaice</strong></td><td>St. Evuprasyamma Ward</td><td>Ayurvedha Doctor</td><td><a href="tel:9902001010">9902001010</a></td></tr>
+            <!-- IT / Information Technology rows will be added here: <tr data-cat="it"><td>#</td>...</tr> -->
+            <!-- Resorts rows will be added here: <tr data-cat="resorts"><td>#</td>...</tr> -->
           </tbody>
         </table>
       </div>
