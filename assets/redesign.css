@@ -1429,18 +1429,14 @@ main>.hero--holychild:first-child {
 
 .priest-card__header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding-bottom: 12px;
   border-bottom: 1px dashed var(--line);
 }
 
 .priest-card__num {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.08em;
+  display: none;
 }
 
 .priest-card__badge {
