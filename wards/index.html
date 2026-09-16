@@ -113,13 +113,13 @@
     font-weight: 500;
 }
 .ward-tab:hover {
-    background-color: #fcf9f2;
-    border-color: #c8aa6e;
+    background-color: #f4f8f8;
+    border-color: #0E3A40;
 }
 .ward-tab.active {
-    background-color: #c8aa6e;
+    background-color: #0E3A40;
     color: #ffffff;
-    border-color: #b98e47;
+    border-color: #0E3A40;
 }
 .ward-content {
     display: none;
@@ -189,11 +189,11 @@
     font-weight: 700;
 }
 .btn-mobile, .btn-whatsapp {
-    background-color: #7b8b6f;
+    background-color: #0E3A40;
     color: #fff;
     border: none;
     border-radius: 20px;
-    padding: 0.6rem 1rem;
+    padding: 0.65rem 1rem;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 0.8rem;
@@ -201,22 +201,19 @@
     cursor: pointer;
     text-decoration: none;
     display: block;
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
 .btn-mobile {
     margin-top: auto;
 }
 .btn-mobile:hover, .btn-whatsapp:hover {
-    background-color: #6a795f;
+    background-color: #17616A;
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(14, 58, 64, 0.25);
 }
 .btn-mail {
-    color: #1a2a44;
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: none !important;
 }
 .ward-bio {
     margin-top: 2rem;
