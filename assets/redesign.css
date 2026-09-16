@@ -1250,6 +1250,104 @@ main>.hero--holychild:first-child {
   }
 }
 
+/* ---------- Clergy Box Cards (Parish Council Page) ---------- */
+.clergy-grid {
+  max-width: 880px;
+  margin: 0 auto;
+  gap: 32px;
+}
+
+.clergy-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg, 16px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm, 0 4px 20px rgba(0, 0, 0, 0.05));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.clergy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px -10px rgba(14, 58, 64, 0.18);
+  border-color: var(--gold-soft);
+}
+
+.clergy-card__media {
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  position: relative;
+  overflow: hidden;
+  background: #eef2f3;
+}
+
+.clergy-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.clergy-card:hover .clergy-card__img {
+  transform: scale(1.04);
+}
+
+.clergy-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--blue-700, #0e3a40);
+  border: 1px solid rgba(14, 58, 64, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+
+.clergy-card__badge--vicar {
+  color: #833939;
+  border-color: rgba(131, 57, 57, 0.2);
+}
+
+.clergy-card__badge--asst {
+  color: #17616A;
+  border-color: rgba(23, 97, 106, 0.2);
+}
+
+.clergy-card__content {
+  padding: 22px 24px 26px;
+  text-align: center;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid rgba(14, 58, 64, 0.06);
+}
+
+.clergy-card__name {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  color: var(--ink, #1F2415);
+  font-weight: 600;
+}
+
+.clergy-card__role {
+  margin: 0;
+  color: var(--ink-muted, #555e4e);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
 /* ---------- Stacked cards scroll ---------- */
 .stack {
   position: relative;
