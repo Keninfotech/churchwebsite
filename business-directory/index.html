@@ -357,13 +357,253 @@
     .biz-view-btn.active {
       background: #0E3A40;
       color: #ffffff;
-      box-shadow: 0 2px 6px rgba(14, 58, 64, 0.2);
     }
 
-    @media (max-width: 600px) {
-      .biz-toolbar-row {
-        justify-content: flex-start;
+    /* Contact Modal */
+    .biz-modal-overlay {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: rgba(10, 26, 22, 0.72) !important;
+      backdrop-filter: blur(5px) !important;
+      -webkit-backdrop-filter: blur(5px) !important;
+      z-index: 99999999 !important;
+      display: none !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      padding: 24px 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    .biz-modal-overlay.active {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .biz-modal-card {
+      position: relative !important;
+      margin: auto !important;
+      background: #ffffff !important;
+      border-radius: 16px !important;
+      max-width: 380px !important;
+      width: 100% !important;
+      padding: 1.5rem 1.35rem 1.35rem !important;
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35) !important;
+      border: 1px solid #e7dfd1 !important;
+      box-sizing: border-box !important;
+      max-height: 90vh !important;
+      overflow-y: auto !important;
+      z-index: 100000000 !important;
+      animation: bizModalZoomIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    @keyframes bizModalZoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
       }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+
+    .biz-modal-close {
+      position: absolute !important;
+      top: 0.75rem !important;
+      right: 0.75rem !important;
+      width: 30px !important;
+      height: 30px !important;
+      border-radius: 50% !important;
+      background: #f4eee2 !important;
+      border: none !important;
+      font-size: 1.3rem !important;
+      line-height: 1 !important;
+      color: #635f52 !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.2s ease !important;
+      z-index: 2 !important;
+    }
+
+    .biz-modal-close:hover {
+      background: #0E3A40 !important;
+      color: #ffffff !important;
+    }
+
+    .biz-modal-header {
+      text-align: center !important;
+      margin-bottom: 0.85rem !important;
+      padding-top: 0.2rem !important;
+    }
+
+    .biz-modal-icon {
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 50% !important;
+      background: #e6f4f1 !important;
+      color: #0E3A40 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 0 auto 0.45rem auto !important;
+    }
+
+    .biz-modal-title {
+      font-family: var(--serif, 'Cinzel', serif) !important;
+      font-size: 1.18rem !important;
+      font-weight: 700 !important;
+      color: #1c352d !important;
+      margin: 0 0 0.2rem 0 !important;
+      line-height: 1.25 !important;
+    }
+
+    .biz-modal-subtitle {
+      font-size: 0.82rem !important;
+      color: #b45309 !important;
+      font-weight: 600 !important;
+      margin: 0 !important;
+      font-family: var(--sans, 'Inter', sans-serif) !important;
+    }
+
+    .biz-modal-prompt {
+      font-size: 0.8rem !important;
+      color: #6b6f5a !important;
+      text-align: center !important;
+      margin: 0 0 0.85rem 0 !important;
+      font-family: var(--sans, 'Inter', sans-serif) !important;
+    }
+
+    .biz-modal-actions {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.65rem !important;
+    }
+
+    .biz-action-btn {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.85rem !important;
+      padding: 0.72rem 1rem !important;
+      border-radius: 10px !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    .biz-action-btn:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16) !important;
+    }
+
+    .biz-call-action-btn {
+      background: #0E3A40 !important;
+      color: #ffffff !important;
+    }
+
+    .biz-call-action-btn:hover {
+      background: #14535c !important;
+    }
+
+    .biz-whatsapp-action-btn {
+      background: #25D366 !important;
+      color: #ffffff !important;
+    }
+
+    .biz-whatsapp-action-btn:hover {
+      background: #20ba5a !important;
+    }
+
+    .biz-action-text {
+      display: flex !important;
+      flex-direction: column !important;
+      text-align: left !important;
+    }
+
+    .biz-action-text strong {
+      font-size: 0.92rem !important;
+      line-height: 1.2 !important;
+      color: #ffffff !important;
+      font-family: var(--sans, 'Inter', sans-serif) !important;
+    }
+
+    .biz-action-text span {
+      font-size: 0.78rem !important;
+      opacity: 0.92 !important;
+      margin-top: 2px !important;
+      color: #ffffff !important;
+      font-family: var(--sans, 'Inter', sans-serif) !important;
+    }
+
+
+    /* Card Footer with Call Us button */
+    .biz-contact-btn {
+      width: 100% !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+      background: #0E3A40 !important;
+      color: #ffffff !important;
+      padding: 0.65rem 1.15rem !important;
+      border-radius: 9px !important;
+      font-size: 0.88rem !important;
+      font-weight: 600 !important;
+      border: none !important;
+      cursor: pointer !important;
+      font-family: var(--sans, 'Inter', sans-serif) !important;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .biz-contact-btn svg {
+      flex-shrink: 0;
+    }
+
+    .biz-contact-btn:hover:not(:disabled) {
+      background: #14535c !important;
+      box-shadow: 0 4px 14px rgba(14, 58, 64, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .biz-contact-btn:disabled {
+      background: #f4eee2 !important;
+      color: #8c867a !important;
+      cursor: default !important;
+      border: 1px dashed #dcd4c0 !important;
+      font-style: italic;
+    }
+
+    .biz-table-call-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.4rem !important;
+      background: #0E3A40 !important;
+      color: #ffffff !important;
+      padding: 0.38rem 0.85rem !important;
+      border-radius: 7px !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      border: none !important;
+      cursor: pointer !important;
+      font-family: var(--sans, 'Inter', sans-serif) !important;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .biz-table-call-btn:hover {
+      background: #14535c !important;
+      box-shadow: 0 3px 10px rgba(14, 58, 64, 0.22);
     }
   </style>
 
@@ -391,7 +631,8 @@
       cards.forEach(card => {
         const text = card.textContent.toLowerCase();
         const cardCat = (card.getAttribute('data-cat') || '').toLowerCase().trim();
-        const matchesQuery = !query || text.includes(query);
+        const cardPhone = (card.getAttribute('data-phone') || '').toLowerCase().trim();
+        const matchesQuery = !query || text.includes(query) || cardPhone.includes(query);
         const matchesFilter = activeFilter === 'all' ||
           cardCat === activeFilter ||
           cardCat.split(/\s+/).includes(activeFilter);
@@ -407,7 +648,8 @@
       rows.forEach(row => {
         const text = row.textContent.toLowerCase();
         const rowCat = (row.getAttribute('data-cat') || '').toLowerCase().trim();
-        const matchesQuery = !query || text.includes(query);
+        const rowPhone = (row.getAttribute('data-phone') || '').toLowerCase().trim();
+        const matchesQuery = !query || text.includes(query) || rowPhone.includes(query);
         const matchesFilter = activeFilter === 'all' ||
           rowCat === activeFilter ||
           rowCat.split(/\s+/).includes(activeFilter);
@@ -463,6 +705,59 @@
       btn.classList.add('active');
       filterBizDirectory();
     }
+
+    function openContactModal(name, occ, phone) {
+      if (!phone || phone === '—' || String(phone).indexOf('Details') !== -1) return;
+
+      var modal = document.getElementById('bizContactModal');
+      if (!modal) return;
+
+      var nameEl = document.getElementById('modalBizName');
+      var occEl = document.getElementById('modalBizOcc');
+      var callBtn = document.getElementById('modalCallBtn');
+      var callNum = document.getElementById('modalCallNumber');
+      var waBtn = document.getElementById('modalWhatsappBtn');
+
+      if (nameEl) nameEl.textContent = name || '';
+      if (occEl) occEl.textContent = occ || '';
+
+      var cleanDigits = String(phone).replace(/\D/g, '');
+      var waNumber = cleanDigits;
+      if (waNumber.length === 10) waNumber = '91' + waNumber;
+      else if (waNumber.indexOf('0') === 0 && waNumber.length === 11) waNumber = '91' + waNumber.slice(1);
+
+      var telNumber = cleanDigits;
+      if (telNumber.length === 10) telNumber = '+91' + telNumber;
+      else if (String(phone).indexOf('+') !== 0) telNumber = '+' + cleanDigits;
+      else telNumber = String(phone).replace(/\s+/g, '');
+
+      if (callBtn) callBtn.href = 'tel:' + telNumber;
+      if (callNum) callNum.textContent = String(phone);
+      if (waBtn) waBtn.href = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent('Hello ' + (name || '') + ', I found your contact on the Our Lady of Sorrows Church parish business directory.');
+
+      modal.classList.add('active');
+      modal.style.setProperty('display', 'flex', 'important');
+      document.body.style.overflow = 'hidden';
+    }
+    window.openContactModal = openContactModal;
+
+    function closeContactModal(e) {
+      if (e && e.target) {
+        if (e.target.closest('.biz-modal-card') && !e.target.closest('.biz-modal-close')) {
+          return;
+        }
+      }
+      var modal = document.getElementById('bizContactModal');
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.style.setProperty('display', 'none', 'important');
+      document.body.style.overflow = '';
+    }
+    window.closeContactModal = closeContactModal;
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeContactModal();
+    });
 
     document.addEventListener('DOMContentLoaded', function() {
       filterBizDirectory();
@@ -655,7 +950,7 @@
           <!-- ======================================================= -->
 
           <!-- Card 3 -->
-          <div class="biz-card" data-cat="electrical">
+          <div class="biz-card" data-cat="electrical" data-phone="7535772601">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Sebastian Joseph</h3>
@@ -664,13 +959,17 @@
               <span class="biz-card-occ">Electrical contractor</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">7535772601</span>
-              <a class="biz-call-btn" href="tel:7535772601">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Sebastian Joseph', 'Electrical contractor', '7535772601')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 4 -->
-          <div class="biz-card" data-cat="electrical">
+          <div class="biz-card" data-cat="electrical" data-phone="9845973958">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Antony Joseph (Denny Joseph)</h3>
@@ -679,13 +978,17 @@
               <span class="biz-card-occ">Electrician. ENG contractor</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9845973958</span>
-              <a class="biz-call-btn" href="tel:9845973958">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Antony Joseph (Denny Joseph)', 'Electrician. ENG contractor', '9845973958')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 5 -->
-          <div class="biz-card" data-cat="travel">
+          <div class="biz-card" data-cat="travel" data-phone="9845662418">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Babu</h3>
@@ -694,13 +997,17 @@
               <span class="biz-card-occ">Travel Agent</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9845662418</span>
-              <a class="biz-call-btn" href="tel:9845662418">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Babu', 'Travel Agent', '9845662418')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 6 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9902594849">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Benny Paul</h3>
@@ -709,14 +1016,18 @@
               <span class="biz-card-occ">Fabrication</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9902594849</span>
-              <a class="biz-call-btn" href="tel:9902594849">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Benny Paul', 'Fabrication', '9902594849')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
 
           <!-- Card 9 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9972191949">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Joy. P.</h3>
@@ -725,14 +1036,18 @@
               <span class="biz-card-occ">Fabrication</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9972191949</span>
-              <a class="biz-call-btn" href="tel:9972191949">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Joy. P.', 'Fabrication', '9972191949')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
 
           <!-- Card 15 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9845928032">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Aneesh V.K.</h3>
@@ -741,13 +1056,17 @@
               <span class="biz-card-occ">Builder</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9845928032</span>
-              <a class="biz-call-btn" href="tel:9845928032">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Aneesh V.K.', 'Builder', '9845928032')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 16 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9880466882">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Benny Joseph</h3>
@@ -756,14 +1075,18 @@
               <span class="biz-card-occ">Construction</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9880466882</span>
-              <a class="biz-call-btn" href="tel:9880466882">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Benny Joseph', 'Construction', '9880466882')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
 
           <!-- Card 18 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9341934311">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Sunny Solomon (Nishad)</h3>
@@ -772,13 +1095,17 @@
               <span class="biz-card-occ">Contractor Painting</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9341934311</span>
-              <a class="biz-call-btn" href="tel:9341934311">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Sunny Solomon (Nishad)', 'Contractor Painting', '9341934311')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 19 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9972969632">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Binoy. K.V (Joseph)</h3>
@@ -787,13 +1114,17 @@
               <span class="biz-card-occ">Contractor Painting</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9972969632</span>
-              <a class="biz-call-btn" href="tel:9972969632">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Binoy. K.V (Joseph)', 'Contractor Painting', '9972969632')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 20 -->
-          <div class="biz-card" data-cat="electrical">
+          <div class="biz-card" data-cat="electrical" data-phone="9731175001">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Cyriac. M.J.</h3>
@@ -802,13 +1133,17 @@
               <span class="biz-card-occ">Electrician (Engineer) contractor</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9731175001</span>
-              <a class="biz-call-btn" href="tel:9731175001">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Cyriac. M.J.', 'Electrician (Engineer) contractor', '9731175001')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 21 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9845182095">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Joseph Antony (Shaji)</h3>
@@ -817,13 +1152,17 @@
               <span class="biz-card-occ">Contractor House Painting</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9845182095</span>
-              <a class="biz-call-btn" href="tel:9845182095">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Joseph Antony (Shaji)', 'Contractor House Painting', '9845182095')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 22 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9141712167">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Jude Umesh P. Netto</h3>
@@ -832,13 +1171,17 @@
               <span class="biz-card-occ">Contractor Painter</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9141712167</span>
-              <a class="biz-call-btn" href="tel:9141712167">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Jude Umesh P. Netto', 'Contractor Painter', '9141712167')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 23 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="9845959448">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Roy Thomas</h3>
@@ -847,13 +1190,17 @@
               <span class="biz-card-occ">Contractor Painter</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9845959448</span>
-              <a class="biz-call-btn" href="tel:9845959448">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Roy Thomas', 'Contractor Painter', '9845959448')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 24 -->
-          <div class="biz-card" data-cat="travel">
+          <div class="biz-card" data-cat="travel" data-phone="9845695353">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Jobil Varghese</h3>
@@ -862,13 +1209,17 @@
               <span class="biz-card-occ">Business (Travel)</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9845695353</span>
-              <a class="biz-call-btn" href="tel:9845695353">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Jobil Varghese', 'Business (Travel)', '9845695353')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 25 -->
-          <div class="biz-card" data-cat="travel">
+          <div class="biz-card" data-cat="travel" data-phone="9743829775">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Babu</h3>
@@ -877,14 +1228,18 @@
               <span class="biz-card-occ">Travel Agent</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9743829775</span>
-              <a class="biz-call-btn" href="tel:9743829775">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Babu', 'Travel Agent', '9743829775')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
 
           <!-- Card 27 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="8722426868">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Joy E.P.</h3>
@@ -893,14 +1248,18 @@
               <span class="biz-card-occ">Carpenter</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">8722426868</span>
-              <a class="biz-call-btn" href="tel:8722426868">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Joy E.P.', 'Carpenter', '8722426868')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
 
           <!-- Card 29 -->
-          <div class="biz-card" data-cat="legal">
+          <div class="biz-card" data-cat="legal" data-phone="9900085090">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Jaison Sebastian</h3>
@@ -909,13 +1268,17 @@
               <span class="biz-card-occ">Advocate</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9900085090</span>
-              <a class="biz-call-btn" href="tel:9900085090">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Jaison Sebastian', 'Advocate', '9900085090')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 30 -->
-          <div class="biz-card" data-cat="legal">
+          <div class="biz-card" data-cat="legal" data-phone="+91 98451 69302">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Jessie Thomas</h3>
@@ -924,13 +1287,17 @@
               <span class="biz-card-occ">Advocate</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">+91 98451 69302</span>
-              <a class="biz-call-btn" href="tel:+919845169302">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Jessie Thomas', 'Advocate', '+91 98451 69302')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 31 -->
-          <div class="biz-card" data-cat="legal">
+          <div class="biz-card" data-cat="legal" data-phone="9980200866">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Antony M.J</h3>
@@ -939,8 +1306,12 @@
               <span class="biz-card-occ">Police</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9980200866</span>
-              <a class="biz-call-btn" href="tel:9980200866">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Antony M.J', 'Police', '9980200866')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
@@ -949,7 +1320,7 @@
 
 
           <!-- Card 35 -->
-          <div class="biz-card" data-cat="electrical">
+          <div class="biz-card" data-cat="electrical" data-phone="9164987378">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Anil T. Paul</h3>
@@ -958,13 +1329,17 @@
               <span class="biz-card-occ">Electrician contractor</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9164987378</span>
-              <a class="biz-call-btn" href="tel:9164987378">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Anil T. Paul', 'Electrician contractor', '9164987378')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 36 -->
-          <div class="biz-card" data-cat="electrical">
+          <div class="biz-card" data-cat="electrical" data-phone="9739880024">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">George. K.</h3>
@@ -973,13 +1348,17 @@
               <span class="biz-card-occ">Welder contractor</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9739880024</span>
-              <a class="biz-call-btn" href="tel:9739880024">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('George. K.', 'Welder contractor', '9739880024')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 37 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="8050820157">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Joseph Mathew</h3>
@@ -988,14 +1367,18 @@
               <span class="biz-card-occ">Contractor</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">8050820157</span>
-              <a class="biz-call-btn" href="tel:8050820157">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Joseph Mathew', 'Contractor', '8050820157')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
 
           <!-- Card 39 -->
-          <div class="biz-card" data-cat="construction">
+          <div class="biz-card" data-cat="construction" data-phone="08296769763">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Bobby Mathew</h3>
@@ -1004,13 +1387,18 @@
               <span class="biz-card-occ">Fabrication Work</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">08296769763</span>
-              <a class="biz-call-btn" href="tel:08296769763">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Bobby Mathew', 'Fabrication Work', '08296769763')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
+
           <!-- Card 40 -->
-          <div class="biz-card" data-cat="medical">
+          <div class="biz-card" data-cat="medical" data-phone="9986762232">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Jasmin Jossy</h3>
@@ -1019,8 +1407,12 @@
               <span class="biz-card-occ">Dietitian</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9986762232</span>
-              <a class="biz-call-btn" href="tel:9986762232">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Jasmin Jossy', 'Dietitian', '9986762232')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
@@ -1035,7 +1427,7 @@
           <!-- ======================================================= -->
 
           <!-- Card 43 -->
-          <div class="biz-card" data-cat="resorts">
+          <div class="biz-card" data-cat="resorts" data-phone="9606060505">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Resorts Stone Valey</h3>
@@ -1044,13 +1436,17 @@
               <span class="biz-card-occ">Nature Resort & Hospitality</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9606060505</span>
-              <a class="biz-call-btn" href="tel:9606060505">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Resorts Stone Valey', 'Nature Resort & Hospitality', '9606060505')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 44 -->
-          <div class="biz-card" data-cat="resorts">
+          <div class="biz-card" data-cat="resorts" data-phone="6282419193">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Vagamon Exotica Resort</h3>
@@ -1059,13 +1455,17 @@
               <span class="biz-card-occ">Hill Station Resort & Stay</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">6282419193</span>
-              <a class="biz-call-btn" href="tel:6282419193">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Vagamon Exotica Resort', 'Hill Station Resort & Stay', '6282419193')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 45 -->
-          <div class="biz-card" data-cat="resorts">
+          <div class="biz-card" data-cat="resorts" data-phone="8970338468">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Matha Dream Farm</h3>
@@ -1074,13 +1474,17 @@
               <span class="biz-card-occ">Farmhouse & Nature Resort</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">8970338468</span>
-              <a class="biz-call-btn" href="tel:8970338468">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Matha Dream Farm', 'Farmhouse & Nature Resort', '8970338468')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
           <!-- Card 46 -->
-          <div class="biz-card" data-cat="resorts">
+          <div class="biz-card" data-cat="resorts" data-phone="7349725991">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Windowwind Resort</h3>
@@ -1089,8 +1493,12 @@
               <span class="biz-card-occ">Plantation Nature Resort</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">7349725991</span>
-              <a class="biz-call-btn" href="tel:7349725991">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Windowwind Resort', 'Plantation Nature Resort', '7349725991')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
@@ -1098,7 +1506,7 @@
           <!-- PHOTOGRAPHER SECTION                                    -->
           <!-- ======================================================= -->
           <!-- Card 34 -->
-          <div class="biz-card" data-cat="photographer">
+          <div class="biz-card" data-cat="photographer" data-phone="9902268187">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Zacharias George</h3>
@@ -1107,8 +1515,12 @@
               <span class="biz-card-occ">Photographer</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text">9902268187</span>
-              <a class="biz-call-btn" href="tel:9902268187">Call</a>
+              <button type="button" class="biz-contact-btn" onclick="openContactModal('Zacharias George', 'Photographer', '9902268187')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call Us</span>
+              </button>
             </div>
           </div>
 
@@ -1136,8 +1548,9 @@
               <span class="biz-card-occ">Job Consultancy</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text" style="color: #6b6f5a; font-style: italic;">Details to be updated</span>
-              <span class="biz-call-btn" style="opacity: 0.5; pointer-events: none; cursor: default;">Call</span>
+              <button type="button" class="biz-contact-btn" disabled>
+                <span>Details to be updated</span>
+              </button>
             </div>
           </div>
 
@@ -1155,8 +1568,9 @@
               <span class="biz-card-occ">Interior Design</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text" style="color: #6b6f5a; font-style: italic;">Details to be updated</span>
-              <span class="biz-call-btn" style="opacity: 0.5; pointer-events: none; cursor: default;">Call</span>
+              <button type="button" class="biz-contact-btn" disabled>
+                <span>Details to be updated</span>
+              </button>
             </div>
           </div>
 
@@ -1170,8 +1584,9 @@
               <span class="biz-card-occ">Interior Design</span>
             </div>
             <div class="biz-card-footer">
-              <span class="biz-card-phone-text" style="color: #6b6f5a; font-style: italic;">Details to be updated</span>
-              <span class="biz-call-btn" style="opacity: 0.5; pointer-events: none; cursor: default;">Call</span>
+              <button type="button" class="biz-contact-btn" disabled>
+                <span>Details to be updated</span>
+              </button>
             </div>
           </div>
 
@@ -1193,216 +1608,419 @@
                   <th>Name</th>
                   <th>Ward Number</th>
                   <th>Occupation</th>
-                  <th>Phone Number</th>
+                  <th>Contact</th>
                 </tr>
               </thead>
               <tbody id="bizTableBody">
                 <!-- Finance & Accounting rows will be added here: <tr data-cat="finance"><td>#</td>...</tr> -->
-                <tr data-cat="electrical">
+                <tr data-cat="electrical" data-phone="7535772601">
                   <td>1</td>
                   <td><strong>Sebastian Joseph</strong></td>
                   <td>St. Mary's Ward (Yarandahalli)</td>
                   <td>Electrical contractor</td>
-                  <td><a href="tel:7535772601">7535772601</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Sebastian Joseph', 'Electrical contractor', '7535772601')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="electrical">
+                <tr data-cat="electrical" data-phone="9845973958">
                   <td>2</td>
                   <td><strong>Antony Joseph (Denny Joseph)</strong></td>
                   <td>St. Alphonsa Ward (Vidya Nagar)</td>
                   <td>Electrician. ENG contractor</td>
-                  <td><a href="tel:9845973958">9845973958</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Antony Joseph (Denny Joseph)', 'Electrician. ENG contractor', '9845973958')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="travel">
+                <tr data-cat="travel" data-phone="9845662418">
                   <td>3</td>
                   <td><strong>Babu</strong></td>
                   <td>St. Alphonsa Ward (Vidya Nagar)</td>
                   <td>Travel Agent</td>
-                  <td><a href="tel:9845662418">9845662418</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Babu', 'Travel Agent', '9845662418')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9902594849">
                   <td>4</td>
                   <td><strong>Benny Paul</strong></td>
                   <td>St. Alphonsa Ward (Vidya Nagar)</td>
                   <td>Fabrication</td>
-                  <td><a href="tel:9902594849">9902594849</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Benny Paul', 'Fabrication', '9902594849')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9972191949">
                   <td>5</td>
                   <td><strong>Joy. P.</strong></td>
                   <td>St. Alphonsa Ward (Vidya Nagar)</td>
                   <td>Fabrication</td>
-                  <td><a href="tel:9972191949">9972191949</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Joy. P.', 'Fabrication', '9972191949')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9845928032">
                   <td>6</td>
                   <td><strong>Aneesh V.K.</strong></td>
                   <td>St. Vincent De Paul Ward (Daady's)</td>
                   <td>Builder</td>
-                  <td><a href="tel:9845928032">9845928032</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Aneesh V.K.', 'Builder', '9845928032')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9880466882">
                   <td>7</td>
                   <td><strong>Benny Joseph</strong></td>
                   <td>St. Vincent De Paul Ward (Daady's)</td>
                   <td>Construction</td>
-                  <td><a href="tel:9880466882">9880466882</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Benny Joseph', 'Construction', '9880466882')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9341934311">
                   <td>8</td>
                   <td><strong>Sunny Solomon (Nishad)</strong></td>
                   <td>St. Vincent De Paul Ward (Daady's)</td>
                   <td>Contractor Painting</td>
-                  <td><a href="tel:9341934311">9341934311</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Sunny Solomon (Nishad)', 'Contractor Painting', '9341934311')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9972969632">
                   <td>9</td>
                   <td><strong>Binoy. K.V (Joseph)</strong></td>
                   <td>St. Michael Ward (Opp. Biocon)</td>
                   <td>Contractor Painting</td>
-                  <td><a href="tel:9972969632">9972969632</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Binoy. K.V (Joseph)', 'Contractor Painting', '9972969632')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="electrical">
+                <tr data-cat="electrical" data-phone="9731175001">
                   <td>10</td>
                   <td><strong>Cyriac. M.J.</strong></td>
                   <td>St. Michael Ward (Opp. Biocon)</td>
                   <td>Electrician (Engineer) contractor</td>
-                  <td><a href="tel:9731175001">9731175001</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Cyriac. M.J.', 'Electrician (Engineer) contractor', '9731175001')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9845182095">
                   <td>11</td>
                   <td><strong>Joseph Antony (Shaji)</strong></td>
                   <td>St. Michael Ward (Opp. Biocon)</td>
                   <td>Contractor House Painting</td>
-                  <td><a href="tel:9845182095">9845182095</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Joseph Antony (Shaji)', 'Contractor House Painting', '9845182095')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9141712167">
                   <td>12</td>
                   <td><strong>Jude Umesh P. Netto</strong></td>
                   <td>St. Michael Ward (Opp. Biocon)</td>
                   <td>Contractor Painter</td>
-                  <td><a href="tel:9141712167">9141712167</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Jude Umesh P. Netto', 'Contractor Painter', '9141712167')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="9845959448">
                   <td>13</td>
                   <td><strong>Roy Thomas</strong></td>
                   <td>St. Michael Ward (Opp. Biocon)</td>
                   <td>Contractor Painter</td>
-                  <td><a href="tel:9845959448">9845959448</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Roy Thomas', 'Contractor Painter', '9845959448')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="travel">
+                <tr data-cat="travel" data-phone="9845695353">
                   <td>14</td>
                   <td><strong>Jobil Varghese</strong></td>
                   <td>St. Mother Theresa Ward (GPR)</td>
                   <td>Business (Travel)</td>
-                  <td><a href="tel:9845695353">9845695353</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Jobil Varghese', 'Business (Travel)', '9845695353')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="travel">
+                <tr data-cat="travel" data-phone="9743829775">
                   <td>15</td>
                   <td><strong>Babu</strong></td>
                   <td>St. Thomas Ward (E-City, Ph-1)</td>
                   <td>Travel Agent</td>
-                  <td><a href="tel:9743829775">9743829775</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Babu', 'Travel Agent', '9743829775')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="8722426868">
                   <td>16</td>
                   <td><strong>Joy E.P.</strong></td>
                   <td>St. Thomas Ward (E-City, Ph-1)</td>
                   <td>Carpenter</td>
-                  <td><a href="tel:8722426868">8722426868</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Joy E.P.', 'Carpenter', '8722426868')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="legal">
+                <tr data-cat="legal" data-phone="9900085090">
                   <td>17</td>
                   <td><strong>Jaison Sebastian</strong></td>
                   <td>St. Peter Ward (Hosa Road)</td>
                   <td>Advocate</td>
-                  <td><a href="tel:9900085090">9900085090</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Jaison Sebastian', 'Advocate', '9900085090')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="legal">
+                <tr data-cat="legal" data-phone="+91 98451 69302">
                   <td>18</td>
                   <td><strong>Jessie Thomas</strong></td>
                   <td>Electronics City</td>
                   <td>Advocate</td>
-                  <td><a href="tel:+919845169302">+91 98451 69302</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Jessie Thomas', 'Advocate', '+91 98451 69302')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="legal">
+                <tr data-cat="legal" data-phone="9980200866">
                   <td>19</td>
                   <td><strong>Antony M.J</strong></td>
                   <td>St. George Ward (Ittina)</td>
                   <td>Police</td>
-                  <td><a href="tel:9980200866">9980200866</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Antony M.J', 'Police', '9980200866')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="electrical">
+                <tr data-cat="electrical" data-phone="9164987378">
                   <td>20</td>
                   <td><strong>Anil T. Paul</strong></td>
                   <td>St. Sebastian Ward (Kammasandra)</td>
                   <td>Electrician contractor</td>
-                  <td><a href="tel:9164987378">9164987378</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Anil T. Paul', 'Electrician contractor', '9164987378')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="electrical">
+                <tr data-cat="electrical" data-phone="9739880024">
                   <td>21</td>
                   <td><strong>George. K.</strong></td>
                   <td>St. Sebastian Ward (Kammasandra)</td>
                   <td>Welder contractor</td>
-                  <td><a href="tel:9739880024">9739880024</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('George. K.', 'Welder contractor', '9739880024')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="8050820157">
                   <td>22</td>
                   <td><strong>Joseph Mathew</strong></td>
                   <td>St. Sebastian Ward (Kammasandra)</td>
                   <td>Contractor</td>
-                  <td><a href="tel:8050820157">8050820157</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Joseph Mathew', 'Contractor', '8050820157')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="construction">
+                <tr data-cat="construction" data-phone="08296769763">
                   <td>23</td>
                   <td><strong>Bobby Mathew</strong></td>
                   <td>St. Chavara Kuriakose Ward</td>
                   <td>Fabrication Work</td>
-                  <td><a href="tel:08296769763">08296769763</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Bobby Mathew', 'Fabrication Work', '08296769763')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="medical">
+                <tr data-cat="medical" data-phone="9986762232">
                   <td>24</td>
                   <td><strong>Jasmin Jossy</strong></td>
                   <td>St. Evuprasyamma Ward</td>
                   <td>Dietitian</td>
-                  <td><a href="tel:9986762232">9986762232</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Jasmin Jossy', 'Dietitian', '9986762232')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
                 <!-- IT / Information Technology rows will be added here: <tr data-cat="it"><td>#</td>...</tr> -->
                 <!-- Resorts rows -->
-                <tr data-cat="resorts">
+                <tr data-cat="resorts" data-phone="9606060505">
                   <td>25</td>
                   <td><strong>Resorts Stone Valey</strong></td>
                   <td>Sakleshpur</td>
                   <td>Nature Resort & Hospitality</td>
-                  <td><a href="tel:9606060505">9606060505</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Resorts Stone Valey', 'Nature Resort & Hospitality', '9606060505')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="resorts">
+                <tr data-cat="resorts" data-phone="6282419193">
                   <td>26</td>
                   <td><strong>Vagamon Exotica Resort</strong></td>
                   <td>Vagamon, Kerala</td>
                   <td>Hill Station Resort & Stay</td>
-                  <td><a href="tel:6282419193">6282419193</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Vagamon Exotica Resort', 'Hill Station Resort & Stay', '6282419193')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="resorts">
+                <tr data-cat="resorts" data-phone="8970338468">
                   <td>27</td>
                   <td><strong>Matha Dream Farm</strong></td>
                   <td>KGF / Kolar</td>
                   <td>Farmhouse & Nature Resort</td>
-                  <td><a href="tel:8970338468">8970338468</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Matha Dream Farm', 'Farmhouse & Nature Resort', '8970338468')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
-                <tr data-cat="resorts">
+                <tr data-cat="resorts" data-phone="7349725991">
                   <td>28</td>
                   <td><strong>Windowwind Resort</strong></td>
                   <td>Wayanad, Kerala</td>
                   <td>Plantation Nature Resort</td>
-                  <td><a href="tel:7349725991">7349725991</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Windowwind Resort', 'Plantation Nature Resort', '7349725991')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
                 <!-- Photographer rows -->
-                <tr data-cat="photographer">
+                <tr data-cat="photographer" data-phone="9902268187">
                   <td>29</td>
                   <td><strong>Zacharias George</strong></td>
                   <td>St. George Ward (Ittina)</td>
                   <td>Photographer</td>
-                  <td><a href="tel:9902268187">9902268187</a></td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" onclick="openContactModal('Zacharias George', 'Photographer', '9902268187')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                      <span>Call Us</span>
+                    </button>
+                  </td>
                 </tr>
                 <!-- Training Centre rows will be added here: <tr data-cat="training"><td>#</td>...</tr> -->
                 <!-- Printing and Design rows will be added here: <tr data-cat="printing"><td>#</td>...</tr> -->
@@ -1412,7 +2030,7 @@
                   <td><strong>Anion Overseas</strong></td>
                   <td>OLS Parish</td>
                   <td>Job Consultancy</td>
-                  <td>—</td>
+                  <td><span style="color: #6b6f5a; font-style: italic; font-size: 0.85rem;">Details to be updated</span></td>
                 </tr>
                 <!-- Interior Design rows -->
                 <tr data-cat="interior">
@@ -1420,14 +2038,14 @@
                   <td><strong>MESC</strong></td>
                   <td>OLS Parish</td>
                   <td>Interior Design</td>
-                  <td>—</td>
+                  <td><span style="color: #6b6f5a; font-style: italic; font-size: 0.85rem;">Details to be updated</span></td>
                 </tr>
                 <tr data-cat="interior">
                   <td>32</td>
                   <td><strong>Madha Interiors</strong></td>
                   <td>OLS Parish</td>
                   <td>Interior Design</td>
-                  <td>—</td>
+                  <td><span style="color: #6b6f5a; font-style: italic; font-size: 0.85rem;">Details to be updated</span></td>
                 </tr>
               </tbody>
             </table>
@@ -1522,6 +2140,45 @@
       </div>
     </div>
   </footer>
+  <!-- Contact Modal (Choose Call or WhatsApp) -->
+  <div id="bizContactModal" class="biz-modal-overlay" onclick="closeContactModal(event)">
+    <div class="biz-modal-card" onclick="event.stopPropagation()">
+      <button class="biz-modal-close" onclick="closeContactModal()" aria-label="Close modal">×</button>
+      <div class="biz-modal-header">
+        <div class="biz-modal-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <h3 id="modalBizName" class="biz-modal-title">Business Name</h3>
+        <p id="modalBizOcc" class="biz-modal-subtitle">Occupation</p>
+      </div>
+      <div class="biz-modal-body">
+        <p class="biz-modal-prompt">Choose how you would like to connect:</p>
+        <div class="biz-modal-actions">
+          <a id="modalCallBtn" href="#" class="biz-action-btn biz-call-action-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div class="biz-action-text">
+              <strong>Direct Phone Call</strong>
+              <span id="modalCallNumber">Call directly</span>
+            </div>
+          </a>
+          <a id="modalWhatsappBtn" href="#" target="_blank" rel="noopener noreferrer" class="biz-action-btn biz-whatsapp-action-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.983.538 1.83.82 2.788.82h.003c3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.768-5.77-5.768zm7.422 5.765c-.001 4.098-3.335 7.432-7.435 7.432-.001 0-.001 0 0 0-1.266 0-2.508-.341-3.6-1l-3.998 1.047 1.068-3.899c-.724-1.152-1.107-2.483-1.107-3.854.002-4.098 3.336-7.432 7.435-7.432 4.098 0 7.436 3.335 7.437 7.433zm-4.316 2.378c-.244-.122-1.442-.712-1.666-.793-.223-.082-.386-.122-.549.122-.163.244-.63.793-.772.956-.143.163-.285.183-.529.061-.244-.122-1.031-.38-1.964-1.212-.727-.648-1.218-1.449-1.361-1.693-.143-.244-.015-.376.107-.498.11-.11.244-.285.366-.428.122-.143.163-.244.244-.407.082-.163.041-.305-.02-.428-.061-.122-.549-1.323-.752-1.811-.198-.476-.399-.412-.549-.42-.143-.008-.306-.01-.468-.01s-.428.061-.652.305c-.224.244-.855.835-.855 2.036 0 1.201.875 2.361.997 2.524.122.163 1.722 2.628 4.172 3.686.583.252 1.038.403 1.393.516.586.186 1.119.16 1.54.097.47-.07 1.442-.59 1.645-1.161.204-.57.204-1.059.143-1.161-.061-.102-.224-.163-.468-.285z"/>
+            </svg>
+            <div class="biz-action-text">
+              <strong>WhatsApp Message</strong>
+              <span>Chat directly on WhatsApp</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="../assets/redesign.js" defer></script>
 </body>
 
