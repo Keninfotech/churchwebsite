@@ -1340,9 +1340,72 @@
             </div>
           </div>
         </section>
-        <section>
-          <div class="container" style="max-width:900px;">
-            <div class="prose" data-reveal>
+        <style>
+          .mathruvedi-activities-section {
+            position: relative;
+            overflow: hidden;
+            background-color: #fdfaf3;
+            padding: 5rem 0;
+            min-height: 520px;
+          }
+          .mathruvedi-activities-backdrop {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 58%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0.4) 28%, black 65%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0.4) 28%, black 65%);
+          }
+          .mathruvedi-activities-fade {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.88) 12%, rgba(253, 250, 243, 0.3) 38%, transparent 70%);
+            pointer-events: none;
+          }
+          .mathruvedi-activities-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center right;
+            display: block;
+          }
+          .mathruvedi-activities-content {
+            max-width: 660px;
+            position: relative;
+            z-index: 3;
+          }
+          @media (max-width: 960px) {
+            .mathruvedi-activities-section {
+              padding: 3.5rem 0;
+            }
+            .mathruvedi-activities-backdrop {
+              width: 100%;
+              opacity: 0.22;
+              -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.4) 40%, black 100%);
+              mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.4) 40%, black 100%);
+            }
+            .mathruvedi-activities-fade {
+              background: linear-gradient(to bottom, rgba(253, 250, 243, 0.92) 0%, rgba(253, 250, 243, 0.82) 50%, rgba(253, 250, 243, 0.95) 100%);
+            }
+            .mathruvedi-activities-content {
+              max-width: 100%;
+            }
+          }
+        </style>
+
+        <section class="mathruvedi-activities-section">
+          <div class="mathruvedi-activities-backdrop" aria-hidden="true">
+            <div class="mathruvedi-activities-fade"></div>
+            <img src="./assets/backgroundimage2.png" alt="Church Prayer and Rosary" class="mathruvedi-activities-img" loading="lazy">
+          </div>
+          <div class="container" style="max-width:1200px; position: relative; z-index: 2;">
+            <div class="prose mathruvedi-activities-content" data-reveal>
               <div class="section-head"><span class="eyebrow">Section</span>
                 <h2>Recent Activities</h2><span class="rule"></span>
               </div>
