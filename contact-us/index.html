@@ -194,6 +194,30 @@
         height: 100%;
       }
 
+      .btn-connect-call {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: #0E3A40;
+        color: #ffffff !important;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.65rem 1.35rem;
+        border-radius: 20px;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(14, 58, 64, 0.2);
+        transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+      }
+
+      .btn-connect-call:hover {
+        background: #17616A;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(14, 58, 64, 0.3);
+      }
+
       .connect-banner {
         background: #FDF9EE;
         border-radius: 16px;
@@ -271,7 +295,7 @@
               style="font-family: var(--sans); color: #0f3024; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 700;">
               Write to Me</h4>
             <p style="color: var(--ink-soft); font-size: 0.95rem; line-height: 1.5; margin: 0;">
-              Email:<br>Vicarolschurch@gmail.com<br>rijumsfs@gmail.com</p>
+              Email:<br><a href="mailto:Vicarolschurch@gmail.com" style="color: inherit; text-decoration: none;">Vicarolschurch@gmail.com</a></p>
           </div>
 
           <!-- Card 2 -->
@@ -284,10 +308,15 @@
               </svg>
             </div>
             <h4
-              style="font-family: var(--sans); color: #0f3024; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 700;">
+              style="font-family: var(--sans); color: #0f3024; margin-bottom: 1.25rem; font-size: 1.1rem; font-weight: 700;">
               Call to Us</h4>
-            <p style="color: var(--ink-soft); font-size: 0.95rem; line-height: 1.5; margin: 0;">Mobile:<br>9113265359
-            </p>
+            <a href="tel:9113265359" class="btn-connect-call" title="Call 9113265359" aria-label="Call 9113265359">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <span>Call Us</span>
+            </a>
           </div>
 
           <!-- Card 3 -->
