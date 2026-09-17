@@ -309,9 +309,76 @@
       font-size: 1.05rem;
       display: none;
     }
+
+    /* View Switcher */
+    .biz-toolbar-row {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .biz-view-toggles {
+      display: inline-flex;
+      align-items: center;
+      background: #ebe4d4;
+      padding: 3px;
+      border-radius: 20px;
+      border: 1px solid #dcd3c1;
+      gap: 2px;
+    }
+
+    .biz-view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 16px;
+      border: none;
+      background: transparent;
+      color: #4a463a;
+      font-family: var(--sans, 'Inter', sans-serif);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .biz-view-btn svg {
+      transition: transform 0.2s ease;
+    }
+
+    .biz-view-btn:hover {
+      color: #0E3A40;
+    }
+
+    .biz-view-btn.active {
+      background: #0E3A40;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(14, 58, 64, 0.2);
+    }
+
+    @media (max-width: 600px) {
+      .biz-toolbar-row {
+        justify-content: flex-start;
+      }
+    }
   </style>
 
   <script>
+    let currentBizView = 'cards';
+
+    function setBizView(view) {
+      currentBizView = view;
+      const cardsBtn = document.getElementById('viewCardsBtn');
+      const tableBtn = document.getElementById('viewTableBtn');
+      if (cardsBtn) cardsBtn.classList.toggle('active', view === 'cards');
+      if (tableBtn) tableBtn.classList.toggle('active', view === 'table');
+      filterBizDirectory();
+    }
+
     function filterBizDirectory() {
       const query = (document.getElementById('bizSearch').value || '').toLowerCase().trim();
       const activeBtn = document.querySelector('.biz-pill-btn.active');
@@ -353,6 +420,7 @@
       });
 
       const noResults = document.getElementById('bizNoResults');
+      const bizGrid = document.getElementById('bizGrid');
       const tableCard = document.querySelector('.biz-table-card');
 
       if (noResults) {
@@ -376,8 +444,17 @@
         }
       }
 
-      if (tableCard) {
-        tableCard.style.display = visibleCount === 0 ? 'none' : 'block';
+      if (visibleCount === 0) {
+        if (bizGrid) bizGrid.style.display = 'none';
+        if (tableCard) tableCard.style.display = 'none';
+      } else {
+        if (currentBizView === 'cards') {
+          if (bizGrid) bizGrid.style.display = 'grid';
+          if (tableCard) tableCard.style.display = 'none';
+        } else {
+          if (bizGrid) bizGrid.style.display = 'none';
+          if (tableCard) tableCard.style.display = 'block';
+        }
       }
     }
 
@@ -386,6 +463,10 @@
       btn.classList.add('active');
       filterBizDirectory();
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      filterBizDirectory();
+    });
   </script>
 
 </head>
@@ -540,6 +621,28 @@
               Consultancy</button>
             <button class="biz-pill-btn" data-filter="interior" onclick="setBizFilter('interior', this)">Interior
               Design</button>
+          </div>
+
+          <div class="biz-toolbar-row">
+            <div class="biz-view-toggles" role="group" aria-label="Directory view option">
+              <button type="button" class="biz-view-btn active" id="viewCardsBtn" onclick="setBizView('cards')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Cards View</span>
+              </button>
+              <button type="button" class="biz-view-btn" id="viewTableBtn" onclick="setBizView('table')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <span>Table View</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -1080,7 +1183,7 @@
         </div>
 
         <!-- Directory Table View -->
-        <div class="biz-table-card" data-reveal>
+        <div class="biz-table-card" id="bizTableCard" style="display: none;" data-reveal>
           <div class="biz-table-header">Complete Parish Directory Table</div>
           <div class="biz-table-wrap">
             <table class="biz-table">
