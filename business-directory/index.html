@@ -611,7 +611,9 @@
       // Map of businesses with websites
       const websiteMap = {
         'ken infotech': 'https://keninfo.tech/',
-        'azion overseas': 'https://azionoverseas.com/'
+        'azion overseas': 'https://azionoverseas.com/',
+        'mesc': 'https://mesc.in/',
+        'mariam engineering services and consultants (mesc)': 'https://mesc.in/'
       };
 
       // Convert all openContactModal buttons into hover dropdowns
@@ -627,18 +629,7 @@
 
         // Clean digits
         var cleanDigits = String(phone).replace(/\D/g, '');
-        if (!cleanDigits) return;
-
-        var waNumber = cleanDigits;
-        if (waNumber.length === 10) waNumber = '91' + waNumber;
-        else if (waNumber.indexOf('0') === 0 && waNumber.length === 11) waNumber = '91' + waNumber.slice(1);
-
-        var telNumber = cleanDigits;
-        if (telNumber.length === 10) telNumber = '+91' + telNumber;
-        else if (String(phone).indexOf('+') !== 0) telNumber = '+' + cleanDigits;
-        else telNumber = String(phone).replace(/\s+/g, '');
-
-        var waText = encodeURIComponent('Hello ' + name + ', I found your contact on the Our Lady of Sorrows Church parish business directory.');
+        if (!cleanDigits && !website) return;
 
         // Create wrapper
         const wrap = document.createElement('div');
@@ -649,42 +640,65 @@
           wrap.className = 'biz-contact-btn-wrap';
         }
 
-        var websiteLinkHtml = '';
+        var linksHtml = '';
+
+        if (cleanDigits) {
+          var waNumber = cleanDigits;
+          if (waNumber.length === 10) waNumber = '91' + waNumber;
+          else if (waNumber.indexOf('0') === 0 && waNumber.length === 11) waNumber = '91' + waNumber.slice(1);
+
+          var telNumber = cleanDigits;
+          if (telNumber.length === 10) telNumber = '+91' + telNumber;
+          else if (String(phone).indexOf('+') !== 0) telNumber = '+' + cleanDigits;
+          else telNumber = String(phone).replace(/\s+/g, '');
+
+          var waText = encodeURIComponent('Hello ' + name + ', I found your contact on the Our Lady of Sorrows Church parish business directory.');
+
+          linksHtml += `
+            <a href="tel:${telNumber}">
+              <svg class="phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Direct Call
+            </a>
+            <a href="https://wa.me/${waNumber}?text=${waText}" target="_blank" rel="noopener noreferrer">
+              <svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.983.538 1.83.82 2.788.82h.003c3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.768-5.77-5.768zm7.422 5.765c-.001 4.098-3.335 7.432-7.435 7.432-.001 0-.001 0 0 0-1.266 0-2.508-.341-3.6-1l-3.998 1.047 1.068-3.899c-.724-1.152-1.107-2.483-1.107-3.854.002-4.098 3.336-7.432 7.435-7.432 4.098 0 7.436 3.335 7.437 7.433zm-4.316 2.378c-.244-.122-1.442-.712-1.666-.793-.223-.082-.386-.122-.549.122-.163.244-.63.793-.772.956-.143.163-.285.183-.529.061-.244-.122-1.031-.38-1.964-1.212-.727-.648-1.218-1.449-1.361-1.693-.143-.244-.015-.376.107-.498.11-.11.244-.285.366-.428.122-.143.163-.244.244-.407.082-.163.041-.305-.02-.428-.061-.122-.549-1.323-.752-1.811-.198-.476-.399-.412-.549-.42-.143-.008-.306-.01-.468-.01s-.428.061-.652.305c-.224.244-.855.835-.855 2.036 0 1.201.875 2.361.997 2.524.122.163 1.722 2.628 4.172 3.686.583.252 1.038.403 1.393.516.586.186 1.119.16 1.54.097.47-.07 1.442-.59 1.645-1.161.204-.57.204-1.059.143-1.161-.061-.102-.224-.163-.468-.285z"/>
+              </svg>
+              WhatsApp
+            </a>
+          `;
+        }
+
         if (website) {
-          websiteLinkHtml = `
-          <a href="${website}" target="_blank" rel="noopener noreferrer">
-            <svg class="web-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-            Website
-          </a>
+          linksHtml += `
+            <a href="${website}" target="_blank" rel="noopener noreferrer">
+              <svg class="web-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              Website
+            </a>
           `;
         }
 
         // Create options popup
         const options = document.createElement('div');
         options.className = 'biz-contact-options';
-        options.innerHTML = `
-          <a href="tel:${telNumber}">
-            <svg class="phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            Direct Call
-          </a>
-          <a href="https://wa.me/${waNumber}?text=${waText}" target="_blank" rel="noopener noreferrer">
-            <svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.983.538 1.83.82 2.788.82h.003c3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.768-5.77-5.768zm7.422 5.765c-.001 4.098-3.335 7.432-7.435 7.432-.001 0-.001 0 0 0-1.266 0-2.508-.341-3.6-1l-3.998 1.047 1.068-3.899c-.724-1.152-1.107-2.483-1.107-3.854.002-4.098 3.336-7.432 7.435-7.432 4.098 0 7.436 3.335 7.437 7.433zm-4.316 2.378c-.244-.122-1.442-.712-1.666-.793-.223-.082-.386-.122-.549.122-.163.244-.63.793-.772.956-.143.163-.285.183-.529.061-.244-.122-1.031-.38-1.964-1.212-.727-.648-1.218-1.449-1.361-1.693-.143-.244-.015-.376.107-.498.11-.11.244-.285.366-.428.122-.143.163-.244.244-.407.082-.163.041-.305-.02-.428-.061-.122-.549-1.323-.752-1.811-.198-.476-.399-.412-.549-.42-.143-.008-.306-.01-.468-.01s-.428.061-.652.305c-.224.244-.855.835-.855 2.036 0 1.201.875 2.361.997 2.524.122.163 1.722 2.628 4.172 3.686.583.252 1.038.403 1.393.516.586.186 1.119.16 1.54.097.47-.07 1.442-.59 1.645-1.161.204-.57.204-1.059.143-1.161-.061-.102-.224-.163-.468-.285z"/>
-            </svg>
-            WhatsApp
-          </a>
-          ${websiteLinkHtml}
-        `;
+        options.innerHTML = linksHtml;
 
-        // Convert btn type so it doesn't do anything on click
-        btn.removeAttribute('onclick');
-        btn.style.pointerEvents = 'none'; // The user clicks the links instead
+        // If only website is available (no direct phone), clicking button directly opens site too
+        if (!cleanDigits && website) {
+          btn.removeAttribute('onclick');
+          btn.addEventListener('click', function(e) {
+            window.open(website, '_blank', 'noopener,noreferrer');
+          });
+        } else {
+          // Convert btn type so it doesn't do anything on click
+          btn.removeAttribute('onclick');
+          btn.style.pointerEvents = 'none'; // The user clicks the links instead
+        }
 
         // Wrap
         btn.parentNode.insertBefore(wrap, btn);
@@ -1639,17 +1653,24 @@
           <!-- ======================================================= -->
 
           <!-- Interior Design 1 -->
-          <div class="biz-card" data-cat="interior">
+          <div class="biz-card" data-cat="interior" data-website="https://mesc.in/">
             <div>
               <div class="biz-card-header">
-                <h3 class="biz-card-name">MESC</h3>
+                <h3 class="biz-card-name">Mariam Engineering Services and Consultants (MESC)</h3>
                 <span class="biz-card-ward">OLS Parish</span>
               </div>
-              <span class="biz-card-occ">Interior Design</span>
+              <span class="biz-card-occ">Hospital Infrastructure & Interior Design</span>
             </div>
             <div class="biz-card-footer">
-              <button type="button" class="biz-contact-btn" disabled>
-                <span>Details to be updated</span>
+              <button type="button" class="biz-contact-btn" data-website="https://mesc.in/"
+                onclick="openContactModal('Mariam Engineering Services and Consultants (MESC)', 'Hospital Infrastructure & Interior Design', '', 'https://mesc.in/')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span>Contact Us</span>
               </button>
             </div>
           </div>
@@ -2258,12 +2279,22 @@
                   </td>
                 </tr>
                 <!-- Interior Design rows -->
-                <tr data-cat="interior">
+                <tr data-cat="interior" data-website="https://mesc.in/">
                   <td>32</td>
-                  <td><strong>MESC</strong></td>
+                  <td><strong>Mariam Engineering Services and Consultants (MESC)</strong></td>
                   <td>OLS Parish</td>
-                  <td>Interior Design</td>
-                  <td><span style="color: #6b6f5a; font-style: italic; font-size: 0.85rem;">Details to be updated</span>
+                  <td>Hospital Infrastructure & Interior Design</td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" data-website="https://mesc.in/"
+                      onclick="openContactModal('Mariam Engineering Services and Consultants (MESC)', 'Hospital Infrastructure & Interior Design', '', 'https://mesc.in/')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                      <span>Contact Us</span>
+                    </button>
                   </td>
                 </tr>
                 <tr data-cat="interior">
