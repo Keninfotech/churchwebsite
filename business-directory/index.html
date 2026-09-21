@@ -440,8 +440,12 @@
       color: #0E3A40;
     }
 
+    .biz-contact-options .web-icon {
+      color: #0E3A40;
+    }
 
-    /* Card Footer with Call Us button */
+
+    /* Card Footer with Contact Us button */
     .biz-contact-btn {
       width: 100% !important;
       display: inline-flex !important;
@@ -527,7 +531,8 @@
         const text = card.textContent.toLowerCase();
         const cardCat = (card.getAttribute('data-cat') || '').toLowerCase().trim();
         const cardPhone = (card.getAttribute('data-phone') || '').toLowerCase().trim();
-        const matchesQuery = !query || text.includes(query) || cardPhone.includes(query);
+        const cardWebsite = (card.getAttribute('data-website') || '').toLowerCase().trim();
+        const matchesQuery = !query || text.includes(query) || cardPhone.includes(query) || cardWebsite.includes(query);
         const matchesFilter = activeFilter === 'all' ||
           cardCat === activeFilter ||
           cardCat.split(/\s+/).includes(activeFilter);
@@ -544,7 +549,8 @@
         const text = row.textContent.toLowerCase();
         const rowCat = (row.getAttribute('data-cat') || '').toLowerCase().trim();
         const rowPhone = (row.getAttribute('data-phone') || '').toLowerCase().trim();
-        const matchesQuery = !query || text.includes(query) || rowPhone.includes(query);
+        const rowWebsite = (row.getAttribute('data-website') || '').toLowerCase().trim();
+        const matchesQuery = !query || text.includes(query) || rowPhone.includes(query) || rowWebsite.includes(query);
         const matchesFilter = activeFilter === 'all' ||
           rowCat === activeFilter ||
           rowCat.split(/\s+/).includes(activeFilter);
@@ -602,14 +608,22 @@
     }
 
     function initHoverContacts() {
+      // Map of businesses with websites
+      const websiteMap = {
+        'ken infotech': 'https://keninfo.tech/',
+        'azion overseas': 'https://azionoverseas.com/'
+      };
+
       // Convert all openContactModal buttons into hover dropdowns
       document.querySelectorAll('[onclick^="openContactModal"]').forEach(btn => {
         const onclickAttr = btn.getAttribute('onclick');
-        const match = onclickAttr.match(/openContactModal\(['"](.*?)['"],\s*['"](.*?)['"],\s*['"](.*?)['"]\)/);
+        const match = onclickAttr.match(/openContactModal\(['"](.*?)['"],\s*['"](.*?)['"],\s*['"](.*?)['"](?:\s*,\s*['"](.*?)['"])?\)/);
         if (!match) return;
 
         const name = match[1];
         const phone = match[3];
+        const card = btn.closest('.biz-card, tr');
+        const website = (match[4] || btn.getAttribute('data-website') || (card && card.getAttribute('data-website')) || websiteMap[name.toLowerCase().trim()] || '').trim();
 
         // Clean digits
         var cleanDigits = String(phone).replace(/\D/g, '');
@@ -635,6 +649,20 @@
           wrap.className = 'biz-contact-btn-wrap';
         }
 
+        var websiteLinkHtml = '';
+        if (website) {
+          websiteLinkHtml = `
+          <a href="${website}" target="_blank" rel="noopener noreferrer">
+            <svg class="web-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            Website
+          </a>
+          `;
+        }
+
         // Create options popup
         const options = document.createElement('div');
         options.className = 'biz-contact-options';
@@ -651,6 +679,7 @@
             </svg>
             WhatsApp
           </a>
+          ${websiteLinkHtml}
         `;
 
         // Convert btn type so it doesn't do anything on click
@@ -1424,7 +1453,7 @@
           <!-- ======================================================= -->
           <!-- IT / INFORMATION TECHNOLOGY SECTION                     -->
           <!-- ======================================================= -->
-          <div class="biz-card" data-cat="it" data-phone="+91 888 4433 033">
+          <div class="biz-card" data-cat="it" data-phone="+91 888 4433 033" data-website="https://keninfo.tech/">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Ken Infotech</h3>
@@ -1433,8 +1462,8 @@
               <span class="biz-card-occ">Information Technology</span>
             </div>
             <div class="biz-card-footer">
-              <button type="button" class="biz-contact-btn"
-                onclick="openContactModal('Ken Infotech', 'Information Technology', '+91 888 4433 033')">
+              <button type="button" class="biz-contact-btn" data-website="https://keninfo.tech/"
+                onclick="openContactModal('Ken Infotech', 'Information Technology', '+91 888 4433 033', 'https://keninfo.tech/')">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path
@@ -1583,7 +1612,7 @@
           <!-- ======================================================= -->
 
           <!-- Job Consultancy -->
-          <div class="biz-card" data-cat="consultancy" data-phone="+91 9187947560">
+          <div class="biz-card" data-cat="consultancy" data-phone="+91 9187947560" data-website="https://azionoverseas.com/">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Azion Overseas</h3>
@@ -1592,8 +1621,8 @@
               <span class="biz-card-occ">Job Consultancy</span>
             </div>
             <div class="biz-card-footer">
-              <button type="button" class="biz-contact-btn"
-                onclick="openContactModal('Azion Overseas', 'Job Consultancy', '+91 9187947560')">
+              <button type="button" class="biz-contact-btn" data-website="https://azionoverseas.com/"
+                onclick="openContactModal('Azion Overseas', 'Job Consultancy', '+91 9187947560', 'https://azionoverseas.com/')">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path
@@ -2097,14 +2126,14 @@
                   </td>
                 </tr>
                 <!-- IT / Information Technology rows -->
-                <tr data-cat="it" data-phone="+91 888 4433 033">
+                <tr data-cat="it" data-phone="+91 888 4433 033" data-website="https://keninfo.tech/">
                   <td>25</td>
                   <td><strong>Ken Infotech</strong></td>
                   <td>Electronics City</td>
                   <td>Information Technology</td>
                   <td>
-                    <button type="button" class="biz-table-call-btn"
-                      onclick="openContactModal('Ken Infotech', 'Information Technology', '+91 888 4433 033')">
+                    <button type="button" class="biz-table-call-btn" data-website="https://keninfo.tech/"
+                      onclick="openContactModal('Ken Infotech', 'Information Technology', '+91 888 4433 033', 'https://keninfo.tech/')">
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path
@@ -2210,14 +2239,14 @@
                 <!-- Training Centre rows will be added here: <tr data-cat="training"><td>#</td>...</tr> -->
                 <!-- Printing and Design rows will be added here: <tr data-cat="printing"><td>#</td>...</tr> -->
                 <!-- Job Consultancy rows -->
-                <tr data-cat="consultancy" data-phone="+91 9187947560">
+                <tr data-cat="consultancy" data-phone="+91 9187947560" data-website="https://azionoverseas.com/">
                   <td>31</td>
                   <td><strong>Azion Overseas</strong></td>
                   <td>OLS Parish</td>
                   <td>Job Consultancy</td>
                   <td>
-                    <button type="button" class="biz-table-call-btn"
-                      onclick="openContactModal('Azion Overseas', 'Job Consultancy', '+91 9187947560')">
+                    <button type="button" class="biz-table-call-btn" data-website="https://azionoverseas.com/"
+                      onclick="openContactModal('Azion Overseas', 'Job Consultancy', '+91 9187947560', 'https://azionoverseas.com/')">
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path
