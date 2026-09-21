@@ -32,7 +32,8 @@
 
       /* Fit exactly one screen, minus the sticky header — matches .hero elsewhere on the site */
       min-height: calc(100vh - var(--header-h, 104px));
-      min-height: calc(100dvh - var(--header-h, 104px)); /* dvh = correct on mobile browser chrome */
+      min-height: calc(100dvh - var(--header-h, 104px));
+      /* dvh = correct on mobile browser chrome */
       max-height: calc(100vh - var(--header-h, 104px));
       max-height: calc(100dvh - var(--header-h, 104px));
 
@@ -79,6 +80,7 @@
         mask-image: linear-gradient(to top, black 45%, transparent 100%);
         opacity: 0.45;
       }
+
       .min-hero::after {
         background: linear-gradient(to bottom, rgba(253, 250, 243, 0.96) 0%, rgba(253, 250, 243, 0.82) 45%, rgba(253, 250, 243, 0.3) 75%, transparent 100%);
       }
@@ -198,12 +200,10 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(
-        0deg, 
-        transparent, 
-        transparent 40%, 
-        rgba(200, 170, 116, 0.3)
-      );
+      background: linear-gradient(0deg,
+          transparent,
+          transparent 40%,
+          rgba(200, 170, 116, 0.3));
       transform: rotate(-45deg);
       transition: all 0.6s ease;
       opacity: 0;
@@ -222,6 +222,7 @@
       transform: translateY(-4px);
       outline: none;
     }
+
     .min-card:hover::before,
     .min-card:focus-visible::before {
       opacity: 1;
@@ -230,7 +231,7 @@
 
     .min-card.is-active {
       border-color: #b98e47;
-      box-shadow: 0 0 0 2px rgba(185,142,71,0.35), 0 14px 30px -12px rgba(90,66,20,0.28);
+      box-shadow: 0 0 0 2px rgba(185, 142, 71, 0.35), 0 14px 30px -12px rgba(90, 66, 20, 0.28);
     }
 
     .min-card__icon {
@@ -461,12 +462,10 @@
     .ob-role-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(15, 30, 22, 0.94) 0%,
-        rgba(15, 30, 22, 0.62) 55%,
-        rgba(15, 30, 22, 0.1) 100%
-      );
+      background: linear-gradient(to top,
+          rgba(15, 30, 22, 0.94) 0%,
+          rgba(15, 30, 22, 0.62) 55%,
+          rgba(15, 30, 22, 0.1) 100%);
       backdrop-filter: blur(2px);
       display: flex;
       flex-direction: column;
@@ -558,13 +557,16 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 0.85rem;
       }
+
       .ob-card {
         padding: 8px 8px 12px 8px;
         border-radius: 16px;
       }
+
       .ob-avatar-wrap {
         border-radius: 12px;
       }
+
       .ob-name {
         font-size: 0.88rem;
         margin-top: 0.5rem;
@@ -865,22 +867,27 @@
         align-items: stretch;
         gap: 0.9rem;
       }
+
       .min-panel-nav__all {
         order: -1;
         align-self: center;
         margin-bottom: 0.25rem;
       }
+
       .min-panel-nav__btn {
         max-width: 100%;
         width: 100%;
       }
+
       .min-panel-nav__btn--next {
         text-align: left;
         justify-content: flex-start;
       }
+
       .min-panel-nav__btn--next .min-panel-nav__text {
         order: 2;
       }
+
       .min-panel-nav__btn--next .min-panel-nav__arrow {
         order: 1;
       }
@@ -933,7 +940,8 @@
               <li><a href="./gallery/">Gallery</a></li>
             </ul>
           </li>
-          <li><a href="./ministries_combined.html">Pious Associations</a></li><li><a href="./catechism_cml_holychildhood_combined.html">Catechism</a></li>
+          <li><a href="./ministries_combined.html">Pious Associations</a></li>
+          <li><a href="./catechism_cml_holychildhood_combined.html">Catechism</a></li>
           <li><a href="./contact-us/">Contact Us</a></li>
         </ul>
       </nav>
@@ -948,13 +956,20 @@
       <div class="min-hero-content">
         <span class="min-hero__eyebrow">Our Lady of Sorrows &middot; Electronics City</span>
         <div class="min-divider">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20" />
+          </svg>
         </div>
         <h1>Pious Associations</h1>
         <div class="min-divider">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20" />
+          </svg>
         </div>
-        <p>Eight communities, one parish family. Choose a pious association below to see who leads it, what it does, and what it
+        <p>Eight communities, one parish family. Choose a pious association below to see who leads it, what it does, and
+          what it
           has been up to.</p>
       </div>
     </section>
@@ -1008,7 +1023,7 @@
           <span class="min-card__name">Laity Commission</span>
           <span class="min-card__tag">Forming and empowering lay faithful for active parish life.</span>
         </button>
-        
+
       </div>
     </section>
 
@@ -1029,7 +1044,8 @@
 
         <section class="hero hero--stjoseph">
           <div class="hero-bg-joseph" aria-hidden="true">
-            <img src="./assets/hero section images/pithruedi.jpeg" alt="St. Joseph and Child Jesus - Patron of Pithruvedi">
+            <img src="./assets/hero section images/pithruedi.jpeg"
+              alt="St. Joseph and Child Jesus - Patron of Pithruvedi">
           </div>
           <div class="container" style="position: relative; z-index: 2;">
             <div class="hero__grid">
@@ -1037,7 +1053,8 @@
                 <span class="eyebrow">Ministry</span>
                 <h1>Pithruvedi</h1>
                 <span class="rule"></span>
-                <p class="hero__lead">Unifying married Catholic men and fathers of our parish to foster Christian leadership, family renewal, and dedicated community service.</p>
+                <p class="hero__lead">Unifying married Catholic men and fathers of our parish to foster Christian
+                  leadership, family renewal, and dedicated community service.</p>
               </div>
             </div>
           </div>
@@ -1094,77 +1111,88 @@
               <ul class="office-bearers-grid">
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju MSFS" class="ob-avatar" loading="lazy">
+                    <img src="./assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju MSFS" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Director</span></div>
                   </div>
                   <span class="ob-name">Fr. Riju MSFS</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Reji C Sebastian - President.jpg" alt="Mr. Reji C Sebastian" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Reji C Sebastian - President.jpg" alt="Mr. Reji C Sebastian"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">President</span></div>
                   </div>
                   <span class="ob-name">Mr. Reji C Sebastian</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Sunny Nishad - Secretary.jpg" alt="Mr. Nishad Sunny" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Sunny Nishad - Secretary.jpg" alt="Mr. Nishad Sunny"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. Nishad Sunny</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Rino George - Treasurer.png" alt="Mr. Rino George" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Rino George - Treasurer.png" alt="Mr. Rino George"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Rino George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Jhonny K Kurian - Vice President.png" alt="Mr. Johny Kurian" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Jhonny K Kurian - Vice President.png" alt="Mr. Johny Kurian"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Vice President</span></div>
                   </div>
                   <span class="ob-name">Mr. Johny Kurian</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Jenson Joseph - Jt. Secretary.jpg" alt="Mr. Jenson Joseph" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Jenson Joseph - Jt. Secretary.jpg" alt="Mr. Jenson Joseph"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Joint Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. Jenson Joseph</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Aneem Mathew - Jt. Treasurer.png" alt="Mr. Aneem Mathew" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Aneem Mathew - Jt. Treasurer.png" alt="Mr. Aneem Mathew"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Joint Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Aneem Mathew</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Babu M A - Executive Member.jpg" alt="Mr. Babu Antony" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Babu M A - Executive Member.jpg" alt="Mr. Babu Antony"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Executive Member</span></div>
                   </div>
                   <span class="ob-name">Mr. Babu Antony</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Biju Philip - Executive Member.jpg" alt="Mr. Biju Philip" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Biju Philip - Executive Member.jpg" alt="Mr. Biju Philip"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Executive Member</span></div>
                   </div>
                   <span class="ob-name">Mr. Biju Philip</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Binoj Abraham - Executive Member.png" alt="Mr. Binoj Abraham" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Binoj Abraham - Executive Member.png" alt="Mr. Binoj Abraham"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Executive Member</span></div>
                   </div>
                   <span class="ob-name">Mr. Binoj Abraham</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Pithruvedi/Joby OM - Executive Member.png" alt="Mr. Joby" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Pithruvedi/Joby OM - Executive Member.png" alt="Mr. Joby" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Executive Member</span></div>
                   </div>
                   <span class="ob-name">Mr. Joby</span>
@@ -1180,16 +1208,19 @@
             <div class="min-nav-divider">
               <span class="min-nav-divider__line"></span>
               <span class="min-nav-divider__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2v20M2 12h20"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 2v20M2 12h20" />
                 </svg>
               </span>
               <span class="min-nav-divider__line"></span>
             </div>
             <div class="min-panel-nav">
-              <a href="#laity-commission" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="laity-commission" aria-label="Go to previous association: Laity Commission">
+              <a href="#laity-commission" class="min-panel-nav__btn min-panel-nav__btn--prev"
+                data-target="laity-commission" aria-label="Go to previous association: Laity Commission">
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                   </svg>
@@ -1201,7 +1232,8 @@
               </a>
 
               <a href="#minGrid" class="min-panel-nav__all" aria-label="View all Pious Associations">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
@@ -1210,13 +1242,15 @@
                 <span>All Associations</span>
               </a>
 
-              <a href="#mathruvedi" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="mathruvedi" aria-label="Go to next association: Mathruvedi">
+              <a href="#mathruvedi" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="mathruvedi"
+                aria-label="Go to next association: Mathruvedi">
                 <div class="min-panel-nav__text">
                   <span class="min-panel-nav__label">Next Association</span>
                   <span class="min-panel-nav__title">Mathruvedi</span>
                 </div>
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -1248,7 +1282,8 @@
                 <span class="eyebrow">Ministry</span>
                 <h1>Mathruvedi</h1>
                 <span class="rule"></span>
-                <p class="hero__lead">Nurturing a vibrant communion of mothers to build faith-filled Christian families, empower women, and serve the needy in Christ&rsquo;s love.</p>
+                <p class="hero__lead">Nurturing a vibrant communion of mothers to build faith-filled Christian families,
+                  empower women, and serve the needy in Christ&rsquo;s love.</p>
               </div>
             </div>
           </div>
@@ -1289,49 +1324,56 @@
               <ul class="office-bearers-grid">
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju MSFS" class="ob-avatar" loading="lazy">
+                    <img src="./assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju MSFS" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Director</span></div>
                   </div>
                   <span class="ob-name">Fr. Riju MSFS</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Mathruvedi/Sr. Grace Thaliyat - Mathruvedi Animator.jpg" alt="Sr. Grace Thaliyat" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Mathruvedi/Sr. Grace Thaliyat - Mathruvedi Animator.jpg"
+                      alt="Sr. Grace Thaliyat" class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Animator</span></div>
                   </div>
                   <span class="ob-name">Sr. Grace Thaliyat</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Mathruvedi/Viveena Robert - President.png" alt="Ms. Viveena Robert" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Mathruvedi/Viveena Robert - President.png" alt="Ms. Viveena Robert"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">President</span></div>
                   </div>
                   <span class="ob-name">Ms. Viveena Robert</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Mathruvedi/Sonia C - Secretary.jpg" alt="Ms. Sonia Reji" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Mathruvedi/Sonia C - Secretary.jpg" alt="Ms. Sonia Reji" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Ms. Sonia Reji</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Mathruvedi/Tintu Subin_-_Treasurer.jpg" alt="Ms. Tintu Subin" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Mathruvedi/Tintu Subin_-_Treasurer.jpg" alt="Ms. Tintu Subin"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Treasurer</span></div>
                   </div>
                   <span class="ob-name">Ms. Tintu Subin</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Mathruvedi/Litty John - Vice president.jpg" alt="Ms. Litty John" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Mathruvedi/Litty John - Vice president.jpg" alt="Ms. Litty John"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Vice President</span></div>
                   </div>
                   <span class="ob-name">Ms. Litty John</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Mathruvedi/Soumya Davis_- Joint Secretary.jpeg" alt="Ms. Soumya Davis" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Mathruvedi/Soumya Davis_- Joint Secretary.jpeg" alt="Ms. Soumya Davis"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Joint Secretary</span></div>
                   </div>
                   <span class="ob-name">Ms. Soumya Davis</span>
@@ -1348,6 +1390,7 @@
             padding: 5rem 0;
             min-height: 520px;
           }
+
           .mathruvedi-activities-backdrop {
             position: absolute;
             top: 0;
@@ -1361,6 +1404,7 @@
             -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0.4) 28%, black 65%);
             mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0.4) 28%, black 65%);
           }
+
           .mathruvedi-activities-fade {
             position: absolute;
             inset: 0;
@@ -1368,6 +1412,7 @@
             background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.88) 12%, rgba(253, 250, 243, 0.3) 38%, transparent 70%);
             pointer-events: none;
           }
+
           .mathruvedi-activities-img {
             width: 100%;
             height: 100%;
@@ -1375,24 +1420,29 @@
             object-position: center right;
             display: block;
           }
+
           .mathruvedi-activities-content {
             max-width: 660px;
             position: relative;
             z-index: 3;
           }
+
           @media (max-width: 960px) {
             .mathruvedi-activities-section {
               padding: 3.5rem 0;
             }
+
             .mathruvedi-activities-backdrop {
               width: 100%;
               opacity: 0.22;
               -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.4) 40%, black 100%);
               mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.4) 40%, black 100%);
             }
+
             .mathruvedi-activities-fade {
               background: linear-gradient(to bottom, rgba(253, 250, 243, 0.92) 0%, rgba(253, 250, 243, 0.82) 50%, rgba(253, 250, 243, 0.95) 100%);
             }
+
             .mathruvedi-activities-content {
               max-width: 100%;
             }
@@ -1402,7 +1452,8 @@
         <section class="mathruvedi-activities-section">
           <div class="mathruvedi-activities-backdrop" aria-hidden="true">
             <div class="mathruvedi-activities-fade"></div>
-            <img src="./assets/backgroundimage2.png" alt="Church Prayer and Rosary" class="mathruvedi-activities-img" loading="lazy">
+            <img src="./assets/backgroundimage2.png" alt="Church Prayer and Rosary" class="mathruvedi-activities-img"
+              loading="lazy">
           </div>
           <div class="container" style="max-width:1200px; position: relative; z-index: 2;">
             <div class="prose mathruvedi-activities-content" data-reveal>
@@ -1452,16 +1503,19 @@
             <div class="min-nav-divider">
               <span class="min-nav-divider__line"></span>
               <span class="min-nav-divider__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2v20M2 12h20"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 2v20M2 12h20" />
                 </svg>
               </span>
               <span class="min-nav-divider__line"></span>
             </div>
             <div class="min-panel-nav">
-              <a href="#pithruvedi" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="pithruvedi" aria-label="Go to previous association: Pithruvedi">
+              <a href="#pithruvedi" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="pithruvedi"
+                aria-label="Go to previous association: Pithruvedi">
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                   </svg>
@@ -1473,7 +1527,8 @@
               </a>
 
               <a href="#minGrid" class="min-panel-nav__all" aria-label="View all Pious Associations">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
@@ -1482,13 +1537,15 @@
                 <span>All Associations</span>
               </a>
 
-              <a href="#youth-ministry" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="youth-ministry" aria-label="Go to next association: Youth Ministry">
+              <a href="#youth-ministry" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="youth-ministry"
+                aria-label="Go to next association: Youth Ministry">
                 <div class="min-panel-nav__text">
                   <span class="min-panel-nav__label">Next Association</span>
                   <span class="min-panel-nav__title">Youth Ministry</span>
                 </div>
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -1514,7 +1571,8 @@
 
         <section class="hero hero--youth">
           <div class="hero-bg-youth" aria-hidden="true">
-            <img src="./assets/hero section images/youth ministry.jpg" alt="Youth Ministry - SMYM OLS Unit" style="object-position: center 30%;">
+            <img src="./assets/hero section images/youth ministry.jpg" alt="Youth Ministry - SMYM OLS Unit"
+              style="object-position: center 30%;">
           </div>
           <div class="container" style="position: relative; z-index: 2;">
             <div class="hero__grid">
@@ -1522,7 +1580,8 @@
                 <span class="eyebrow">Ministry</span>
                 <h1>Youth Ministry</h1>
                 <span class="rule"></span>
-                <p class="hero__lead">Empowering the young people of our parish through faith formation, vibrant fellowship, leadership development, and active social outreach.</p>
+                <p class="hero__lead">Empowering the young people of our parish through faith formation, vibrant
+                  fellowship, leadership development, and active social outreach.</p>
               </div>
             </div>
           </div>
@@ -1560,7 +1619,8 @@
               <ul class="office-bearers-grid">
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju MSFS" class="ob-avatar" loading="lazy">
+                    <img src="./assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju MSFS" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Chairman &amp; Asst Director</span></div>
                   </div>
                   <span class="ob-name">Fr. Riju MSFS</span>
@@ -1581,63 +1641,72 @@
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/Jivin George - President(Diocese Pastoral council).jpg" alt="Mr. Jivin George" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/Jivin George - President(Diocese Pastoral council).jpg"
+                      alt="Mr. Jivin George" class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">President</span></div>
                   </div>
                   <span class="ob-name">Mr. Jivin George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/Alan Charley - Secretary .jpg" alt="Mr. Alan Charly" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/Alan Charley - Secretary .jpg" alt="Mr. Alan Charly" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. Alan Charly</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/Dayas Dixen - Treasurer.jpg" alt="Mr. Dayas Dixon" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/Dayas Dixen - Treasurer.jpg" alt="Mr. Dayas Dixon" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Dayas Dixon</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/Joshmi Mathew - Vice President.HEIC" alt="Ms. Joshmi Mathew" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/Joshmi Mathew - Vice President.jpg" alt="Ms. Joshmi Mathew"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Vice President</span></div>
                   </div>
                   <span class="ob-name">Ms. Joshmi Mathew</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/ESTHER ROSE THOMAS - Joint Secretary.png" alt="Ms. Esther Rose" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/ESTHER ROSE THOMAS - Joint Secretary.png" alt="Ms. Esther Rose"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Joint Secretary</span></div>
                   </div>
                   <span class="ob-name">Ms. Esther Rose</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/Binosh Sibi - Media Head.jpg" alt="Mr. Binosh Sibi" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/Binosh Sibi - Media Head.jpg" alt="Mr. Binosh Sibi" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Media Head</span></div>
                   </div>
                   <span class="ob-name">Mr. Binosh Sibi</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/Asha Elizabeth - Councillor, Forane General Secret.png" alt="Ms. Asha Elizabeth" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/Asha Elizabeth - Councillor, Forane General Secret.png"
+                      alt="Ms. Asha Elizabeth" class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Councilor 1</span></div>
                   </div>
                   <span class="ob-name">Ms. Asha Elizabeth</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/Sujan Thomas - Councillor (Hongasandra Forane Secr.jpg" alt="Mr. Sujan Thomas" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/Sujan Thomas - Councillor (Hongasandra Forane Secr.jpg"
+                      alt="Mr. Sujan Thomas" class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Councilor 2</span></div>
                   </div>
                   <span class="ob-name">Mr. Sujan Thomas</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Youth/Allen Robert - Sports and culturals coordinator.png" alt="Mr. Allen Robert" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Youth/Allen Robert - Sports and culturals coordinator.png"
+                      alt="Mr. Allen Robert" class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Sports &amp; Culturals Head</span></div>
                   </div>
                   <span class="ob-name">Mr. Allen Robert</span>
@@ -1654,16 +1723,19 @@
             <div class="min-nav-divider">
               <span class="min-nav-divider__line"></span>
               <span class="min-nav-divider__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2v20M2 12h20"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 2v20M2 12h20" />
                 </svg>
               </span>
               <span class="min-nav-divider__line"></span>
             </div>
             <div class="min-panel-nav">
-              <a href="#mathruvedi" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="mathruvedi" aria-label="Go to previous association: Mathruvedi">
+              <a href="#mathruvedi" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="mathruvedi"
+                aria-label="Go to previous association: Mathruvedi">
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                   </svg>
@@ -1675,7 +1747,8 @@
               </a>
 
               <a href="#minGrid" class="min-panel-nav__all" aria-label="View all Pious Associations">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
@@ -1684,13 +1757,15 @@
                 <span>All Associations</span>
               </a>
 
-              <a href="#vincent-de-paul" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="vincent-de-paul" aria-label="Go to next association: Vincent De Paul">
+              <a href="#vincent-de-paul" class="min-panel-nav__btn min-panel-nav__btn--next"
+                data-target="vincent-de-paul" aria-label="Go to next association: Vincent De Paul">
                 <div class="min-panel-nav__text">
                   <span class="min-panel-nav__label">Next Association</span>
                   <span class="min-panel-nav__title">Vincent De Paul</span>
                 </div>
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -1722,7 +1797,8 @@
                 <span class="eyebrow">Ministry</span>
                 <h1>Vincent De Paul</h1>
                 <span class="rule"></span>
-                <p class="hero__lead">Living out Christian charity in action by serving the poor, the sick, and the marginalized with Christ-like love, compassion, and humility.</p>
+                <p class="hero__lead">Living out Christian charity in action by serving the poor, the sick, and the
+                  marginalized with Christ-like love, compassion, and humility.</p>
               </div>
             </div>
           </div>
@@ -1783,42 +1859,48 @@
               <ul class="office-bearers-grid">
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Vincent de Paul/Anoop George - President.jpg" alt="Mr. Anoop George" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Vincent de Paul/Anoop George - President.jpg" alt="Mr. Anoop George"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">President</span></div>
                   </div>
                   <span class="ob-name">Mr. Anoop George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Vincent de Paul/James Joseph - Secretary.png" alt="Mr. James Joseph" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Vincent de Paul/James Joseph - Secretary.png" alt="Mr. James Joseph"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. James Joseph</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Vincent de Paul/Lijo George P - Treasurer.jpg" alt="Mr. Lijo George" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Vincent de Paul/Lijo George P - Treasurer.jpg" alt="Mr. Lijo George"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Lijo George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Vincent de Paul/Robert Jose - Vice President.jpg" alt="Mr. Robert Jose" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Vincent de Paul/Robert Jose - Vice President.jpg" alt="Mr. Robert Jose"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Vice President</span></div>
                   </div>
                   <span class="ob-name">Mr. Robert Jose</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Vincent de Paul/Sunumon George - JOINT SECRETARY.jpg" alt="Mr. Sunumon George" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Vincent de Paul/Sunumon George - JOINT SECRETARY.jpg"
+                      alt="Mr. Sunumon George" class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Joint Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. Sunumon George</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/Images/Vincent de Paul/Charlie PV.jpg" alt="Mr. Charlie P V" class="ob-avatar" loading="lazy">
+                    <img src="./assets/Images/Vincent de Paul/Charlie PV.jpg" alt="Mr. Charlie P V" class="ob-avatar"
+                      loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Joint Treasurer</span></div>
                   </div>
                   <span class="ob-name">Mr. Charlie P V</span>
@@ -1945,16 +2027,19 @@
             <div class="min-nav-divider">
               <span class="min-nav-divider__line"></span>
               <span class="min-nav-divider__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2v20M2 12h20"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 2v20M2 12h20" />
                 </svg>
               </span>
               <span class="min-nav-divider__line"></span>
             </div>
             <div class="min-panel-nav">
-              <a href="#youth-ministry" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="youth-ministry" aria-label="Go to previous association: Youth Ministry">
+              <a href="#youth-ministry" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="youth-ministry"
+                aria-label="Go to previous association: Youth Ministry">
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                   </svg>
@@ -1966,7 +2051,8 @@
               </a>
 
               <a href="#minGrid" class="min-panel-nav__all" aria-label="View all Pious Associations">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
@@ -1975,13 +2061,15 @@
                 <span>All Associations</span>
               </a>
 
-              <a href="#laity-commission" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="laity-commission" aria-label="Go to next association: Laity Commission">
+              <a href="#laity-commission" class="min-panel-nav__btn min-panel-nav__btn--next"
+                data-target="laity-commission" aria-label="Go to next association: Laity Commission">
                 <div class="min-panel-nav__text">
                   <span class="min-panel-nav__label">Next Association</span>
                   <span class="min-panel-nav__title">Laity Commission</span>
                 </div>
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -2013,7 +2101,8 @@
                 <span class="eyebrow">Ministry</span>
                 <h1>Laity Commission</h1>
                 <span class="rule"></span>
-                <p class="hero__lead">Forming, inspiring, and empowering the lay faithful to live out their baptismal call and take an active role in church mission and parish life.</p>
+                <p class="hero__lead">Forming, inspiring, and empowering the lay faithful to live out their baptismal
+                  call and take an active role in church mission and parish life.</p>
               </div>
             </div>
           </div>
@@ -2083,14 +2172,16 @@
               <ul class="office-bearers-grid" style="grid-template-columns: repeat(auto-fill, minmax(210px, 240px));">
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Laity representative/James Joseph - Secretary.png" alt="Mr. James Joseph" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Laity representative/James Joseph - Secretary.png" alt="Mr. James Joseph"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Secretary</span></div>
                   </div>
                   <span class="ob-name">Mr. James Joseph</span>
                 </li>
                 <li class="ob-card">
                   <div class="ob-avatar-wrap">
-                    <img src="./assets/OLS/Laity representative/Remya Paul Mechery.jpg" alt="Ms. Remya Paul" class="ob-avatar" loading="lazy">
+                    <img src="./assets/OLS/Laity representative/Remya Paul Mechery.jpg" alt="Ms. Remya Paul"
+                      class="ob-avatar" loading="lazy">
                     <div class="ob-role-overlay"><span class="ob-role-badge">Coordinator</span></div>
                   </div>
                   <span class="ob-name">Ms. Remya Paul</span>
@@ -2106,16 +2197,19 @@
             <div class="min-nav-divider">
               <span class="min-nav-divider__line"></span>
               <span class="min-nav-divider__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2v20M2 12h20"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 2v20M2 12h20" />
                 </svg>
               </span>
               <span class="min-nav-divider__line"></span>
             </div>
             <div class="min-panel-nav">
-              <a href="#vincent-de-paul" class="min-panel-nav__btn min-panel-nav__btn--prev" data-target="vincent-de-paul" aria-label="Go to previous association: Vincent De Paul">
+              <a href="#vincent-de-paul" class="min-panel-nav__btn min-panel-nav__btn--prev"
+                data-target="vincent-de-paul" aria-label="Go to previous association: Vincent De Paul">
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                   </svg>
@@ -2127,7 +2221,8 @@
               </a>
 
               <a href="#minGrid" class="min-panel-nav__all" aria-label="View all Pious Associations">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
                   <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
@@ -2136,13 +2231,15 @@
                 <span>All Associations</span>
               </a>
 
-              <a href="#pithruvedi" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="pithruvedi" aria-label="Go to next association: Pithruvedi">
+              <a href="#pithruvedi" class="min-panel-nav__btn min-panel-nav__btn--next" data-target="pithruvedi"
+                aria-label="Go to next association: Pithruvedi">
                 <div class="min-panel-nav__text">
                   <span class="min-panel-nav__label">Next Association</span>
                   <span class="min-panel-nav__title">Pithruvedi</span>
                 </div>
                 <div class="min-panel-nav__arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -2153,7 +2250,7 @@
         </section>
 
       </div>
-      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -2166,9 +2263,26 @@
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
           <ul class="social-anim">
-            <li class="inst"><a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px; margin-top: 13px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a></li>
-            <li class="fb"><a href="#" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px; margin-top: 13px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a></li>
-            <li class="yt"><a href="#" aria-label="YouTube"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px; margin-top: 13px;"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a></li>
+            <li class="inst"><a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width: 24px; height: 24px; margin-top: 13px;">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg></a></li>
+            <li class="fb"><a href="#" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width: 24px; height: 24px; margin-top: 13px;">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg></a></li>
+            <li class="yt"><a href="#" aria-label="YouTube"><svg class="icon" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width: 24px; height: 24px; margin-top: 13px;">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                  </path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg></a></li>
           </ul>
         </div>
 
