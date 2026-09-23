@@ -613,7 +613,9 @@
         'ken infotech': 'https://keninfo.tech/',
         'azion overseas': 'https://azionoverseas.com/',
         'mesc': 'https://mesc.in/',
-        'mariam engineering services and consultants (mesc)': 'https://mesc.in/'
+        'mariam engineering services and consultants (mesc)': 'https://mesc.in/',
+        'matha interiors': 'https://www.mathainteriors.com/',
+        'brilliant entrance': 'https://brilliantentrance.com/'
       };
 
       // Convert all openContactModal buttons into hover dropdowns
@@ -839,7 +841,7 @@
 
           <div class="biz-pills">
             <button class="biz-pill-btn active" data-filter="all" onclick="setBizFilter('all', this)">All Businesses
-              (33)</button>
+              (34)</button>
             <button class="biz-pill-btn" data-filter="finance" onclick="setBizFilter('finance', this)">Finance &
               Accounting</button>
             <button class="biz-pill-btn" data-filter="electrical" onclick="setBizFilter('electrical', this)">Electrical
@@ -1612,9 +1614,31 @@
           </div>
 
           <!-- ======================================================= -->
-          <!-- TRAINING CENTRE SECTION (Empty - awaiting content)      -->
-          <!-- Add cards here with data-cat="training"                 -->
+          <!-- TRAINING CENTRE SECTION                                 -->
           <!-- ======================================================= -->
+
+          <!-- Training Centre 1 -->
+          <div class="biz-card" data-cat="training" data-website="https://brilliantentrance.com/">
+            <div>
+              <div class="biz-card-header">
+                <h3 class="biz-card-name">Brilliant Entrance</h3>
+                <span class="biz-card-ward">OLS Parish</span>
+              </div>
+              <span class="biz-card-occ">NEET, KCET &amp; JEE Coaching Centre</span>
+            </div>
+            <div class="biz-card-footer">
+              <button type="button" class="biz-contact-btn" data-website="https://brilliantentrance.com/"
+                onclick="openContactModal('Brilliant Entrance', 'NEET, KCET &amp; JEE Coaching Centre', '', 'https://brilliantentrance.com/')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span>Contact Us</span>
+              </button>
+            </div>
+          </div>
 
           <!-- ======================================================= -->
           <!-- PRINTING AND DESIGN SECTION (Empty - awaiting content)  -->
@@ -1676,7 +1700,7 @@
           </div>
 
           <!-- Interior Design 2 -->
-          <div class="biz-card" data-cat="interior">
+          <div class="biz-card" data-cat="interior" data-website="https://www.mathainteriors.com/">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Matha Interiors</h3>
@@ -1685,8 +1709,15 @@
               <span class="biz-card-occ">Interior Design</span>
             </div>
             <div class="biz-card-footer">
-              <button type="button" class="biz-contact-btn" disabled>
-                <span>Details to be updated</span>
+              <button type="button" class="biz-contact-btn" data-website="https://www.mathainteriors.com/"
+                onclick="openContactModal('Matha Interiors', 'Interior Design', '', 'https://www.mathainteriors.com/')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span>Contact Us</span>
               </button>
             </div>
           </div>
@@ -2257,11 +2288,29 @@
                     </button>
                   </td>
                 </tr>
-                <!-- Training Centre rows will be added here: <tr data-cat="training"><td>#</td>...</tr> -->
+                <!-- Training Centre rows -->
+                <tr data-cat="training" data-website="https://brilliantentrance.com/">
+                  <td>31</td>
+                  <td><strong>Brilliant Entrance</strong></td>
+                  <td>OLS Parish</td>
+                  <td>NEET, KCET &amp; JEE Coaching Centre</td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" data-website="https://brilliantentrance.com/"
+                      onclick="openContactModal('Brilliant Entrance', 'NEET, KCET &amp; JEE Coaching Centre', '', 'https://brilliantentrance.com/')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                      <span>Contact Us</span>
+                    </button>
+                  </td>
+                </tr>
                 <!-- Printing and Design rows will be added here: <tr data-cat="printing"><td>#</td>...</tr> -->
                 <!-- Job Consultancy rows -->
                 <tr data-cat="consultancy" data-phone="+91 9187947560" data-website="https://azionoverseas.com/">
-                  <td>31</td>
+                  <td>32</td>
                   <td><strong>Azion Overseas</strong></td>
                   <td>OLS Parish</td>
                   <td>Job Consultancy</td>
@@ -2280,7 +2329,7 @@
                 </tr>
                 <!-- Interior Design rows -->
                 <tr data-cat="interior" data-website="https://mesc.in/">
-                  <td>32</td>
+                  <td>33</td>
                   <td><strong>Mariam Engineering Services and Consultants (MESC)</strong></td>
                   <td>OLS Parish</td>
                   <td>Hospital Infrastructure & Interior Design</td>
@@ -2297,12 +2346,22 @@
                     </button>
                   </td>
                 </tr>
-                <tr data-cat="interior">
-                  <td>33</td>
+                <tr data-cat="interior" data-website="https://www.mathainteriors.com/">
+                  <td>34</td>
                   <td><strong>Matha Interiors</strong></td>
                   <td>OLS Parish</td>
                   <td>Interior Design</td>
-                  <td><span style="color: #6b6f5a; font-style: italic; font-size: 0.85rem;">Details to be updated</span>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" data-website="https://www.mathainteriors.com/"
+                      onclick="openContactModal('Matha Interiors', 'Interior Design', '', 'https://www.mathainteriors.com/')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                      <span>Contact Us</span>
+                    </button>
                   </td>
                 </tr>
               </tbody>
