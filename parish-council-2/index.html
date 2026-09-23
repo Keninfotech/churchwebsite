@@ -19,12 +19,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+  <link rel="preload" as="image" href="../assets/church.webp" fetchpriority="high">
+  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
 </head>
 
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -78,6 +80,7 @@
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
   <main id="main">
 
     <section class="hero">
@@ -112,7 +115,7 @@
           <div class="clergy-card" data-reveal style="--reveal-delay:0.00s">
             <div class="clergy-card__media">
               <img src="../assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju MSFS" class="clergy-card__img"
-                style="object-position: center 20%;">
+                style="object-position: center 20%;" decoding="async" width="608" height="573">
               <span class="clergy-card__badge clergy-card__badge--vicar">Parish Priest</span>
             </div>
             <div class="clergy-card__content">
@@ -123,8 +126,8 @@
 
           <div class="clergy-card" data-reveal style="--reveal-delay:0.08s">
             <div class="clergy-card__media">
-              <img src="../assets/Parish Council/Jain MSFS.JPG" alt="Fr. Jain Kaniyodickal MSFS"
-                class="clergy-card__img" style="object-position: center 22%;">
+              <img src="../assets/Parish Council/Jain MSFS.webp" alt="Fr. Jain Kaniyodickal MSFS"
+                class="clergy-card__img" style="object-position: center 22%;" decoding="async" width="720" height="431">
               <span class="clergy-card__badge clergy-card__badge--asst">Asst. Parish Priest</span>
             </div>
             <div class="clergy-card__content">
@@ -148,8 +151,8 @@
 
           <div class="person" data-reveal style="--reveal-delay:0.00s">
             <div class="img-slot" aria-label="Portrait of Mr. Jenson Joseph" style="background: none;">
-              <img src="../assets/OLS/Parish Trustee/Jenson Joseph - Trustee.jpg" alt="Mr. Jenson Joseph"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;">
+              <img src="../assets/OLS/Parish Trustee/Jenson Joseph - Trustee.webp" alt="Mr. Jenson Joseph"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy" decoding="async" width="576" height="720">
             </div>
             <div>
               <span class="card__eyebrow">Trustee</span>
@@ -159,8 +162,8 @@
           </div>
           <div class="person" data-reveal style="--reveal-delay:0.06s">
             <div class="img-slot" aria-label="Portrait of Mr. Joseph" style="background: none;">
-              <img src="../assets/OLS/Parish Trustee/Joseph K S - Trustees.png" alt="Mr. Joseph K.S"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;">
+              <img src="../assets/OLS/Parish Trustee/Joseph K S - Trustees.webp" alt="Mr. Joseph K.S"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy" decoding="async" width="405" height="720">
             </div>
             <div>
               <span class="card__eyebrow">Trustee</span>
@@ -170,8 +173,8 @@
           </div>
           <div class="person" data-reveal style="--reveal-delay:0.12s">
             <div class="img-slot" aria-label="Portrait of Mr. Rajkumar" style="background: none;">
-              <img src="../assets/OLS/Parish Trustee/RAJKUMAR. S - Trustees..jpg" alt="Mr. Rajkumar"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;">
+              <img src="../assets/OLS/Parish Trustee/RAJKUMAR. S - Trustees..webp" alt="Mr. Rajkumar"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy" decoding="async" width="322" height="720">
             </div>
             <div>
               <span class="card__eyebrow">Trustee</span>
@@ -181,8 +184,8 @@
           </div>
           <div class="person" data-reveal style="--reveal-delay:0.18s">
             <div class="img-slot" aria-label="Portrait of Mr. Raju Joseph" style="background: none;">
-              <img src="../assets/OLS/Parish Trustee/Raju Joseph.png" alt="Mr. Raju Joseph"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;">
+              <img src="../assets/OLS/Parish Trustee/Raju Joseph.webp" alt="Mr. Raju Joseph"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy" decoding="async" width="720" height="701">
             </div>
             <div>
               <span class="card__eyebrow">Trustee</span>
@@ -192,9 +195,9 @@
           </div>
           <div class="person" data-reveal style="--reveal-delay:0.24s">
             <div class="img-slot" aria-label="Portrait of Mr. Sebastian Varkey" style="background: none;">
-              <img src="../assets/OLS/Parish Trustee/Parish Secretary/Sebastian Varkey - Parish Secretary.JPG"
+              <img src="../assets/OLS/Parish Trustee/Parish Secretary/Sebastian Varkey - Parish Secretary.webp"
                 alt="Mr. Sebastian Varkey"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;">
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy" decoding="async" width="576" height="720">
             </div>
             <div>
               <span class="card__eyebrow">Secretary</span>
@@ -204,9 +207,9 @@
           </div>
           <div class="person" data-reveal style="--reveal-delay:0.30s">
             <div class="img-slot" aria-label="Portrait of Ms. Lissamma Mathew" style="background: none;">
-              <img src="../assets/OLS/Parish Trustee/Parish Secretary/Lissamma Mathew - Joint secretary.jpg"
+              <img src="../assets/OLS/Parish Trustee/Parish Secretary/Lissamma Mathew - Joint secretary.webp"
                 alt="Ms. Lissamma Mathew"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;">
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; position: relative; z-index: 2;" loading="lazy" decoding="async" width="436" height="720">
             </div>
             <div>
               <span class="card__eyebrow">Joint Secretary</span>
@@ -442,20 +445,20 @@
               <div class="accordion-content" style="display: block;">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/Abhilash Sebastian.jpg"
-                      alt="Mr. Abhilash Sebastian" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/Abhilash Sebastian.webp"
+                      alt="Mr. Abhilash Sebastian" loading="lazy" decoding="async" width="413" height="531">
                     <div class="member-card__name">Mr. Abhilash Sebastian</div>
                     <div class="member-card__phone"><a href="tel:9008544008">9008544008</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/ANOOP JOSEPH K.jpg"
-                      alt="Mr. Anoop Joseph" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/ANOOP JOSEPH K.webp"
+                      alt="Mr. Anoop Joseph" loading="lazy" decoding="async" width="543" height="720">
                     <div class="member-card__name">Mr. Anoop Joseph</div>
                     <div class="member-card__phone"><a href="tel:7567469503">7567469503</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/Sonia C.jpg"
-                      alt="Ms. Sonya Reji" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Alphonsa/Sonia C.webp"
+                      alt="Ms. Sonya Reji" loading="lazy" decoding="async" width="720" height="581">
                     <div class="member-card__name">Ms. Sonya Reji</div>
                     <div class="member-card__phone"><a href="tel:9449447154">9449447154</a></div>
                   </div>
@@ -470,20 +473,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Antony/Manoj K Abraham.jpg"
-                      alt="Mr. Manoj Abraham" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Antony/Manoj K Abraham.webp"
+                      alt="Mr. Manoj Abraham" loading="lazy" decoding="async" width="720" height="540">
                     <div class="member-card__name">Mr. Manoj Abraham</div>
                     <div class="member-card__phone"><a href="tel:9448583059">9448583059</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Antony/Augustine Paul.jpg"
-                      alt="Mr. Augustine Paul" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Antony/Augustine Paul.webp"
+                      alt="Mr. Augustine Paul" loading="lazy" decoding="async" width="540" height="720">
                     <div class="member-card__name">Mr. Augustine Paul</div>
                     <div class="member-card__phone"><a href="tel:9900045725">9900045725</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Antony/Deepa Ann John.jpg"
-                      alt="Ms. Deepa Mathew" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Antony/Deepa Ann John.webp"
+                      alt="Ms. Deepa Mathew" loading="lazy" decoding="async" width="360" height="480">
                     <div class="member-card__name">Ms. Deepa Mathew</div>
                     <div class="member-card__phone"><a href="tel:9845021056">9845021056</a></div>
                   </div>
@@ -498,20 +501,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Evuprasyamma/Jenson Joseph.jpg"
-                      alt="Mr. Jenson Joseph" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Evuprasyamma/Jenson Joseph.webp"
+                      alt="Mr. Jenson Joseph" loading="lazy" decoding="async" width="576" height="720">
                     <div class="member-card__name">Mr. Jenson Joseph</div>
                     <div class="member-card__phone"><a href="tel:9902979430">9902979430</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Evuprasyamma/Jerish John.jpg"
-                      alt="Mr. Jerish John" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Evuprasyamma/Jerish John.webp"
+                      alt="Mr. Jerish John" loading="lazy" decoding="async" width="540" height="720">
                     <div class="member-card__name">Mr. Jerish John</div>
                     <div class="member-card__phone"><a href="tel:8884048111">8884048111</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Evuprasyamma/Jincy Anil.png"
-                      alt="Ms. Jincy Anil" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Evuprasyamma/Jincy Anil.webp"
+                      alt="Ms. Jincy Anil" loading="lazy" decoding="async" width="509" height="720">
                     <div class="member-card__name">Ms. Jincy Anil</div>
                     <div class="member-card__phone"><a href="tel:9916800897">9916800897</a></div>
                   </div>
@@ -526,20 +529,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Thadathil Shine George.png"
-                      alt="Mr. Shine George" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Thadathil Shine George.webp"
+                      alt="Mr. Shine George" loading="lazy" decoding="async" width="556" height="720">
                     <div class="member-card__name">Mr. Shine George</div>
                     <div class="member-card__phone"><a href="tel:8296851512">8296851512</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Rohith Tomy.JPG"
-                      alt="Mr. Rohit Tomy" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Rohith Tomy.webp"
+                      alt="Mr. Rohit Tomy" loading="lazy" decoding="async" width="405" height="720">
                     <div class="member-card__name">Mr. Rohit Tomy</div>
                     <div class="member-card__phone"><a href="tel:9611577412">9611577412</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Rose Maria George.jpg"
-                      alt="Ms. Rose Maria George" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Micheal/Rose Maria George.webp"
+                      alt="Ms. Rose Maria George" loading="lazy" decoding="async" width="552" height="720">
                     <div class="member-card__name">Ms. Rose Maria George</div>
                     <div class="member-card__phone"><a href="tel:9446440419">9446440419</a></div>
                   </div>
@@ -555,8 +558,8 @@
                 <div class="accordion-members-grid">
                   <div class="member-card">
                     <img class="member-card__img"
-                      src="../assets/OLS/Parish Council/St. Francis De Sales/Sabu Thomas.jpg" alt="Mr. Sabu Thomas"
-                      loading="lazy">
+                      src="../assets/OLS/Parish Council/St. Francis De Sales/Sabu Thomas.webp" alt="Mr. Sabu Thomas"
+                      loading="lazy" decoding="async" width="496" height="720">
                     <div class="member-card__name">Mr. Sabu Thomas</div>
                     <div class="member-card__phone"><a href="tel:9811390636">9811390636</a></div>
                   </div>
@@ -566,8 +569,8 @@
                     <div class="member-card__phone"><a href="tel:8050800553">8050800553</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Francis De Sales/Bessy Jacob.jpg"
-                      alt="Ms. Bessy Binny" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Francis De Sales/Bessy Jacob.webp"
+                      alt="Ms. Bessy Binny" loading="lazy" decoding="async" width="471" height="720">
                     <div class="member-card__name">Ms. Bessy Binny</div>
                     <div class="member-card__phone"><a href="tel:8123113523">8123113523</a></div>
                   </div>
@@ -582,26 +585,26 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. George/Joshy Joseph.jpg"
-                      alt="Mr. Joshy Joseph" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. George/Joshy Joseph.webp"
+                      alt="Mr. Joshy Joseph" loading="lazy" decoding="async" width="454" height="720">
                     <div class="member-card__name">Mr. Joshy Joseph</div>
                     <div class="member-card__phone"><a href="tel:9342545731">9342545731</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. George/Sebastian Varkey.JPG"
-                      alt="Mr. Sebastian Varkey" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. George/Sebastian Varkey.webp"
+                      alt="Mr. Sebastian Varkey" loading="lazy" decoding="async" width="576" height="720">
                     <div class="member-card__name">Mr. Sebastian Varkey</div>
                     <div class="member-card__phone"><a href="tel:9845651340">9845651340</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. George/RAJKUMAR. S.jpg"
-                      alt="Mr. Rajkumar" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. George/RAJKUMAR. S.webp"
+                      alt="Mr. Rajkumar" loading="lazy" decoding="async" width="322" height="720">
                     <div class="member-card__name">Mr. Rajkumar</div>
                     <div class="member-card__phone"><a href="tel:9940044149">9940044149</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. George/Soumya Jayesh.jpg"
-                      alt="Ms. Sowmya Jayesh" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. George/Soumya Jayesh.webp"
+                      alt="Ms. Sowmya Jayesh" loading="lazy" decoding="async" width="390" height="496">
                     <div class="member-card__name">Ms. Sowmya Jayesh</div>
                     <div class="member-card__phone"><a href="tel:9880659598">9880659598</a></div>
                   </div>
@@ -616,20 +619,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Joseph/Joseph K S.png"
-                      alt="Mr. Joseph K.S" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Joseph/Joseph K S.webp"
+                      alt="Mr. Joseph K.S" loading="lazy" decoding="async" width="405" height="720">
                     <div class="member-card__name">Mr. Joseph K.S</div>
                     <div class="member-card__phone"><a href="tel:9243999999">9243999999</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Joseph/Manu KM.jpg"
-                      alt="Mr. Manu K.M" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Joseph/Manu KM.webp"
+                      alt="Mr. Manu K.M" loading="lazy" decoding="async" width="479" height="720">
                     <div class="member-card__name">Mr. Manu K.M</div>
                     <div class="member-card__phone"><a href="tel:7090206510">7090206510</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Joseph/Jisha Joseph.png"
-                      alt="Ms. Jisha Joseph" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Joseph/Jisha Joseph.webp"
+                      alt="Ms. Jisha Joseph" loading="lazy" decoding="async" width="502" height="720">
                     <div class="member-card__name">Ms. Jisha Joseph</div>
                     <div class="member-card__phone"><a href="tel:9242512345">9242512345</a></div>
                   </div>
@@ -644,20 +647,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Jude/Sajan Davis K.jpeg"
-                      alt="Mr. Sajan Devis" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Jude/Sajan Davis K.webp"
+                      alt="Mr. Sajan Devis" loading="lazy" decoding="async" width="560" height="720">
                     <div class="member-card__name">Mr. Sajan Devis</div>
                     <div class="member-card__phone"><a href="tel:9916380078">9916380078</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Jude/Tijo Tom.jpg"
-                      alt="Mr. Tijo Tom" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Jude/Tijo Tom.webp"
+                      alt="Mr. Tijo Tom" loading="lazy" decoding="async" width="555" height="720">
                     <div class="member-card__name">Mr. Tijo Tom</div>
                     <div class="member-card__phone"><a href="tel:9986034643">9986034643</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Jude/Sandhya Vincent Manalil.jpg"
-                      alt="Ms. Sandya Manalil" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Jude/Sandhya Vincent Manalil.webp"
+                      alt="Ms. Sandya Manalil" loading="lazy" decoding="async" width="413" height="531">
                     <div class="member-card__name">Ms. Sandya Manalil</div>
                     <div class="member-card__phone"><a href="tel:8308050983">8308050983</a></div>
                   </div>
@@ -675,8 +678,8 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Kuriakose/Rathesh Tom.jpg"
-                      alt="Mr. Rathesh Tom" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Kuriakose/Rathesh Tom.webp"
+                      alt="Mr. Rathesh Tom" loading="lazy" decoding="async" width="413" height="531">
                     <div class="member-card__name">Mr. Rathesh Tom</div>
                     <div class="member-card__phone"><a href="tel:9846559966">9846559966</a></div>
                   </div>
@@ -686,8 +689,8 @@
                     <div class="member-card__phone"><a href="tel:9535727439">9535727439</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Kuriakose/Lissamma Mathew.jpg"
-                      alt="Ms. Lisamma Mathew" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Kuriakose/Lissamma Mathew.webp"
+                      alt="Ms. Lisamma Mathew" loading="lazy" decoding="async" width="436" height="720">
                     <div class="member-card__name">Ms. Lisamma Mathew</div>
                     <div class="member-card__phone"><a href="tel:9008103225">9008103225</a></div>
                   </div>
@@ -702,20 +705,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Mary's/Shijoy Jesudas.jpg"
-                      alt="Mr. Shijoy Yesudas" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Mary's/Shijoy Jesudas.webp"
+                      alt="Mr. Shijoy Yesudas" loading="lazy" decoding="async" width="413" height="531">
                     <div class="member-card__name">Mr. Shijoy Yesudas</div>
                     <div class="member-card__phone"><a href="tel:9886001428">9886001428</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Mary's/Vinu Joseph Venadu.jpg"
-                      alt="Mr. Vinu Joseph" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Mary's/Vinu Joseph Venadu.webp"
+                      alt="Mr. Vinu Joseph" loading="lazy" decoding="async" width="413" height="531">
                     <div class="member-card__name">Mr. Vinu Joseph</div>
                     <div class="member-card__phone"><a href="tel:9986573619">9986573619</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Mary's/Tessymol joseph.png"
-                      alt="Ms. Tessymol Joseph" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Mary's/Tessymol joseph.webp"
+                      alt="Ms. Tessymol Joseph" loading="lazy" decoding="async" width="482" height="720">
                     <div class="member-card__name">Ms. Tessymol Joseph</div>
                     <div class="member-card__phone"><a href="tel:9886849466">9886849466</a></div>
                   </div>
@@ -750,20 +753,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Peter/Joby George.jpg"
-                      alt="Mr. Joby George" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Peter/Joby George.webp"
+                      alt="Mr. Joby George" loading="lazy" decoding="async" width="720" height="626">
                     <div class="member-card__name">Mr. Joby George</div>
                     <div class="member-card__phone"><a href="tel:9886191794">9886191794</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Peter/Thomas Aykara Joy.jpg"
-                      alt="Mr. Thomas Aykkara" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Peter/Thomas Aykara Joy.webp"
+                      alt="Mr. Thomas Aykkara" loading="lazy" decoding="async" width="571" height="720">
                     <div class="member-card__name">Mr. Thomas Aykkara</div>
                     <div class="member-card__phone"><a href="tel:9886478777">9886478777</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Peter/Merly Jomon.JPG"
-                      alt="Ms. Merly Jomon" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Peter/Merly Jomon.webp"
+                      alt="Ms. Merly Jomon" loading="lazy" decoding="async" width="442" height="720">
                     <div class="member-card__name">Ms. Merly Jomon</div>
                     <div class="member-card__phone"><a href="tel:9945455660">9945455660</a></div>
                   </div>
@@ -778,20 +781,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Sebastian/Jaijee Jacob.jpg"
-                      alt="Mr. Jaijee Jacob" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Sebastian/Jaijee Jacob.webp"
+                      alt="Mr. Jaijee Jacob" loading="lazy" decoding="async" width="528" height="720">
                     <div class="member-card__name">Mr. Jaijee Jacob</div>
                     <div class="member-card__phone"><a href="tel:9986697457">9986697457</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Sebastian/Lijo George P.jpg"
-                      alt="Mr. Leo Micheal" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Sebastian/Lijo George P.webp"
+                      alt="Mr. Leo Micheal" loading="lazy" decoding="async" width="576" height="720">
                     <div class="member-card__name">Mr. Leo Micheal</div>
                     <div class="member-card__phone"><a href="tel:9886175480">9886175480</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Sebastian/Asha Charley.jpg"
-                      alt="Ms. Asha Charlie" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Sebastian/Asha Charley.webp"
+                      alt="Ms. Asha Charlie" loading="lazy" decoding="async" width="480" height="720">
                     <div class="member-card__name">Ms. Asha Charlie</div>
                     <div class="member-card__phone"><a href="tel:9900195121">9900195121</a></div>
                   </div>
@@ -806,20 +809,20 @@
               <div class="accordion-content">
                 <div class="accordion-members-grid">
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Thomas/Sijo Mathews.jpg"
-                      alt="Mr. Sijo Mathew" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Thomas/Sijo Mathews.webp"
+                      alt="Mr. Sijo Mathew" loading="lazy" decoding="async" width="720" height="720">
                     <div class="member-card__name">Mr. Sijo Mathew</div>
                     <div class="member-card__phone"><a href="tel:8123481074">8123481074</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Thomas/LEO RAPHY.jpg"
-                      alt="Mr. Leo Raphy" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Thomas/LEO RAPHY.webp"
+                      alt="Mr. Leo Raphy" loading="lazy" decoding="async" width="538" height="720">
                     <div class="member-card__name">Mr. Leo Raphy</div>
                     <div class="member-card__phone"><a href="tel:9901753630">9901753630</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Thomas/Francina Michael.jpg"
-                      alt="Ms. Francina" loading="lazy">
+                    <img class="member-card__img" src="../assets/OLS/Parish Council/St. Thomas/Francina Michael.webp"
+                      alt="Ms. Francina" loading="lazy" decoding="async" width="720" height="720">
                     <div class="member-card__name">Ms. Francina</div>
                     <div class="member-card__phone"><a href="tel:9740030454">9740030454</a></div>
                   </div>
@@ -840,14 +843,14 @@
                   </div>
                   <div class="member-card">
                     <img class="member-card__img"
-                      src="../assets/Parish Council/St. Vincent de Paul/Bijo Joseph - Forane council member.jpg"
-                      alt="Mr. Bijo Joseph" loading="lazy">
+                      src="../assets/Parish Council/St. Vincent de Paul/Bijo Joseph - Forane council member.webp"
+                      alt="Mr. Bijo Joseph" loading="lazy" decoding="async" width="720" height="673">
                     <div class="member-card__name">Mr. Bijo Joseph</div>
                     <div class="member-card__phone"><a href="tel:9886828100">9886828100</a></div>
                   </div>
                   <div class="member-card">
-                    <img class="member-card__img" src="../assets/Parish Council/St. Vincent de Paul/Viveena Robert.png"
-                      alt="Ms. Viveena Robert" loading="lazy">
+                    <img class="member-card__img" src="../assets/Parish Council/St. Vincent de Paul/Viveena Robert.webp"
+                      alt="Ms. Viveena Robert" loading="lazy" decoding="async" width="589" height="720">
                     <div class="member-card__name">Ms. Viveena Robert</div>
                     <div class="member-card__phone"><a href="tel:7204243114">7204243114</a></div>
                   </div>
@@ -868,7 +871,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -930,7 +933,7 @@
       </div>
     </div>
   </footer>
-  <script src="../assets/redesign.js" defer></script>
+  <script src="../assets/redesign.js?v=3" defer></script>
 </body>
 
 </html>

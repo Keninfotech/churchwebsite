@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+<link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
 <style>
   ul.rows {
     display: grid;
@@ -162,6 +162,7 @@
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -177,27 +178,51 @@
           <span class="brand__sub">Electronics City (Hebbagodi)</span>
         </span>
       </a>
-      <nav class="primary-nav" data-primary-nav aria-label="Main navigation"><ul><li><a href="../">Home</a></li>
-        <li class="has-sub">
-          <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../our-patroness/">Our Patroness</a></li><li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li><li><a href="../parish-history/">Parish History</a></li><li><a href="../vicars-message/">Vicars Message</a></li><li><a href="../donate-to-parish/">Donate to Parish</a></li><li><a href="../saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li></ul>
-        </li>
-        <li class="has-sub">
-          <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../parish-council-2/">Parish Council</a></li><li><a href="../wards/">Wards</a></li><li><a href="../construction-committee/" aria-current="page">Construction Committee</a></li><li><a href="../parish-choir/">Parish Choir</a></li><li><a href="../obituaries/">Obituaries</a></li><li><a href="../cri-electronics-city/">CRI Electronics City</a></li><li><a href="../business-directory/">Business Directory</a></li><li><a href="../gallery/">Gallery</a></li></ul>
-        </li>
-        <li><a href="../ministries_combined.html">Pious Associations</a></li><li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li><li><a href="../contact-us/">Contact Us</a></li></ul></nav>
+      <nav class="primary-nav" data-primary-nav aria-label="Main navigation">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li class="has-sub">
+            <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../our-patroness/">Our Patroness</a></li>
+              <li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li>
+              <li><a href="../parish-history/">Parish History</a></li>
+              <li><a href="../vicars-message/">Vicars Message</a></li>
+              <li><a href="../donate-to-parish/">Donate to Parish</a></li>
+              <li><a href="../saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li>
+            </ul>
+          </li>
+          <li class="has-sub">
+            <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../parish-council-2/">Parish Council</a></li>
+              <li><a href="../wards/">Wards</a></li>
+              <li><a href="../construction-committee/" aria-current="page">Construction Committee</a></li>
+              <li><a href="../parish-choir/">Parish Choir</a></li>
+              <li><a href="../obituaries/">Obituaries</a></li>
+              <li><a href="../cri-electronics-city/">CRI Electronics City</a></li>
+              <li><a href="../business-directory/">Business Directory</a></li>
+              <li><a href="../gallery/">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="../ministries_combined.html">Pious Associations</a></li>
+          <li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
+          <li><a href="../contact-us/">Contact Us</a></li>
+        </ul>
+      </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
+          aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
 <main id="main">
 
 <section class="hero hero--construction has-backdrop">
   <div class="hero__backdrop" aria-hidden="true" style="position: absolute; top: 0; bottom: 0; right: 0; width: 70%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%);">
     <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.85) 10%, rgba(253, 250, 243, 0.3) 28%, transparent 55%); pointer-events: none;"></div>
-    <img src="../assets/hero section images/Construction Committee.jpg.jpeg" alt="Construction Committee" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;">
+    <img src="../assets/hero section images/Construction Committee.jpg.webp" alt="Construction Committee" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" decoding="async" width="2560" height="1152">
   </div>
   <div class="container">
     <div class="hero__grid">
@@ -223,7 +248,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju Vazhaparambil MSFS" class="member-avatar" loading="lazy">
+          <img src="../assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju Vazhaparambil MSFS" class="member-avatar" loading="lazy" decoding="async" width="608" height="573">
           <div><strong>Fr. Riju Vazhaparambil MSFS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Parish Priest &amp; Construction Convenor</strong></div>
@@ -232,7 +257,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Priest/Robin MSFS.png" alt="Fr. Robin MSFS" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Priest/Robin MSFS.webp" alt="Fr. Robin MSFS" class="member-avatar" loading="lazy" decoding="async" width="480" height="720">
           <div><strong>Fr. Robin MSFS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Asst Parish Priest</strong></div>
@@ -241,7 +266,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Fr. Vijin Kottoor MSFS.jpg" alt="Fr. Vijin Kottoor MSFS" class="member-avatar" loading="lazy" style="object-position: center 25%;">
+          <img src="../assets/Constrction Committee/Fr. Vijin Kottoor MSFS.webp" alt="Fr. Vijin Kottoor MSFS" class="member-avatar" loading="lazy" style="object-position: center 25%;" decoding="async" width="150" height="150">
           <div><strong>Fr. Vijin Kottoor MSFS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Asst Parish Priest</strong></div>
@@ -250,7 +275,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Joseph KS.jpg" alt="Joseph KS" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Joseph KS.webp" alt="Joseph KS" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Joseph KS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
@@ -259,7 +284,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Rahu Joseph.jpg" alt="Rahu Joseph" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Rahu Joseph.webp" alt="Rahu Joseph" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Rahu Joseph</strong></div>
         </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
@@ -268,7 +293,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Jenson Joseph.jpg" alt="Jenson Joseph" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Jenson Joseph.webp" alt="Jenson Joseph" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Jenson Joseph</strong></div>
         </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
@@ -277,7 +302,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Raj Kumar.jpg" alt="Raj Kumar" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Raj Kumar.webp" alt="Raj Kumar" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Raj Kumar</strong></div>
         </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
@@ -286,7 +311,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Construction Committee/Geo Paul - Secretary.png" alt="Geo Paul" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Construction Committee/Geo Paul - Secretary.webp" alt="Geo Paul" class="member-avatar" loading="lazy" decoding="async" width="613" height="720">
           <div><strong>Geo Paul</strong></div>
         </div>
         <div class="flip-card-back"><strong>Construction Committee Secretary</strong></div>
@@ -295,7 +320,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Thomas VT.jpeg" alt="Thomas VT" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Thomas VT.webp" alt="Thomas VT" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Thomas VT</strong></div>
         </div>
         <div class="flip-card-back"><strong>Finance Committee Convenor</strong></div>
@@ -304,7 +329,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Praveen Ampatt.jpg" alt="Praveen Ampatt" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Praveen Ampatt.webp" alt="Praveen Ampatt" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Praveen Ampatt</strong></div>
         </div>
         <div class="flip-card-back"><strong>Finance Committee Treasurer</strong></div>
@@ -313,7 +338,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Thomas MP.jpg" alt="Thomas MP" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Thomas MP.webp" alt="Thomas MP" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Thomas MP</strong></div>
         </div>
         <div class="flip-card-back"><strong>Vendor Management</strong></div>
@@ -421,7 +446,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Construction Committee/Lijo George P.jpg" alt="Lijo George" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Construction Committee/Lijo George P.webp" alt="Lijo George" class="member-avatar" loading="lazy" decoding="async" width="576" height="720">
           <div><strong>Lijo George</strong></div>
         </div>
         <div class="flip-card-back"><strong>Core Committee Member</strong></div>
@@ -436,7 +461,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju Vazhaparambil MSFS" class="member-avatar" loading="lazy">
+          <img src="../assets/Parish Council/Fr. Riju MSFS.webp" alt="Fr. Riju Vazhaparambil MSFS" class="member-avatar" loading="lazy" decoding="async" width="608" height="573">
           <div><strong>Fr. Riju Vazhaparambil MSFS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Parish Priest &amp; Construction Convenor</strong></div>
@@ -445,7 +470,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Priest/Robin MSFS.png" alt="Fr. Robin MSFS" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Priest/Robin MSFS.webp" alt="Fr. Robin MSFS" class="member-avatar" loading="lazy" decoding="async" width="480" height="720">
           <div><strong>Fr. Robin MSFS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Asst. Parish Priest</strong></div>
@@ -454,7 +479,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Fr. Vijin Kottoor MSFS.jpg" alt="Fr. Vijin Kottoor MSFS" class="member-avatar" loading="lazy" style="object-position: center 25%;">
+          <img src="../assets/Constrction Committee/Fr. Vijin Kottoor MSFS.webp" alt="Fr. Vijin Kottoor MSFS" class="member-avatar" loading="lazy" style="object-position: center 25%;" decoding="async" width="150" height="150">
           <div><strong>Fr. Vijin Kottoor MSFS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Asst. Parish Priest</strong></div>
@@ -463,7 +488,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Joseph KS.jpg" alt="Joseph KS" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Joseph KS.webp" alt="Joseph KS" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Joseph KS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
@@ -472,7 +497,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Rahu Joseph.jpg" alt="Raju Joseph" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Rahu Joseph.webp" alt="Raju Joseph" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Raju Joseph</strong></div>
         </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
@@ -481,7 +506,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Jenson Joseph.jpg" alt="Jenson Joseph" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Jenson Joseph.webp" alt="Jenson Joseph" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Jenson Joseph</strong></div>
         </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
@@ -490,7 +515,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Raj Kumar.jpg" alt="Raj Kumar" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Raj Kumar.webp" alt="Raj Kumar" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Raj Kumar</strong></div>
         </div>
         <div class="flip-card-back"><strong>Trustee</strong></div>
@@ -499,7 +524,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Construction Committee/Geo Paul - Secretary.png" alt="Geo Paul" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Construction Committee/Geo Paul - Secretary.webp" alt="Geo Paul" class="member-avatar" loading="lazy" decoding="async" width="613" height="720">
           <div><strong>Geo Paul</strong></div>
         </div>
         <div class="flip-card-back"><strong>Construction Secretary</strong></div>
@@ -508,7 +533,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Thomas VT.jpeg" alt="Thomas VT" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Thomas VT.webp" alt="Thomas VT" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Thomas VT</strong></div>
         </div>
         <div class="flip-card-back"><strong>Finance Committee &ndash; Primary</strong></div>
@@ -517,7 +542,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Praveen Ampatt.jpg" alt="Praveen Ambatt" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Praveen Ampatt.webp" alt="Praveen Ambatt" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Praveen Ambatt</strong></div>
         </div>
         <div class="flip-card-back"><strong>Finance Committee &ndash; Secondary</strong></div>
@@ -526,7 +551,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Thomas MP.jpg" alt="MP Thomas" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Thomas MP.webp" alt="MP Thomas" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>MP Thomas</strong></div>
         </div>
         <div class="flip-card-back"><strong>Vendor Management &ndash; Primary</strong></div>
@@ -601,7 +626,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Construction Committee/Geo Paul - Secretary.png" alt="Geo Paul" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Construction Committee/Geo Paul - Secretary.webp" alt="Geo Paul" class="member-avatar" loading="lazy" decoding="async" width="613" height="720">
           <div><strong>Geo Paul</strong></div>
         </div>
         <div class="flip-card-back"><strong>Communications &ndash; Secondary</strong></div>
@@ -610,7 +635,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Construction Committee/ORGANIZATION  Construction Committee Members/Manu KM.jpg" alt="Manu KM" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Construction Committee/ORGANIZATION  Construction Committee Members/Manu KM.webp" alt="Manu KM" class="member-avatar" loading="lazy" decoding="async" width="479" height="720">
           <div><strong>Manu KM</strong></div>
         </div>
         <div class="flip-card-back"><strong>Committee Member</strong></div>
@@ -652,7 +677,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Jenson Joseph.jpg" alt="Jenson Joseph" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Jenson Joseph.webp" alt="Jenson Joseph" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Jenson Joseph</strong></div>
         </div>
         <div class="flip-card-back"><strong>Finance Sub Committee</strong></div>
@@ -672,7 +697,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Laity representative/Remya Paul Mechery.jpg" alt="Remya Paul Mechery" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Laity representative/Remya Paul Mechery.webp" alt="Remya Paul Mechery" class="member-avatar" loading="lazy" decoding="async" width="480" height="720">
           <div><strong>Remya Paul Mechery</strong></div>
         </div>
         <div class="flip-card-back"><strong>Finance Sub Committee</strong></div>
@@ -703,7 +728,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/Constrction Committee/Joseph KS.jpg" alt="Joseph KS" class="member-avatar" loading="lazy">
+          <img src="../assets/Constrction Committee/Joseph KS.webp" alt="Joseph KS" class="member-avatar" loading="lazy" decoding="async" width="150" height="150">
           <div><strong>Joseph KS</strong></div>
         </div>
         <div class="flip-card-back"><strong>Vendor Sub Committee</strong></div>
@@ -789,7 +814,7 @@
     <li class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img src="../assets/OLS/Construction Committee/Jerish John.jpg" alt="Jerish John" class="member-avatar" loading="lazy">
+          <img src="../assets/OLS/Construction Committee/Jerish John.webp" alt="Jerish John" class="member-avatar" loading="lazy" decoding="async" width="540" height="720">
           <div><strong>Jerish John</strong></div>
         </div>
         <div class="flip-card-back"><strong>Communications Sub Committee</strong></div>
@@ -838,7 +863,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -868,6 +893,6 @@
       </div>
     </div>
   </footer>
-<script src="../assets/redesign.js" defer></script>
+<script src="../assets/redesign.js?v=3" defer></script>
 </body>
 </html>

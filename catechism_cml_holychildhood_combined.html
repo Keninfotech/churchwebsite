@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/redesign.css?v=ols_v5">
+<link rel="stylesheet" href="./assets/redesign.css?v=ols_v6">
 
 <style>
   /* ---------- Ministries overview & card system ---------- */
@@ -510,6 +510,7 @@
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -525,21 +526,45 @@
           <span class="brand__sub">Electronics City (Hebbagodi)</span>
         </span>
       </a>
-      <nav class="primary-nav" data-primary-nav aria-label="Main navigation"><ul><li><a href="./">Home</a></li>
-        <li class="has-sub">
-          <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="./our-patroness/">Our Patroness</a></li><li><a href="./our-church-hierarchy/">Our Church Hierarchy</a></li><li><a href="./parish-history/">Parish History</a></li><li><a href="./vicars-message/">Vicars Message</a></li><li><a href="./donate-to-parish/">Donate to Parish</a></li><li><a href="./saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li></ul>
-        </li>
-        <li class="has-sub">
-          <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="./parish-council-2/">Parish Council</a></li><li><a href="./wards/">Wards</a></li><li><a href="./construction-committee/">Construction Committee</a></li><li><a href="./parish-choir/">Parish Choir</a></li><li><a href="./obituaries/">Obituaries</a></li><li><a href="./cri-electronics-city/">CRI Electronics City</a></li><li><a href="./business-directory/">Business Directory</a></li><li><a href="./gallery/">Gallery</a></li></ul>
-        </li>
-        <li><a href="./ministries_combined.html">Pious Associations</a></li><li><a href="./catechism_cml_holychildhood_combined.html">Catechism</a></li><li><a href="./contact-us/">Contact Us</a></li></ul></nav>
+      <nav class="primary-nav" data-primary-nav aria-label="Main navigation">
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li class="has-sub">
+            <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="./our-patroness/">Our Patroness</a></li>
+              <li><a href="./our-church-hierarchy/">Our Church Hierarchy</a></li>
+              <li><a href="./parish-history/">Parish History</a></li>
+              <li><a href="./vicars-message/">Vicars Message</a></li>
+              <li><a href="./donate-to-parish/">Donate to Parish</a></li>
+              <li><a href="./saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li>
+            </ul>
+          </li>
+          <li class="has-sub">
+            <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="./parish-council-2/">Parish Council</a></li>
+              <li><a href="./wards/">Wards</a></li>
+              <li><a href="./construction-committee/">Construction Committee</a></li>
+              <li><a href="./parish-choir/">Parish Choir</a></li>
+              <li><a href="./obituaries/">Obituaries</a></li>
+              <li><a href="./cri-electronics-city/">CRI Electronics City</a></li>
+              <li><a href="./business-directory/">Business Directory</a></li>
+              <li><a href="./gallery/">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="./ministries_combined.html">Pious Associations</a></li>
+          <li><a href="./catechism_cml_holychildhood_combined.html" aria-current="page">Catechism</a></li>
+          <li><a href="./contact-us/">Contact Us</a></li>
+        </ul>
+      </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
+          aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
 <main id="main">
   <section class="min-hero" data-reveal>
     <video class="min-hero__video" src="jesus.mp4" autoplay loop muted playsinline></video>
@@ -581,7 +606,7 @@
     <div class="ministry-panel is-active" id="panel-catechism" data-slug="catechism">
       <section class="hero hero--catechism">
         <div class="hero-bg-catechism" aria-hidden="true">
-          <img src="./assets/Catechism.png" alt="Jesus Teaching the Multitude - Sermon on the Mount">
+          <img src="./assets/Catechism.webp" alt="Jesus Teaching the Multitude - Sermon on the Mount" decoding="async" width="230" height="264">
         </div>
         <div class="container" style="position: relative; z-index: 2;">
           <div class="hero__grid">
@@ -1773,7 +1798,7 @@
           <p><strong>No of Boys:</strong> 9</p>
           <p><strong>No of Girls:</strong> 8</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Deepthi Tom.jpg" alt="Deepthi Tom" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Deepthi Tom.webp" alt="Deepthi Tom" class="tab-img" loading="lazy" decoding="async" width="233" height="300">
       </div>
       <div class="tab-content" id="c2a">
         <div class="tab-details">
@@ -1785,7 +1810,7 @@
           <p><strong>No of Boys:</strong> 8</p>
           <p><strong>No of Girls:</strong> 13</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Simi Shinto.jpg" alt="Simi Shinto" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Simi Shinto.webp" alt="Simi Shinto" class="tab-img" loading="lazy" decoding="async" width="218" height="300">
       </div>
       <div class="tab-content" id="c2b">
         <div class="tab-details">
@@ -1796,7 +1821,7 @@
           <p><strong>Number of Students:</strong> 18</p>
           <p><strong>No of Boys:</strong> 6</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Lissy Thomas.jpg" alt="Lissy Thomas" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Lissy Thomas.webp" alt="Lissy Thomas" class="tab-img" loading="lazy" decoding="async" width="214" height="300">
       </div>
       <div class="tab-content" id="c3a">
         <div class="tab-details">
@@ -1817,7 +1842,7 @@
           <p><strong>Number of Students:</strong> 25</p>
           <p><strong>No of Boys:</strong> 13</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Sr. Rosy.jpg" alt="Sr. Rosy" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Sr. Rosy.webp" alt="Sr. Rosy" class="tab-img" loading="lazy" decoding="async" width="283" height="300">
       </div>
       <div class="tab-content" id="c4a">
         <div class="tab-details">
@@ -1835,7 +1860,7 @@
           <p><strong>Class Teacher's Name:</strong> Sr. Kochuthresia</p>
           <p><strong>Mobile:</strong> 8904701752</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Sr. Kochuthresia.jpg" alt="Sr. Kochuthresia" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Sr. Kochuthresia.webp" alt="Sr. Kochuthresia" class="tab-img" loading="lazy" decoding="async" width="236" height="300">
       </div>
       <div class="tab-content" id="c5a">
         <div class="tab-details">
@@ -1846,7 +1871,7 @@
           <p><strong>Number of Students:</strong> 22</p>
           <p><strong>No of Girls:</strong> 11</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Cini Angelus.jpeg" alt="Cini Angelus" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Cini Angelus.webp" alt="Cini Angelus" class="tab-img" loading="lazy" decoding="async" width="240" height="300">
       </div>
       <div class="tab-content" id="c5b">
         <div class="tab-details">
@@ -1875,7 +1900,7 @@
           <p><strong>Number of Students:</strong> 20</p>
           <p><strong>No of Boys:</strong> 12</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Gracelind Albert.jpg" alt="Gracelind Albert" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Gracelind Albert.webp" alt="Gracelind Albert" class="tab-img" loading="lazy" decoding="async" width="234" height="300">
       </div>
       <div class="tab-content" id="c7a">
         <div class="tab-details">
@@ -1894,7 +1919,7 @@
           <p><strong>Class Teacher's Name:</strong> Jeseentha Mathew</p>
           <p><strong>Mobile:</strong> 9901534807</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Jeseentha Mathew.jpg" alt="Jeseentha Mathew" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Jeseentha Mathew.webp" alt="Jeseentha Mathew" class="tab-img" loading="lazy" decoding="async" width="177" height="300">
       </div>
       <div class="tab-content" id="c8a">
         <div class="tab-details">
@@ -1951,7 +1976,7 @@
           <p><strong>No of Boys:</strong> 16</p>
           <p><strong>No of Girls:</strong> 20</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Sheryl Jose.jpg" alt="Sheryl Jose" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Sheryl Jose.webp" alt="Sheryl Jose" class="tab-img" loading="lazy" decoding="async" width="300" height="300">
       </div>
       <div class="tab-content" id="c12a">
         <div class="tab-details">
@@ -1960,7 +1985,7 @@
           <p><strong>Class Teacher's Name:</strong> Varghese Thattil</p>
           <p><strong>Mobile:</strong> 9848565563</p>
         </div>
-        <img src="./assets/Catechism/Sunday School/Varghese Thattil.jpg" alt="Varghese Thattil" class="tab-img">
+        <img src="./assets/Catechism/Sunday School/Varghese Thattil.webp" alt="Varghese Thattil" class="tab-img" loading="lazy" decoding="async" width="252" height="300">
       </div>
     </div>
   </div>
@@ -1982,55 +2007,55 @@ function openClass(tabId) {
       <ul class="office-bearers-grid">
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Mr. shine Williams.jpeg" alt="Mr. Shine Williams" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Mr. shine Williams.webp" alt="Mr. Shine Williams" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Mr. Shine Williams</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Ms. Sheril Jose.jpg" alt="Ms. Sheril Jose" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Ms. Sheril Jose.webp" alt="Ms. Sheril Jose" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Sheril Jose</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Ms. Priya Mathew.jpg" alt="Ms. Priya Mathew" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Ms. Priya Mathew.webp" alt="Ms. Priya Mathew" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Priya Mathew</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Ms. Linta Scariah.jpg" alt="Ms. Linta Scariah" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Ms. Linta Scariah.webp" alt="Ms. Linta Scariah" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Linta Scariah</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Mr. Jestin James.jpeg" alt="Mr. Jestin James" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Mr. Jestin James.webp" alt="Mr. Jestin James" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Mr. Jestin James</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Dr Angel Sajo.jpg" alt="Dr. Angel Sajo" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Dr Angel Sajo.webp" alt="Dr. Angel Sajo" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Dr. Angel Sajo</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Ms. Cini Angelous.jpeg" alt="Ms. Cini Angelous" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Ms. Cini Angelous.webp" alt="Ms. Cini Angelous" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Cini Angelous</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Ms. Sunitha Jaison.jpg" alt="Ms. Sunitha Jaison" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Ms. Sunitha Jaison.webp" alt="Ms. Sunitha Jaison" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Sunitha Jaison</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Sunday School/Mr. Deepak Joseph.jpg" alt="Mr. Deepak Joseph" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Sunday School/Mr. Deepak Joseph.webp" alt="Mr. Deepak Joseph" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Mr. Deepak Joseph</span>
         </li>
@@ -2106,7 +2131,7 @@ function openClass(tabId) {
       </div>
       <div class="altar-servers-media">
         <div class="altar-servers-frame">
-          <img src="./assets/alter2.jpg" alt="Current Altar Servers of Our Lady of Sorrows Church" class="altar-servers-photo" loading="lazy">
+          <img src="./assets/alter2.webp" alt="Current Altar Servers of Our Lady of Sorrows Church" class="altar-servers-photo" loading="lazy" decoding="async" width="1620" height="1080">
         </div>
       </div>
     </div>
@@ -2175,7 +2200,7 @@ function openClass(tabId) {
 <section class="cat-beginnings-section">
   <div class="cat-beginnings-backdrop" aria-hidden="true">
     <div class="cat-beginnings-fade"></div>
-    <img src="./assets/backgroundimage.png" alt="Church Interior with Holy Bible" class="cat-beginnings-img" loading="lazy">
+    <img src="./assets/backgroundimage.webp" alt="Church Interior with Holy Bible" class="cat-beginnings-img" loading="lazy" decoding="async" width="1278" height="1230">
   </div>
   <div class="container" style="max-width:1200px; position: relative; z-index: 2;">
     <div class="prose cat-beginnings-content" data-reveal>
@@ -2246,7 +2271,7 @@ function openClass(tabId) {
 
 <section class="hero hero--cml">
   <div class="hero-bg-cml" aria-hidden="true">
-    <img src="./assets/Cherupushppam.png" alt="Cherupushpa - St. Thérèse of Lisieux">
+    <img src="./assets/Cherupushppam.webp" alt="Cherupushpa - St. Thérèse of Lisieux" loading="lazy" decoding="async" width="408" height="512">
   </div>
   <div class="container" style="position: relative; z-index: 2;">
     <div class="hero__grid">
@@ -2428,7 +2453,7 @@ function openClass(tabId) {
 
 <section class="hero hero--holychild">
   <div class="hero-bg-holychild" aria-hidden="true">
-    <img src="./assets/Holy Child.jpg.jpeg" alt="Holy Childhood - Jesus with Children">
+    <img src="./assets/Holy Child.jpg.webp" alt="Holy Childhood - Jesus with Children" loading="lazy" decoding="async" width="338" height="601">
   </div>
   <div class="container" style="position: relative; z-index: 2;">
     <div class="hero__grid">
@@ -2457,7 +2482,7 @@ function openClass(tabId) {
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Ms. Sonia.jpeg" alt="Ms. Sonia VL" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Ms. Sonia.webp" alt="Ms. Sonia VL" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Sonia VL</span>
         </li>
@@ -2469,49 +2494,49 @@ function openClass(tabId) {
       <ul class="office-bearers-grid">
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Jhonson Jijo.jpeg" alt="Mr. Jhonson Jijo" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Jhonson Jijo.webp" alt="Mr. Jhonson Jijo" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Mr. Jhonson Jijo</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Mr. Arvin Renju.jpg" alt="Mr. Arvin Renju" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Mr. Arvin Renju.webp" alt="Mr. Arvin Renju" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Mr. Arvin Renju</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Mr. John Joseph.jpeg" alt="Mr. John Joseph" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Mr. John Joseph.webp" alt="Mr. John Joseph" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Mr. John Joseph</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Mr. Aron Rexon.jpg" alt="Mr. Aron Rexon" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Mr. Aron Rexon.webp" alt="Mr. Aron Rexon" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Mr. Aron Rexon</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Ms. Rachel Maria.jpeg" alt="Ms. Rachel Maria" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Ms. Rachel Maria.webp" alt="Ms. Rachel Maria" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Rachel Maria</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Ms. Dahlia Anthony.jpeg" alt="Ms. Dahlia Anthony" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Ms. Dahlia Anthony.webp" alt="Ms. Dahlia Anthony" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Dahlia Anthony</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Ms. Jessa Rino George.jpg" alt="Ms. Jessa Rino George" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Ms. Jessa Rino George.webp" alt="Ms. Jessa Rino George" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Jessa Rino George</span>
         </li>
         <li class="ob-card">
           <div class="ob-avatar-wrap">
-            <img src="./assets/Catechism/Holy Child/Ms. Andrea Anthony.jpeg" alt="Ms. Andrea Anthony" class="ob-avatar" loading="lazy">
+            <img src="./assets/Catechism/Holy Child/Ms. Andrea Anthony.webp" alt="Ms. Andrea Anthony" class="ob-avatar" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <span class="ob-name">Ms. Andrea Anthony</span>
         </li>
@@ -2581,7 +2606,7 @@ function openClass(tabId) {
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="./logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="./logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -2611,7 +2636,7 @@ function openClass(tabId) {
       </div>
     </div>
   </footer>
-<script src="./assets/redesign.js" defer></script>
+<script src="./assets/redesign.js?v=3" defer></script>
 
 <script>
 (function() {

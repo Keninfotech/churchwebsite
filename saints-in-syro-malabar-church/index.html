@@ -19,7 +19,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
 
   <style>
     /* ---------- Saint hover-reveal cards ---------- */
@@ -142,6 +142,7 @@
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -190,18 +191,18 @@
         </ul>
       </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <a class="nav-cta" href="../donate-to-parish/">Donate</a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
           aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
   <main id="main">
 
     <section class="hero hero--saints has-backdrop">
       <div class="hero__backdrop" aria-hidden="true" style="position: absolute; top: 0; bottom: 0; right: 0; width: 70%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%);">
         <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.85) 10%, rgba(253, 250, 243, 0.3) 28%, transparent 55%); pointer-events: none;"></div>
-        <img src="../assets/hero section images/Saints in the Syro-Malabar Church.webp" alt="Saints in the Syro-Malabar Church" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;">
+        <img src="../assets/hero section images/Saints in the Syro-Malabar Church.webp" alt="Saints in the Syro-Malabar Church" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;" decoding="async" width="576" height="750">
       </div>
       <div class="container">
         <div class="hero__grid">
@@ -228,7 +229,7 @@
               <h2>St. Alphonsa of the Immaculate Conception (1910–1946)</h2><span class="rule"></span>
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="st.alphonsama.jpeg.webp"
-                alt="Saint Alphonsa of the Immaculate Conception" style="width:100%;display:block;border-radius:1rem;">
+                alt="Saint Alphonsa of the Immaculate Conception" style="width:100%;display:block;border-radius:1rem;" decoding="async" width="390" height="480">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">St. Alphonsa</figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -278,7 +279,7 @@
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
                 src="St-Kuriakos-Elias-Chavara-canonized-2014.jpeg.webp" alt="Saint Kuriakose Elias Chavara"
-                style="width:100%;display:block;border-radius:1rem;">
+                style="width:100%;display:block;border-radius:1rem;" loading="lazy" decoding="async" width="736" height="856">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">St. Kuriakose Elias Chavara
               </figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
@@ -328,7 +329,7 @@
               <h2>Saint Euphrasia Eluvathingal (1877–1952)</h2><span class="rule"></span>
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="St euphrasia.webp"
-                alt="Saint Euphrasia Eluvathingal" style="width:100%;display:block;border-radius:1rem;">
+                alt="Saint Euphrasia Eluvathingal" style="width:100%;display:block;border-radius:1rem;" loading="lazy" decoding="async" width="1366" height="1600">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Saint Euphrasia Eluvathingal
               </figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
@@ -380,7 +381,7 @@
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
                 src="st.-marium-thresia-1.webp" alt="Blessed Mariam Thresia Chiramel"
-                style="width:100%;display:block;border-radius:1rem;">
+                style="width:100%;display:block;border-radius:1rem;" loading="lazy" decoding="async" width="500" height="495">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Blessed Mariam Thresia Chiramel
               </figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
@@ -429,7 +430,7 @@
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
                 src="VARGHESE_PALACKAPPILLY.webp" alt="Venerable Payyappilly Varghese Kathanar"
-                style="width:100%;display:block;border-radius:1rem;">
+                style="width:100%;display:block;border-radius:1rem;" loading="lazy" decoding="async" width="200" height="250">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Venerable Payyappilly Varghese Kathanar
               </figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
@@ -475,7 +476,7 @@
               <h2>Venerable Fr. Thomas Kurialacherry (1873–1925)</h2><span class="rule"></span>
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="kuriyalassery.webp"
-                alt="Venerable Fr. Thomas Kurialacherry" style="width:100%;display:block;border-radius:1rem;">
+                alt="Venerable Fr. Thomas Kurialacherry" style="width:100%;display:block;border-radius:1rem;" loading="lazy" decoding="async" width="201" height="250">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Venerable Fr. Thomas Kurialacherry
               </figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
@@ -520,7 +521,7 @@
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
                 src="bl.-rani-maria-1686136940.webp" alt="Blessed Rani Maria Vattalil"
-                style="width:100%;display:block;border-radius:1rem;">
+                style="width:100%;display:block;border-radius:1rem;" loading="lazy" decoding="async" width="350" height="346">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Blessed Rani Maria Vattalil
               </figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
@@ -566,7 +567,7 @@
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img
                 src="Bl.-Thevarparambil-Kunjachan.webp" alt="Fr. Augustine Thevarparambil Kunjachan"
-                style="width:100%;display:block;border-radius:1rem;">
+                style="width:100%;display:block;border-radius:1rem;" loading="lazy" decoding="async" width="500" height="495">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Fr. Augustine Thevarparambil
                 (Kunjachan)</figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
@@ -614,7 +615,7 @@
               <h2>Fr. Joseph Vithayathil (1892–1984)</h2><span class="rule"></span>
             </div>
             <figure style="max-width:520px;margin:2rem auto 1rem;text-align:center;"><img src="vithayathil.webp"
-                alt="Fr. Joseph Vithayathil" style="width:100%;display:block;border-radius:1rem;">
+                alt="Fr. Joseph Vithayathil" style="width:100%;display:block;border-radius:1rem;" loading="lazy" decoding="async" width="200" height="251">
               <figcaption style="margin-top:.75rem;color:#555;font-size:.95rem;">Fr. Joseph Vithayathil</figcaption>
             </figure><button type="button" class="saint-card__hint" aria-hidden="true" tabindex="-1"><svg
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -658,7 +659,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -720,7 +721,7 @@
       </div>
     </div>
   </footer>
-  <script src="../assets/redesign.js" defer></script>
+  <script src="../assets/redesign.js?v=3" defer></script>
 
   <script>
     (function () {

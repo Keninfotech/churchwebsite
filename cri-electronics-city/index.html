@@ -14,11 +14,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+<link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
 </head>
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -34,28 +35,51 @@
           <span class="brand__sub">Electronics City (Hebbagodi)</span>
         </span>
       </a>
-      <nav class="primary-nav" data-primary-nav aria-label="Main navigation"><ul><li><a href="../">Home</a></li>
-        <li class="has-sub">
-          <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../our-patroness/">Our Patroness</a></li><li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li><li><a href="../parish-history/">Parish History</a></li><li><a href="../vicars-message/">Vicars Message</a></li><li><a href="../donate-to-parish/">Donate to Parish</a></li><li><a href="../saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li></ul>
-        </li>
-        <li class="has-sub">
-          <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../parish-council-2/">Parish Council</a></li><li><a href="../wards/">Wards</a></li><li><a href="../construction-committee/">Construction Committee</a></li><li><a href="../parish-choir/">Parish Choir</a></li><li><a href="../obituaries/">Obituaries</a></li><li><a href="../cri-electronics-city/" aria-current="page">CRI Electronics City</a></li><li><a href="../business-directory/">Business Directory</a></li><li><a href="../gallery/">Gallery</a></li></ul>
-        </li>
-        <li><a href="../ministries_combined.html">Pious Associations</a></li><li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li><li><a href="../contact-us/">Contact Us</a></li></ul></nav>
+      <nav class="primary-nav" data-primary-nav aria-label="Main navigation">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li class="has-sub">
+            <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../our-patroness/">Our Patroness</a></li>
+              <li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li>
+              <li><a href="../parish-history/">Parish History</a></li>
+              <li><a href="../vicars-message/">Vicars Message</a></li>
+              <li><a href="../donate-to-parish/">Donate to Parish</a></li>
+              <li><a href="../saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li>
+            </ul>
+          </li>
+          <li class="has-sub">
+            <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../parish-council-2/">Parish Council</a></li>
+              <li><a href="../wards/">Wards</a></li>
+              <li><a href="../construction-committee/">Construction Committee</a></li>
+              <li><a href="../parish-choir/">Parish Choir</a></li>
+              <li><a href="../obituaries/">Obituaries</a></li>
+              <li><a href="../cri-electronics-city/" aria-current="page">CRI Electronics City</a></li>
+              <li><a href="../business-directory/">Business Directory</a></li>
+              <li><a href="../gallery/">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="../ministries_combined.html">Pious Associations</a></li>
+          <li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
+          <li><a href="../contact-us/">Contact Us</a></li>
+        </ul>
+      </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <a class="nav-cta" href="../donate-to-parish/">Donate</a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
+          aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
 <main id="main">
 
 <section class="hero hero--cri has-backdrop">
   <div class="hero__backdrop" aria-hidden="true" style="position: absolute; top: 0; bottom: 0; right: 0; width: 70%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%);">
     <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.85) 10%, rgba(253, 250, 243, 0.3) 28%, transparent 55%); pointer-events: none;"></div>
-    <img src="../assets/hero section images/CRI Electronics City.jpeg" alt="CRI Electronics City" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;">
+    <img src="../assets/hero section images/CRI Electronics City.webp" alt="CRI Electronics City" style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;" decoding="async" width="1671" height="941">
   </div>
   <div class="container">
     <div class="hero__grid">
@@ -1434,7 +1458,7 @@ function setCriFilter(category, btn) {
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -1464,6 +1488,6 @@ function setCriFilter(category, btn) {
       </div>
     </div>
   </footer>
-<script src="../assets/redesign.js" defer></script>
+<script src="../assets/redesign.js?v=3" defer></script>
 </body>
 </html>

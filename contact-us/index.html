@@ -19,14 +19,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
   <style>
     .hero {
-      background-image: linear-gradient(180deg, rgba(31, 36, 21, .55) 0%, rgba(31, 36, 21, .7) 60%, rgba(31, 36, 21, .85) 100%), url("../assets/mothermary.jpg") !important;
+      background-image: linear-gradient(180deg, rgba(31, 36, 21, .55) 0%, rgba(31, 36, 21, .7) 60%, rgba(31, 36, 21, .85) 100%), url("../assets/mothermary.webp") !important;
     }
 
     .hero::after {
-      background-image: url("../assets/mothermary.jpg") !important;
+      background-image: url("../assets/mothermary.webp") !important;
     }
   </style>
 </head>
@@ -34,6 +34,7 @@
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -76,17 +77,18 @@
               <li><a href="../gallery/">Gallery</a></li>
             </ul>
           </li>
-          <li><a href="../ministries_combined.html">Pious Associations</a></li><li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
+          <li><a href="../ministries_combined.html">Pious Associations</a></li>
+          <li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
           <li><a href="../contact-us/" aria-current="page">Contact Us</a></li>
         </ul>
       </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <a class="nav-cta" href="../donate-to-parish/">Donate</a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
           aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
   <main id="main">
 
     <style>
@@ -242,7 +244,7 @@
 
     <section class="about-us-section">
       <div class="about-bg-img" aria-hidden="true">
-        <img src="../assets/mothermary.jpg" alt="Church">
+        <img src="../assets/mothermary.webp" alt="Church" decoding="async" width="1920" height="1920">
       </div>
 
       <div class="container" style="position: relative; z-index: 1;">
@@ -275,7 +277,7 @@
 
     <section class="connect-section">
       <div class="connect-bg-img" aria-hidden="true">
-        <img src="../assets/church.webp" alt="Church Background">
+        <img src="../assets/church.webp" alt="Church Background" decoding="async" width="1600" height="1133">
       </div>
       <div class="container">
         <h2
@@ -567,7 +569,7 @@
         </div>
         <div class="cf-arch-border">
           <div class="cf-arch-img">
-            <img src="../assets/church.webp" alt="Church">
+            <img src="../assets/church.webp" alt="Church" decoding="async" width="1600" height="1133">
           </div>
         </div>
       </div>
@@ -730,7 +732,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -775,7 +777,7 @@
       </div>
     </div>
   </footer>
-  <script src="../assets/redesign.js" defer></script>
+  <script src="../assets/redesign.js?v=3" defer></script>
 </body>
 
 </html>

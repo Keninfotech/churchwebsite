@@ -41,7 +41,7 @@
   --radius-lg: 22px;
 
   --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --sans: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --container: 1200px;
 
@@ -54,6 +54,16 @@
   --sp-6: clamp(32px, 3.6vw, 56px);
   --sp-7: clamp(48px, 5vw, 80px);
   --sp-8: clamp(64px, 7vw, 120px);
+}
+
+/* Local fallback sized to match Inter, so text doesn't reflow when the web font swaps in */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("Helvetica"), local("Roboto");
+  ascent-override: 90.49%;
+  descent-override: 22.56%;
+  line-gap-override: 0%;
+  size-adjust: 107.06%;
 }
 
 * {
@@ -75,6 +85,15 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+/* `clip` stops sideways panning on iOS (which ignores body overflow-x: hidden)
+   without creating a scroll container, so the sticky header keeps working. */
+@supports (overflow-x: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
 }
 
 img {
@@ -247,7 +266,7 @@ h4 {
   height: 92px;
   /* enlarged from 68px */
   border-radius: 50%;
-  background: url('../logo.png') center/contain no-repeat;
+  background: url('../logo.webp') center/contain no-repeat;
   display: block;
   color: transparent;
   /* Hide the OLS text */
@@ -411,10 +430,6 @@ h4 {
   color: #ffffff;
   font-weight: 600;
   font-size: .85rem;
-}
-
-.nav-cta {
-  display: none !important;
 }
 
 @media (max-width: 900px) {
@@ -688,53 +703,6 @@ section.tight {
   }
 }
 
-.hero--video {
-  background-image: none !important;
-  background-color: transparent !important;
-  color: #000000 !important;
-}
-
-.hero--video h1,
-.hero--video .eyebrow,
-.hero--video .hero__lead {
-  color: #000000 !important;
-}
-
-.hero--video .eyebrow::before {
-  background: #000000 !important;
-}
-
-.hero--video .btn--ghost {
-  border-color: #000000 !important;
-  color: #000000 !important;
-}
-
-.hero--video .btn--ghost:hover {
-  background: rgba(0, 0, 0, 0.08) !important;
-  color: #000000 !important;
-}
-
-.hero__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  /* Was -3 */
-}
-
-.hero__video-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: var(--bg-soft);
-  opacity: 0.85;
-  /* Beige overlay */
-  z-index: 1;
-  /* Was -2 */
-}
-
 /* Hero with Patron Artwork (Mother Mary for Mathruvedi, St. Joseph for Pithruvedi, St. Vincent de Paul, Cherupushpa for CML, Youth for Youth Ministry, Mother Mary for Laity Commission, Catechism, Holy Childhood) */
 .hero--mothermary,
 .hero--stjoseph,
@@ -912,9 +880,6 @@ main>.hero--holychild:first-child {
 }
 
 /* Decorative art badge (replaced with jubilee-year.webp) */
-.hero:not(.hero--video) .hero__art {
-  display: none !important;
-}
 
 .hero__art {
   width: clamp(120px, 16vw, 220px);
@@ -1076,32 +1041,18 @@ main>.hero--holychild:first-child {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.grid--4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.mass-layout-grid {
-  grid-template-columns: minmax(320px, 380px) 1fr;
-  align-items: stretch;
-}
-
 @media (max-width: 900px) {
 
-  .grid--3,
-  .grid--4 {
+  .grid--3 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .mass-layout-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
 
   .grid--2,
-  .grid--3,
-  .grid--4 {
+.grid--3 {
     grid-template-columns: 1fr;
   }
 }
@@ -1124,19 +1075,6 @@ main>.hero--holychild:first-child {
   border-color: var(--gold-soft);
 }
 
-.tile__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: var(--gold-050);
-  color: var(--gold);
-  font-weight: 700;
-  font-family: var(--serif);
-  border: 1px solid var(--gold-soft);
-}
-
 .tile h3 {
   margin: 0;
   font-size: 1.25rem;
@@ -1148,28 +1086,6 @@ main>.hero--holychild:first-child {
   font-size: .95rem;
 }
 
-.tile__link {
-  margin-top: auto;
-  padding-top: 8px;
-  color: var(--gold);
-  font-weight: 600;
-  font-size: .8rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.tile__link::after {
-  content: "→";
-  transition: transform .25s;
-}
-
-.tile__link:hover::after {
-  transform: translateX(4px);
-}
-
 /* ---------- Image placeholder ---------- */
 .img-slot {
   aspect-ratio: 4/3;
@@ -1177,7 +1093,7 @@ main>.hero--holychild:first-child {
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(14, 58, 64, .10), rgba(23, 97, 106, .14)),
-    url("accent.jpg") center/cover no-repeat;
+    url("accent.webp") center/cover no-repeat;
   display: grid;
   place-items: center;
   color: rgba(255, 255, 255, .85);
@@ -1193,18 +1109,6 @@ main>.hero--holychild:first-child {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(31, 36, 21, .05), rgba(31, 36, 21, .35));
-}
-
-.img-slot--portrait {
-  aspect-ratio: 3/4;
-}
-
-.img-slot--square {
-  aspect-ratio: 1/1;
-}
-
-.img-slot--wide {
-  aspect-ratio: 16/9;
 }
 
 /* ---------- Person card ---------- */
@@ -1349,10 +1253,6 @@ main>.hero--holychild:first-child {
 }
 
 /* ---------- Stacked cards scroll ---------- */
-.stack {
-  position: relative;
-  --stack-top: 110px;
-}
 
 .stack__item {
   position: sticky;
@@ -1395,28 +1295,6 @@ main>.hero--holychild:first-child {
 
 .stack__item:nth-child(5) {
   top: calc(var(--stack-top) + 72px);
-}
-
-.stack__num {
-  display: inline-block;
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  color: var(--gold);
-  letter-spacing: .12em;
-  margin-bottom: 8px;
-}
-
-.stack__inner {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 32px;
-  align-items: center;
-}
-
-@media (max-width: 900px) {
-  .stack__inner {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
@@ -1531,10 +1409,6 @@ main>.hero--holychild:first-child {
   align-items: center;
   padding-bottom: 12px;
   border-bottom: 1px dashed var(--line);
-}
-
-.priest-card__num {
-  display: none;
 }
 
 .priest-card__badge {
@@ -1797,18 +1671,6 @@ main>.hero--holychild:first-child {
   transform: none;
 }
 
-[data-reveal].delay-1 {
-  transition-delay: .12s;
-}
-
-[data-reveal].delay-2 {
-  transition-delay: .24s;
-}
-
-[data-reveal].delay-3 {
-  transition-delay: .36s;
-}
-
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] {
     opacity: 1;
@@ -2022,35 +1884,8 @@ main>.hero--holychild:first-child {
   text-align: center;
 }
 
-.mt-0 {
-  margin-top: 0;
-}
-
-.mt-1 {
-  margin-top: 8px;
-}
-
 .mt-2 {
   margin-top: 16px;
-}
-
-.mt-4 {
-  margin-top: 32px;
-}
-
-.gold {
-  color: var(--gold);
-}
-
-.blue {
-  color: var(--blue);
-}
-
-.divider-gold {
-  border: none;
-  border-top: 1px solid var(--gold-soft);
-  margin: 32px 0;
-  opacity: .5;
 }
 
 /* Skip link */
@@ -2254,7 +2089,7 @@ main>.hero--holychild:first-child {
   width: 70%;
   height: 100%;
   z-index: 0;
-  background-image: var(--hero-bg, url("church.webp"));
+  background-image: url("church.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2266,81 +2101,68 @@ main>.hero--holychild:first-child {
 }
 
 /* Page-specific Hero Background Images (Cover 70% with customized focus) */
-.hero--patroness { --hero-bg: url("hero section images/Mother mary Our Patroness.jpg.jpeg"); }
 .hero--patroness::after {
-  background-image: url("hero section images/Mother mary Our Patroness.jpg.jpeg");
+  background-image: url("hero section images/Mother mary Our Patroness.jpg.webp");
   background-position: center 15%;
 }
 
-.hero--hierarchy { --hero-bg: url("hero section images/Our Church Hierarchy.jpg.jpeg"); }
 .hero--hierarchy::after {
-  background-image: url("hero section images/Our Church Hierarchy.jpg.jpeg");
+  background-image: url("hero section images/Our Church Hierarchy.jpg.webp");
   background-position: center 20%;
 }
 
-.hero--business { --hero-bg: url("hero section images/Business.jpeg"); }
 .hero--business::after {
-  background-image: url("hero section images/Business.jpeg");
+  background-image: url("hero section images/Business.webp");
   background-position: center center;
 }
 
-.hero--cri { --hero-bg: url("hero section images/CRI Electronics City.jpeg"); }
 .hero--cri::after {
-  background-image: url("hero section images/CRI Electronics City.jpeg");
+  background-image: url("hero section images/CRI Electronics City.webp");
   background-position: center 20%;
 }
 
-.hero--construction { --hero-bg: url("hero section images/Construction Committee.jpg.jpeg"); }
 .hero--construction::after {
-  background-image: url("hero section images/Construction Committee.jpg.jpeg");
+  background-image: url("hero section images/Construction Committee.jpg.webp");
   background-position: center 30%;
 }
 
-.hero--donate { --hero-bg: url("hero section images/Donate to Parish.jpg.jpeg"); }
 .hero--donate::after {
-  background-image: url("hero section images/Donate to Parish.jpg.jpeg");
+  background-image: url("hero section images/Donate to Parish.jpg.webp");
   background-position: center 20%;
 }
 
-.hero--obituaries { --hero-bg: url("hero section images/Obituaries.jpg.jpeg"); }
 .hero--obituaries::after {
-  background-image: url("hero section images/Obituaries.jpg.jpeg");
+  background-image: url("hero section images/Obituaries.jpg.webp");
   background-position: center center;
 }
 
-.hero--choir { --hero-bg: url("hero section images/Parish Choir 1.jpg.jpeg"); }
 .hero--choir::after {
-  background-image: url("hero section images/Parish Choir 1.jpg.jpeg");
+  background-image: url("hero section images/Parish Choir 1.jpg.webp");
   background-position: center 25%;
 }
 
-.hero--saints { --hero-bg: url("hero section images/Saints in the Syro-Malabar Church.webp"); }
 .hero--saints::after {
   background-image: url("hero section images/Saints in the Syro-Malabar Church.webp");
   background-position: center center;
 }
 
-.hero--history { --hero-bg: url("hero section images/parish History.jpg"); }
 .hero--history::after {
-  background-image: url("hero section images/parish History.jpg");
+  background-image: url("hero section images/parish History.webp");
   background-position: center 35%;
 }
 
-.hero--wards { --hero-bg: url("hero section images/wards.jpg"); }
 .hero--wards::after {
-  background-image: url("hero section images/wards.jpg");
+  background-image: url("hero section images/wards.webp");
   background-position: center center;
 }
 
-.hero--youth { --hero-bg: url("hero section images/youth ministry.jpg"); }
 .hero--youth::after {
-  background-image: url("hero section images/youth ministry.jpg");
+  background-image: url("hero section images/youth ministry.webp");
   background-position: center 30%;
 }
 
-.hero--stjoseph { --hero-bg: url("hero section images/pithruedi.jpeg"); }
 .hero--stjoseph::after {
-  background-image: url("hero section images/pithruedi.jpeg");
+  background-image: url("hero section images/pithruedi.webp");
   background-position: center 20%;
 }
 
@@ -2465,15 +2287,6 @@ main>.hero--holychild:first-child {
 }
 
 /* ---------- Tile/Card/Person hover: icon nudge + shadow lift ---------- */
-.tile__icon {
-  transition: transform .35s cubic-bezier(.22, .61, .36, 1), background .35s ease, color .35s ease;
-}
-
-.tile:hover .tile__icon {
-  transform: translateY(-3px) rotate(-4deg) scale(1.06);
-  background: var(--gold);
-  color: #fff;
-}
 
 .card {
   transition: transform .45s cubic-bezier(.22, .61, .36, 1), box-shadow .45s ease, border-color .45s ease;
@@ -2742,101 +2555,6 @@ html.pt-out body {
 /* ============================================================
    Saints carousel - fade + slide transition
    ============================================================ */
-.saints-carousel {
-  position: relative;
-  max-width: 900px;
-  margin: 2.5rem auto 0;
-}
-
-.saints-carousel__stage {
-  position: relative;
-  aspect-ratio: 4/3;
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--bg-soft);
-  box-shadow: 0 20px 60px -30px rgba(31, 36, 21, .35);
-}
-
-.saints-carousel__slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  opacity: 0;
-  transform: translateX(60px);
-  transition: opacity .9s cubic-bezier(.22, .61, .36, 1), transform .9s cubic-bezier(.22, .61, .36, 1);
-  pointer-events: none;
-}
-
-.saints-carousel__slide img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.saints-carousel__caption {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 1.5rem 1.75rem;
-  background: linear-gradient(to top, rgba(31, 36, 21, .85), rgba(31, 36, 21, 0));
-  color: #fff;
-}
-
-.saints-carousel__caption .eyebrow {
-  color: var(--gold-soft);
-}
-
-.saints-carousel__caption h3 {
-  font-family: 'Cormorant Garamond', serif;
-  color: #fff;
-  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
-  margin: .25rem 0 0;
-}
-
-.saints-carousel__slide.is-active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-.saints-carousel__slide.is-exit {
-  opacity: 0;
-  transform: translateX(-60px);
-}
-
-.saints-carousel__dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 1.25rem;
-}
-
-.saints-carousel__dots button {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: 0;
-  padding: 0;
-  background: color-mix(in oklab, var(--ink) 20%, transparent);
-  cursor: pointer;
-  transition: transform .25s, background .25s;
-}
-
-.saints-carousel__dots button[aria-current="true"] {
-  background: var(--gold);
-  transform: scale(1.4);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .saints-carousel__slide {
-    transition: opacity .2s linear;
-    transform: none !important;
-  }
-}
 
 /* ============================================================
    Awards – Uniform Scroll Gallery
@@ -3103,15 +2821,6 @@ html.pt-out body {
   object-fit: cover;
 }
 
-.marquee--awards {
-  --marquee-duration: 50s;
-}
-
-.marquee--awards .marquee__item {
-  width: 260px;
-  height: 180px;
-}
-
 .marquee--saints {
   --marquee-duration: 24s;
 }
@@ -3175,128 +2884,6 @@ html.pt-out body {
   padding-bottom: 4rem;
 }
 
-.mass-card {
-  background: linear-gradient(180deg, #FCFAF5, #F4EEDF);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(93, 64, 55, 0.08);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(93, 64, 55, 0.12);
-}
-
-.mass-card__icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: radial-gradient(circle at top, #FFF, #F2E4C2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 4px 10px rgba(23, 97, 106, 0.2);
-}
-
-.mass-card h3 {
-  font-family: var(--serif, serif);
-  font-size: 1.5rem;
-  color: var(--ink);
-  margin-bottom: 0.5rem;
-}
-
-.mass-card__rule {
-  width: 32px;
-  height: 1px;
-  background: var(--gold);
-  margin: 0.75rem auto 1.5rem;
-  display: block;
-}
-
-.mass-card__timings {
-  flex-grow: 1;
-  width: 100%;
-  text-align: left;
-  margin-bottom: 2rem;
-}
-
-.mass-card__group {
-  margin-bottom: 1.5rem;
-}
-
-.mass-card__group:last-child {
-  margin-bottom: 0;
-}
-
-.mass-card__group h4 {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--gold);
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(23, 97, 106, 0.2);
-  padding-bottom: 0.25rem;
-}
-
-.mass-card__row {
-  display: flex;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.mass-card__row:last-child {
-  margin-bottom: 0;
-}
-
-.mass-card__time {
-  width: 5.5rem;
-  flex-shrink: 0;
-  font-weight: 500;
-  color: var(--ink);
-  position: relative;
-  padding-left: 1rem;
-}
-
-.mass-card__time::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.45rem;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--gold);
-}
-
-.mass-card__label {
-  color: rgba(93, 64, 55, 0.8);
-}
-
-.mass-card__btn {
-  width: 100%;
-  text-align: center;
-  padding: 0.75rem;
-  border: 1px solid var(--gold);
-  border-radius: 999px;
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-}
-
-.mass-card__btn:hover {
-  background: var(--gold);
-  color: #fff;
-}
-
 /* ---------- Quote Banner ---------- */
 .mass-quote {
   margin-top: 4rem;
@@ -3350,20 +2937,6 @@ html.pt-out body {
   font-size: 1.1rem;
   font-weight: 500;
   white-space: nowrap;
-}
-
-.mass-card--image {
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid var(--gold-soft);
-  display: block;
-}
-
-.mass-card--image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 /* ============================================================
@@ -3473,10 +3046,6 @@ html.pt-out body {
   font-style: normal;
 }
 
-.announce-hero__overlay {
-  display: none;
-}
-
 .announce-body {
   display: grid;
   grid-template-columns: 240px 1.4fr 1fr;
@@ -3543,88 +3112,6 @@ html.pt-out body {
   display: flex;
   flex-direction: column;
   gap: 0;
-}
-
-.announce-greeting {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  color: var(--ink);
-  margin: 0 0 1.25rem;
-  display: block;
-}
-
-.announce-greeting::first-letter {
-  font-size: 2.8rem;
-  float: left;
-  line-height: .85;
-  padding: 4px 10px 0 0;
-  color: var(--gold);
-  font-family: var(--serif);
-}
-
-.announce-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.announce-item:last-child {
-  border-bottom: none;
-}
-
-.announce-item__icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--gold-050);
-  border: 1px solid var(--gold-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
-}
-
-.announce-item p {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: .97rem;
-  line-height: 1.7;
-}
-
-.announce-blessing {
-  color: var(--gold);
-  font-style: italic;
-}
-
-.announce-item--signature {
-  align-items: center;
-}
-
-.announce-item--signature>div {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.announce-regards {
-  font-weight: 700;
-  color: var(--gold) !important;
-  margin: 0 !important;
-}
-
-.announce-name {
-  font-weight: 600;
-  color: var(--ink) !important;
-  margin: 0 !important;
-}
-
-.announce-title-sig {
-  color: var(--ink-muted) !important;
-  font-size: .9rem;
-  margin: 0 !important;
 }
 
 @media (max-width: 1100px) {
@@ -4531,52 +4018,6 @@ html.pt-out body {
   box-shadow: 0 16px 36px -10px rgba(31, 36, 21, 0.14);
 }
 
-.schedule-card__header-img {
-  position: relative;
-  height: 90px;
-  overflow: hidden;
-}
-
-.schedule-card__header-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.schedule-card__header-curve {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 24px;
-  background: #fdfbf7;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-}
-
-.schedule-card__badge {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: -22px auto 8px;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  border: 2px solid #6FA3A9;
-}
-
-.schedule-card__badge--maroon {
-  background: #0E3A40;
-  color: #6FA3A9;
-}
-
-.schedule-card__badge--navy {
-  background: #114950;
-  color: #6FA3A9;
-}
-
 .schedule-card__parish-hero {
   padding: 10px 16px 0px;
   text-align: center;
@@ -4720,144 +4161,9 @@ html.pt-out body {
   margin-left: auto;
 }
 
-.schedule-card__btn {
-  margin-top: auto;
-  padding-top: 10px;
-  width: 100%;
-}
-
-.schedule-card__btn .btn {
-  width: 100%;
-  justify-content: center;
-  padding: 10px 16px;
-  font-size: 0.76rem;
-  border-radius: 999px;
-}
-
-.btn--gold-gradient {
-  background: linear-gradient(135deg, #17616A, #0E3A40);
-  color: #ffffff !important;
-  border: none;
-  box-shadow: 0 4px 14px rgba(23, 97, 106, 0.3);
-}
-
-.btn--gold-gradient:hover {
-  background: linear-gradient(135deg, #114950, #0A2C30);
-  transform: translateY(-2px);
-}
-
-.btn--maroon-outline {
-  background: transparent;
-  border: 1px solid #17616A;
-  color: #17616A !important;
-}
-
-.btn--maroon-outline:hover {
-  background: #17616A;
-  color: #ffffff !important;
-}
-
-.btn--navy-solid {
-  background: #114950;
-  color: #ffffff !important;
-  border: none;
-}
-
-.btn--navy-solid:hover {
-  background: #17616A;
-}
-
 /* ==========================================
    Hierarchy Cards (Church Hierarchy)
    ========================================== */
-.hierarchy-card {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  margin-bottom: 3rem;
-
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hierarchy-card.photo-right {
-  flex-direction: row-reverse;
-}
-
-.card-photo {
-  flex: 0 0 300px;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: scale(1.1);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-text {
-  flex: 1;
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.photo-left .card-photo {
-  transform: translateX(-40px);
-}
-
-.photo-left .card-text {
-  transform: translateX(40px);
-}
-
-.photo-right .card-photo {
-  transform: translateX(40px);
-}
-
-.photo-right .card-text {
-  transform: translateX(-40px);
-}
-
-.hierarchy-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hierarchy-card.is-visible .card-photo,
-.hierarchy-card.is-visible .card-text {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.hierarchy-card.is-visible .card-photo img {
-  transform: scale(1);
-}
-
-.hierarchy-card.is-visible .card-text {
-  transition-delay: 0.15s;
-}
-
-@media (max-width: 768px) {
-
-  .hierarchy-card,
-  .hierarchy-card.photo-right {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .card-photo {
-    flex: auto;
-    width: 100%;
-  }
-}
 
 /* --- New Schedule Card Enhancements --- */
 
@@ -4974,37 +4280,27 @@ html.pt-out body {
 
 /* Force all hero section text and buttons from white to black */
 .hero,
-.hero--video,
 .hero h1,
 .hero h2,
 .hero h3,
 .hero .eyebrow,
 .hero .hero__lead,
-.hero p,
-.hero--video h1,
-.hero--video h2,
-.hero--video h3,
-.hero--video .eyebrow,
-.hero--video .hero__lead,
-.hero--video p {
+.hero p {
   color: #000000 !important;
 }
 
-.hero .eyebrow::before,
-.hero--video .eyebrow::before {
+.hero .eyebrow::before {
   background-color: #000000 !important;
   background: #000000 !important;
 }
 
 .hero .btn--ghost,
-.hero--video .btn--ghost,
 .btn--ghost {
   border-color: #000000 !important;
   color: #000000 !important;
 }
 
 .hero .btn--ghost:hover,
-.hero--video .btn--ghost:hover,
 .btn--ghost:hover {
   background: rgba(0, 0, 0, 0.08) !important;
   color: #000000 !important;
@@ -5014,19 +4310,12 @@ html.pt-out body {
 .card,
 .min-card,
 .ministry-card,
-.mass-card,
 .announce-quote-card,
 .cat-card,
 .pub-card,
 .exp-card,
 .schedule-card,
-.hierarchy-card,
-.council-card,
-.ward-card,
-.obituary-card,
-.gallery-card,
-.history-card,
-.news-card {
+.obituary-card {
   position: relative;
   overflow: hidden;
 }
@@ -5034,19 +4323,12 @@ html.pt-out body {
 .card::before,
 .min-card::before,
 .ministry-card::before,
-.mass-card::before,
 .announce-quote-card::before,
 .cat-card::before,
 .pub-card::before,
 .exp-card::before,
 .schedule-card::before,
-.hierarchy-card::before,
-.council-card::before,
-.ward-card::before,
-.obituary-card::before,
-.gallery-card::before,
-.history-card::before,
-.news-card::before {
+.obituary-card::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -5074,8 +4356,6 @@ html.pt-out body {
 .min-card:focus-visible::before,
 .ministry-card:hover::before,
 .ministry-card:focus-visible::before,
-.mass-card:hover::before,
-.mass-card:focus-visible::before,
 .announce-quote-card:hover::before,
 .announce-quote-card:focus-visible::before,
 .cat-card:hover::before,
@@ -5086,20 +4366,8 @@ html.pt-out body {
 .exp-card:focus-visible::before,
 .schedule-card:hover::before,
 .schedule-card:focus-visible::before,
-.hierarchy-card:hover::before,
-.hierarchy-card:focus-visible::before,
-.council-card:hover::before,
-.council-card:focus-visible::before,
-.ward-card:hover::before,
-.ward-card:focus-visible::before,
 .obituary-card:hover::before,
-.obituary-card:focus-visible::before,
-.gallery-card:hover::before,
-.gallery-card:focus-visible::before,
-.history-card:hover::before,
-.history-card:focus-visible::before,
-.news-card:hover::before,
-.news-card:focus-visible::before {
+.obituary-card:focus-visible::before {
   opacity: 1;
   transform: rotate(-45deg) translateY(100%);
 }
@@ -5475,190 +4743,167 @@ ul.social-expand li a:hover .title {
   fill: currentColor;
 }
 
-.vicar-socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: auto;
-  padding-top: 1.5rem;
-}
-
-.vicar-social-link {
-  width: 32px;
-  height: 32px;
-  background-color: #0E3A40;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.vicar-social-link:hover {
-  background-color: #17616A;
-  transform: translateY(-2px);
-  color: white;
-}
-
-.vicar-social-link svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-
-/* ---------- Native HTML5 Contact Dialog ---------- */
+/* ---------- Native HTML5 Contact Dialog (homepage vicar contact popup) ---------- */
 dialog#contactDialog {
-  border: none;
-  border-radius: 20px;
-  padding: 32px 24px 24px;
-  width: 90vw;
-  max-width: 420px;
-  background: #ffffff;
-  color: #1c2d27;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(23, 97, 106, 0.15);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-  z-index: 2147483647;
-  text-align: center;
-  box-sizing: border-box;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 32px 24px 24px !important;
+  width: 90vw !important;
+  max-width: 420px !important;
+  background: #ffffff !important;
+  color: #1c2d27 !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(23, 97, 106, 0.15) !important;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+  z-index: 2147483647 !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
 }
 
 dialog#contactDialog::backdrop {
-  background: rgba(14, 45, 50, 0.75);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(14, 45, 50, 0.75) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
 }
 
 .contact-modal__close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: #ffffff;
-  color: var(--ink);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.2s;
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  border: 1px solid #dfe9e8 !important;
+  background: #f4f8f8 !important;
+  color: #17616A !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background 0.2s, transform 0.2s !important;
+  padding: 0 !important;
 }
 
 .contact-modal__close:hover {
-  background: #f0ece3;
-  transform: scale(1.06);
+  background: #e2ecec !important;
+  transform: scale(1.08) !important;
 }
 
 .contact-modal__avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  margin: 0 auto 16px;
-  overflow: hidden;
-  border: 3px solid var(--gold-soft);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  background: #e6e9ee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 50% !important;
+  margin: 0 auto 14px !important;
+  overflow: hidden !important;
+  border: 3px solid #6FA3A9 !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1) !important;
+  background: #e6e9ee !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .contact-modal__avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 
 .contact-modal__title {
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  color: #114950;
-  margin: 0 0 4px;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 1.7rem !important;
+  color: #114950 !important;
+  margin: 0 0 4px !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
 }
 
 .contact-modal__role {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--gold-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 24px;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #17616A !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  margin-bottom: 20px !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .contact-modal__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
 }
 
 .contact-modal__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 13px 20px;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 12px 18px !important;
+  border-radius: 999px !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease !important;
+  font-family: "Inter", sans-serif !important;
+  box-sizing: border-box !important;
 }
 
 .contact-modal__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
 }
 
 .contact-modal__btn svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-  flex-shrink: 0;
+  width: 18px !important;
+  height: 18px !important;
+  fill: currentColor !important;
+  flex-shrink: 0 !important;
 }
 
 .contact-modal__btn--phone {
-  background-color: #17616A;
+  background-color: #17616A !important;
   color: #ffffff !important;
 }
 
 .contact-modal__btn--phone:hover {
-  background-color: #0E3A40;
+  background-color: #0E3A40 !important;
+  color: #ffffff !important;
 }
 
 .contact-modal__btn--wa {
-  background-color: #25D366;
+  background-color: #25D366 !important;
   color: #ffffff !important;
 }
 
 .contact-modal__btn--wa:hover {
-  background-color: #1ebc57;
+  background-color: #1ebc57 !important;
+  color: #ffffff !important;
 }
 
 .contact-modal__btn--email {
-  background-color: #f0f4f4;
+  background-color: #f4f8f8 !important;
   color: #17616A !important;
-  border: 1px solid #c9dedf;
+  border: 1px solid #c9dedf !important;
 }
 
 .contact-modal__btn--email:hover {
-  background-color: #e2ecec;
+  background-color: #e2ecec !important;
+  color: #0E3A40 !important;
 }
 
 .contact-modal__btn--office {
-  background-color: #17616A;
+  background-color: #17616A !important;
   color: #ffffff !important;
 }
 
 .contact-modal__btn--office:hover {
-  background-color: #0E3A40;
+  background-color: #0E3A40 !important;
+  color: #ffffff !important;
 }
 
 /* Bottom Navigation between Pious Associations and Ministry Panels */

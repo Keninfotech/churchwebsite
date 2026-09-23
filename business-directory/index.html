@@ -19,7 +19,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
 
   <style>
     .biz-section {
@@ -720,6 +720,7 @@
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -768,12 +769,12 @@
         </ul>
       </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <a class="nav-cta" href="../donate-to-parish/">Donate</a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
           aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
   <main id="main">
 
     <section class="hero hero--business has-backdrop">
@@ -782,8 +783,8 @@
         <div
           style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.85) 10%, rgba(253, 250, 243, 0.3) 28%, transparent 55%); pointer-events: none;">
         </div>
-        <img src="../assets/hero section images/Business.jpeg" alt="Business Directory"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;">
+        <img src="../assets/hero section images/Business.webp" alt="Business Directory"
+          style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;" decoding="async" width="735" height="490">
       </div>
       <div class="container">
         <div class="hero__grid">
@@ -2379,9 +2380,8 @@
             <h2>Promotional Videos</h2><span class="rule"></span>
           </div>
           <div style="margin-top: 2rem;">
-            <video autoplay loop muted playsinline
-              style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; background: #000;">
-              <source src="../assets/kenvideo.mp4" type="video/mp4">
+            <video autoplay loop muted playsinline preload="none" data-lazy-video data-src="../assets/kenvideo.mp4"
+              style="width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; background: #000;">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -2395,7 +2395,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -2458,7 +2458,7 @@
     </div>
   </footer>
 
-  <script src="../assets/redesign.js" defer></script>
+  <script src="../assets/redesign.js?v=3" defer></script>
 </body>
 
 </html>

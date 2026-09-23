@@ -14,11 +14,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+<link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
 </head>
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -34,28 +35,51 @@
           <span class="brand__sub">Electronics City (Hebbagodi)</span>
         </span>
       </a>
-      <nav class="primary-nav" data-primary-nav aria-label="Main navigation"><ul><li><a href="../">Home</a></li>
-        <li class="has-sub">
-          <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../our-patroness/">Our Patroness</a></li><li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li><li><a href="../parish-history/">Parish History</a></li><li><a href="../vicars-message/">Vicars Message</a></li><li><a href="../donate-to-parish/">Donate to Parish</a></li><li><a href="../saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li></ul>
-        </li>
-        <li class="has-sub">
-          <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../parish-council-2/">Parish Council</a></li><li><a href="../wards/" aria-current="page">Wards</a></li><li><a href="../construction-committee/">Construction Committee</a></li><li><a href="../parish-choir/">Parish Choir</a></li><li><a href="../obituaries/">Obituaries</a></li><li><a href="../cri-electronics-city/">CRI Electronics City</a></li><li><a href="../business-directory/">Business Directory</a></li><li><a href="../gallery/">Gallery</a></li></ul>
-        </li>
-        <li><a href="../ministries_combined.html">Pious Associations</a></li><li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li><li><a href="../contact-us/">Contact Us</a></li></ul></nav>
+      <nav class="primary-nav" data-primary-nav aria-label="Main navigation">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li class="has-sub">
+            <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../our-patroness/">Our Patroness</a></li>
+              <li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li>
+              <li><a href="../parish-history/">Parish History</a></li>
+              <li><a href="../vicars-message/">Vicars Message</a></li>
+              <li><a href="../donate-to-parish/">Donate to Parish</a></li>
+              <li><a href="../saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li>
+            </ul>
+          </li>
+          <li class="has-sub">
+            <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../parish-council-2/">Parish Council</a></li>
+              <li><a href="../wards/" aria-current="page">Wards</a></li>
+              <li><a href="../construction-committee/">Construction Committee</a></li>
+              <li><a href="../parish-choir/">Parish Choir</a></li>
+              <li><a href="../obituaries/">Obituaries</a></li>
+              <li><a href="../cri-electronics-city/">CRI Electronics City</a></li>
+              <li><a href="../business-directory/">Business Directory</a></li>
+              <li><a href="../gallery/">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="../ministries_combined.html">Pious Associations</a></li>
+          <li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
+          <li><a href="../contact-us/">Contact Us</a></li>
+        </ul>
+      </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <a class="nav-cta" href="../donate-to-parish/">Donate</a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
+          aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
 <main id="main">
 
 <section class="hero hero--wards has-backdrop">
   <div class="hero__backdrop" aria-hidden="true" style="position: absolute; top: 0; bottom: 0; right: 0; width: 70%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%);">
     <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.85) 10%, rgba(253, 250, 243, 0.3) 28%, transparent 55%); pointer-events: none;"></div>
-    <img src="../assets/hero section images/wards.jpg" alt="Parish Wards" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;">
+    <img src="../assets/hero section images/wards.webp" alt="Parish Wards" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;" decoding="async" width="2560" height="1706">
   </div>
   <div class="container">
     <div class="hero__grid">
@@ -278,7 +302,7 @@ function openWard(evt, wardId) {
   <div id="ward-1" class="ward-content active">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St.Alphonsa.webp" alt="St. Alphonsa">
+        <img src="St.Alphonsa.webp" alt="St. Alphonsa" decoding="async" width="376" height="482">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Alphonsa Ward</span></p>
@@ -318,7 +342,7 @@ function openWard(evt, wardId) {
   <div id="ward-2" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St.Euphrasia.webp" alt="St. Euphrasia">
+        <img src="St.Euphrasia.webp" alt="St. Euphrasia" loading="lazy" decoding="async" width="461" height="665">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Evuprasiamma Ward</span></p>
@@ -356,7 +380,7 @@ function openWard(evt, wardId) {
   <div id="ward-3" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St.Antony.webp" alt="St. Antony">
+        <img src="St.Antony.webp" alt="St. Antony" loading="lazy" decoding="async" width="398" height="502">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Antony Ward</span></p>
@@ -394,7 +418,7 @@ function openWard(evt, wardId) {
   <div id="ward-4" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Michael’s.webp" alt="St. Michael’s">
+        <img src="St. Michael’s.webp" alt="St. Michael’s" loading="lazy" decoding="async" width="367" height="544">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Michael’s Ward</span></p>
@@ -432,7 +456,7 @@ function openWard(evt, wardId) {
   <div id="ward-5" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Francis De Sales.webp" alt="St. Francis De Sales">
+        <img src="St. Francis De Sales.webp" alt="St. Francis De Sales" loading="lazy" decoding="async" width="357" height="450">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Francis De Sales</span></p>
@@ -470,7 +494,7 @@ function openWard(evt, wardId) {
   <div id="ward-6" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. George.webp" alt="St. George">
+        <img src="St. George.webp" alt="St. George" loading="lazy" decoding="async" width="366" height="546">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. George</span></p>
@@ -508,7 +532,7 @@ function openWard(evt, wardId) {
   <div id="ward-8" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Jude.webp" alt="St. Jude">
+        <img src="St. Jude.webp" alt="St. Jude" loading="lazy" decoding="async" width="1024" height="1536">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Jude Ward</span></p>
@@ -546,7 +570,7 @@ function openWard(evt, wardId) {
   <div id="ward-9" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Kuriakose Chavara.webp" alt="St. Kuriakose Chavara">
+        <img src="St. Kuriakose Chavara.webp" alt="St. Kuriakose Chavara" loading="lazy" decoding="async" width="513" height="596">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Kuriakose Chavara Ward</span></p>
@@ -584,7 +608,7 @@ function openWard(evt, wardId) {
   <div id="ward-10" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Mary’s.webp" alt="St. Mary’s">
+        <img src="St. Mary’s.webp" alt="St. Mary’s" loading="lazy" decoding="async" width="386" height="518">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Mary’s Ward</span></p>
@@ -622,7 +646,7 @@ function openWard(evt, wardId) {
   <div id="ward-11" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Mother Theresa.webp" alt="St. Mother Theresa">
+        <img src="St. Mother Theresa.webp" alt="St. Mother Theresa" loading="lazy" decoding="async" width="381" height="524">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Mother Theresa Ward</span></p>
@@ -654,7 +678,7 @@ function openWard(evt, wardId) {
   <div id="ward-12" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Peter.webp" alt="St. Peter">
+        <img src="St. Peter.webp" alt="St. Peter" loading="lazy" decoding="async" width="490" height="624">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Peter Ward</span></p>
@@ -692,7 +716,7 @@ function openWard(evt, wardId) {
   <div id="ward-13" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Sebastian.webp" alt="St. Sebastian">
+        <img src="St. Sebastian.webp" alt="St. Sebastian" loading="lazy" decoding="async" width="236" height="341">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Sebastian Ward</span></p>
@@ -730,7 +754,7 @@ function openWard(evt, wardId) {
   <div id="ward-14" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Thomas.webp" alt="St. Thomas">
+        <img src="St. Thomas.webp" alt="St. Thomas" loading="lazy" decoding="async" width="784" height="784">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Thomas Ward</span></p>
@@ -768,7 +792,7 @@ function openWard(evt, wardId) {
   <div id="ward-15" class="ward-content">
     <div class="ward-grid">
       <div class="ward-img">
-        <img src="St. Vincent de Paul.webp" alt="St. Vincent de Paul">
+        <img src="St. Vincent de Paul.webp" alt="St. Vincent de Paul" loading="lazy" decoding="async" width="401" height="498">
       </div>
       <div class="ward-details">
         <p>Ward Name: <span>St. Vincent de Paul Ward</span></p>
@@ -823,7 +847,7 @@ function openWard(evt, wardId) {
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -853,6 +877,6 @@ function openWard(evt, wardId) {
       </div>
     </div>
   </footer>
-<script src="../assets/redesign.js" defer></script>
+<script src="../assets/redesign.js?v=3" defer></script>
 </body>
 </html>

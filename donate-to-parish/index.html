@@ -19,12 +19,13 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+  <link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
 </head>
 
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -67,23 +68,24 @@
               <li><a href="../gallery/">Gallery</a></li>
             </ul>
           </li>
-          <li><a href="../ministries_combined.html">Pious Associations</a></li><li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
+          <li><a href="../ministries_combined.html">Pious Associations</a></li>
+          <li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
           <li><a href="../contact-us/">Contact Us</a></li>
         </ul>
       </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <a class="nav-cta" href="../donate-to-parish/">Donate</a>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
           aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
   <main id="main">
 
     <section class="hero hero--donate has-backdrop">
       <div class="hero__backdrop" aria-hidden="true" style="position: absolute; top: 0; bottom: 0; right: 0; width: 70%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%);">
         <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.85) 10%, rgba(253, 250, 243, 0.3) 28%, transparent 55%); pointer-events: none;"></div>
-        <img src="../assets/hero section images/Donate to Parish.jpg.jpeg" alt="Donate to Parish" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;">
+        <img src="../assets/hero section images/Donate to Parish.jpg.webp" alt="Donate to Parish" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;" decoding="async" width="1452" height="1083">
       </div>
       <div class="container">
         <div class="hero__grid">
@@ -105,7 +107,7 @@
     <section class="sacred-mission-section">
   <!-- Decorative Background Image on the right -->
   <div class="sm-bg-img" aria-hidden="true">
-    <img src="../assets/church.webp" alt="Church exterior">
+    <img src="../assets/church.webp" alt="Church exterior" decoding="async" width="1600" height="1133">
   </div>
 
   <div class="sm-wrapper">
@@ -474,7 +476,7 @@
       style="position: relative; overflow: hidden; padding-top: 4rem; padding-bottom: 4rem; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
       <div class="catechism-bg-img" aria-hidden="true"
         style="height: 65%; max-height: 600px; width: 50%; top: 0; right: 0; opacity: 0.35;">
-        <img src="../assets/church.webp" alt="Church interior" style="object-position: right center;">
+        <img src="../assets/church.webp" alt="Church interior" style="object-position: right center;" decoding="async" width="1600" height="1133">
       </div>
 
       <div class="container" style="max-width:960px; position: relative; z-index: 2;">
@@ -616,7 +618,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -661,7 +663,7 @@
       </div>
     </div>
   </footer>
-  <script src="../assets/redesign.js" defer></script>
+  <script src="../assets/redesign.js?v=3" defer></script>
 </body>
 
 </html>

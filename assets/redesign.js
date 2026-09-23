@@ -347,8 +347,19 @@
 
   // ---------- Button magnetic / ripple origin ----------
   document.querySelectorAll(".btn").forEach(function (btn) {
+    var r = null;
+    var rScrollY = 0;
+
+    // measure once per hover (and after scrolling) instead of on every pointer move
+    btn.addEventListener("pointerleave", function () {
+      r = null;
+    });
+
     btn.addEventListener("pointermove", function (e) {
-      var r = btn.getBoundingClientRect();
+      if (!r || rScrollY !== window.scrollY) {
+        r = btn.getBoundingClientRect();
+        rScrollY = window.scrollY;
+      }
 
       btn.style.setProperty(
         "--mx",
@@ -527,6 +538,24 @@
     let lastTime = performance.now();
     const pixelsPerSecond = 40; // Silky smooth sliding speed
 
+    // Layout values are measured on resize, not every frame
+    let halfWidth = 0;
+    let canScroll = false;
+    function measure() {
+      halfWidth = wrapper.scrollWidth / 2;
+      canScroll = wrapper.scrollWidth > wrapper.clientWidth;
+    }
+    measure();
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(measure).observe(wrapper);
+    } else {
+      window.addEventListener("resize", measure, { passive: true });
+    }
+    // images inside may finish loading after the first measure
+    wrapper.querySelectorAll("img").forEach(function (img) {
+      if (!img.complete) img.addEventListener("load", measure, { once: true });
+    });
+
     // Pause on hover
     wrapper.addEventListener("mouseenter", function () {
       isPaused = true;
@@ -557,12 +586,18 @@
       }
     }, { passive: true });
 
+    // Only run the frame loop while the strip is on screen and the tab is visible
+    let running = false;
+    let onScreen = true;
+    let frameId = 0;
+
     function animate(currentTime) {
+      if (!running) return;
+
       const dt = (currentTime - lastTime) / 1000;
       lastTime = currentTime;
 
-      if (!isPaused && !isInteracting && wrapper.scrollWidth > wrapper.clientWidth) {
-        const halfWidth = wrapper.scrollWidth / 2;
+      if (!isPaused && !isInteracting && canScroll) {
         exactScroll += pixelsPerSecond * Math.min(dt, 0.1);
 
         if (exactScroll >= halfWidth) {
@@ -572,12 +607,69 @@
         wrapper.scrollLeft = exactScroll;
       }
 
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(function (time) {
-      lastTime = time;
-      requestAnimationFrame(animate);
+    function start() {
+      if (running || !onScreen || document.hidden) return;
+      running = true;
+      frameId = requestAnimationFrame(function (time) {
+        lastTime = time;
+        frameId = requestAnimationFrame(animate);
+      });
+    }
+
+    function stop() {
+      running = false;
+      cancelAnimationFrame(frameId);
+    }
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        onScreen = entries[0].isIntersecting;
+        onScreen ? start() : stop();
+      }).observe(wrapper);
+    }
+
+    document.addEventListener("visibilitychange", function () {
+      document.hidden ? stop() : start();
+    });
+
+    start();
+  })();
+
+
+  // ---------- Lazy-load below-the-fold videos ----------
+  // <video data-lazy-video data-src="..." preload="none"></video>
+  (function () {
+    const videos = document.querySelectorAll("video[data-lazy-video][data-src]");
+    if (!videos.length) return;
+
+    function load(video) {
+      video.src = video.dataset.src;
+      video.removeAttribute("data-src");
+      if (video.autoplay) {
+        const p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      videos.forEach(load);
+      return;
+    }
+
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          io.unobserve(entry.target);
+          load(entry.target);
+        }
+      });
+    }, { rootMargin: "300px 0px" });
+
+    videos.forEach(function (v) {
+      io.observe(v);
     });
   })();
 
@@ -757,59 +849,5 @@
 
 
   lazyInlineBackgrounds();
-
-
-  // ---------- Hierarchy Card Animation ----------
-  document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-      // Options for when the animation should trigger
-      const observerOptions = {
-        root: null,
-
-        rootMargin:
-          "0px 0px -100px 0px",
-
-        // Triggers when 15% of the card is visible
-        threshold: 0.15
-      };
-
-
-      const cardObserver =
-        new IntersectionObserver(
-          function (entries, observer) {
-            entries.forEach(function (entry) {
-
-              if (entry.isIntersecting) {
-
-                // Add the class that starts the CSS transitions
-                entry.target.classList.add(
-                  "is-visible"
-                );
-
-                // Stop observing once animated
-                observer.unobserve(
-                  entry.target
-                );
-              }
-            });
-          },
-          observerOptions
-        );
-
-
-      // Observe all hierarchy cards
-      const cards =
-        document.querySelectorAll(
-          ".hierarchy-card"
-        );
-
-      cards.forEach(function (card) {
-        cardObserver.observe(card);
-      });
-
-    }
-  );
 
 })();

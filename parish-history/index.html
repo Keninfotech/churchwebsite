@@ -14,11 +14,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/redesign.css?v=ols_v5">
+<link rel="stylesheet" href="../assets/redesign.css?v=ols_v6">
 </head>
 <body>
 
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- site-header:start (generated from partials/header.html; run `node build-nav.js`) -->
   <div class="topbar">
     <div class="topbar__inner">
       <div>Diocese of Mandya · Syro-Malabar Church</div>
@@ -34,27 +35,51 @@
           <span class="brand__sub">Electronics City (Hebbagodi)</span>
         </span>
       </a>
-      <nav class="primary-nav" data-primary-nav aria-label="Main navigation"><ul><li><a href="../">Home</a></li>
-        <li class="has-sub">
-          <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../our-patroness/">Our Patroness</a></li><li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li><li><a href="../parish-history/" aria-current="page">Parish History</a></li><li><a href="../vicars-message/">Vicars Message</a></li><li><a href="../donate-to-parish/">Donate to Parish</a></li><li><a href="../saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li></ul>
-        </li>
-        <li class="has-sub">
-          <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
-          <ul><li><a href="../parish-council-2/">Parish Council</a></li><li><a href="../wards/">Wards</a></li><li><a href="../construction-committee/">Construction Committee</a></li><li><a href="../parish-choir/">Parish Choir</a></li><li><a href="../obituaries/">Obituaries</a></li><li><a href="../cri-electronics-city/">CRI Electronics City</a></li><li><a href="../business-directory/">Business Directory</a></li><li><a href="../gallery/">Gallery</a></li></ul>
-        </li>
-        <li><a href="../ministries_combined.html">Pious Associations</a></li><li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li><li><a href="../contact-us/">Contact Us</a></li></ul></nav>
+      <nav class="primary-nav" data-primary-nav aria-label="Main navigation">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li class="has-sub">
+            <span class="nav-parent">About Us <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../our-patroness/">Our Patroness</a></li>
+              <li><a href="../our-church-hierarchy/">Our Church Hierarchy</a></li>
+              <li><a href="../parish-history/" aria-current="page">Parish History</a></li>
+              <li><a href="../vicars-message/">Vicars Message</a></li>
+              <li><a href="../donate-to-parish/">Donate to Parish</a></li>
+              <li><a href="../saints-in-syro-malabar-church/">Saints in Syro Malabar Church</a></li>
+            </ul>
+          </li>
+          <li class="has-sub">
+            <span class="nav-parent">Community <span class="caret" aria-hidden="true"></span></span>
+            <ul>
+              <li><a href="../parish-council-2/">Parish Council</a></li>
+              <li><a href="../wards/">Wards</a></li>
+              <li><a href="../construction-committee/">Construction Committee</a></li>
+              <li><a href="../parish-choir/">Parish Choir</a></li>
+              <li><a href="../obituaries/">Obituaries</a></li>
+              <li><a href="../cri-electronics-city/">CRI Electronics City</a></li>
+              <li><a href="../business-directory/">Business Directory</a></li>
+              <li><a href="../gallery/">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="../ministries_combined.html">Pious Associations</a></li>
+          <li><a href="../catechism_cml_holychildhood_combined.html">Catechism</a></li>
+          <li><a href="../contact-us/">Contact Us</a></li>
+        </ul>
+      </nav>
       <div style="display:flex; gap:10px; align-items:center;">
-        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav" aria-expanded="false">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-nav"
+          aria-expanded="false">Menu</button>
       </div>
     </div>
   </header>
+  <!-- site-header:end -->
 <main id="main">
 
 <section class="hero hero--history has-backdrop">
   <div class="hero__backdrop" aria-hidden="true" style="position: absolute; top: 0; bottom: 0; right: 0; width: 70%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 5%, rgba(0, 0, 0, 0.25) 18%, rgba(0, 0, 0, 0.75) 38%, black 65%);">
     <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, #fdfaf3 0%, rgba(253, 250, 243, 0.85) 10%, rgba(253, 250, 243, 0.3) 28%, transparent 55%); pointer-events: none;"></div>
-    <img src="../assets/hero section images/parish History.jpg" alt="Parish History" style="width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block;">
+    <img src="../assets/hero section images/parish History.webp" alt="Parish History" style="width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block;" decoding="async" width="2560" height="1182">
   </div>
   <div class="container">
     <div class="hero__grid">
@@ -131,7 +156,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Mathew Kalathinkal.jpg" alt="Fr Mathew Kalathinkal" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Mathew Kalathinkal.webp" alt="Fr Mathew Kalathinkal" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Mathew Kalathinkal</h3>
@@ -150,7 +175,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Alocious Kuzuppallil.jpg" alt="Fr Alocious Kuzuppallil" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Alocious Kuzuppallil.webp" alt="Fr Alocious Kuzuppallil" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Alocious Kuzhuppallil</h3>
@@ -169,7 +194,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Vinod Kanattu.jpeg" alt="Fr Vinod Kanattu" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Vinod Kanattu.webp" alt="Fr Vinod Kanattu" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Vinod Kanattu</h3>
@@ -188,7 +213,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/OLS/Priest/Manu MSFS.png" alt="Fr Manu Kumbidiyamakkal" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/OLS/Priest/Manu MSFS.webp" alt="Fr Manu Kumbidiyamakkal" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="720" height="480">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Manu Kumbidiyamakkal</h3>
@@ -207,7 +232,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Jino Plathottathil.jpeg" alt="Fr Jino Plathottathil" class="priest-card__img" style="object-position: center 15%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Jino Plathottathil.webp" alt="Fr Jino Plathottathil" class="priest-card__img" style="object-position: center 15%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Jino Plathottathil</h3>
@@ -226,7 +251,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/OLS/Priest/Jaison Joseph Kollarayath.jpg" alt="Fr Jaison Kollarayathu" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/OLS/Priest/Jaison Joseph Kollarayath.webp" alt="Fr Jaison Kollarayathu" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="720" height="682">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Jaison Kollarayathu</h3>
@@ -245,7 +270,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Jose Kokkandathil.jpeg" alt="Fr Jose Kokkandathil" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Jose Kokkandathil.webp" alt="Fr Jose Kokkandathil" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Jose Kokkandathil</h3>
@@ -264,7 +289,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Lalu Thadathilankal.jpg" alt="Fr Lalu Thadathilankal" class="priest-card__img" style="object-position: center 25%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Lalu Thadathilankal.webp" alt="Fr Lalu Thadathilankal" class="priest-card__img" style="object-position: center 25%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Lalu Thadathilankal</h3>
@@ -302,7 +327,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Tony Erniyakulathil.jpg" alt="Fr Tony Erniyakulathil" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Tony Erniyakulathil.webp" alt="Fr Tony Erniyakulathil" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Tony Erniyakulathil</h3>
@@ -321,7 +346,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Nirmal Pulikkalath.jpeg" alt="Fr Nirmal Pulikkalath" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Nirmal Pulikkalath.webp" alt="Fr Nirmal Pulikkalath" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Nirmal Pulikkalath</h3>
@@ -340,7 +365,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish History/Fr Mathew Elayadathamadam.jpeg" alt="Fr Mathew Elayadathamadam" class="priest-card__img" style="object-position: center 25%;" loading="lazy">
+            <img src="../assets/Parish History/Fr Mathew Elayadathamadam.webp" alt="Fr Mathew Elayadathamadam" class="priest-card__img" style="object-position: center 25%;" loading="lazy" decoding="async" width="150" height="150">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr Mathew Elayadathamadam</h3>
@@ -359,7 +384,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/OLS/Priest/Robin MSFS.png" alt="Fr. Robin MSFS" class="priest-card__img" style="object-position: center 20%;" loading="lazy">
+            <img src="../assets/OLS/Priest/Robin MSFS.webp" alt="Fr. Robin MSFS" class="priest-card__img" style="object-position: center 20%;" loading="lazy" decoding="async" width="480" height="720">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr. Robin MSFS</h3>
@@ -378,7 +403,7 @@
         </div>
         <div class="priest-card__body">
           <div class="priest-card__photo-wrap">
-            <img src="../assets/Parish Council/Fr. Vijin MSFS.jpg" alt="Fr. Vijin MSFS" class="priest-card__img" style="object-position: center 25%;" loading="lazy">
+            <img src="../assets/Parish Council/Fr. Vijin MSFS.webp" alt="Fr. Vijin MSFS" class="priest-card__img" style="object-position: center 25%;" loading="lazy" decoding="async" width="670" height="720">
           </div>
           <div class="priest-card__details">
             <h3 class="priest-card__name">Fr. Vijin MSFS</h3>
@@ -411,7 +436,7 @@
               <td><span class="priests-table__num">01</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Mathew Kalathinkal.jpg" alt="Fr Mathew Kalathinkal" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Mathew Kalathinkal.webp" alt="Fr Mathew Kalathinkal" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -430,7 +455,7 @@
               <td><span class="priests-table__num">02</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Alocious Kuzuppallil.jpg" alt="Fr Alocious Kuzuppallil" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Alocious Kuzuppallil.webp" alt="Fr Alocious Kuzuppallil" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -449,7 +474,7 @@
               <td><span class="priests-table__num">03</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Vinod Kanattu.jpeg" alt="Fr Vinod Kanattu" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Vinod Kanattu.webp" alt="Fr Vinod Kanattu" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -468,7 +493,7 @@
               <td><span class="priests-table__num">04</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/OLS/Priest/Manu MSFS.png" alt="Fr Manu Kumbidiyamakkal" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/OLS/Priest/Manu MSFS.webp" alt="Fr Manu Kumbidiyamakkal" style="object-position: center 20%;" loading="lazy" decoding="async" width="720" height="480">
                 </div>
               </td>
               <td>
@@ -487,7 +512,7 @@
               <td><span class="priests-table__num">05</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Jino Plathottathil.jpeg" alt="Fr Jino Plathottathil" style="object-position: center 15%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Jino Plathottathil.webp" alt="Fr Jino Plathottathil" style="object-position: center 15%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -506,7 +531,7 @@
               <td><span class="priests-table__num">06</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/OLS/Priest/Jaison Joseph Kollarayath.jpg" alt="Fr Jaison Kollarayathu" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/OLS/Priest/Jaison Joseph Kollarayath.webp" alt="Fr Jaison Kollarayathu" style="object-position: center 20%;" loading="lazy" decoding="async" width="720" height="682">
                 </div>
               </td>
               <td>
@@ -525,7 +550,7 @@
               <td><span class="priests-table__num">07</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Jose Kokkandathil.jpeg" alt="Fr Jose Kokkandathil" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Jose Kokkandathil.webp" alt="Fr Jose Kokkandathil" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -544,7 +569,7 @@
               <td><span class="priests-table__num">08</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Lalu Thadathilankal.jpg" alt="Fr Lalu Thadathilankal" style="object-position: center 25%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Lalu Thadathilankal.webp" alt="Fr Lalu Thadathilankal" style="object-position: center 25%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -582,7 +607,7 @@
               <td><span class="priests-table__num">10</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Tony Erniyakulathil.jpg" alt="Fr Tony Erniyakulathil" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Tony Erniyakulathil.webp" alt="Fr Tony Erniyakulathil" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -601,7 +626,7 @@
               <td><span class="priests-table__num">11</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Nirmal Pulikkalath.jpeg" alt="Fr Nirmal Pulikkalath" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Nirmal Pulikkalath.webp" alt="Fr Nirmal Pulikkalath" style="object-position: center 20%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -620,7 +645,7 @@
               <td><span class="priests-table__num">12</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish History/Fr Mathew Elayadathamadam.jpeg" alt="Fr Mathew Elayadathamadam" style="object-position: center 25%;" loading="lazy">
+                  <img src="../assets/Parish History/Fr Mathew Elayadathamadam.webp" alt="Fr Mathew Elayadathamadam" style="object-position: center 25%;" loading="lazy" decoding="async" width="150" height="150">
                 </div>
               </td>
               <td>
@@ -639,7 +664,7 @@
               <td><span class="priests-table__num">13</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/OLS/Priest/Robin MSFS.png" alt="Fr. Robin MSFS" style="object-position: center 20%;" loading="lazy">
+                  <img src="../assets/OLS/Priest/Robin MSFS.webp" alt="Fr. Robin MSFS" style="object-position: center 20%;" loading="lazy" decoding="async" width="480" height="720">
                 </div>
               </td>
               <td>
@@ -658,7 +683,7 @@
               <td><span class="priests-table__num">14</span></td>
               <td>
                 <div class="priests-table__avatar">
-                  <img src="../assets/Parish Council/Fr. Vijin MSFS.jpg" alt="Fr. Vijin MSFS" style="object-position: center 25%;" loading="lazy">
+                  <img src="../assets/Parish Council/Fr. Vijin MSFS.webp" alt="Fr. Vijin MSFS" style="object-position: center 25%;" loading="lazy" decoding="async" width="670" height="720">
                 </div>
               </td>
               <td>
@@ -688,7 +713,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="../logo.png" alt="OLS Logo" style="width: 50px; height: auto;">
+            <img src="../logo.webp" alt="OLS Logo" style="width: 50px; height: auto;" loading="lazy" decoding="async" width="298" height="300">
             <h4 style="margin-bottom: 0;">Our Lady of Sorrows</h4>
           </div>
           <p>A Syro-Malabar Catholic parish serving the community of Electronics City, Bangalore since 2001.</p>
@@ -718,7 +743,7 @@
       </div>
     </div>
   </footer>
-<script src="../assets/redesign.js" defer></script>
+<script src="../assets/redesign.js?v=3" defer></script>
 <script>
   (function() {
     var btnCards = document.getElementById('btn-view-cards');
