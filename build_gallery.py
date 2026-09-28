@@ -2,14 +2,16 @@
 """
 build_gallery.py
 
-Builds the photo gallery from assets/OLS_Gallery/:
+Builds the photo gallery from the original photos, which live OUTSIDE the site
+(default: ../ols-gallery-originals, next to this project folder) so they are
+never deployed:
 
-  assets/OLS_Gallery/<Section Gallery>/<photo>              -> single album
-  assets/OLS_Gallery/<Section Gallery>/<Album>/<photo>      -> tabbed albums
+  <src>/<Section Gallery>/<photo>              -> single album
+  <src>/<Section Gallery>/<Album>/<photo>      -> tabbed albums
 
 For every photo it writes two WebP files into assets/gallery/:
-  <section>/<album>/NN-t.webp   400x400 square thumbnail (shown in the grid)
-  <section>/<album>/NN.webp     max 1600px full image (loaded only on click)
+  <section>/<album>/NN-t.webp   360x360 square thumbnail (shown in the grid)
+  <section>/<album>/NN.webp     max 1400px full image (loaded only on click)
 
 Then it rewrites the section bodies in gallery/index.html between the
 `gallery:<slug>:start` / `gallery:<slug>:end` markers.
@@ -17,6 +19,7 @@ Then it rewrites the section bodies in gallery/index.html between the
 Usage:
     python build_gallery.py            # only (re)encode new/changed photos
     python build_gallery.py --force    # re-encode everything
+    python build_gallery.py --src "D:/photos/ols"   # originals somewhere else
 """
 
 import argparse
@@ -34,15 +37,15 @@ except ImportError:
     sys.exit(1)
 
 ROOT = Path(__file__).resolve().parent
-SRC = ROOT / "assets" / "OLS_Gallery"
+SRC = ROOT.parent / "ols-gallery-originals"
 OUT = ROOT / "assets" / "gallery"
 PAGE = ROOT / "gallery" / "index.html"
 
 EXTS = {".jpg", ".jpeg", ".png", ".webp"}
-THUMB = 400
-FULL = 1600
+THUMB = 360
+FULL = 1400
 THUMB_Q = 62
-FULL_Q = 78
+FULL_Q = 75
 
 # Order the sections appear on the page (folder name -> markers slug)
 SECTIONS = [
@@ -84,11 +87,11 @@ def encode(job):
         return big.size
 
 
-def collect():
+def collect(src_root):
     """Returns [(section_name, [(album_name|None, [src paths])])]"""
     result = []
     for name in SECTIONS:
-        folder = SRC / name
+        folder = src_root / name
         if not folder.is_dir():
             print(f"  ! missing folder: {folder}")
             continue
@@ -145,9 +148,13 @@ def section_html(section, albums):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--src", type=Path, default=SRC, help="folder holding the original photos")
     args = ap.parse_args()
+    src_root = args.src.resolve()
+    if not src_root.is_dir():
+        sys.exit(f"Originals folder not found: {src_root}\nPass it with --src")
 
-    data = collect()
+    data = collect(src_root)
     jobs, index = [], []
     for section, albums in data:
         for album, srcs in albums:
