@@ -48,6 +48,54 @@ section > .container[id$="-gallery"] {
   }
 }
 
+/* Social media logos */
+.ols-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.ols-social__link {
+  display: block;
+  border-radius: 50%;
+}
+
+.ols-social__link svg {
+  display: block;
+  box-sizing: content-box;
+  width: 20px;
+  height: 20px;
+  padding: 12px;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s cubic-bezier(.16, 1, .3, 1), box-shadow .25s;
+}
+
+.ols-social__link--instagram svg {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.ols-social__link--facebook svg {
+  background: #1877f2;
+}
+
+.ols-social__link--x svg {
+  background: #000;
+}
+
+.ols-social__link:hover svg,
+.ols-social__link:focus-visible svg {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+.ols-social__link:focus-visible {
+  outline: 3px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
 .ols-tabs {
   display: flex;
   flex-wrap: wrap;
