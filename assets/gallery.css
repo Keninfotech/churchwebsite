@@ -2,6 +2,52 @@
    Photo gallery – grid, album tabs, lightbox (gallery/index.html)
    ============================================================ */
 
+/* Jump links to each gallery section */
+.ols-jump {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 900px;
+  margin: 36px auto 0;
+}
+
+.ols-jump a {
+  font: 600 .95rem/1 var(--sans);
+  color: var(--blue);
+  background: var(--white);
+  border: 1px solid var(--gold-soft);
+  border-radius: 999px;
+  padding: 12px 20px;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: background .2s, color .2s, transform .2s;
+}
+
+.ols-jump a:hover,
+.ols-jump a:focus-visible {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Land below the sticky header when jumping to a section */
+section > .container[id$="-gallery"] {
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 600px) {
+  .ols-jump {
+    gap: 8px;
+  }
+
+  .ols-jump a {
+    font-size: .85rem;
+    padding: 10px 14px;
+  }
+}
+
 .ols-tabs {
   display: flex;
   flex-wrap: wrap;
