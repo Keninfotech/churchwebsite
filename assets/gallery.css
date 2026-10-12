@@ -199,7 +199,7 @@ section > .container[id$="-gallery"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(10, 14, 12, .94);
+  background: rgba(59, 22, 15, .94);
   opacity: 0;
   transition: opacity .2s;
 }
