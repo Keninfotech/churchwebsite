@@ -240,7 +240,7 @@ h4 {
   justify-content: space-between;
   align-items: center;
   gap: 18px;
-  padding: 6px clamp(16px, 3.4vw, 34px);
+  padding: 0 clamp(16px, 3.4vw, 34px);
   padding-left: calc(clamp(16px, 3.4vw, 34px) + env(safe-area-inset-left));
   padding-right: calc(clamp(16px, 3.4vw, 34px) + env(safe-area-inset-right));
   max-width: 1440px;
@@ -268,21 +268,19 @@ h4 {
 }
 
 .brand__crest {
-  width: 92px;
-  /* enlarged from 68px; header padding trimmed above to keep bar height in check */
-  height: 92px;
-  /* enlarged from 68px */
-  border-radius: 50%;
+  width: 104px;
+  height: 104px;
   background: url('../logo.webp') center/contain no-repeat;
   display: block;
   color: transparent;
+  flex-shrink: 0;
   /* Hide the OLS text */
   transition: width .3s cubic-bezier(.22, .61, .36, 1), height .3s cubic-bezier(.22, .61, .36, 1);
 }
 
 .site-header.scrolled .brand__crest {
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
 }
 
 .brand__name {
@@ -450,8 +448,8 @@ h4 {
   }
 
   .brand__crest {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
   }
 
   .site-header__inner {
@@ -592,8 +590,8 @@ h4 {
   }
 
   .brand__crest {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
   }
 }
 
