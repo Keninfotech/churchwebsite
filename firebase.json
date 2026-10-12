@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "*.py",
+      "*.log",
+      "README.md",
+      "build-nav.js",
+      "replace_hero.js",
+      "partials/**"
+    ]
+  }
+}
