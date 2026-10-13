@@ -1,0 +1,1 @@
+FAILED: C:\Users\Sunith K\Downloads\ols-parish-redesign-v3\assets\OLS\Parish Council\St. Micheal\Rose Maria George.webp (cannot identify image file 'C:\\Users\\Sunith K\\Downloads\\ols-parish-redesign-v3\\assets\\OLS\\Parish Council\\St. Micheal\\Rose Maria George.webp')

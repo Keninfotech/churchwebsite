@@ -3188,6 +3188,561 @@ html.pt-out body {
 }
 
 /* ============================================================
+   Parish Consecration Invitation Booklet — Horizontal Scroll
+   ============================================================ */
+
+.invitation-booklet {
+  background: #ffffff;
+  border-radius: var(--radius-lg, 20px);
+  border: 1px solid #E8DCC5;
+  box-shadow: 0 -4px 40px -10px rgba(59, 22, 15, .15), 0 20px 45px -15px rgba(59, 22, 15, 0.1);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  margin-top: -2px;
+}
+
+/* Header */
+.inv-header {
+  background: linear-gradient(135deg, #FFF9EC 0%, #F5E8D0 100%);
+  padding: 1.5rem clamp(1rem, 3vw, 2.25rem);
+  border-bottom: 1px solid #E8DCC5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.inv-header__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.inv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #651B24;
+  background: rgba(101, 27, 36, 0.08);
+  border: 1px solid rgba(212, 165, 44, 0.4);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.inv-badge svg {
+  color: #D4A52C;
+}
+
+.inv-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  color: #3B160F;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.inv-subtitle {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: #705B4D;
+  margin: 0;
+}
+
+.inv-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Navigation Buttons & Counter */
+.inv-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.inv-page-counter {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: #651B24;
+  font-weight: 500;
+  background: #FFFDF9;
+  border: 1px solid #E8DCC5;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.inv-page-counter strong {
+  font-weight: 700;
+  color: #651B24;
+}
+
+.inv-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.inv-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #651B24;
+  border: 1.5px solid #D4A52C;
+  color: #FFF9EC;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(101, 27, 36, 0.18);
+  padding: 0;
+}
+
+.inv-nav-btn:hover:not(:disabled) {
+  background: #7d222d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(101, 27, 36, 0.28);
+  border-color: #F3D47A;
+}
+
+.inv-nav-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.inv-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  border-color: #c9bea7;
+}
+
+.inv-nav-btn.is-pulsing {
+  animation: pulseGold 2s infinite;
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 165, 44, 0.6), 0 4px 12px rgba(101, 27, 36, 0.2); }
+  50% { box-shadow: 0 0 0 8px rgba(212, 165, 44, 0), 0 6px 16px rgba(101, 27, 36, 0.25); }
+}
+
+/* Carousel Viewport */
+.inv-carousel-wrap {
+  position: relative;
+  background: #FAF6EF;
+  overflow: hidden;
+}
+
+.inv-track {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding: 2rem clamp(1rem, 3.5vw, 2.5rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #D4A52C #FAF6EF;
+}
+
+.inv-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.inv-track::-webkit-scrollbar-track {
+  background: #FAF6EF;
+}
+
+.inv-track::-webkit-scrollbar-thumb {
+  background: #D4A52C;
+  border-radius: 4px;
+}
+
+.inv-track::-webkit-scrollbar-thumb:hover {
+  background: #651B24;
+}
+
+/* Teaser peek keyframe */
+@keyframes teasePeek {
+  0% { transform: translateX(0); }
+  35% { transform: translateX(-80px); }
+  65% { transform: translateX(-80px); }
+  100% { transform: translateX(0); }
+}
+
+.inv-track--nudging {
+  animation: teasePeek 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Cards */
+.inv-card {
+  flex: 0 0 clamp(320px, 42vw, 460px);
+  max-width: 460px;
+  scroll-snap-align: center;
+  user-select: none;
+}
+
+@media (max-width: 680px) {
+  .inv-card {
+    flex: 0 0 82vw;
+    max-width: 340px;
+  }
+}
+
+.inv-card__inner {
+  background: #FFFDF9;
+  border: 1.5px solid #E8DCC5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(59, 22, 15, 0.08);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.inv-card:hover .inv-card__inner {
+  transform: translateY(-4px);
+  border-color: #D4A52C;
+  box-shadow: 0 18px 40px -10px rgba(101, 27, 36, 0.18), 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.inv-card__header {
+  padding: 0.75rem 1rem;
+  background: #FFF9EC;
+  border-bottom: 1px solid #E8DCC5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inv-card__tag {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #651B24;
+  background: rgba(101, 27, 36, 0.08);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.inv-card__label {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3B160F;
+}
+
+.inv-card__media {
+  position: relative;
+  background: #f5eedf;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.inv-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.inv-card:hover .inv-card__media img {
+  transform: scale(1.02);
+}
+
+.inv-card__footer {
+  padding: 0.9rem 1.15rem;
+  background: #FFFDF9;
+  border-top: 1px solid #E8DCC5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.inv-card__title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #3B160F;
+  margin: 0 0 0.15rem;
+  line-height: 1.25;
+}
+
+.inv-card__sub {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: #705B4D;
+  margin: 0;
+}
+
+.inv-card__expand {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #FFF9EC;
+  border: 1px solid #E8DCC5;
+  color: #651B24;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.inv-card__expand:hover {
+  background: #651B24;
+  color: #FFF9EC;
+  border-color: #651B24;
+}
+
+/* Bottom Bar */
+.inv-bottom-bar {
+  background: #FFF9EC;
+  padding: 1.1rem clamp(1rem, 3vw, 2.25rem);
+  border-top: 1px solid #E8DCC5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.inv-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.inv-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #FFFDF9;
+  border: 1.5px solid #E8DCC5;
+  color: #705B4D;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.inv-pill__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9bea7;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.inv-pill__num {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.inv-pill:hover {
+  border-color: #D4A52C;
+  color: #651B24;
+  transform: translateY(-1px);
+}
+
+.inv-pill.active {
+  background: #651B24;
+  border-color: #D4A52C;
+  color: #FFF9EC;
+  box-shadow: 0 4px 12px rgba(101, 27, 36, 0.2);
+}
+
+.inv-pill.active .inv-pill__dot {
+  background: #D4A52C;
+  transform: scale(1.3);
+}
+
+.inv-download-action {
+  margin-left: auto;
+}
+
+.inv-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #651B24;
+  text-decoration: none;
+  background: #FFFDF9;
+  border: 1px solid #D4A52C;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.inv-action-link:hover {
+  background: #651B24;
+  color: #FFF9EC;
+}
+
+/* Lightbox Modal — native <dialog> */
+.inv-lightbox {
+  /* Reset all dialog browser defaults */
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  /* Full viewport */
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  /* Transparent bg — backdrop handles the dim */
+  background: transparent;
+  overflow: hidden;
+}
+
+/* The dark dim overlay */
+.inv-lightbox::backdrop {
+  background: rgba(10, 4, 2, 0.93);
+}
+
+.inv-lightbox.open {
+  display: flex;
+}
+
+.inv-lightbox__bar {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #FFF9EC;
+  background: rgba(15, 5, 3, 0.98);
+  border-bottom: 1px solid rgba(212, 165, 44, 0.3);
+  flex-shrink: 0;
+}
+
+.inv-lightbox__title {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.inv-lightbox__counter {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: #D4A52C;
+  font-weight: 600;
+  margin-left: 0.75rem;
+}
+
+.inv-lightbox__close {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.inv-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #D4A52C;
+  color: #D4A52C;
+}
+
+.inv-lightbox__stage {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 4rem;
+  overflow: hidden;
+}
+
+.inv-lightbox__img {
+  max-width: 90vw;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.inv-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(101, 27, 36, 0.85);
+  border: 1.5px solid #D4A52C;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.inv-lightbox__nav:hover {
+  background: #651B24;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.inv-lightbox__nav--prev {
+  left: 1.5rem;
+}
+
+.inv-lightbox__nav--next {
+  right: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .inv-lightbox__stage {
+    padding: 1rem 0.5rem;
+  }
+  .inv-lightbox__nav {
+    width: 42px;
+    height: 42px;
+  }
+  .inv-lightbox__nav--prev {
+    left: 0.5rem;
+  }
+  .inv-lightbox__nav--next {
+    right: 0.5rem;
+  }
+}
+
+/* ============================================================
    Catechism Department — editorial redesign
    ============================================================ */
 

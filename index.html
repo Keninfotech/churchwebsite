@@ -601,102 +601,169 @@
       <div class="announce-hero">
         <div class="container announce-hero__content">
           <span class="announce-hero__cross" aria-hidden="true">✟</span>
-          <h2 class="announce-hero__title">Parish<br><span>Announcements</span></h2>
+          <h2 class="announce-hero__title">Parish<br><span>Invitation</span></h2>
           <span class="announce-hero__rule"></span>
-          <p class="announce-hero__sub"><em>Together in Faith, Building Our Future</em></p>
+          <p class="announce-hero__sub"><em>Solemn Consecration &amp; Dedication &bull; 24 &amp; 25 October 2026</em></p>
         </div>
       </div>
 
-      <!-- Body -->
+      <!-- Body: Invitation Pages Horizontal Scroll -->
       <div class="announce-wide-container">
-        <div class="announce-body" data-reveal>
-
-          <!-- Left: scripture quote card -->
-          <div class="announce-quote-card">
-            <div class="announce-quote-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+        <div class="invitation-booklet" data-reveal id="invitationBooklet">
+          <!-- Top Control Header -->
+          <div class="inv-header">
+            <div class="inv-header__info">
+              <span class="inv-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15 7H21V22H3V7H9L12 2Z"/></svg>
+                Solemn Consecration &amp; Dedication
+              </span>
+              <h3 class="inv-title">Official Parish Invitation</h3>
+              <p class="inv-subtitle">Browse through all 4 pages of the invitation leaflet</p>
             </div>
-            <div class="announce-quote-mark">&ldquo;</div>
-            <blockquote class="announce-blockquote">
-              Each one must give as he has decided in his heart, not reluctantly or under compulsion, for God loves a cheerful giver.
-            </blockquote>
-            <cite class="announce-cite">&mdash; 2 Corinthians 9:7</cite>
-          </div>
 
-          <!-- Middle: Vicar's message -->
-          <div class="announce-items" style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <div style="margin-bottom: 0.5rem;">
-              <h3 style="font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--ink); margin: 0 0 0.25rem; line-height: 1.2; font-weight: 500;">My Dear Brothers and<br>Sisters in Christ,</h3>
-              <div style="display: flex; align-items: center; gap: 0.75rem; margin: 0.6rem 0;">
-                <span style="flex: 0 0 40px; height: 1.5px; background: var(--gold-soft);"></span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2L15 7H21V22H3V7H9L12 2Z"/></svg>
-                <span style="flex: 0 0 40px; height: 1.5px; background: var(--gold-soft);"></span>
+            <div class="inv-header__actions">
+              <!-- Page Counter & Nav Buttons -->
+              <div class="inv-nav-group">
+                <span class="inv-page-counter" id="invPageCounter">Page <strong id="invPageNum">1</strong> of 4</span>
+                <div class="inv-buttons">
+                  <button type="button" class="inv-nav-btn inv-nav-btn--prev" id="invPrevBtn" aria-label="Previous invitation page" disabled onclick="invScrollPrev()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                  </button>
+                  <button type="button" class="inv-nav-btn inv-nav-btn--next is-pulsing" id="invNextBtn" aria-label="Next invitation page" onclick="invScrollNext()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                  </button>
+                </div>
               </div>
-              <p style="font-weight: 700; color: #651B24; font-size: 1rem; margin: 0; font-family: var(--sans);">Greetings of peace in the Lord!</p>
             </div>
+          </div>
 
-            <p style="line-height: 1.5; margin: 0;">I hope this letter finds you and your family well. As the Parish Priest of Our Lady of Sorrows (OLS), I humbly invite you to become a part of a historic and faith-filled journey—the completion of our new church, a sacred home where generations will gather to worship, pray, and grow in faith.</p>
-
-            <p style="line-height: 1.5; margin: 0;">With immense gratitude to God, I am happy to share that the newly constructed church is scheduled to be solemnly blessed on <strong>24 October 2026</strong>. As we prepare for this joyous occasion, we prayerfully seek your generous support to complete the remaining works and dedicate this house of God to His glory.</p>
-
-            <div style="background-color: #FFF9EC; border: 2px solid #E8DCC5; padding: 1.25rem 1.5rem; border-radius: 12px; display: flex; gap: 1.5rem; align-items: center; margin: 0.75rem 0; box-shadow: 0 4px 15px rgba(59,22,15,0.03);">
-              <div style="background-color: #651B24; border-radius: 50%; min-width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; color: #F3D47A; border: 3px solid #D4A52C; box-shadow: 0 0 0 3px #FFF9EC;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15 7H21V22H3V7H9L12 2Z"/><path d="M12 12V22" stroke="#651B24" stroke-width="2"/><path d="M9 16H15" stroke="#651B24" stroke-width="2"/><circle cx="12" cy="12" r="1.5" fill="#651B24"/></svg>
+          <!-- Carousel Viewport & Track -->
+          <div class="inv-carousel-wrap">
+            <div class="inv-track" id="invTrack" tabindex="0" role="region" aria-label="Invitation pages carousel">
+              
+              <!-- Page 1 -->
+              <div class="inv-card active" data-page="1">
+                <div class="inv-card__inner">
+                  <div class="inv-card__header">
+                    <span class="inv-card__tag">Page 1 of 4</span>
+                    <span class="inv-card__label">Cover &amp; Dedication</span>
+                  </div>
+                  <div class="inv-card__media" onclick="openInvitationLightbox(0)">
+                    <img src="./assets/invitation_pages/invitation_page_1.jpg" alt="Invitation Page 1 - Consecration & Dedication" loading="lazy" decoding="async">
+                  </div>
+                  <div class="inv-card__footer">
+                    <div>
+                      <h4 class="inv-card__title">Consecration &amp; Dedication</h4>
+                      <p class="inv-card__sub">First Holy Mass &bull; 24 &amp; 25 Oct 2026</p>
+                    </div>
+                    <button type="button" class="inv-card__expand" onclick="openInvitationLightbox(0)" aria-label="Expand page 1">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <p style="margin: 0; font-weight: 500; color: #3B160F; line-height: 1.5;">
-                Considering the enormous task of constructing a church in a metropolitan city like Bangalore, we are seeking generous donations to help make this vision a reality. Every contribution, no matter the size, will play a vital role in providing a space where lives can be transformed.
-              </p>
-            </div>
 
-            <p style="line-height: 1.5; margin: 0;">The Scriptures remind us of the importance of building God's house. Our Lord Jesus said, <span style="font-style: italic;">"I will build my Church, and the gates of hell shall not prevail against it."</span> (Matthew 16:18). Every contribution towards this sacred mission becomes a lasting act of faith and a beautiful offering to God.</p>
+              <!-- Page 2 -->
+              <div class="inv-card" data-page="2">
+                <div class="inv-card__inner">
+                  <div class="inv-card__header">
+                    <span class="inv-card__tag">Page 2 of 4</span>
+                    <span class="inv-card__label">A Cordial Invitation</span>
+                  </div>
+                  <div class="inv-card__media" onclick="openInvitationLightbox(1)">
+                    <img src="./assets/invitation_pages/invitation_page_2.jpg" alt="Invitation Page 2 - Cordial Invitation & Priests" loading="lazy" decoding="async">
+                  </div>
+                  <div class="inv-card__footer">
+                    <div>
+                      <h4 class="inv-card__title">A Cordial Invitation</h4>
+                      <p class="inv-card__sub">Parish Priest, Vicars &amp; Council Message</p>
+                    </div>
+                    <button type="button" class="inv-card__expand" onclick="openInvitationLightbox(1)" aria-label="Expand page 2">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Page 3 -->
+              <div class="inv-card" data-page="3">
+                <div class="inv-card__inner">
+                  <div class="inv-card__header">
+                    <span class="inv-card__tag">Page 3 of 4</span>
+                    <span class="inv-card__label">Programme &amp; Schedule</span>
+                  </div>
+                  <div class="inv-card__media" onclick="openInvitationLightbox(2)">
+                    <img src="./assets/invitation_pages/invitation_page_3.jpg" alt="Invitation Page 3 - Programme & Celebrations" loading="lazy" decoding="async">
+                  </div>
+                  <div class="inv-card__footer">
+                    <div>
+                      <h4 class="inv-card__title">Programme &amp; Celebrations</h4>
+                      <p class="inv-card__sub">Day 1 &amp; Day 2 Event Timings &amp; Guests</p>
+                    </div>
+                    <button type="button" class="inv-card__expand" onclick="openInvitationLightbox(2)" aria-label="Expand page 3">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Page 4 -->
+              <div class="inv-card" data-page="4">
+                <div class="inv-card__inner">
+                  <div class="inv-card__header">
+                    <span class="inv-card__tag">Page 4 of 4</span>
+                    <span class="inv-card__label">Parish Committees</span>
+                  </div>
+                  <div class="inv-card__media" onclick="openInvitationLightbox(3)">
+                    <img src="./assets/invitation_pages/invitation_page_4.jpg" alt="Invitation Page 4 - Our Committees" loading="lazy" decoding="async">
+                  </div>
+                  <div class="inv-card__footer">
+                    <div>
+                      <h4 class="inv-card__title">Our Committees</h4>
+                      <p class="inv-card__sub">Committees, Trustees &amp; Location Map</p>
+                    </div>
+                    <button type="button" class="inv-card__expand" onclick="openInvitationLightbox(3)" aria-label="Expand page 4">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
 
-          <!-- Right: Ways You Can Contribute -->
-          <div class="announce-notice" style="padding: 2.25rem 2rem; border-left: 1px solid var(--line); background-color: #FFF9EC;">
-            <div style="background-color: #651B24; color: #FFF9EC; text-align: center; font-family: var(--serif); font-size: 1.15rem; padding: 0.6rem 1rem; text-transform: uppercase; border-top: 2px solid #D4A52C; border-bottom: 2px solid #D4A52C; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: 0.05em;">
-              <span style="flex: 1; height: 1px; background-color: #D4A52C;"></span>
-              Ways You Can Contribute
-              <span style="flex: 1; height: 1px; background-color: #D4A52C;"></span>
+          <!-- Bottom Tabs / Jump Buttons -->
+          <div class="inv-bottom-bar">
+            <div class="inv-pills" id="invPills">
+              <button type="button" class="inv-pill active" onclick="goToInvitationPage(0)">
+                <span class="inv-pill__dot"></span>
+                <span class="inv-pill__num">1</span>
+                <span class="inv-pill__name">Cover</span>
+              </button>
+              <button type="button" class="inv-pill" onclick="goToInvitationPage(1)">
+                <span class="inv-pill__dot"></span>
+                <span class="inv-pill__num">2</span>
+                <span class="inv-pill__name">Invitation</span>
+              </button>
+              <button type="button" class="inv-pill" onclick="goToInvitationPage(2)">
+                <span class="inv-pill__dot"></span>
+                <span class="inv-pill__num">3</span>
+                <span class="inv-pill__name">Programme</span>
+              </button>
+              <button type="button" class="inv-pill" onclick="goToInvitationPage(3)">
+                <span class="inv-pill__dot"></span>
+                <span class="inv-pill__num">4</span>
+                <span class="inv-pill__name">Committees</span>
+              </button>
             </div>
-
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; color: var(--ink); line-height: 1.4;">
-              <thead>
-                <tr style="background-color: #651B24; color: #FFF9EC;">
-                  <th style="padding: 0.5rem 0.75rem; text-align: left; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; border-right: 1px solid rgba(255,255,255,0.15);">Sponsor</th>
-                  <th style="padding: 0.5rem 0.75rem; text-align: right; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;">Contribution (₹)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid #E8DCC5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">1</span>Altar Table</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24; white-space:nowrap;">4,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5; background:#F3E5C5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">2</span>Bema</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">2,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">3</span>Basegasa (2 Nos)</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">1,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5; background:#F3E5C5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">4</span>Reading Stand (2 Nos)</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">2,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">5</span>Sakrari (Sanctuary)</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">4,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5; background:#F3E5C5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">6</span>Side Doors</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">1,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">7</span>Church Main Door</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">6,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5; background:#F3E5C5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">8</span>Church Main Side Doors (2 Nos)</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">4,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">9</span>Windows</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24; white-space:nowrap;">75,000 <span style="font-size:0.8em; font-weight:400;">(per window)</span></td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5; background:#F3E5C5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">10</span>Sound System</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24; white-space:nowrap;">20,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">11</span>Carpet for Church</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">3,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5; background:#F3E5C5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">12</span>SS Cross for Outside Main Tower</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">3,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">13</span>SS Cross Top of Dome</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">2,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5; background:#F3E5C5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">14</span>Two Small Crosses for Small Towers</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24;">1,00,000</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">15</span>Church Bell</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24; white-space:nowrap;">As per actual cost</td></tr>
-                <tr style="border-bottom: 1px solid #E8DCC5; background:#F3E5C5;"><td style="padding: 0.5rem 0.75rem; border-right: 1px solid #E8DCC5;"><span style="display:inline-flex; width:18px; height:18px; background:#651B24; color:#fff; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; font-size:0.7rem; flex-shrink:0;">16</span>Stain Glass Gothic Window Inside Church</td><td style="padding: 0.5rem 0.75rem; text-align:right; font-weight:600; color:#651B24; white-space:nowrap;">50,000 <span style="font-size:0.8em; font-weight:400;">(per window)</span></td></tr>
-                <tr style="background-color: #F3E5C5;">
-                  <td style="padding: 0.6rem 0.75rem; font-weight: 700; border-right: 1px solid #D4A52C; color: #651B24;">
-                    <span style="display:inline-flex; width:22px; height:22px; background:#651B24; color:#D4A52C; border-radius:50%; align-items:center; justify-content:center; margin-right:6px; border: 1px solid #D4A52C;">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    </span>1 Sq. Ft. of the Church
-                  </td>
-                  <td style="padding: 0.6rem 0.75rem; text-align:right; font-weight:700; color:#651B24; white-space:nowrap;">3,000 <span style="font-size:0.8em; font-weight:400;">(per sq.ft)</span></td>
-                </tr>
-              </tbody>
-            </table>
+            
+            <div class="inv-download-action">
+              <a href="./assets/invitation_pages/invitation_page_1.jpg" download="OLS_Church_Invitation_Page1.jpg" class="inv-action-link" id="invDownloadLink" target="_blank">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Download Active Page</span>
+              </a>
+            </div>
           </div>
-
-
-
         </div>
       </div>
     </section>
@@ -1435,6 +1502,321 @@
       }
     });
   </script>
+
+  <script>
+    // ==========================================
+    // Invitation Booklet Carousel & Lightbox Logic
+    // ==========================================
+    const invPagesData = [
+      {
+        num: 1,
+        title: "Cover & Dedication",
+        src: "./assets/invitation_pages/invitation_page_1.jpg",
+        download: "OLS_Church_Invitation_Page1_Cover.jpg"
+      },
+      {
+        num: 2,
+        title: "A Cordial Invitation — Vicar's Letter",
+        src: "./assets/invitation_pages/invitation_page_2.jpg",
+        download: "OLS_Church_Invitation_Page2_Letter.jpg"
+      },
+      {
+        num: 3,
+        title: "Programme & Celebrations — Oct 24 & 25",
+        src: "./assets/invitation_pages/invitation_page_3.jpg",
+        download: "OLS_Church_Invitation_Page3_Programme.jpg"
+      },
+      {
+        num: 4,
+        title: "Our Committees & Location Map",
+        src: "./assets/invitation_pages/invitation_page_4.jpg",
+        download: "OLS_Church_Invitation_Page4_Committees.jpg"
+      }
+    ];
+
+    let currentInvPageIndex = 0;
+    let invLbCurrentIndex = 0;
+    let hasUserScrolledInv = false;
+    let invHasDragged = false;
+
+    function getInvCards() {
+      const track = document.getElementById('invTrack');
+      if (!track) return [];
+      return Array.from(track.querySelectorAll('.inv-card'));
+    }
+
+    function updateInvUI(index) {
+      currentInvPageIndex = Math.max(0, Math.min(invPagesData.length - 1, index));
+      
+      // Update page counter
+      const counterEl = document.getElementById('invPageNum');
+      if (counterEl) counterEl.textContent = currentInvPageIndex + 1;
+
+      // Update buttons
+      const prevBtn = document.getElementById('invPrevBtn');
+      const nextBtn = document.getElementById('invNextBtn');
+      if (prevBtn) prevBtn.disabled = currentInvPageIndex === 0;
+      if (nextBtn) {
+        nextBtn.disabled = currentInvPageIndex === invPagesData.length - 1;
+        if (currentInvPageIndex > 0) {
+          nextBtn.classList.remove('is-pulsing');
+        }
+      }
+
+      // Update bottom pills
+      const pills = document.querySelectorAll('#invPills .inv-pill');
+      pills.forEach((pill, idx) => {
+        if (idx === currentInvPageIndex) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+
+      // Update cards active state
+      const cards = getInvCards();
+      cards.forEach((card, idx) => {
+        if (idx === currentInvPageIndex) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+
+      // Update download link
+      const dlLink = document.getElementById('invDownloadLink');
+      if (dlLink && invPagesData[currentInvPageIndex]) {
+        dlLink.href = invPagesData[currentInvPageIndex].src;
+        dlLink.download = invPagesData[currentInvPageIndex].download;
+      }
+    }
+
+    function goToInvitationPage(index) {
+      const cards = getInvCards();
+      const track = document.getElementById('invTrack');
+      if (!track || !cards[index]) return;
+      
+      hasUserScrolledInv = true;
+      const targetCard = cards[index];
+      const scrollOffset = targetCard.offsetLeft - (track.clientWidth - targetCard.clientWidth) / 2;
+      
+      track.scrollTo({
+        left: Math.max(0, scrollOffset),
+        behavior: 'smooth'
+      });
+
+      updateInvUI(index);
+    }
+
+    function invScrollPrev() {
+      if (currentInvPageIndex > 0) {
+        goToInvitationPage(currentInvPageIndex - 1);
+      }
+    }
+
+    function invScrollNext() {
+      if (currentInvPageIndex < invPagesData.length - 1) {
+        goToInvitationPage(currentInvPageIndex + 1);
+      }
+    }
+
+    // Initialize track scroll spy & drag-to-scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const track = document.getElementById('invTrack');
+      if (!track) return;
+
+      // Scroll listener with debounce to update active index
+      let scrollTimeout;
+      track.addEventListener('scroll', function() {
+        hasUserScrolledInv = true;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          const cards = getInvCards();
+          const trackCenter = track.scrollLeft + track.clientWidth / 2;
+          let closestIndex = 0;
+          let minDistance = Infinity;
+
+          cards.forEach((card, idx) => {
+            const cardCenter = card.offsetLeft + card.clientWidth / 2;
+            const distance = Math.abs(trackCenter - cardCenter);
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestIndex = idx;
+            }
+          });
+
+          updateInvUI(closestIndex);
+        }, 60);
+      }, { passive: true });
+
+      // Keyboard arrow navigation when track is focused
+      track.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          invScrollNext();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          invScrollPrev();
+        }
+      });
+
+      // Mouse drag-to-scroll affordance
+      let isDown = false;
+      let startX, scrollLeft;
+
+      track.addEventListener('mousedown', function(e) {
+        // Don't intercept clicks on interactive elements or the card image area
+        if (e.target.closest('button, a, .inv-card__media, .inv-card__inner')) return;
+        isDown = true;
+        invHasDragged = false;
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+
+      window.addEventListener('mouseup', function() {
+        if (isDown) {
+          isDown = false;
+          track.style.cursor = '';
+          setTimeout(function() { invHasDragged = false; }, 120);
+        }
+      });
+
+      track.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX);
+        if (Math.abs(walk) > 8) {
+          invHasDragged = true;
+          track.style.cursor = 'grabbing';
+          e.preventDefault();
+          track.scrollLeft = scrollLeft - walk * 1.3;
+          hasUserScrolledInv = true;
+        }
+      });
+
+      // Teaser Peek Affordance Animation via IntersectionObserver
+      if ('IntersectionObserver' in window) {
+        let hasNudged = false;
+        const booklet = document.getElementById('invitationBooklet');
+        if (booklet) {
+          const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting && !hasNudged && !hasUserScrolledInv) {
+                hasNudged = true;
+                setTimeout(function() {
+                  if (!hasUserScrolledInv && track.scrollLeft === 0) {
+                    track.classList.add('inv-track--nudging');
+                    setTimeout(function() {
+                      track.classList.remove('inv-track--nudging');
+                    }, 1050);
+                  }
+                }, 600);
+              }
+            });
+          }, { threshold: 0.25 });
+          observer.observe(booklet);
+        }
+      }
+
+      updateInvUI(0);
+    });
+
+    // ==========================================
+    // Lightbox Modal Functions
+    // ==========================================
+    function openInvitationLightbox(index) {
+      if (invHasDragged) return;
+      invLbCurrentIndex = Math.max(0, Math.min(invPagesData.length - 1, index));
+      renderLightboxImage();
+      const lb = document.getElementById('invLightbox');
+      if (lb) {
+        lb.showModal();
+        document.body.style.overflow = 'hidden';
+      }
+      document.addEventListener('keydown', onInvLbKeydown);
+    }
+
+    function closeInvitationLightbox() {
+      const lb = document.getElementById('invLightbox');
+      if (lb && lb.open) {
+        lb.close();
+        document.body.style.overflow = '';
+      }
+      document.removeEventListener('keydown', onInvLbKeydown);
+    }
+
+    function renderLightboxImage() {
+      const item = invPagesData[invLbCurrentIndex];
+      if (!item) return;
+      const img = document.getElementById('invLbImg');
+      const title = document.getElementById('invLbTitle');
+      const counter = document.getElementById('invLbCounter');
+      const dl = document.getElementById('invLbDownload');
+      const prevBtn = document.getElementById('invLbPrev');
+      const nextBtn = document.getElementById('invLbNext');
+
+      if (img) {
+        img.src = item.src;
+        img.alt = item.title;
+      }
+      if (title) title.textContent = item.title;
+      if (counter) counter.textContent = 'Page ' + item.num + ' of ' + invPagesData.length;
+      if (dl) {
+        dl.href = item.src;
+        dl.download = item.download;
+      }
+      if (prevBtn) prevBtn.style.opacity = invLbCurrentIndex === 0 ? '0.3' : '1';
+      if (nextBtn) nextBtn.style.opacity = invLbCurrentIndex === invPagesData.length - 1 ? '0.3' : '1';
+    }
+
+    function navigateInvitationLightbox(direction) {
+      const nextIdx = invLbCurrentIndex + direction;
+      if (nextIdx >= 0 && nextIdx < invPagesData.length) {
+        invLbCurrentIndex = nextIdx;
+        renderLightboxImage();
+      }
+    }
+
+    function onLightboxStageClick(e) {
+      if (e.target.id === 'invLbImg' || e.target.closest('.inv-lightbox__nav')) return;
+      closeInvitationLightbox();
+    }
+
+    function onInvLbKeydown(e) {
+      if (e.key === 'Escape') closeInvitationLightbox();
+      if (e.key === 'ArrowRight') navigateInvitationLightbox(1);
+      if (e.key === 'ArrowLeft') navigateInvitationLightbox(-1);
+    }
+  </script>
+
+  <!-- Invitation Leaflet Lightbox Modal — native <dialog> renders in top-layer, immune to parent transforms -->
+  <dialog class="inv-lightbox" id="invLightbox" aria-label="Invitation Page Viewer">
+    <div class="inv-lightbox__bar">
+      <div>
+        <h4 class="inv-lightbox__title" id="invLbTitle">Official Parish Invitation</h4>
+        <span class="inv-lightbox__counter" id="invLbCounter">Page 1 of 4</span>
+      </div>
+      <div style="display:flex; align-items:center; gap: 0.75rem;">
+        <a id="invLbDownload" href="./assets/invitation_pages/invitation_page_1.jpg" download="Invitation_Page_1.jpg" class="inv-action-link" style="color:#FFF9EC; background:rgba(255,255,255,0.1); border-color:#D4A52C;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span style="display:inline-block;">Download HD</span>
+        </a>
+        <button type="button" class="inv-lightbox__close" onclick="closeInvitationLightbox()" aria-label="Close viewer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="inv-lightbox__stage" onclick="onLightboxStageClick(event)">
+      <button type="button" class="inv-lightbox__nav inv-lightbox__nav--prev" id="invLbPrev" onclick="navigateInvitationLightbox(-1)" aria-label="Previous image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <img src="./assets/invitation_pages/invitation_page_1.jpg" alt="Invitation Page HD" class="inv-lightbox__img" id="invLbImg">
+      <button type="button" class="inv-lightbox__nav inv-lightbox__nav--next" id="invLbNext" onclick="navigateInvitationLightbox(1)" aria-label="Next image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </dialog>
+
 </body>
 
 </html>
