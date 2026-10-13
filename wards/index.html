@@ -252,6 +252,138 @@
         justify-content: center;
     }
 }
+
+/* Religious Vocations in Ward Tabs & Dedicated Sections */
+.ward-vocation-card {
+    margin-top: 2rem;
+    padding: 1.8rem;
+    background: linear-gradient(135deg, #FFFDF8 0%, #FBF4E6 100%);
+    border: 1px solid #E8DCC5;
+    border-left: 5px solid #651B24;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(59, 22, 15, 0.05);
+}
+.ward-vocation-badge {
+    display: inline-block;
+    background: #651B24;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    margin-bottom: 0.85rem;
+}
+.ward-vocation-content {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+.ward-vocation-img {
+    width: 140px;
+    height: 175px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(59, 22, 15, 0.15);
+    border: 2px solid #D4A52C;
+}
+.ward-vocation-details h3 {
+    margin: 0 0 0.6rem 0;
+    color: #651B24;
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.ward-vocation-desc {
+    color: #3B160F;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin: 0 0 1rem 0;
+}
+.ward-vocation-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+.ward-vocation-tag {
+    background: #ffffff;
+    border: 1px solid #E8DCC5;
+    border-radius: 6px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.84rem;
+    color: #52281D;
+}
+.ward-vocation-tag strong {
+    color: #651B24;
+}
+@media (max-width: 650px) {
+    .ward-vocation-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .ward-vocation-img {
+        width: 120px;
+        height: 150px;
+    }
+}
+
+.vocation-feature-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #E8DCC5;
+    border-radius: 16px;
+    padding: 2.2rem;
+    box-shadow: 0 8px 24px -12px rgba(59, 22, 15, 0.08);
+}
+.vocation-feature-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(59, 22, 15, 0.12);
+    border: 2px solid #D4A52C;
+}
+.vocation-meta-list {
+    margin-top: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.8rem;
+}
+.vocation-meta-item {
+    background: #FFF9EC;
+    border: 1px solid #E8DCC5;
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+}
+.vocation-meta-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #705B4D;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+.vocation-meta-val {
+    display: block;
+    font-size: 0.92rem;
+    color: #3B160F;
+    font-weight: 700;
+}
+@media (max-width: 768px) {
+    .vocation-feature-grid {
+        grid-template-columns: 1fr;
+    }
+    .vocation-feature-img {
+        height: 260px;
+        max-width: 220px;
+        margin: 0 auto;
+    }
+}
 </style>
 
 <script>
@@ -599,6 +731,25 @@ function openWard(evt, wardId) {
       </div>
     </div>
     <div class="ward-bio">Saint Kuriakose Elias Chavara (10 February 1805 – 3 January 1871) was a pioneering Indian Catholic priest, social reformer, and the first canonized Catholic male saint of Indian origin. Born in Kainakary, Kerala, he was ordained a priest in 1829 and became a visionary leader in the Syro-Malabar Church. In 1831, he co-founded the Carmelites of Mary Immaculate (CMI), the first indigenous male religious congregation in India, and later supported the establishment of the Congregation of the Mother of Carmel (CMC) for women. Chavara was instrumental in promoting education, founding the first Catholic Sanskrit school and encouraging every church to start a school. He also established a printing press to disseminate Catholic literature and initiated social welfare programs for the destitute. Canonized by Pope Francis on 23 November 2014, his feast day is celebrated on 3 January in the Syro-Malabar Church and on 18 February in the Roman Catholic Church.</div>
+
+    <!-- Religious Vocation from this Ward -->
+    <div class="ward-vocation-card">
+      <span class="ward-vocation-badge">Priestly Vocation</span>
+      <div class="ward-vocation-content">
+        <img src="../assets/wards/Fr%20Asher%20Mathew%20Kochuparambil%20MSFS.png" alt="Fr. Asher Mathew Kochuparambil MSFS" class="ward-vocation-img" loading="lazy">
+        <div class="ward-vocation-details">
+          <h3>Fr. Asher Mathew Kochuparambil MSFS</h3>
+          <p class="ward-vocation-desc">
+            Fr. Asher Mathew Kochuparambil MSFS hails from the St. Kuriakose Chavara Ward. He was ordained to the sacred priesthood on 26 April 2025 at Our Lady of Sorrows Church. He is currently serving at Charis Bhavan Retreat Centre, Athirampuzha.
+          </p>
+          <div class="ward-vocation-meta">
+            <span class="ward-vocation-tag"><strong>Ordination:</strong> 26-04-2025</span>
+            <span class="ward-vocation-tag"><strong>Ordination Parish:</strong> Our Lady of Sorrows Church</span>
+            <span class="ward-vocation-tag"><strong>Current Parish / Centre:</strong> Charis Bhavan Retreat Centre, Athirampuzha</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Ward 10 -->
@@ -745,6 +896,25 @@ function openWard(evt, wardId) {
       </div>
     </div>
     <div class="ward-bio">Saint Sebastian (c. 256 – c. 288 AD) was a Christian martyr and saint who served as a captain in the Roman army during the reign of Emperor Diocletian. Despite the emperor’s persecution of Christians, Sebastian secretly converted many to Christianity. When his faith was discovered, he was sentenced to death and was tied to a tree and shot with arrows. Miraculously surviving this ordeal, he confronted the emperor, leading to his subsequent martyrdom by being clubbed to death. Saint Sebastian is often depicted in art as a young man bound to a tree and pierced with arrows. He is venerated as the patron saint of athletes, archers, and those suffering from plague. His feast day is celebrated on 20 January in the Catholic Church.</div>
+
+    <!-- Religious Vocation from this Ward -->
+    <div class="ward-vocation-card">
+      <span class="ward-vocation-badge">Consecrated Vocation</span>
+      <div class="ward-vocation-content">
+        <img src="../assets/wards/Sr%20Jincy%20George%20DSFS.jpg.jpeg" alt="Sr. Jincy George DSFS" class="ward-vocation-img" loading="lazy">
+        <div class="ward-vocation-details">
+          <h3>Sr. Jincy George DSFS</h3>
+          <p class="ward-vocation-desc">
+            Sr. Jincy George DSFS belongs to the St. Sebastian Ward. She made her First Profession on 30 May 2020 and her Final Profession on 19 April 2026. She is currently serving at St. Peter's Church, Kalluvettankuzhi, Vizhinjam, Trivandrum.
+          </p>
+          <div class="ward-vocation-meta">
+            <span class="ward-vocation-tag"><strong>First Profession:</strong> 30-05-2020</span>
+            <span class="ward-vocation-tag"><strong>Final Profession:</strong> 19-04-2026</span>
+            <span class="ward-vocation-tag"><strong>Current Parish:</strong> St. Peter's Church, Kalluvettankuzhi, Vizhinjam, Trivandrum</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Ward 14 -->
@@ -823,18 +993,68 @@ function openWard(evt, wardId) {
     <div class="ward-bio">Saint Vincent de Paul (24 April 1581 – 27 September 1660) was a French Catholic priest renowned for his dedication to serving the poor and marginalized. Born into a peasant family in Pouy, Gascony, he was ordained a priest in 1600 and later studied theology at the University of Toulouse. After being captured by pirates and enslaved for two years, he returned to France and became a parish priest. Deeply moved by the plight of the poor, he founded the Congregation of the Mission (Vincentians) in 1625 to evangelize and train clergy, and co-founded the Daughters of Charity with Saint Louise de Marillac in 1633 to serve the needy. Vincent was instrumental in organizing charitable works, founding hospitals, and ransoming galley slaves. He was canonized in 1737, and his feast day is celebrated on 27 September.</div>
   </div>
 </section>
-<section class="bg-soft"><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Fr. Asher Mathew MSFS</h2><span class="rule"></span></div>
-<p>Ward: St. Kuriakose Chavara Ward</p>
-<p>Date of Ordination: 26-4-2025</p>
-<p>Current Location: Bangalore</p>
-<p>Parish:</p>
+<section class="bg-soft"><div class="container" style="max-width:1000px;"><div data-reveal>
+<div class="section-head"><span class="eyebrow">Priestly Vocation</span><h2>Fr. Asher Mathew Kochuparambil MSFS</h2><span class="rule"></span></div>
+<div class="vocation-feature-grid">
+  <div>
+    <img src="../assets/wards/Fr%20Asher%20Mathew%20Kochuparambil%20MSFS.png" alt="Fr. Asher Mathew Kochuparambil MSFS" class="vocation-feature-img" loading="lazy">
+  </div>
+  <div>
+    <p style="font-size: 1.08rem; line-height: 1.75; color: var(--ink); margin-bottom: 1.2rem;">
+      Fr. Asher Mathew Kochuparambil MSFS hails from the St. Kuriakose Chavara Ward. He was ordained to the sacred priesthood on 26 April 2025 at Our Lady of Sorrows Church. He is currently serving at Charis Bhavan Retreat Centre, Athirampuzha.
+    </p>
+    <div class="vocation-meta-list">
+      <div class="vocation-meta-item">
+        <span class="vocation-meta-label">Ward</span>
+        <span class="vocation-meta-val">St. Kuriakose Chavara Ward</span>
+      </div>
+      <div class="vocation-meta-item">
+        <span class="vocation-meta-label">Date of Ordination</span>
+        <span class="vocation-meta-val">26 April 2025</span>
+      </div>
+      <div class="vocation-meta-item">
+        <span class="vocation-meta-label">Ordination Parish</span>
+        <span class="vocation-meta-val">Our Lady of Sorrows Church</span>
+      </div>
+      <div class="vocation-meta-item">
+        <span class="vocation-meta-label">Current Parish / Ministry</span>
+        <span class="vocation-meta-val">Charis Bhavan Retreat Centre, Athirampuzha</span>
+      </div>
+    </div>
+  </div>
+</div>
 </div></div></section>
-<section><div class="container" style="max-width:900px;"><div class="prose" data-reveal>
-<div class="section-head"><span class="eyebrow">Section</span><h2>Sister Jincy DSFS</h2><span class="rule"></span></div>
-<p>Ward: St. Kuriakose Chavara Ward</p>
-<p>Date of Profession:</p>
-<p>Current Parish:</p>
+
+<section><div class="container" style="max-width:1000px;"><div data-reveal>
+<div class="section-head"><span class="eyebrow">Consecrated Vocation</span><h2>Sr. Jincy George DSFS</h2><span class="rule"></span></div>
+<div class="vocation-feature-grid">
+  <div>
+    <img src="../assets/wards/Sr%20Jincy%20George%20DSFS.jpg.jpeg" alt="Sr. Jincy George DSFS" class="vocation-feature-img" loading="lazy">
+  </div>
+  <div>
+    <p style="font-size: 1.08rem; line-height: 1.75; color: var(--ink); margin-bottom: 1.2rem;">
+      Sr. Jincy George DSFS belongs to the St. Sebastian Ward. She made her First Profession on 30 May 2020 and her Final Profession on 19 April 2026. She is currently serving at St. Peter's Church, Kalluvettankuzhi, Vizhinjam, Trivandrum.
+    </p>
+    <div class="vocation-meta-list">
+      <div class="vocation-meta-item">
+        <span class="vocation-meta-label">Ward</span>
+        <span class="vocation-meta-val">St. Sebastian Ward</span>
+      </div>
+      <div class="vocation-meta-item">
+        <span class="vocation-meta-label">First Profession</span>
+        <span class="vocation-meta-val">30 May 2020</span>
+      </div>
+      <div class="vocation-meta-item">
+        <span class="vocation-meta-label">Final Profession</span>
+        <span class="vocation-meta-val">19 April 2026</span>
+      </div>
+      <div class="vocation-meta-item">
+        <span class="vocation-meta-label">Current Parish</span>
+        <span class="vocation-meta-val">St. Peter's Church, Kalluvettankuzhi, Vizhinjam, Trivandrum</span>
+      </div>
+    </div>
+  </div>
+</div>
 </div></div></section>
 
 </main>
