@@ -133,7 +133,7 @@ section > .container[id$="-gallery"] {
 
 .ols-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
 }
 
@@ -142,12 +142,13 @@ section > .container[id$="-gallery"] {
   width: 100%;
   padding: 0;
   border: 0;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 10px;
-  background: var(--bg-cool);
+  background: var(--bg-cool, #efe8da);
   box-shadow: var(--shadow-sm);
   cursor: zoom-in;
+  position: relative;
 }
 
 .ols-grid__item img {
@@ -168,26 +169,74 @@ section > .container[id$="-gallery"] {
   outline-offset: 2px;
 }
 
-@media (max-width: 600px) {
+/* Show more button below grid */
+.gallery-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.gallery-show-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: 600 0.95rem/1 var(--sans);
+  color: var(--blue, #651B24);
+  background: var(--white, #ffffff);
+  border: 1px solid var(--gold-soft, #D0AC5A);
+  border-radius: 999px;
+  padding: 13px 32px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background .2s, color .2s, border-color .2s, transform .2s, box-shadow .2s;
+}
+
+.gallery-show-more:hover,
+.gallery-show-more:focus-visible {
+  background: var(--blue, #651B24);
+  border-color: var(--blue, #651B24);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.gallery-show-more[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 991px) {
   .ols-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ols-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
   .ols-grid__item {
-    border-radius: 6px;
+    border-radius: 8px;
   }
 
   .ols-tabs {
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   .ols-tabs button {
     flex: 0 0 auto;
+  }
+
+  .gallery-show-more {
+    font-size: 0.9rem;
+    padding: 11px 24px;
   }
 }
 

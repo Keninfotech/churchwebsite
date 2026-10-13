@@ -1,35 +1,61 @@
-/* Photo gallery: album tabs + lightbox.
-   Grids only load small thumbnails; the full image is fetched when clicked. */
+/* ============================================================
+   OLS Photo Gallery – 6 Sections, Batch Pagination & Lightbox
+   ============================================================ */
 (function () {
   "use strict";
 
-  // Album tabs
-  document.querySelectorAll("[data-albums]").forEach(function (wrap) {
-    var tabs = Array.prototype.slice.call(wrap.querySelectorAll('[role="tab"]'));
-    function select(tab, focus) {
-      tabs.forEach(function (t) {
-        var on = t === tab;
-        t.setAttribute("aria-selected", on);
-        t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
-      });
-      if (focus) tab.focus();
-    }
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener("click", function () { select(tab); });
-      tab.addEventListener("keydown", function (e) {
-        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-        if (!d) return;
-        e.preventDefault();
-        select(tabs[(i + d + tabs.length) % tabs.length], true);
-      });
-    });
-  });
+  var BATCH_SIZE = 10;
 
-  // Lightbox
-  var lb, img, cap, items = [], idx = 0, lastFocus;
+  // Determine base path for gallery assets
+  var pathname = window.location.pathname || "";
+  var basePath = "/gallery/";
+  if (window.location.protocol === "file:") {
+    basePath = "";
+  } else if (pathname.indexOf("/gallery") === -1) {
+    basePath = "gallery/";
+  }
 
-  function build() {
+  var manifestUrl = basePath + "images.json";
+
+  // Data & State
+  var galleryManifest = { sections: [] };
+  var sectionStates = {}; // key: sectionId -> { activeAlbum, renderedCount, albums }
+
+  // Shared Lightbox State
+  var lb = null;
+  var lbImg = null;
+  var lbCap = null;
+  var lbSpin = null;
+  var lbCloseBtn = null;
+  var lbPrevBtn = null;
+  var lbNextBtn = null;
+  var lbActiveSectionId = "";
+  var lbActiveAlbum = "";
+  var lbActiveIndex = 0;
+  var lastFocusedElement = null;
+
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w\-]+/g, "")
+      .replace(/\-\-+/g, "-")
+      .replace(/^-+/, "")
+      .replace(/-+$/, "");
+  }
+
+  function getThumbUrl(sectionId, albumName, filename) {
+    return basePath + "thumbs/" + encodeURIComponent(sectionId) + "/" + encodeURIComponent(albumName) + "/" + filename;
+  }
+
+  function getFullUrl(sectionId, albumName, filename) {
+    return basePath + "full/" + encodeURIComponent(sectionId) + "/" + encodeURIComponent(albumName) + "/" + filename;
+  }
+
+  /* ------------------------------------------------------------
+     Lightbox Implementation
+     ------------------------------------------------------------ */
+  function buildLightbox() {
+    if (lb) return;
     lb = document.createElement("div");
     lb.className = "ols-lb";
     lb.hidden = true;
@@ -39,87 +65,328 @@
     lb.innerHTML =
       '<div class="ols-lb__spin" aria-hidden="true"></div>' +
       '<img class="ols-lb__img" alt="">' +
-      '<button type="button" class="ols-lb__close" aria-label="Close">&times;</button>' +
+      '<button type="button" class="ols-lb__close" aria-label="Close photo">&times;</button>' +
       '<button type="button" class="ols-lb__prev" aria-label="Previous photo">&#8249;</button>' +
       '<button type="button" class="ols-lb__next" aria-label="Next photo">&#8250;</button>' +
       '<div class="ols-lb__cap" aria-live="polite"></div>';
-    // Mounted on <html>, not <body>: the page-transition animation leaves a transform on
-    // <body>, which would make position:fixed scroll with the page.
+
     document.documentElement.appendChild(lb);
-    img = lb.querySelector(".ols-lb__img");
-    cap = lb.querySelector(".ols-lb__cap");
 
-    img.addEventListener("load", function () { lb.classList.remove("is-loading"); });
-    img.addEventListener("error", function () { lb.classList.remove("is-loading"); });
-    lb.querySelector(".ols-lb__close").addEventListener("click", close);
-    lb.querySelector(".ols-lb__prev").addEventListener("click", function () { go(-1); });
-    lb.querySelector(".ols-lb__next").addEventListener("click", function () { go(1); });
-    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+    lbImg = lb.querySelector(".ols-lb__img");
+    lbCap = lb.querySelector(".ols-lb__cap");
+    lbSpin = lb.querySelector(".ols-lb__spin");
+    lbCloseBtn = lb.querySelector(".ols-lb__close");
+    lbPrevBtn = lb.querySelector(".ols-lb__prev");
+    lbNextBtn = lb.querySelector(".ols-lb__next");
 
-    var x0 = null;
-    lb.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    lbImg.addEventListener("load", function () {
+      lb.classList.remove("is-loading");
+    });
+    lbImg.addEventListener("error", function () {
+      lb.classList.remove("is-loading");
+    });
+
+    lbCloseBtn.addEventListener("click", closeLightbox);
+    lbPrevBtn.addEventListener("click", function () { navigateLightbox(-1); });
+    lbNextBtn.addEventListener("click", function () { navigateLightbox(1); });
+
+    // Click outside backdrop to close
+    lb.addEventListener("click", function (e) {
+      if (e.target === lb) {
+        closeLightbox();
+      }
+    });
+
+    // Mobile swipe
+    var touchStartX = null;
+    lb.addEventListener("touchstart", function (e) {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
     lb.addEventListener("touchend", function (e) {
-      if (x0 === null) return;
-      var dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
-      x0 = null;
+      if (touchStartX === null) return;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) {
+        navigateLightbox(dx < 0 ? 1 : -1);
+      }
+      touchStartX = null;
     });
   }
 
-  function show(i) {
-    idx = (i + items.length) % items.length;
-    var a = items[idx];
-    // Reserve the final size up front so the layout doesn't jump when the full image arrives
-    var w = +a.dataset.w, h = +a.dataset.h;
-    var s = Math.min(window.innerWidth * (window.innerWidth <= 600 ? 1 : 0.94) / w, window.innerHeight * 0.86 / h, 1);
-    img.style.width = Math.round(w * s) + "px";
-    img.style.height = Math.round(h * s) + "px";
+  function showLightboxPhoto(index) {
+    var state = sectionStates[lbActiveSectionId];
+    if (!state) return;
+    var images = state.albums[lbActiveAlbum] || [];
+    if (!images.length) return;
+
+    lbActiveIndex = (index + images.length) % images.length;
+    var filename = images[lbActiveIndex];
+
     lb.classList.add("is-loading");
-    img.alt = a.querySelector("img").alt;
-    img.src = a.dataset.full;
-    cap.textContent = (idx + 1) + " / " + items.length;
-    var multi = items.length > 1;
-    lb.querySelector(".ols-lb__prev").hidden = !multi;
-    lb.querySelector(".ols-lb__next").hidden = !multi;
+    lbImg.removeAttribute("src");
+    lbImg.alt = lbActiveAlbum + " – photo " + (lbActiveIndex + 1);
+    lbImg.src = getFullUrl(lbActiveSectionId, lbActiveAlbum, filename);
+
+    lbCap.textContent = (lbActiveIndex + 1) + " / " + images.length;
+
+    var hasMultiple = images.length > 1;
+    lbPrevBtn.hidden = !hasMultiple;
+    lbNextBtn.hidden = !hasMultiple;
   }
 
-  function go(d) { show(idx + d); }
+  function navigateLightbox(step) {
+    showLightboxPhoto(lbActiveIndex + step);
+  }
 
-  function open(a) {
-    if (!lb) build();
-    items = Array.prototype.slice.call(a.closest("[data-gallery]").querySelectorAll(".ols-grid__item"));
-    lastFocus = a;
+  function openLightbox(sectionId, albumName, photoIndex, triggerElement) {
+    buildLightbox();
+    lastFocusedElement = triggerElement || document.activeElement;
+
+    lbActiveSectionId = sectionId;
+    lbActiveAlbum = albumName;
+    lbActiveIndex = photoIndex;
+
     lb.hidden = false;
     document.documentElement.style.overflow = "hidden";
-    show(items.indexOf(a));
-    requestAnimationFrame(function () { lb.classList.add("is-open"); });
-    lb.querySelector(".ols-lb__close").focus();
-    document.addEventListener("keydown", onKey);
+    showLightboxPhoto(photoIndex);
+
+    requestAnimationFrame(function () {
+      lb.classList.add("is-open");
+    });
+
+    lbCloseBtn.focus();
+    document.addEventListener("keydown", onLightboxKeyDown);
   }
 
-  function close() {
+  function closeLightbox() {
+    if (!lb || lb.hidden) return;
     lb.classList.remove("is-open");
     lb.hidden = true;
-    img.removeAttribute("src");
+    if (lbImg) lbImg.removeAttribute("src");
     document.documentElement.style.overflow = "";
-    document.removeEventListener("keydown", onKey);
-    if (lastFocus) lastFocus.focus();
-  }
-
-  function onKey(e) {
-    if (e.key === "Escape") close();
-    else if (e.key === "ArrowRight") go(1);
-    else if (e.key === "ArrowLeft") go(-1);
-    else if (e.key === "Tab") {
-      var f = Array.prototype.filter.call(lb.querySelectorAll("button"), function (b) { return !b.hidden; });
-      var first = f[0], last = f[f.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    document.removeEventListener("keydown", onLightboxKeyDown);
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      lastFocusedElement.focus();
     }
   }
 
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest(".ols-grid__item");
-    if (a) open(a);
-  });
+  function onLightboxKeyDown(e) {
+    if (e.key === "Escape") {
+      closeLightbox();
+    } else if (e.key === "ArrowRight") {
+      navigateLightbox(1);
+    } else if (e.key === "ArrowLeft") {
+      navigateLightbox(-1);
+    } else if (e.key === "Tab") {
+      var focusable = [lbCloseBtn, lbPrevBtn, lbNextBtn].filter(function (btn) {
+        return btn && !btn.hidden;
+      });
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------
+     Section Batch Rendering
+     ------------------------------------------------------------ */
+  function renderBatch(sectionId) {
+    var state = sectionStates[sectionId];
+    if (!state) return;
+
+    var secEl = state.element;
+    var gridContainer = secEl.querySelector(".ols-grid");
+    var showMoreBtn = secEl.querySelector(".gallery-show-more");
+    if (!gridContainer) return;
+
+    var images = state.albums[state.activeAlbum] || [];
+    var total = images.length;
+    var nextCount = Math.min(state.renderedCount + BATCH_SIZE, total);
+
+    var fragment = document.createDocumentFragment();
+
+    for (var i = state.renderedCount; i < nextCount; i++) {
+      (function (index) {
+        var filename = images[index];
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "ols-grid__item";
+        btn.dataset.index = index;
+        btn.setAttribute("aria-label", state.activeAlbum + " – photo " + (index + 1));
+
+        var img = document.createElement("img");
+        img.src = getThumbUrl(sectionId, state.activeAlbum, filename);
+        img.alt = state.activeAlbum + " – photo " + (index + 1);
+        img.width = 400;
+        img.height = 400;
+        img.loading = "lazy";
+        img.decoding = "async";
+
+        btn.appendChild(img);
+
+        btn.addEventListener("click", function () {
+          openLightbox(sectionId, state.activeAlbum, index, btn);
+        });
+
+        fragment.appendChild(btn);
+      })(i);
+    }
+
+    gridContainer.appendChild(fragment);
+    state.renderedCount = nextCount;
+
+    // Show more button visibility
+    if (showMoreBtn) {
+      if (state.renderedCount < total) {
+        showMoreBtn.hidden = false;
+      } else {
+        showMoreBtn.hidden = true;
+      }
+    }
+  }
+
+  function switchAlbum(sectionId, albumName, shouldFocus) {
+    var state = sectionStates[sectionId];
+    if (!state) return;
+    if (state.activeAlbum === albumName && state.renderedCount > 0) return;
+
+    state.activeAlbum = albumName;
+    state.renderedCount = 0;
+
+    var secEl = state.element;
+    var tabsContainer = secEl.querySelector(".ols-tabs");
+    var gridContainer = secEl.querySelector(".ols-grid");
+
+    // Update tab pills in this section
+    if (tabsContainer) {
+      var tabButtons = tabsContainer.querySelectorAll('button[role="tab"]');
+      tabButtons.forEach(function (btn) {
+        var isSelected = btn.dataset.album === albumName;
+        btn.setAttribute("aria-selected", isSelected ? "true" : "false");
+        btn.tabIndex = isSelected ? 0 : -1;
+        if (isSelected && shouldFocus) {
+          btn.focus();
+        }
+      });
+    }
+
+    // Reset grid view to first 10
+    if (gridContainer) {
+      gridContainer.innerHTML = "";
+    }
+    renderBatch(sectionId);
+  }
+
+  /* ------------------------------------------------------------
+     Initialize Each Section
+     ------------------------------------------------------------ */
+  function initSection(secData) {
+    var secId = secData.id;
+    var secEl = document.querySelector('.ols-albums[data-section="' + secId + '"]');
+    if (!secEl) return;
+
+    var albums = secData.albums || {};
+    var albumNames = Object.keys(albums);
+    if (!albumNames.length) return;
+
+    var firstAlbum = albumNames[0];
+
+    sectionStates[secId] = {
+      element: secEl,
+      albums: albums,
+      activeAlbum: firstAlbum,
+      renderedCount: 0
+    };
+
+    var tabsContainer = secEl.querySelector(".ols-tabs");
+    var showMoreBtn = secEl.querySelector(".gallery-show-more");
+
+    // Setup tabs
+    if (tabsContainer) {
+      if (albumNames.length > 1) {
+        tabsContainer.innerHTML = "";
+        albumNames.forEach(function (albName, idx) {
+          var count = (albums[albName] || []).length;
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.role = "tab";
+          btn.id = "tab-" + secId + "-" + slugify(albName);
+          btn.dataset.album = albName;
+          btn.setAttribute("aria-selected", idx === 0 ? "true" : "false");
+          btn.tabIndex = idx === 0 ? 0 : -1;
+          btn.innerHTML = albName + " <span>" + count + "</span>";
+
+          btn.addEventListener("click", function () {
+            switchAlbum(secId, albName, false);
+          });
+
+          tabsContainer.appendChild(btn);
+        });
+
+        // Arrow navigation between tabs in this section
+        tabsContainer.addEventListener("keydown", function (e) {
+          var tabButtons = Array.prototype.slice.call(tabsContainer.querySelectorAll('button[role="tab"]'));
+          var currentIndex = tabButtons.findIndex(function (btn) {
+            return btn.dataset.album === sectionStates[secId].activeAlbum;
+          });
+          if (currentIndex === -1) return;
+
+          var delta = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+          if (delta !== 0) {
+            e.preventDefault();
+            var nextIndex = (currentIndex + delta + tabButtons.length) % tabButtons.length;
+            var nextAlb = tabButtons[nextIndex].dataset.album;
+            switchAlbum(secId, nextAlb, true);
+          }
+        });
+      } else {
+        // Only 1 album in this section: hide the redundant tab pill
+        tabsContainer.style.display = "none";
+      }
+    }
+
+    // Setup Show More button for this section
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener("click", function () {
+        renderBatch(secId);
+      });
+    }
+
+    // Render first batch of 10
+    renderBatch(secId);
+  }
+
+  /* ------------------------------------------------------------
+     Bootstrapping
+     ------------------------------------------------------------ */
+  function init() {
+    fetch(manifestUrl)
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status + " loading " + manifestUrl);
+        return res.json();
+      })
+      .then(function (data) {
+        galleryManifest = data || { sections: [] };
+        var sections = galleryManifest.sections || [];
+        sections.forEach(function (secData) {
+          initSection(secData);
+        });
+      })
+      .catch(function (err) {
+        console.error("Gallery initialization error:", err);
+      });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
