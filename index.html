@@ -20,7 +20,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="preload" as="image" href="./assets/church.webp" fetchpriority="high">
-  <link rel="stylesheet" href="./assets/redesign.css?v=ols_v6">
+  <link rel="stylesheet" href="./assets/redesign.css?v=ols_v7">
 </head>
 
 <body>
@@ -1787,6 +1787,21 @@
       if (e.key === 'ArrowRight') navigateInvitationLightbox(1);
       if (e.key === 'ArrowLeft') navigateInvitationLightbox(-1);
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const lb = document.getElementById('invLightbox');
+      if (lb) {
+        lb.addEventListener('close', function() {
+          document.body.style.overflow = '';
+          document.removeEventListener('keydown', onInvLbKeydown);
+        });
+        lb.addEventListener('click', function(e) {
+          if (e.target === lb) {
+            closeInvitationLightbox();
+          }
+        });
+      }
+    });
   </script>
 
   <!-- Invitation Leaflet Lightbox Modal — native <dialog> renders in top-layer, immune to parent transforms -->

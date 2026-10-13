@@ -3604,31 +3604,38 @@ html.pt-out body {
 
 /* Lightbox Modal — native <dialog> */
 .inv-lightbox {
+  display: none;
+}
+
+.inv-lightbox:not([open]) {
+  display: none !important;
+}
+
+.inv-lightbox[open] {
   /* Reset all dialog browser defaults */
-  border: none;
-  padding: 0;
-  margin: 0;
-  outline: none;
-  /* Full viewport */
-  width: 100vw;
-  height: 100vh;
-  max-width: 100vw;
-  max-height: 100vh;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  /* Full viewport fixed overlay in top-layer */
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
   /* Layout */
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
   /* Transparent bg — backdrop handles the dim */
-  background: transparent;
-  overflow: hidden;
+  background: transparent !important;
+  overflow: hidden !important;
+  z-index: 2147483646 !important;
 }
 
 /* The dark dim overlay */
 .inv-lightbox::backdrop {
-  background: rgba(10, 4, 2, 0.93);
-}
-
-.inv-lightbox.open {
-  display: flex;
+  background: rgba(10, 4, 2, 0.93) !important;
 }
 
 .inv-lightbox__bar {

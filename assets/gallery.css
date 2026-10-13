@@ -85,6 +85,10 @@ section > .container[id$="-gallery"] {
   background: #000;
 }
 
+.ols-social__link--youtube svg {
+  background: #ff0000;
+}
+
 .ols-social__link:hover svg,
 .ols-social__link:focus-visible svg {
   transform: translateY(-3px) scale(1.05);
