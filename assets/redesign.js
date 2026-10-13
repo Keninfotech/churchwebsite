@@ -515,35 +515,25 @@
   }
 
 
-  // ---------- Awards: seamless-loop horizontal auto-scroll ----------
+  // ---------- Awards: smooth horizontal auto-scroll (no empty/duplicate clones) ----------
   (function () {
     const wrapper = document.querySelector("[data-awards-scroll]");
     if (!wrapper) return;
-
-    // Duplicate once for seamless infinite loop
-    if (!wrapper.dataset.looped) {
-      const items = Array.from(wrapper.children);
-      items.forEach(function (item) {
-        const clone = item.cloneNode(true);
-        clone.setAttribute("aria-hidden", "true");
-        wrapper.appendChild(clone);
-      });
-      wrapper.dataset.looped = "1";
-    }
 
     let isPaused = false;
     let isInteracting = false;
     let resumeTimeout = null;
     let exactScroll = wrapper.scrollLeft || 0;
     let lastTime = performance.now();
-    const pixelsPerSecond = 40; // Silky smooth sliding speed
-
-    // Layout values are measured on resize, not every frame
-    let halfWidth = 0;
+    const pixelsPerSecond = 35; // Gentle sliding speed
+    let scrollDirection = 1; // 1 = forward, -1 = backward
+    let pauseAtEnd = false;
     let canScroll = false;
+    let maxScroll = 0;
+
     function measure() {
-      halfWidth = wrapper.scrollWidth / 2;
-      canScroll = wrapper.scrollWidth > wrapper.clientWidth;
+      maxScroll = Math.max(0, wrapper.scrollWidth - wrapper.clientWidth);
+      canScroll = maxScroll > 5;
     }
     measure();
     if ("ResizeObserver" in window) {
@@ -551,7 +541,6 @@
     } else {
       window.addEventListener("resize", measure, { passive: true });
     }
-    // images inside may finish loading after the first measure
     wrapper.querySelectorAll("img").forEach(function (img) {
       if (!img.complete) img.addEventListener("load", measure, { once: true });
     });
@@ -576,7 +565,7 @@
       resumeTimeout = setTimeout(function () {
         exactScroll = wrapper.scrollLeft;
         isPaused = false;
-      }, 1500);
+      }, 2000);
     }, { passive: true });
 
     // Sync position if user drags/scrolls scrollbar
@@ -586,7 +575,6 @@
       }
     }, { passive: true });
 
-    // Only run the frame loop while the strip is on screen and the tab is visible
     let running = false;
     let onScreen = true;
     let frameId = 0;
@@ -597,14 +585,28 @@
       const dt = (currentTime - lastTime) / 1000;
       lastTime = currentTime;
 
-      if (!isPaused && !isInteracting && canScroll) {
-        exactScroll += pixelsPerSecond * Math.min(dt, 0.1);
+      if (!isPaused && !isInteracting && canScroll && !pauseAtEnd) {
+        exactScroll += scrollDirection * pixelsPerSecond * Math.min(dt, 0.1);
 
-        if (exactScroll >= halfWidth) {
-          exactScroll -= halfWidth;
+        if (exactScroll >= maxScroll) {
+          exactScroll = maxScroll;
+          wrapper.scrollLeft = exactScroll;
+          pauseAtEnd = true;
+          setTimeout(function () {
+            scrollDirection = -1;
+            pauseAtEnd = false;
+          }, 2000);
+        } else if (exactScroll <= 0) {
+          exactScroll = 0;
+          wrapper.scrollLeft = 0;
+          pauseAtEnd = true;
+          setTimeout(function () {
+            scrollDirection = 1;
+            pauseAtEnd = false;
+          }, 2000);
+        } else {
+          wrapper.scrollLeft = exactScroll;
         }
-
-        wrapper.scrollLeft = exactScroll;
       }
 
       frameId = requestAnimationFrame(animate);
