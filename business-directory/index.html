@@ -610,6 +610,16 @@
       filterBizDirectory();
     }
 
+    function openContactModal(name, occ, phone, website) {
+      if (website) {
+        window.open(website, '_blank', 'noopener,noreferrer');
+      } else if (phone && String(phone).replace(/\D/g, '')) {
+        window.location.href = 'tel:' + String(phone).replace(/\s+/g, '');
+      } else {
+        window.location.href = '../contact-us/';
+      }
+    }
+
     function initHoverContacts() {
       // Map of businesses with websites
       const websiteMap = {
@@ -618,7 +628,8 @@
         'mesc': 'https://mesc.in/',
         'mariam engineering services and consultants (mesc)': 'https://mesc.in/',
         'matha interiors': 'https://www.mathainteriors.com/',
-        'brilliant entrance': 'https://brilliantentrance.com/'
+        'brilliant entrance': 'https://brilliantentrance.com/',
+        'hill view homestay': 'https://share.google/h7K3VIYtsTbNNISaS'
       };
 
       // Convert all openContactModal buttons into hover dropdowns
@@ -634,7 +645,6 @@
 
         // Clean digits
         var cleanDigits = String(phone).replace(/\D/g, '');
-        if (!cleanDigits && !website) return;
 
         // Create wrapper
         const wrap = document.createElement('div');
@@ -688,6 +698,17 @@
           `;
         }
 
+        if (!cleanDigits && !website) {
+          linksHtml += `
+            <a href="../contact-us/">
+              <svg class="phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Contact via Parish
+            </a>
+          `;
+        }
+
         // Create options popup
         const options = document.createElement('div');
         options.className = 'biz-contact-options';
@@ -698,6 +719,11 @@
           btn.removeAttribute('onclick');
           btn.addEventListener('click', function(e) {
             window.open(website, '_blank', 'noopener,noreferrer');
+          });
+        } else if (!cleanDigits && !website) {
+          btn.removeAttribute('onclick');
+          btn.addEventListener('click', function(e) {
+            window.location.href = '../contact-us/';
           });
         } else {
           // Convert btn type so it doesn't do anything on click
@@ -839,7 +865,7 @@
 
           <div class="biz-pills">
             <button class="biz-pill-btn active" data-filter="all" onclick="setBizFilter('all', this)">All Businesses
-              (34)</button>
+              (39)</button>
             <button class="biz-pill-btn" data-filter="finance" onclick="setBizFilter('finance', this)">Finance &
               Accounting</button>
             <button class="biz-pill-btn" data-filter="electrical" onclick="setBizFilter('electrical', this)">Electrical
@@ -1440,19 +1466,41 @@
             </div>
           </div>
 
-
-          <!-- Card 40 -->
-          <div class="biz-card" data-cat="medical" data-phone="9986762232">
+          <!-- Construction & Trades: Sunil -->
+          <div class="biz-card" data-cat="construction">
             <div>
               <div class="biz-card-header">
-                <h3 class="biz-card-name">Jasmin Jossy</h3>
-                <span class="biz-card-ward">St. Evuprasyamma Ward</span>
+                <h3 class="biz-card-name">Sunil</h3>
+                <span class="biz-card-ward">OLS Parish</span>
               </div>
-              <span class="biz-card-occ">Dietitian</span>
+              <span class="biz-card-occ">Construction &amp; Trades</span>
             </div>
             <div class="biz-card-footer">
               <button type="button" class="biz-contact-btn"
-                onclick="openContactModal('Jasmin Jossy', 'Dietitian', '9986762232')">
+                onclick="openContactModal('Sunil', 'Construction &amp; Trades', '')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                <span>Contact Us</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Construction & Trades: Jerin -->
+          <div class="biz-card" data-cat="construction">
+            <div>
+              <div class="biz-card-header">
+                <h3 class="biz-card-name">Jerin</h3>
+                <span class="biz-card-ward">OLS Parish</span>
+              </div>
+              <span class="biz-card-occ">Construction &amp; Trades</span>
+            </div>
+            <div class="biz-card-footer">
+              <button type="button" class="biz-contact-btn"
+                onclick="openContactModal('Jerin', 'Construction &amp; Trades', '')">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path
@@ -1466,9 +1514,34 @@
 
 
           <!-- ======================================================= -->
-          <!-- IT / INFORMATION TECHNOLOGY SECTION                     -->
+          <!-- MEDICAL & HEALTHCARE SECTION                            -->
           <!-- ======================================================= -->
-          <div class="biz-card" data-cat="it consultancy medical marketing" data-phone="+91 888 4433 033" data-website="https://keninfo.tech/">
+
+          <!-- 1. MESC -->
+          <div class="biz-card" data-cat="medical interior" data-website="https://mesc.in/">
+            <div>
+              <div class="biz-card-header">
+                <h3 class="biz-card-name">Mariam Engineering Services and Consultants (MESC)</h3>
+                <span class="biz-card-ward">OLS Parish</span>
+              </div>
+              <span class="biz-card-occ">Hospital Infrastructure &amp; Interior Design</span>
+            </div>
+            <div class="biz-card-footer">
+              <button type="button" class="biz-contact-btn" data-website="https://mesc.in/"
+                onclick="openContactModal('Mariam Engineering Services and Consultants (MESC)', 'Hospital Infrastructure &amp; Interior Design', '', 'https://mesc.in/')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span>Contact Us</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Ken Infotech -->
+          <div class="biz-card" data-cat="medical it consultancy marketing" data-phone="+91 888 4433 033" data-website="https://keninfo.tech/">
             <div>
               <div class="biz-card-header">
                 <h3 class="biz-card-name">Ken Infotech</h3>
@@ -1479,6 +1552,29 @@
             <div class="biz-card-footer">
               <button type="button" class="biz-contact-btn" data-website="https://keninfo.tech/"
                 onclick="openContactModal('Ken Infotech', 'Information Technology', '+91 888 4433 033', 'https://keninfo.tech/')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                <span>Contact Us</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Jasmin Jossy -->
+          <div class="biz-card" data-cat="medical" data-phone="9986762232">
+            <div>
+              <div class="biz-card-header">
+                <h3 class="biz-card-name">Jasmin Jossy</h3>
+                <span class="biz-card-ward">St. Evuprasyamma Ward</span>
+              </div>
+              <span class="biz-card-occ">Dietitian</span>
+            </div>
+            <div class="biz-card-footer">
+              <button type="button" class="biz-contact-btn"
+                onclick="openContactModal('Jasmin Jossy', 'Dietitian', '9986762232')">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path
@@ -1586,6 +1682,29 @@
             </div>
           </div>
 
+          <!-- Resorts: Hill view Homestay -->
+          <div class="biz-card" data-cat="resorts" data-website="https://share.google/h7K3VIYtsTbNNISaS">
+            <div>
+              <div class="biz-card-header">
+                <h3 class="biz-card-name">Hill view Homestay</h3>
+                <span class="biz-card-ward">OLS Parish</span>
+              </div>
+              <span class="biz-card-occ">Homestay &amp; Resort</span>
+            </div>
+            <div class="biz-card-footer">
+              <button type="button" class="biz-contact-btn" data-website="https://share.google/h7K3VIYtsTbNNISaS"
+                onclick="openContactModal('Hill view Homestay', 'Homestay &amp; Resort', '', 'https://share.google/h7K3VIYtsTbNNISaS')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <span>Contact Us</span>
+              </button>
+            </div>
+          </div>
+
           <!-- ======================================================= -->
           <!-- PHOTOGRAPHER SECTION                                    -->
           <!-- ======================================================= -->
@@ -1640,9 +1759,54 @@
           </div>
 
           <!-- ======================================================= -->
-          <!-- PRINTING AND DESIGN SECTION (Empty - awaiting content)  -->
-          <!-- Add cards here with data-cat="printing"                 -->
+          <!-- PRINTING AND DESIGN SECTION                             -->
           <!-- ======================================================= -->
+
+          <!-- Printing and Design 1 -->
+          <div class="biz-card" data-cat="printing">
+            <div>
+              <div class="biz-card-header">
+                <h3 class="biz-card-name">Angelous K F</h3>
+                <span class="biz-card-ward">OLS Parish</span>
+              </div>
+              <span class="biz-card-occ">Printing &amp; Design</span>
+            </div>
+            <div class="biz-card-footer">
+              <button type="button" class="biz-contact-btn"
+                onclick="openContactModal('Angelous K F', 'Printing &amp; Design', '')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                <span>Contact Us</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Printing and Design 2 -->
+          <div class="biz-card" data-cat="printing">
+            <div>
+              <div class="biz-card-header">
+                <h3 class="biz-card-name">Jayesh</h3>
+                <span class="biz-card-ward">OLS Parish</span>
+              </div>
+              <span class="biz-card-occ">Printing &amp; Design</span>
+            </div>
+            <div class="biz-card-footer">
+              <button type="button" class="biz-contact-btn"
+                onclick="openContactModal('Jayesh', 'Printing &amp; Design', '')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                <span>Contact Us</span>
+              </button>
+            </div>
+          </div>
 
           <!-- ======================================================= -->
           <!-- JOB CONSULTANCY SECTION                                 -->
@@ -1675,28 +1839,7 @@
           <!-- INTERIOR DESIGN SECTION                                 -->
           <!-- ======================================================= -->
 
-          <!-- Interior Design 1 -->
-          <div class="biz-card" data-cat="interior" data-website="https://mesc.in/">
-            <div>
-              <div class="biz-card-header">
-                <h3 class="biz-card-name">Mariam Engineering Services and Consultants (MESC)</h3>
-                <span class="biz-card-ward">OLS Parish</span>
-              </div>
-              <span class="biz-card-occ">Hospital Infrastructure & Interior Design</span>
-            </div>
-            <div class="biz-card-footer">
-              <button type="button" class="biz-contact-btn" data-website="https://mesc.in/"
-                onclick="openContactModal('Mariam Engineering Services and Consultants (MESC)', 'Hospital Infrastructure & Interior Design', '', 'https://mesc.in/')">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                </svg>
-                <span>Contact Us</span>
-              </button>
-            </div>
-          </div>
+
 
           <!-- Interior Design 2 -->
           <div class="biz-card" data-cat="interior" data-website="https://www.mathainteriors.com/">
@@ -2158,8 +2301,46 @@
                     </button>
                   </td>
                 </tr>
-                <tr data-cat="medical" data-phone="9986762232">
+                <!-- Construction & Trades: Sunil & Jerin -->
+                <tr data-cat="construction">
                   <td>24</td>
+                  <td><strong>Sunil</strong></td>
+                  <td>OLS Parish</td>
+                  <td>Construction &amp; Trades</td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn"
+                      onclick="openContactModal('Sunil', 'Construction &amp; Trades', '')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                      </svg>
+                      <span>Contact Us</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr data-cat="construction">
+                  <td>25</td>
+                  <td><strong>Jerin</strong></td>
+                  <td>OLS Parish</td>
+                  <td>Construction &amp; Trades</td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn"
+                      onclick="openContactModal('Jerin', 'Construction &amp; Trades', '')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                      </svg>
+                      <span>Contact Us</span>
+                    </button>
+                  </td>
+                </tr>
+                <!-- Medical & Healthcare rows -->
+                <tr data-cat="medical" data-phone="9986762232">
+                  <td>26</td>
                   <td><strong>Jasmin Jossy</strong></td>
                   <td>St. Evuprasyamma Ward</td>
                   <td>Dietitian</td>
@@ -2178,7 +2359,7 @@
                 </tr>
                 <!-- IT / Information Technology rows -->
                 <tr data-cat="it consultancy medical marketing" data-phone="+91 888 4433 033" data-website="https://keninfo.tech/">
-                  <td>25</td>
+                  <td>27</td>
                   <td><strong>Ken Infotech</strong></td>
                   <td>Electronics City</td>
                   <td>Information Technology</td>
@@ -2197,7 +2378,7 @@
                 </tr>
                 <!-- Resorts rows -->
                 <tr data-cat="resorts" data-phone="9606060505">
-                  <td>26</td>
+                  <td>28</td>
                   <td><strong>Resorts Stone Valey</strong></td>
                   <td>Sakleshpur</td>
                   <td>Nature Resort & Hospitality</td>
@@ -2215,7 +2396,7 @@
                   </td>
                 </tr>
                 <tr data-cat="resorts" data-phone="6282419193">
-                  <td>27</td>
+                  <td>29</td>
                   <td><strong>Vagamon Exotica Resort</strong></td>
                   <td>Vagamon, Kerala</td>
                   <td>Hill Station Resort & Stay</td>
@@ -2233,7 +2414,7 @@
                   </td>
                 </tr>
                 <tr data-cat="resorts" data-phone="8970338468">
-                  <td>28</td>
+                  <td>30</td>
                   <td><strong>Matha Dream Farm</strong></td>
                   <td>KGF / Kolar</td>
                   <td>Farmhouse & Nature Resort</td>
@@ -2251,7 +2432,7 @@
                   </td>
                 </tr>
                 <tr data-cat="resorts" data-phone="7349725991">
-                  <td>29</td>
+                  <td>31</td>
                   <td><strong>Windowwind Resort</strong></td>
                   <td>Wayanad, Kerala</td>
                   <td>Plantation Nature Resort</td>
@@ -2268,9 +2449,27 @@
                     </button>
                   </td>
                 </tr>
+                <tr data-cat="resorts" data-website="https://share.google/h7K3VIYtsTbNNISaS">
+                  <td>32</td>
+                  <td><strong>Hill view Homestay</strong></td>
+                  <td>OLS Parish</td>
+                  <td>Homestay &amp; Resort</td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn" data-website="https://share.google/h7K3VIYtsTbNNISaS"
+                      onclick="openContactModal('Hill view Homestay', 'Homestay &amp; Resort', '', 'https://share.google/h7K3VIYtsTbNNISaS')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                      <span>Contact Us</span>
+                    </button>
+                  </td>
+                </tr>
                 <!-- Photographer rows -->
                 <tr data-cat="photographer" data-phone="9902268187">
-                  <td>30</td>
+                  <td>33</td>
                   <td><strong>Zacharias George</strong></td>
                   <td>St. George Ward (Ittina)</td>
                   <td>Photographer</td>
@@ -2289,7 +2488,7 @@
                 </tr>
                 <!-- Training Centre rows -->
                 <tr data-cat="training" data-website="https://brilliantentrance.com/">
-                  <td>31</td>
+                  <td>34</td>
                   <td><strong>Brilliant Entrance</strong></td>
                   <td>OLS Parish</td>
                   <td>NEET, KCET &amp; JEE Coaching Centre</td>
@@ -2306,10 +2505,46 @@
                     </button>
                   </td>
                 </tr>
-                <!-- Printing and Design rows will be added here: <tr data-cat="printing"><td>#</td>...</tr> -->
+                <!-- Printing and Design rows -->
+                <tr data-cat="printing">
+                  <td>35</td>
+                  <td><strong>Angelous K F</strong></td>
+                  <td>OLS Parish</td>
+                  <td>Printing &amp; Design</td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn"
+                      onclick="openContactModal('Angelous K F', 'Printing &amp; Design', '')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                      </svg>
+                      <span>Contact Us</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr data-cat="printing">
+                  <td>36</td>
+                  <td><strong>Jayesh</strong></td>
+                  <td>OLS Parish</td>
+                  <td>Printing &amp; Design</td>
+                  <td>
+                    <button type="button" class="biz-table-call-btn"
+                      onclick="openContactModal('Jayesh', 'Printing &amp; Design', '')">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                      </svg>
+                      <span>Contact Us</span>
+                    </button>
+                  </td>
+                </tr>
                 <!-- Job Consultancy rows -->
                 <tr data-cat="consultancy" data-phone="+91 9187947560" data-website="https://azionoverseas.com/">
-                  <td>32</td>
+                  <td>37</td>
                   <td><strong>Azion Overseas</strong></td>
                   <td>OLS Parish</td>
                   <td>Job Consultancy</td>
@@ -2326,12 +2561,12 @@
                     </button>
                   </td>
                 </tr>
-                <!-- Interior Design rows -->
-                <tr data-cat="interior" data-website="https://mesc.in/">
-                  <td>33</td>
+                <!-- Interior & Medical Design rows -->
+                <tr data-cat="medical interior" data-website="https://mesc.in/">
+                  <td>38</td>
                   <td><strong>Mariam Engineering Services and Consultants (MESC)</strong></td>
                   <td>OLS Parish</td>
-                  <td>Hospital Infrastructure & Interior Design</td>
+                  <td>Hospital Infrastructure &amp; Interior Design</td>
                   <td>
                     <button type="button" class="biz-table-call-btn" data-website="https://mesc.in/"
                       onclick="openContactModal('Mariam Engineering Services and Consultants (MESC)', 'Hospital Infrastructure & Interior Design', '', 'https://mesc.in/')">
@@ -2346,7 +2581,7 @@
                   </td>
                 </tr>
                 <tr data-cat="interior" data-website="https://www.mathainteriors.com/">
-                  <td>34</td>
+                  <td>39</td>
                   <td><strong>Matha Interiors</strong></td>
                   <td>OLS Parish</td>
                   <td>Interior Design</td>
