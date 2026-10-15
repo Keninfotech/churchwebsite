@@ -81,9 +81,6 @@ section > .container[id$="-gallery"] {
   background: #1877f2;
 }
 
-.ols-social__link--x svg {
-  background: #000;
-}
 
 .ols-social__link--youtube svg {
   background: #ff0000;

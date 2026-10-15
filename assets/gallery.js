@@ -8,10 +8,10 @@
 
   // Determine base path for gallery assets
   var pathname = window.location.pathname || "";
-  var basePath = "/gallery/";
+  var basePath = "./";
   if (window.location.protocol === "file:") {
     basePath = "";
-  } else if (pathname.indexOf("/gallery") === -1) {
+  } else if (pathname.length && !pathname.endsWith("/") && !pathname.endsWith(".html") && !pathname.endsWith(".htm")) {
     basePath = "gallery/";
   }
 
